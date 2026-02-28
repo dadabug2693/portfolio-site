@@ -1,0 +1,33 @@
+# Netlify configuration for davidrbailey.com
+
+# Redirect www to non-www (canonical domain)
+[[redirects]]
+  from = "https://www.davidrbailey.com/*"
+  to = "https://davidrbailey.com/:splat"
+  status = 301
+  force = true
+
+# After Netlify form submission, redirect back to the site with a success flag
+[[redirects]]
+  from = "/success"
+  to = "/?submitted=true#contact"
+  status = 302
+
+# Cache static assets aggressively, never cache HTML
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Security headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

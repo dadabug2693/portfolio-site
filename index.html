@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>David R. Bailey | UX/UI Designer</title>
+<style>
+  :root{
+    --bg:#f0ebe2;--bg2:#e8e2d8;--ink:#0d0d0d;--muted:#777;
+    --accent:#2dd4bf;--accent2:#1a9e8e;--border:#ccc7bc;
+    --glass:rgba(255,255,255,0.45);--glass-border:rgba(255,255,255,0.7);
+    --font-sans:'Inter',system-ui,sans-serif;--font-serif:'Georgia',serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg);color:var(--ink);font-family:var(--font-sans);line-height:1.7;overflow-x:hidden;}
+
+  .orb{position:fixed;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0;}
+  .orb1{width:700px;height:700px;background:radial-gradient(circle,rgba(45,212,191,.13),transparent 70%);top:-200px;left:-200px;}
+  .orb2{width:600px;height:600px;background:radial-gradient(circle,rgba(124,58,237,.09),transparent 70%);top:40%;right:-200px;}
+  .orb3{width:500px;height:500px;background:radial-gradient(circle,rgba(29,78,216,.08),transparent 70%);bottom:10%;left:15%;}
+  body>*{position:relative;z-index:1;}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(240,235,226,0.88);backdrop-filter:blur(16px);border-bottom:2px solid var(--ink);}
+  .nav-top{display:flex;align-items:center;justify-content:space-between;padding:.6rem 4rem;border-bottom:1px solid var(--border);}
+  .nav-date{font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);}
+  .nav-logo{font-family:var(--font-serif);font-size:1.55rem;font-weight:bold;letter-spacing:-.02em;color:var(--ink);text-decoration:none;}
+  .nav-links{display:flex;list-style:none;}
+  .nav-links li{flex:1;text-align:center;border-right:1px solid var(--border);}
+  .nav-links li:last-child{border-right:none;}
+  .nav-links a{display:block;padding:.55rem 1rem;color:var(--ink);text-decoration:none;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;transition:all .2s;}
+  .nav-links a:hover{background:var(--ink);color:#fff;}
+
+  section{padding:7rem 4rem;max-width:1100px;margin:0 auto;}
+
+  /* HERO */
+  #hero{min-height:100vh;display:grid;grid-template-columns:1.1fr 1fr;gap:0;padding:0;max-width:100%;margin-top:95px;}
+  .hero-left{padding:5rem 4rem;display:flex;flex-direction:column;justify-content:center;border-right:2px solid var(--ink);}
+  .hero-right{position:relative;overflow:hidden;background:var(--ink);}
+  .hero-right img{width:100%;height:100%;object-fit:cover;object-position:top;opacity:.8;display:block;}
+  .hero-right-overlay{position:absolute;bottom:0;left:0;right:0;padding:2.5rem;background:linear-gradient(transparent,rgba(0,0,0,.85));}
+  .hero-label{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--ink);background:var(--accent);display:inline-block;padding:.35rem .9rem;margin-bottom:1.6rem;}
+  h1{font-family:var(--font-serif);font-size:clamp(3.2rem,5.5vw,5.2rem);line-height:.95;letter-spacing:-.03em;color:var(--ink);margin-bottom:1.5rem;font-weight:bold;}
+  h1 em{font-style:italic;color:var(--accent);}
+  .hero-deck{font-size:1rem;color:#444;max-width:420px;margin-bottom:2.5rem;line-height:1.85;border-left:3px solid var(--accent);padding-left:1rem;}
+  .btn-group{display:flex;gap:1rem;flex-wrap:wrap;}
+  .btn{display:inline-block;padding:.7rem 1.7rem;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:all .22s;font-weight:700;cursor:pointer;font-family:var(--font-sans);}
+  .btn-primary{background:linear-gradient(135deg,var(--accent),#7c3aed);color:#fff;border:none;box-shadow:0 4px 20px rgba(45,212,191,.25);}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(45,212,191,.35);}
+  .btn-outline{border:2px solid var(--ink);background:transparent;color:var(--ink);}
+  .btn-outline:hover{background:var(--ink);color:#fff;}
+  .hero-stats{display:flex;gap:0;margin-top:3rem;border-top:2px solid var(--ink);}
+  .stat-item{flex:1;padding:1.2rem 0;border-right:1px solid var(--border);}
+  .stat-item:last-child{border-right:none;}
+  .stat-item:not(:first-child){padding-left:1.2rem;}
+  .stat-num{font-family:var(--font-serif);font-size:2rem;font-weight:bold;line-height:1;background:linear-gradient(135deg,var(--accent),#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+  .stat-label{font-size:.65rem;color:var(--muted);letter-spacing:.04em;margin-top:.3rem;}
+  .overlay-tag{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.55);}
+  .overlay-title{font-family:var(--font-serif);font-size:1.35rem;color:#fff;font-weight:bold;margin-top:.3rem;line-height:1.2;}
+
+  /* FEATURED STRIP */
+  #featured-strip{background:var(--ink);max-width:100%;padding:3rem 0;border-bottom:1px solid #1e1e1e;}
+  .strip-inner{max-width:1100px;margin:0 auto;padding:0 4rem;display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:center;}
+  .strip-eyebrow{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:700;display:block;margin-bottom:.6rem;}
+  .strip-title{font-family:var(--font-serif);font-size:1.3rem;color:#fff;font-weight:bold;line-height:1.25;margin-bottom:.6rem;}
+  .strip-desc{font-size:.85rem;color:#777;line-height:1.7;margin-bottom:1.2rem;max-width:500px;}
+  .strip-img{width:220px;height:140px;object-fit:cover;display:block;border:1px solid #2a2a2a;flex-shrink:0;}
+  .strip-link{font-size:.73rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700;background:none;border:none;border-bottom:2px solid var(--accent);padding-bottom:.1rem;cursor:pointer;font-family:var(--font-sans);transition:color .2s;}
+  .strip-link:hover{color:#fff;}
+
+  .section-label{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem;}
+  h2{font-family:var(--font-serif);font-size:clamp(1.9rem,3.5vw,2.8rem);color:var(--ink);margin-bottom:1.2rem;line-height:1.05;letter-spacing:-.02em;font-weight:bold;}
+  .rule{border:none;border-top:2px solid var(--ink);margin-bottom:2.5rem;}
+
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:5rem;align-items:start;}
+  .about-lede{font-family:var(--font-serif);font-size:1.2rem;color:var(--ink);line-height:1.65;margin-bottom:1.4rem;font-style:italic;}
+  .about-body{font-size:.93rem;color:#444;line-height:1.9;}
+  .about-body p{margin-bottom:1.1rem;}
+  .about-quote{margin-top:2.8rem;padding:1.8rem 1.6rem 1.8rem 2rem;border-left:3px solid var(--accent);background:var(--glass);backdrop-filter:blur(10px);border-radius:0 4px 4px 0;}
+  .about-quote blockquote{font-family:var(--font-serif);font-size:1.2rem;color:var(--ink);font-style:italic;line-height:1.75;}
+  .about-quote cite{display:block;margin-top:.8rem;font-size:.72rem;color:var(--muted);font-style:normal;letter-spacing:.1em;text-transform:uppercase;}
+  .about-right{display:flex;flex-direction:column;gap:1.2rem;}
+  .about-img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border:2px solid var(--ink);border-radius:2px;}
+  .about-img-caption{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:.5rem;padding-top:.5rem;border-top:1px solid var(--border);}
+  .sidebar-card{background:var(--glass);border:1px solid var(--glass-border);backdrop-filter:blur(12px);border-radius:4px;padding:1.1rem 1.3rem;}
+  .sidebar-card h4{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent2);margin-bottom:.4rem;font-weight:700;}
+  .sidebar-card .deg{font-weight:700;font-size:.88rem;color:var(--ink);margin-bottom:.12rem;}
+  .sidebar-card .school{font-size:.78rem;color:var(--muted);}
+  .sidebar-card p{font-size:.83rem;color:#555;}
+
+  /* THROUGH LINE */
+  #through-line{background:var(--ink);max-width:100%;padding:7rem 0;}
+  .tl-inner{max-width:1100px;margin:0 auto;padding:0 4rem;}
+  #through-line .section-label{color:#555;}
+  #through-line h2{color:#fff;}
+  #through-line .rule{border-top-color:#2a2a2a;}
+  .tl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#1e1e1e;margin-top:3rem;}
+  .tl-chapter{background:#0d0d0d;padding:2.5rem 2rem;display:flex;flex-direction:column;gap:1rem;}
+  .tl-num{font-family:var(--font-serif);font-size:3rem;font-weight:bold;background:linear-gradient(135deg,var(--accent),#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;}
+  .tl-chapter h3{font-family:var(--font-serif);font-size:1.15rem;color:#fff;font-weight:bold;line-height:1.2;}
+  .tl-chapter p{font-size:.85rem;color:#888;line-height:1.8;}
+  .tl-chapter .tl-tag{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);font-weight:700;}
+  .tl-visuals{margin-top:4rem;}
+  .tl-visuals-label{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:#555;margin-bottom:1.5rem;}
+  .tl-visual-row{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#1e1e1e;border:1px solid #1e1e1e;margin-bottom:3rem;}
+  .tl-visual-wrap{display:flex;flex-direction:column;}
+  .tl-visual-img{width:100%;height:420px;object-fit:contain;object-position:center;display:block;background:#111;}
+  .tl-visual-cap{background:#0d0d0d;padding:.8rem 1rem;font-size:.68rem;color:#666;letter-spacing:.08em;text-transform:uppercase;}
+  .tl-wc-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:#1e1e1e;border:1px solid #1e1e1e;margin-bottom:1rem;}
+  .tl-wc-img{width:100%;height:200px;object-fit:contain;object-position:center;background:#111;display:block;transition:opacity .2s;}
+  .tl-wc-img:hover{opacity:.8;}
+  .tl-coming-soon{background:#0d0d0d;border:1px dashed #2a2a2a;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;text-align:center;margin-top:1rem;}
+  .tl-coming-soon p{color:#555;font-size:.78rem;margin-top:.5rem;letter-spacing:.08em;text-transform:uppercase;}
+  .tl-coming-soon span{font-size:.65rem;color:#444;margin-top:.3rem;}
+
+  /* SKILLS */
+  #skills{background:#111;max-width:100%;padding:7rem 0;}
+  .skills-inner{max-width:1100px;margin:0 auto;padding:0 4rem;}
+  #skills h2{color:#fff;}
+  #skills .rule{border-top-color:#2a2a2a;}
+  #skills .section-label{color:#555;}
+  .skills-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:#1e1e1e;margin-top:3rem;border:1px solid #1e1e1e;}
+  .skill-group{padding:2rem 1.5rem;background:#0d0d0d;}
+  .skill-group h3{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:1.2rem;padding-bottom:.6rem;border-bottom:1px solid #1e1e1e;}
+  .skill-list{list-style:none;display:flex;flex-direction:column;gap:.4rem;}
+  .skill-list li{font-size:.82rem;color:#aaa;padding:.28rem 0;border-bottom:1px solid #181818;display:flex;align-items:center;gap:.5rem;}
+  .skill-list li::before{content:'';width:4px;height:4px;background:linear-gradient(135deg,var(--accent),#7c3aed);border-radius:50%;flex-shrink:0;}
+
+  /* CASE STUDIES */
+  .cs-featured{display:grid;grid-template-columns:1.3fr 1fr;gap:0;border:2px solid var(--ink);margin-top:3rem;}
+  .cs-featured-img{width:100%;height:100%;min-height:380px;object-fit:cover;display:block;}
+  .cs-featured-body{padding:2.5rem;display:flex;flex-direction:column;justify-content:space-between;border-left:2px solid var(--ink);background:var(--glass);backdrop-filter:blur(14px);}
+  .cs-issue{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent2);font-weight:700;margin-bottom:.7rem;}
+  .cs-featured-body h3{font-family:var(--font-serif);font-size:1.55rem;font-weight:bold;line-height:1.2;color:var(--ink);margin-bottom:.9rem;}
+  .cs-featured-body p{font-size:.87rem;color:#555;line-height:1.75;margin-bottom:1.4rem;}
+  .cs-stats-row{display:flex;gap:1.5rem;padding-top:1.1rem;border-top:1px solid var(--border);}
+  .cs-stat span:first-child{display:block;font-family:var(--font-serif);font-size:1.5rem;font-weight:bold;background:linear-gradient(135deg,var(--accent),#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+  .cs-stat span:last-child{font-size:.68rem;color:var(--muted);}
+  .cs-link{font-size:.73rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);font-weight:700;display:inline-flex;align-items:center;gap:.4rem;background:none;border:none;border-bottom:2px solid var(--accent);padding-bottom:.1rem;cursor:pointer;transition:color .2s;font-family:var(--font-sans);}
+  .cs-link:hover{color:var(--accent);}
+  .cs-placeholder{border:2px dashed var(--border);padding:3rem;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:160px;margin-top:1.5rem;}
+  .cs-placeholder p{color:var(--muted);font-size:.83rem;margin-top:.7rem;}
+
+  /* CASE DETAIL */
+  #case-study-detail{display:none;padding:7rem 4rem;max-width:1100px;margin:0 auto;}
+  #case-study-detail.open{display:block;}
+  .back-btn{background:none;border:none;cursor:pointer;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:2.5rem;display:flex;align-items:center;gap:.5rem;padding:0;color:var(--ink);border-bottom:2px solid var(--accent);padding-bottom:.2rem;font-family:var(--font-sans);}
+  .back-btn::before{content:'←';}
+  .case-meta-row{display:flex;gap:2rem;flex-wrap:wrap;color:var(--muted);font-size:.8rem;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);}
+  .case-meta-row span strong{color:var(--ink);}
+  .case-section{margin-bottom:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid var(--border);}
+  .case-section h3{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;font-weight:700;}
+  .case-section p{color:#444;font-size:.92rem;line-height:1.88;margin-bottom:1rem;}
+  .case-section ul{color:#444;font-size:.92rem;line-height:1.88;padding-left:1.2rem;}
+  .case-section ul li{margin-bottom:.4rem;}
+  .result-chips{display:flex;gap:0;margin-top:1rem;border:2px solid var(--ink);}
+  .result-chip{flex:1;padding:1.5rem;text-align:center;border-right:1px solid var(--border);background:var(--glass);backdrop-filter:blur(10px);}
+  .result-chip:last-child{border-right:none;}
+  .result-chip .num{font-family:var(--font-serif);font-size:2rem;font-weight:bold;background:linear-gradient(135deg,var(--accent),#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;}
+  .result-chip .lbl{font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;}
+
+  /* RESUME */
+  #resume{background:rgba(232,226,216,.7);max-width:100%;padding:7rem 0;}
+  .resume-inner{max-width:1100px;margin:0 auto;padding:0 4rem;}
+  .resume-box{border:2px solid var(--ink);padding:3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:2rem;background:var(--glass);backdrop-filter:blur(14px);}
+  .resume-box h3{font-family:var(--font-serif);font-size:1.4rem;font-weight:bold;margin-bottom:.4rem;}
+  .resume-box p{color:#555;font-size:.88rem;max-width:480px;}
+
+  /* CONTACT */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+  .contact-info p{color:#555;font-size:.92rem;margin-bottom:2rem;line-height:1.85;}
+  .social-links{display:flex;flex-direction:column;gap:.7rem;}
+  .social-link{display:inline-flex;align-items:center;gap:.8rem;color:#444;text-decoration:none;font-size:.85rem;font-weight:600;transition:color .2s;}
+  .social-link:hover{color:var(--accent);}
+  .social-icon{width:32px;height:32px;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;}
+  form{display:flex;flex-direction:column;gap:1.1rem;}
+  .form-group label{display:block;font-size:.66rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem;font-weight:700;}
+  .form-group input,.form-group textarea{width:100%;background:transparent;border:none;border-bottom:2px solid var(--ink);color:var(--ink);padding:.7rem 0;font-family:var(--font-sans);font-size:.9rem;transition:border-color .2s;outline:none;}
+  .form-group input:focus,.form-group textarea:focus{border-color:var(--accent);}
+  .form-group textarea{resize:vertical;min-height:120px;}
+  .form-note{font-size:.74rem;color:var(--muted);}
+
+  footer{border-top:2px solid var(--ink);padding:2rem 4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+  footer p{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;}
+
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease;}
+  .reveal.visible{opacity:1;transform:none;}
+
+  @media(max-width:900px){
+    .skills-grid{grid-template-columns:repeat(3,1fr);}
+    .tl-grid{grid-template-columns:1fr;}
+    .tl-wc-grid{grid-template-columns:repeat(3,1fr);}
+  }
+  @media(max-width:768px){
+    nav .nav-top{padding:.8rem 1.5rem;}
+    #hero{grid-template-columns:1fr;margin-top:100px;}
+    .hero-right{height:320px;}
+    .hero-left{padding:3rem 1.5rem;}
+    section,#case-study-detail{padding-left:1.5rem;padding-right:1.5rem;}
+    .skills-inner,.resume-inner,.tl-inner{padding-left:1.5rem;padding-right:1.5rem;}
+    .strip-inner{grid-template-columns:1fr;padding:0 1.5rem;}
+    .strip-img{width:100%;height:180px;}
+    .skills-grid{grid-template-columns:1fr 1fr;}
+    .about-grid,.contact-grid,.cs-featured,.tl-visual-row{grid-template-columns:1fr;}
+    .cs-featured-body{border-left:none;border-top:2px solid var(--ink);}
+    footer{padding:2rem 1.5rem;}
+    h1{font-size:3rem;}
+    .tl-wc-grid{grid-template-columns:repeat(2,1fr);}
+  }
+</style>
+</head>
+<body>
+
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<div class="orb orb3"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-top">
+    <span class="nav-date">Portfolio · 2026</span>
+    <a href="#hero" class="nav-logo">DAVID R. BAILEY</a>
+    <span class="nav-date">UX/UI Designer & Technologist</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#through-line">Story</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#resume">Resume</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div id="hero">
+  <div class="hero-left reveal">
+    <span class="hero-label">UX/UI Designer &amp; Technologist</span>
+    <h1>Design that works<br/>beyond the <em>prototype.</em></h1>
+    <p class="hero-deck">Bridging design, technology, and 25 years of operational leadership — I build interfaces that are intuitive, accessible, and engineered to hold up in the real world.</p>
+    <div class="btn-group">
+      <a href="#work" class="btn btn-primary">View Case Studies</a>
+      <a href="#contact" class="btn btn-outline">Get In Touch</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">36</div>
+        <div class="stat-label">Operations scaled across 4 states</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">3%</div>
+        <div class="stat-label">Sustained multi-state revenue growth YoY</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">4.0</div>
+        <div class="stat-label">GPA · B.S. Computer Science</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">25+</div>
+        <div class="stat-label">Years of cross-industry leadership</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="https://i.postimg.cc/9X4Kbg5r/65F54238-6AC4-4605-93B9-B7A5C2407A2E.png" alt="David R. Bailey"/>
+    <div class="hero-right-overlay">
+      <div class="overlay-tag">Featured Project</div>
+      <div class="overlay-title">Springfield Church of Christ<br/>Website Redesign</div>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURED WORK STRIP -->
+<div id="featured-strip">
+  <div class="strip-inner">
+    <div class="reveal">
+      <span class="strip-eyebrow">Latest Case Study</span>
+      <div class="strip-title">Springfield Church of Christ — Website Redesign</div>
+      <p class="strip-desc">A 9-year technology partnership — UX redesign, AV/streaming integration, network infrastructure, and digital strategy — that drove a 78% traffic increase and extended the church's reach far beyond its walls.</p>
+      <button class="strip-link" onclick="document.getElementById('work').scrollIntoView({behavior:'smooth'})">View Case Study →</button>
+    </div>
+    <img class="strip-img reveal" src="https://static.wixstatic.com/media/5bb82d4a799849efa1a5cacda245f8fd.jpg/v1/fill/w_745,h_497,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/5bb82d4a799849efa1a5cacda245f8fd.jpg" alt="Springfield Church of Christ preview"/>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="reveal">
+    <p class="section-label">About Me</p>
+    <h2>Design backed by<br/>technical depth</h2>
+    <hr class="rule"/>
+  </div>
+  <div class="about-grid">
+    <div class="reveal">
+      <p class="about-lede">I'm a UX/UI Designer and Technologist with 25+ years of leadership experience — and the technical depth to back every design decision.</p>
+      <div class="about-body">
+        <p>My background spans IT support, retail operations, and digital strategy. That breadth isn't a detour — it's the foundation. I approach every design challenge the way a senior leader approaches a business problem: with research, accountability, and a clear eye on outcomes.</p>
+        <p>I design with production in mind from day one. I've managed cross-functional teams, overseen P&L, and shipped work under real constraints — and that experience shapes how I collaborate, communicate, and deliver.</p>
+        <p>My creative range extends beyond the screen — years of designing custom wedding cakes and original watercolor paintings have quietly sharpened my eye for composition, color, and the craft that comes from caring deeply about the finished experience.</p>
+      </div>
+      <div class="about-quote">
+        <blockquote>"I am always doing that which I cannot do, in order that I may learn how to do it."</blockquote>
+        <cite>— Pablo Picasso</cite>
+      </div>
+    </div>
+    <div class="about-right reveal">
+      <img class="about-img" src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=800&q=80" alt="Design process — wireframing in Figma"/>
+      <p class="about-img-caption">Design process · Figma wireframing</p>
+      <div class="sidebar-card">
+        <h4>Education</h4>
+        <p class="deg">B.S. Computer Science – Software Development</p>
+        <p class="school">Tiffin University · Tiffin, OH · GPA 4.0</p>
+      </div>
+      <div class="sidebar-card">
+        <h4>Education</h4>
+        <p class="deg">A.S. Baking &amp; Pastry Arts — Honors, Silver Medalist</p>
+        <p class="school">Sullivan University · Louisville, KY</p>
+      </div>
+      <div class="sidebar-card">
+        <h4>Tools &amp; Platforms</h4>
+        <p>Figma · Adobe Photoshop · Blender · Shapr3D · Google Analytics · Hotjar · Wix · WordPress</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THROUGH LINE -->
+<div id="through-line">
+  <div class="tl-inner">
+    <div class="reveal">
+      <p class="section-label">The Story</p>
+      <h2>Three careers.<br/>One through line.</h2>
+      <hr class="rule" style="border-top-color:#2a2a2a;"/>
+    </div>
+    <div class="tl-grid">
+      <div class="tl-chapter reveal">
+        <div class="tl-num">01</div>
+        <span class="tl-tag">Retail Leadership · 25+ Years</span>
+        <h3>Operations are really about people.</h3>
+        <p>Managing 36 locations across four states taught me that systems only work when the humans inside them are understood. Understanding behavior, removing friction, and designing workflows that scale — that's UX, even when you don't call it that.</p>
+      </div>
+      <div class="tl-chapter reveal">
+        <div class="tl-num">02</div>
+        <span class="tl-tag">Pastry &amp; Wedding Design · 10+ Years</span>
+        <h3>Long before I knew the term "UX," I was practicing it.</h3>
+        <p>Every wedding cake began with deep client research, iterative sketches, and a high-stakes delivery where failure was not an option. I learned to translate someone's vision into a beautiful, tangible experience — on time, on budget, and under extraordinary pressure.</p>
+      </div>
+      <div class="tl-chapter reveal">
+        <div class="tl-num">03</div>
+        <span class="tl-tag">UX/UI Design · Now</span>
+        <h3>The tools are different. The process is the same.</h3>
+        <p>Understand the user. Design with intention. Deliver something that works. Now I apply that discipline digitally — with Figma, analytics, and a 4.0 GPA in Computer Science backing every decision.</p>
+      </div>
+    </div>
+    <div class="tl-visuals reveal">
+      <p class="tl-visuals-label">Pastry Design — Concept to Delivery</p>
+      <div class="tl-visual-row">
+        <div class="tl-visual-wrap">
+          <img class="tl-visual-img" src="https://i.postimg.cc/yNkByRMR/481ada9a-cd4c-4d6f-b700-98ce61d1a3f5.png" alt="Wedding cake design sketch"/>
+          <div class="tl-visual-cap">Design sketch · Client consultation phase</div>
+        </div>
+        <div class="tl-visual-wrap">
+          <img class="tl-visual-img" src="https://i.postimg.cc/FHxQ4p4Z/5622BA56-7ADB-42E4-82BC-DA8D5719E002-1-105-c.jpg" alt="Finished wedding cake"/>
+          <div class="tl-visual-cap">Finished cake · Delivered result</div>
+        </div>
+      </div>
+      <p class="tl-visuals-label">Watercolor Paintings — Original Works</p>
+      <div class="tl-wc-grid">
+        <img class="tl-wc-img" src="https://i.postimg.cc/s235NjjR/89C23D73-6E20-41CB-B262-CA0F03AE5B89.jpg" alt="Watercolor 1"/>
+        <img class="tl-wc-img" src="https://i.postimg.cc/CLmZxGSp/IMG-2299.jpg" alt="Watercolor 2"/>
+        <img class="tl-wc-img" src="https://i.postimg.cc/28VwmSNy/5FF06F31-12D8-488D-BEB8-90A2A776FAAE-1-105-c.jpg" alt="Watercolor 3"/>
+        <img class="tl-wc-img" src="https://i.postimg.cc/RZxn8SS0/CA881549-2F26-4185-BF38-4E14232EB3BA-1-105-c.jpg" alt="Watercolor 4"/>
+        <img class="tl-wc-img" src="https://i.postimg.cc/Dmkmt6Kt/BD551E74-7300-421C-99EF-F05D29E3040D-1-105-c.jpg" alt="Watercolor 5"/>
+      </div>
+      <div class="tl-coming-soon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#444" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        <p>Print Shop — Coming Soon</p>
+        <span>Original watercolor prints available for purchase</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<div id="skills">
+  <div class="skills-inner">
+    <div class="reveal">
+      <p class="section-label">Capabilities</p>
+      <h2>What I bring to the table</h2>
+      <hr class="rule" style="border-top-color:#2a2a2a;"/>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-group reveal">
+        <h3>Design &amp; UX</h3>
+        <ul class="skill-list">
+          <li>UX Research</li><li>UI Design</li><li>Wireframing</li><li>Prototyping</li><li>Figma / Adobe XD</li><li>Accessibility (WCAG)</li><li>Usability Testing</li>
+        </ul>
+      </div>
+      <div class="skill-group reveal">
+        <h3>Technical</h3>
+        <ul class="skill-list">
+          <li>IT Support</li><li>Troubleshooting</li><li>HTML / CSS</li><li>Wix / WordPress</li><li>Web Analytics</li><li>SEO Optimization</li><li>GitHub / Git</li>
+        </ul>
+      </div>
+      <div class="skill-group reveal">
+        <h3>Strategy &amp; Leadership</h3>
+        <ul class="skill-list">
+          <li>Project Management</li><li>People Management</li><li>Digital Strategy</li><li>Data-Driven Decisions</li><li>Mentorship</li><li>Budget Oversight</li>
+        </ul>
+      </div>
+      <div class="skill-group reveal">
+        <h3>Business</h3>
+        <ul class="skill-list">
+          <li>E-commerce</li><li>Targeted Marketing</li><li>Sales Leadership</li><li>Inventory Optimization</li><li>P&amp;L Analysis</li><li>Cross-functional Teams</li>
+        </ul>
+      </div>
+      <div class="skill-group reveal">
+        <h3>Creative &amp; Craft</h3>
+        <ul class="skill-list">
+          <li>Watercolor Painting</li><li>Wedding Cake Design</li><li>3D Modeling (Blender)</li><li>Shapr3D</li><li>Adobe Photoshop</li><li>Procreate</li><li>Illustration</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CASE STUDIES -->
+<section id="work">
+  <div class="reveal">
+    <p class="section-label">Case Studies</p>
+    <h2>Selected work</h2>
+    <hr class="rule"/>
+  </div>
+  <div class="cs-featured reveal">
+    <img class="cs-featured-img" src="https://static.wixstatic.com/media/5bb82d4a799849efa1a5cacda245f8fd.jpg/v1/fill/w_745,h_497,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/5bb82d4a799849efa1a5cacda245f8fd.jpg" alt="Springfield Church of Christ"/>
+    <div class="cs-featured-body">
+      <div>
+        <p class="cs-issue">UX/UI Design · Digital Strategy</p>
+        <h3>Springfield Church of Christ Website Redesign</h3>
+        <p>A 9-year ongoing technology partnership — UX redesign, AV/live streaming integration, network infrastructure management, hardware advisory, and digital strategy — driving measurable growth and extending community reach beyond physical walls.</p>
+        <button class="cs-link" onclick="openCase()">Read Case Study →</button>
+      </div>
+      <div class="cs-stats-row">
+        <div class="cs-stat"><span>78%</span><span>Traffic increase</span></div>
+        <div class="cs-stat"><span>2×</span><span>Event attendance</span></div>
+        <div class="cs-stat"><span>9yr</span><span>Ongoing partnership</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="cs-placeholder reveal">
+    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#bbb" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M12 8v8M8 12h8"/></svg>
+    <p>More case studies coming soon</p>
+  </div>
+</section>
+
+<!-- CASE DETAIL -->
+<div id="case-study-detail">
+  <button class="back-btn" onclick="closeCase()">Back to Work</button>
+  <div class="reveal">
+    <p class="section-label">Case Study</p>
+    <h2>Springfield Church of Christ</h2>
+    <div class="case-meta-row">
+      <span><strong>Role:</strong> UX/UI Designer &amp; Digital Strategy Lead</span>
+      <span><strong>Timeline:</strong> 9 Years (ongoing)</span>
+      <span><strong>Tools:</strong> Figma, Wix, WordPress, Google Analytics, Hotjar</span>
+    </div>
+  </div>
+  <div class="case-section reveal">
+    <h3>Project Overview</h3>
+    <p>What began as a website redesign has evolved into a 9-year ongoing technology partnership with Springfield Church of Christ. Over that time, I've served as the church's de facto technology advisor — leading a full UX redesign and digital strategy, integrating a networked camera security system, managing and upgrading the church's network infrastructure, advising on hardware procurement and specifications for three computer replacements, and working alongside the church's Audio and Video team to build and maintain a live streaming capability that has kept the congregation connected through illness, distance, and the COVID-19 pandemic.</p>
+    <p>The website redesign — and the digital strategy surrounding it — is one major initiative within a much broader, trust-based relationship. That relationship itself is part of the story.</p>
+  </div>
+  <div class="case-section reveal">
+    <h3>The Challenge</h3>
+    <p>First-time visitors were struggling to find essential information. Service times, beliefs, and event details required multiple clicks, with no clear calls to action guiding next steps. But the digital challenges ran deeper than the website.</p>
+    <ul>
+      <li>Low digital engagement limited outreach and community growth</li>
+      <li>Inconsistent event participation with no digital conversion path</li>
+      <li>Website and social media operated in silos</li>
+      <li>No live streaming capability — services were inaccessible to remote or ill congregants</li>
+      <li>Aging, unmanaged network infrastructure inadequate for modern digital demands</li>
+      <li>Outdated hardware with no clear procurement or replacement strategy</li>
+      <li>No security camera system for facility monitoring</li>
+      <li>Limited budget and volunteer support across every initiative</li>
+    </ul>
+  </div>
+  <div class="case-section reveal">
+    <h3>Research &amp; Planning</h3>
+    <p>Analytics revealed high drop-off rates on key pages. Heatmaps indicated hesitation within primary navigation. Task-based walkthroughs confirmed visitors could find information, but it required too many steps.</p>
+    <ul>
+      <li>Critical information buried beneath layered navigation</li>
+      <li>Dense text reduced readability and engagement</li>
+      <li>No consistent CTA hierarchy guided user journeys</li>
+      <li>Social traffic lacked a defined conversion path</li>
+    </ul>
+  </div>
+  <div class="case-section reveal">
+    <h3>Designing the Solution</h3>
+    <p>The redesign centered on three primary user journeys: planning a visit, understanding beliefs, and discovering events. Wireframes validated structure before implementation. But the solution extended well beyond the website.</p>
+    <ul>
+      <li>Service times brought above the fold; "Plan Your Visit" as the primary CTA</li>
+      <li>Long-form content broken into scannable, human sections — especially "What We Believe"</li>
+      <li>Mobile-first layouts reflecting actual traffic patterns</li>
+      <li>Accessible color contrast and simplified navigation throughout</li>
+      <li>Networked camera security system installed and integrated for remote facility monitoring</li>
+      <li>Hardware advisory for three computer replacements — spec recommendations matched to actual use cases and budget</li>
+      <li>Network assessment and infrastructure upgrades to support streaming, security, and congregation-level demand</li>
+      <li>AV/streaming pipeline built in close collaboration with the church's Audio and Video team, enabling consistent live broadcast of Sunday services — reaching congregants unable to attend in person due to illness, distance, or pandemic restrictions</li>
+    </ul>
+  </div>
+  <div class="case-section reveal">
+    <h3>Key Decisions &amp; Tradeoffs</h3>
+    <p>What separates a strong UX solution from a polished one is the ability to articulate not just what was built — but what was deliberately left out, and why. These are the decisions that shaped the outcome.</p>
+    <p><strong>Simplifying the nav rather than expanding it.</strong> Research and analytics consistently showed that older users — the church's primary demographic — were hesitating and dropping off within the navigation. The instinct in many redesigns is to add more structure to help people find things. My decision was the opposite: reduce, clarify, and surface the most critical paths. This became even more critical when the project pivoted during the COVID-19 pandemic, when the site transformed from a supplementary resource into the church's primary point of contact with its community. Simplicity wasn't aesthetic — it was a lifeline.</p>
+    <p><strong>Reducing content density on key pages.</strong> Several pages were essentially digitized paper documents — dense, text-heavy, and formatted for print, not screens. The "What We Believe" page was the most egregious example: walls of theological language that felt more like a legal brief than an invitation. The decision to restructure this content into scannable, human sections required pushing back on the instinct to preserve everything. I prioritized comprehension over completeness.</p>
+    <p><strong>Prioritizing "Plan Your Visit" over other CTAs.</strong> Multiple CTA options competed for prominence: event registration, newsletter signups, giving links. The decision to elevate "Plan Your Visit" above all others was grounded in two insights: first, stakeholder conversations confirmed the church's primary goal was new visitor attendance; second, competitive analysis of peer churches in the region showed this language had become the standard — meaning users would already recognize and trust it. Familiarity reduces friction. That's not a compromise. That's UX.</p>
+    <p><strong>Working creatively within platform and budget constraints.</strong> This was a pro bono engagement with a client-mandated Wix platform. Many design decisions — layout flexibility, animation capabilities, custom interactions — were shaped by what Wix would and would not allow at the time. Rather than treating those as failures, I used them as forcing functions toward simplicity. More recently, I've explored pointing the domain to Netlify or Cloudflare to host custom HTML builds, which gives significantly more design control while preserving access to the Wix tools the client still relies on. Constraints don't end creativity — they direct it.</p>
+    <p><strong>Building a streaming infrastructure under pressure.</strong> When COVID-19 forced the suspension of in-person services, the church had no existing capability to reach its congregation digitally. Working alongside the Audio and Video team, I helped design and implement a live streaming workflow that prioritized reliability over sophistication — the goal wasn't to build the most polished broadcast; it was to make sure the service went out every Sunday without fail, to people who needed it. Choosing dependable over impressive is a design decision. It's also the right one.</p>
+  </div>
+  <div class="case-section reveal">
+    <h3>Ongoing Engagement</h3>
+    <p>Nine years is a long time to work with a single client. It's also the clearest signal I can offer that the work has delivered value. Over that period, the relationship has expanded from a focused redesign project into a broad technology advisory role — one built on trust, consistency, and the ability to translate complex technical decisions into plain language for non-technical stakeholders.</p>
+    <p>The church continues to reach congregants who cannot be present in person. The network supports modern digital demands. The hardware is current. The site continues to evolve. That's not a finished project — that's an ongoing partnership, and I'm proud of it.</p>
+  </div>
+  <div class="case-section reveal">
+    <h3>Results</h3>
+    <div class="result-chips">
+      <div class="result-chip"><span class="num">78%</span><span class="lbl">Web traffic increase</span></div>
+      <div class="result-chip"><span class="num">2×</span><span class="lbl">Event attendance</span></div>
+      <div class="result-chip"><span class="num">9yr</span><span class="lbl">Ongoing partnership</span></div>
+    </div>
+    <p style="margin-top:1.5rem;color:#444;font-size:.92rem;line-height:1.88;">This project reinforced that effective UX is often about prioritization rather than expansion. By aligning analytics, user behavior insights, and business goals, the website evolved from an information hub into a structured engagement tool — and the broader technology partnership ensured the church's entire digital infrastructure could support that growth.</p>
+  </div>
+</div>
+
+<!-- RESUME -->
+<div id="resume">
+  <div class="resume-inner">
+    <div class="reveal">
+      <p class="section-label">Resume</p>
+      <h2>Experience &amp; credentials</h2>
+      <hr class="rule"/>
+    </div>
+    <div class="resume-box reveal">
+      <div>
+        <h3>David R. Bailey</h3>
+        <p>UX/UI Designer & Technologist with 25+ years of cross-industry leadership. Available for remote roles — open to the Springfield, OH area for the right opportunity. Download my full resume to see work history, certifications, and more.</p>
+      </div>
+      <a href="https://www.davidrbailey.com/_files/ugd/d2a969_d5a76534a6a94089a93a62373f60288e.pdf" target="_blank" class="btn btn-primary">Download Resume</a>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="reveal">
+    <p class="section-label">Contact</p>
+    <h2>Let's work together</h2>
+    <hr class="rule"/>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info reveal">
+      <p>I'm open to freelance projects, full-time opportunities, and collaborations. If you have a design challenge that needs a thoughtful approach, I'd love to hear about it.</p>
+      <div class="social-links">
+        <a href="http://www.linkedin.com/in/davidbaileyjr" target="_blank" class="social-link"><span class="social-icon">in</span> LinkedIn</a>
+        <a href="https://instagram.com/david.r.bailey" target="_blank" class="social-link"><span class="social-icon">ig</span> Instagram</a>
+        <a href="http://facebook.com/david.bailey.2693" target="_blank" class="social-link"><span class="social-icon">fb</span> Facebook</a>
+      </div>
+    </div>
+    <form class="reveal" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="contact"/>
+      <p style="display:none;"><label>Don't fill this out: <input name="bot-field"/></label></p>
+      <div class="form-group"><label>Name</label><input type="text" name="name" placeholder="Your name" required/></div>
+      <div class="form-group"><label>Email</label><input type="email" name="email" placeholder="your@email.com" required/></div>
+      <div class="form-group"><label>Message</label><textarea name="message" placeholder="Tell me about your project…" required></textarea></div>
+      <button type="submit" class="btn btn-primary" style="align-self:flex-start;margin-top:.5rem;">Send Message</button>
+      <p class="form-note" id="form-note"></p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 David R. Bailey — UX/UI Designer</p>
+  <p>Designed with intention.</p>
+</footer>
+
+<script>
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+  function openCase(){
+    document.getElementById('case-study-detail').classList.add('open');
+    document.getElementById('work').style.display='none';
+    document.getElementById('case-study-detail').scrollIntoView({behavior:'smooth'});
+  }
+  function closeCase(){
+    document.getElementById('case-study-detail').classList.remove('open');
+    document.getElementById('work').style.display='';
+    document.getElementById('work').scrollIntoView({behavior:'smooth'});
+  }
+
+  // Show thank-you message if redirected back after Netlify form submission
+  const params = new URLSearchParams(window.location.search);
+  if(params.get('submitted') === 'true'){
+    const note = document.getElementById('form-note');
+    if(note){
+      note.style.color = '#2dd4bf';
+      note.textContent = 'Thanks for reaching out — I\'ll be in touch soon!';
+      document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+    }
+  }
+</script>
+</body>
+</html>
