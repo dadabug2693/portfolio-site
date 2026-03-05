@@ -140,12 +140,17 @@
   .cs-stat span:last-child{font-size:.68rem;color:var(--muted);}
   .cs-link{font-size:.73rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);font-weight:700;display:inline-flex;align-items:center;gap:.4rem;background:none;border:none;border-bottom:2px solid var(--accent);padding-bottom:.1rem;cursor:pointer;transition:color .2s;font-family:var(--font-sans);}
   .cs-link:hover{color:var(--accent);}
-  .cs-placeholder{border:2px dashed var(--border);padding:3rem;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:160px;margin-top:1.5rem;}
-  .cs-placeholder p{color:var(--muted);font-size:.83rem;margin-top:.7rem;}
+
+  /* AI case study card — dark panel */
+  .cs-ai{display:grid;grid-template-columns:1fr 1.3fr;gap:0;border:2px solid var(--ink);margin-top:1.5rem;}
+  .cs-ai-panel{background:#0d0d0d;display:flex;align-items:center;justify-content:center;min-height:320px;}
+  .cs-ai-body{padding:2.5rem;display:flex;flex-direction:column;justify-content:space-between;border-left:2px solid var(--ink);background:var(--glass);backdrop-filter:blur(14px);}
 
   /* CASE DETAIL */
-  #case-study-detail{display:none;padding:7rem 4rem;max-width:1100px;margin:0 auto;}
-  #case-study-detail.open{display:block;}
+  #case-study-detail,
+  #case-study-detail-ai{display:none;padding:7rem 4rem;max-width:1100px;margin:0 auto;}
+  #case-study-detail.open,
+  #case-study-detail-ai.open{display:block;}
   .back-btn{background:none;border:none;cursor:pointer;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:2.5rem;display:flex;align-items:center;gap:.5rem;padding:0;color:var(--ink);border-bottom:2px solid var(--accent);padding-bottom:.2rem;font-family:var(--font-sans);}
   .back-btn::before{content:'←';}
   .case-meta-row{display:flex;gap:2rem;flex-wrap:wrap;color:var(--muted);font-size:.8rem;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);}
@@ -198,13 +203,15 @@
     #hero{grid-template-columns:1fr;margin-top:100px;}
     .hero-right{height:320px;}
     .hero-left{padding:3rem 1.5rem;}
-    section,#case-study-detail{padding-left:1.5rem;padding-right:1.5rem;}
+    section,#case-study-detail,#case-study-detail-ai{padding-left:1.5rem;padding-right:1.5rem;}
     .skills-inner,.resume-inner,.tl-inner{padding-left:1.5rem;padding-right:1.5rem;}
     .strip-inner{grid-template-columns:1fr;padding:0 1.5rem;}
     .strip-img{width:100%;height:180px;}
     .skills-grid{grid-template-columns:1fr 1fr;}
-    .about-grid,.contact-grid,.cs-featured,.tl-visual-row{grid-template-columns:1fr;}
+    .about-grid,.contact-grid,.cs-featured,.cs-ai,.tl-visual-row{grid-template-columns:1fr;}
     .cs-featured-body{border-left:none;border-top:2px solid var(--ink);}
+    .cs-ai-body{border-left:none;border-top:2px solid var(--ink);}
+    .cs-ai-panel{min-height:200px;}
     footer{padding:2rem 1.5rem;}
     h1{font-size:3rem;}
     .tl-wc-grid{grid-template-columns:repeat(2,1fr);}
@@ -222,7 +229,7 @@
   <div class="nav-top">
     <span class="nav-date">Portfolio · 2026</span>
     <a href="#hero" class="nav-logo">DAVID R. BAILEY</a>
-    <span class="nav-date">UX/UI Designer & Technologist</span>
+    <span class="nav-date">UX/UI Designer &amp; Technologist</span>
   </div>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
@@ -297,7 +304,7 @@
       <p class="about-lede">I'm a UX/UI Designer and Technologist with 25+ years of leadership experience — and the technical depth to back every design decision.</p>
       <div class="about-body">
         <p>My background spans IT support, retail operations, and digital strategy. That breadth isn't a detour — it's the foundation. I approach every design challenge the way a senior leader approaches a business problem: with research, accountability, and a clear eye on outcomes.</p>
-        <p>I design with production in mind from day one. I've managed cross-functional teams, overseen P&L, and shipped work under real constraints — and that experience shapes how I collaborate, communicate, and deliver.</p>
+        <p>I design with production in mind from day one. I've managed cross-functional teams, overseen P&amp;L, and shipped work under real constraints — and that experience shapes how I collaborate, communicate, and deliver.</p>
         <p>My creative range extends beyond the screen — years of designing custom wedding cakes and original watercolor paintings have quietly sharpened my eye for composition, color, and the craft that comes from caring deeply about the finished experience.</p>
       </div>
       <div class="about-quote">
@@ -446,6 +453,8 @@
     <h2>Selected work</h2>
     <hr class="rule"/>
   </div>
+
+  <!-- Springfield -->
   <div class="cs-featured reveal">
     <img class="cs-featured-img" src="/images/church-building.jpg" alt="Springfield Church of Christ"/>
     <div class="cs-featured-body">
@@ -462,13 +471,32 @@
       </div>
     </div>
   </div>
-  <div class="cs-placeholder reveal">
-    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#bbb" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M12 8v8M8 12h8"/></svg>
-    <p>More case studies coming soon</p>
+
+  <!-- AI Workflow -->
+  <div class="cs-ai reveal">
+    <div class="cs-ai-panel">
+      <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width=".8" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+        <path d="M7 8h.01M12 8h.01M17 8h.01M7 12h10"/>
+      </svg>
+    </div>
+    <div class="cs-ai-body">
+      <div>
+        <p class="cs-issue">UX Research · AI-Assisted Workflows</p>
+        <h3>Using AI to Support UX Design Workflows</h3>
+        <p>An independent exploration of how AI tools can augment the design process — accelerating research synthesis, ideating faster, and producing clearer documentation — without replacing human-centered judgment.</p>
+        <button class="cs-link" onclick="openCaseAI()">Read Case Study →</button>
+      </div>
+      <div class="cs-stats-row">
+        <div class="cs-stat"><span>3</span><span>Workflow phases tested</span></div>
+        <div class="cs-stat"><span>AI+</span><span>Human-centered</span></div>
+        <div class="cs-stat"><span>↑</span><span>Ideation velocity</span></div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- CASE DETAIL -->
+<!-- SPRINGFIELD CASE DETAIL -->
 <div id="case-study-detail">
   <button class="back-btn" onclick="closeCase()">Back to Work</button>
   <div class="reveal">
@@ -520,22 +548,21 @@
       <li>Networked camera security system installed and integrated for remote facility monitoring</li>
       <li>Hardware advisory for three computer replacements — spec recommendations matched to actual use cases and budget</li>
       <li>Network assessment and infrastructure upgrades to support streaming, security, and congregation-level demand</li>
-      <li>AV/streaming pipeline built in close collaboration with the church's Audio and Video team, enabling consistent live broadcast of Sunday services — reaching congregants unable to attend in person due to illness, distance, or pandemic restrictions</li>
+      <li>AV/streaming pipeline built in close collaboration with the church's Audio and Video team, enabling consistent live broadcast of Sunday services</li>
     </ul>
   </div>
   <div class="case-section reveal">
     <h3>Key Decisions &amp; Tradeoffs</h3>
-    <p>What separates a strong UX solution from a polished one is the ability to articulate not just what was built — but what was deliberately left out, and why. These are the decisions that shaped the outcome.</p>
-    <p><strong>Simplifying the nav rather than expanding it.</strong> Research and analytics consistently showed that older users — the church's primary demographic — were hesitating and dropping off within the navigation. The instinct in many redesigns is to add more structure to help people find things. My decision was the opposite: reduce, clarify, and surface the most critical paths. This became even more critical when the project pivoted during the COVID-19 pandemic, when the site transformed from a supplementary resource into the church's primary point of contact with its community. Simplicity wasn't aesthetic — it was a lifeline.</p>
-    <p><strong>Reducing content density on key pages.</strong> Several pages were essentially digitized paper documents — dense, text-heavy, and formatted for print, not screens. The "What We Believe" page was the most egregious example: walls of theological language that felt more like a legal brief than an invitation. The decision to restructure this content into scannable, human sections required pushing back on the instinct to preserve everything. I prioritized comprehension over completeness.</p>
-    <p><strong>Prioritizing "Plan Your Visit" over other CTAs.</strong> Multiple CTA options competed for prominence: event registration, newsletter signups, giving links. The decision to elevate "Plan Your Visit" above all others was grounded in two insights: first, stakeholder conversations confirmed the church's primary goal was new visitor attendance; second, competitive analysis of peer churches in the region showed this language had become the standard — meaning users would already recognize and trust it. Familiarity reduces friction. That's not a compromise. That's UX.</p>
-    <p><strong>Working creatively within platform and budget constraints.</strong> This was a pro bono engagement with a client-mandated Wix platform. Many design decisions — layout flexibility, animation capabilities, custom interactions — were shaped by what Wix would and would not allow at the time. Rather than treating those as failures, I used them as forcing functions toward simplicity. More recently, I've explored pointing the domain to Netlify or Cloudflare to host custom HTML builds, which gives significantly more design control while preserving access to the Wix tools the client still relies on. Constraints don't end creativity — they direct it.</p>
-    <p><strong>Building a streaming infrastructure under pressure.</strong> When COVID-19 forced the suspension of in-person services, the church had no existing capability to reach its congregation digitally. Working alongside the Audio and Video team, I helped design and implement a live streaming workflow that prioritized reliability over sophistication — the goal wasn't to build the most polished broadcast; it was to make sure the service went out every Sunday without fail, to people who needed it. Choosing dependable over impressive is a design decision. It's also the right one.</p>
+    <p><strong>Simplifying the nav rather than expanding it.</strong> Research and analytics consistently showed that older users — the church's primary demographic — were hesitating and dropping off within the navigation. My decision was to reduce, clarify, and surface the most critical paths. This became even more critical during the COVID-19 pandemic, when the site transformed from a supplementary resource into the church's primary point of contact with its community.</p>
+    <p><strong>Reducing content density on key pages.</strong> Several pages were essentially digitized paper documents — dense, text-heavy, and formatted for print, not screens. The decision to restructure this content into scannable, human sections required prioritizing comprehension over completeness.</p>
+    <p><strong>Prioritizing "Plan Your Visit" over other CTAs.</strong> Multiple CTA options competed for prominence. The decision to elevate "Plan Your Visit" was grounded in stakeholder input confirming new visitor attendance as the primary goal, and competitive analysis showing this language had become the regional standard — meaning users would already recognize and trust it.</p>
+    <p><strong>Working creatively within platform and budget constraints.</strong> This was a pro bono engagement with a client-mandated Wix platform. Rather than treating constraints as failures, I used them as forcing functions toward simplicity. I've also explored pointing the domain to Netlify or Cloudflare to host custom HTML builds, giving more design control while preserving access to Wix tools the client still relies on.</p>
+    <p><strong>Building a streaming infrastructure under pressure.</strong> When COVID-19 forced suspension of in-person services, the church had no existing capability to reach its congregation digitally. Working alongside the AV team, I helped design and implement a live streaming workflow that prioritized reliability over sophistication — making sure the service went out every Sunday without fail, to people who needed it.</p>
   </div>
   <div class="case-section reveal">
     <h3>Ongoing Engagement</h3>
     <p>Nine years is a long time to work with a single client. It's also the clearest signal I can offer that the work has delivered value. Over that period, the relationship has expanded from a focused redesign project into a broad technology advisory role — one built on trust, consistency, and the ability to translate complex technical decisions into plain language for non-technical stakeholders.</p>
-    <p>The church continues to reach congregants who cannot be present in person. The network supports modern digital demands. The hardware is current. The site continues to evolve. That's not a finished project — that's an ongoing partnership, and I'm proud of it.</p>
+    <p>The church continues to reach congregants who cannot be present in person. The network supports modern digital demands. The hardware is current. The site continues to evolve. That's not a finished project — that's an ongoing partnership.</p>
   </div>
   <div class="case-section reveal">
     <h3>Results</h3>
@@ -545,6 +572,63 @@
       <div class="result-chip"><span class="num">9yr</span><span class="lbl">Ongoing partnership</span></div>
     </div>
     <p style="margin-top:1.5rem;color:#444;font-size:.92rem;line-height:1.88;">This project reinforced that effective UX is often about prioritization rather than expansion. By aligning analytics, user behavior insights, and business goals, the website evolved from an information hub into a structured engagement tool — and the broader technology partnership ensured the church's entire digital infrastructure could support that growth.</p>
+  </div>
+</div>
+
+<!-- AI WORKFLOW CASE DETAIL -->
+<div id="case-study-detail-ai">
+  <button class="back-btn" onclick="closeCaseAI()">Back to Work</button>
+  <div class="reveal">
+    <p class="section-label">Case Study</p>
+    <h2>Using AI to Support UX Design Workflows</h2>
+    <div class="case-meta-row">
+      <span><strong>Role:</strong> UX Designer &amp; AI Workflow Researcher</span>
+      <span><strong>Timeline:</strong> Ongoing exploration</span>
+      <span><strong>Tools:</strong> Claude (Anthropic), Figma, Google Docs</span>
+    </div>
+  </div>
+  <div class="case-section reveal">
+    <h3>Project Overview</h3>
+    <p>As AI tools become more integrated into creative and analytical work, designers are exploring how these technologies can support research, ideation, and documentation. After completing structured AI training, I began experimenting with how Claude could assist parts of the UX design process — organizing research insights, exploring design directions, and improving documentation clarity.</p>
+    <p>This project explores how AI can augment design workflows without replacing critical thinking or user-centered decision making.</p>
+  </div>
+  <div class="case-section reveal">
+    <h3>The Challenge</h3>
+    <p>Designers spend a significant amount of time organizing information, synthesizing research, and documenting design decisions. These tasks are essential but can slow down early exploration and iteration. I wanted to explore three specific questions:</p>
+    <ul>
+      <li>How effectively can AI help organize and synthesize research insights?</li>
+      <li>Can AI meaningfully accelerate idea generation and iteration?</li>
+      <li>How can AI support clearer, more structured documentation of design thinking?</li>
+    </ul>
+  </div>
+  <div class="case-section reveal">
+    <h3>Research &amp; Planning</h3>
+    <p>I began by identifying the phases of a typical UX workflow where time and cognitive load are highest — not the creative moments, but the organizational ones. Research synthesis stood out immediately. Summarizing interview transcripts, meeting notes, and audit findings into structured insights is time-consuming and often delays the transition into design work.</p>
+    <p>Documentation was a close second: translating rough notes and design decisions into coherent case study writing requires significant effort that often happens at the end of a project, when energy is lowest. The planning focus became clear — test AI assistance at the handoff points, where messy input needs to become structured output.</p>
+  </div>
+  <div class="case-section reveal">
+    <h3>Designing the Solution</h3>
+    <p>I tested Claude across three common UX activities to evaluate where it added the most value.</p>
+    <ul>
+      <li><strong>Research Synthesis —</strong> I provided raw notes, transcripts, and audit findings and prompted Claude to organize them into structured insight summaries. Results were strongest when prompts clearly defined role, context, and expected output format. Structured prompts produced actionable insights; vague prompts produced generic summaries.</li>
+      <li><strong>Ideation Support —</strong> I used Claude to explore alternative design directions and interaction patterns during early concepting. Rather than generating final solutions, AI was most useful as a thinking partner — surfacing options to evaluate, combine, or discard. Human judgment remained essential at every step.</li>
+      <li><strong>Documentation —</strong> Claude helped transform rough notes and bullet points into structured outlines for case studies and project documentation. Having a structured starting point significantly reduced the time spent staring at a blank page.</li>
+    </ul>
+  </div>
+  <div class="case-section reveal">
+    <h3>Key Insights</h3>
+    <p><strong>AI performs best with structure.</strong> Clear prompts that define the role, context, and goal consistently produced stronger results than open-ended requests. Iteration was equally important — the best outputs came from refining prompts and building on previous responses rather than expecting a single perfect result.</p>
+    <p><strong>AI is most effective at organizing complexity.</strong> It can quickly structure large amounts of messy information, which is exactly where design workflows slow down. What it cannot do is replace a designer's judgment about feasibility, usability, or alignment with real user needs.</p>
+    <p><strong>Human-centered design remains at the core.</strong> AI can generate ideas and structure information, but designers still need to evaluate every output against user research, business goals, and technical reality. The tool is only as effective as the judgment applied to its outputs.</p>
+  </div>
+  <div class="case-section reveal">
+    <h3>Results</h3>
+    <div class="result-chips">
+      <div class="result-chip"><span class="num">↑</span><span class="lbl">Ideation velocity</span></div>
+      <div class="result-chip"><span class="num">↑</span><span class="lbl">Research synthesis speed</span></div>
+      <div class="result-chip"><span class="num">↑</span><span class="lbl">Documentation clarity</span></div>
+    </div>
+    <p style="margin-top:1.5rem;color:#444;font-size:.92rem;line-height:1.88;">Used intentionally, AI can help designers accelerate early ideation, synthesize research more quickly, improve documentation clarity, and explore multiple solution paths in less time. Rather than replacing design thinking, it acts as a collaborative tool that supports deeper exploration and clearer communication — most effective when treated as a workflow tool, not a shortcut.</p>
   </div>
 </div>
 
@@ -559,7 +643,7 @@
     <div class="resume-box reveal">
       <div>
         <h3>David R. Bailey</h3>
-        <p>UX/UI Designer & Technologist with 25+ years of cross-industry leadership. Available for remote roles — open to the Springfield, OH area for the right opportunity. Download my full resume to see work history, certifications, and more.</p>
+        <p>UX/UI Designer &amp; Technologist with 25+ years of cross-industry leadership. Available for remote roles — open to the Springfield, OH area for the right opportunity. Download my full resume to see work history, certifications, and more.</p>
       </div>
       <a href="/David_R_Bailey_Resume.pdf" target="_blank" class="btn btn-primary">Download Resume</a>
     </div>
@@ -600,30 +684,43 @@
 </footer>
 
 <script>
-  const obs=new IntersectionObserver(entries=>{
-    entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
-  },{threshold:.12});
-  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-  function openCase(){
+  function openCase() {
     document.getElementById('case-study-detail').classList.add('open');
-    document.getElementById('work').style.display='none';
+    document.getElementById('work').style.display = 'none';
     document.getElementById('case-study-detail').scrollIntoView({behavior:'smooth'});
   }
-  function closeCase(){
+  function closeCase() {
     document.getElementById('case-study-detail').classList.remove('open');
-    document.getElementById('work').style.display='';
+    document.getElementById('work').style.display = '';
     document.getElementById('work').scrollIntoView({behavior:'smooth'});
   }
 
-  // Show thank-you message if redirected back after Netlify form submission
+  function openCaseAI() {
+    document.getElementById('case-study-detail-ai').classList.add('open');
+    document.getElementById('work').style.display = 'none';
+    document.getElementById('case-study-detail-ai').scrollIntoView({behavior:'smooth'});
+  }
+  function closeCaseAI() {
+    document.getElementById('case-study-detail-ai').classList.remove('open');
+    document.getElementById('work').style.display = '';
+    document.getElementById('work').scrollIntoView({behavior:'smooth'});
+  }
+
   const params = new URLSearchParams(window.location.search);
   if(params.get('submitted') === 'true'){
     const note = document.getElementById('form-note');
     if(note){
       note.style.color = '#2dd4bf';
-      note.textContent = 'Thanks for reaching out — I\'ll be in touch soon!';
+      note.textContent = "Thanks for reaching out — I'll be in touch soon!";
       document.getElementById('contact').scrollIntoView({behavior:'smooth'});
     }
   }
 </script>
+
+</body>
+</html>
