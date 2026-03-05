@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -711,3 +712,122 @@
       </div>
     </div>
   </div>
+
+  <div class="case-section reveal">
+    <h3>Designing the Solution</h3>
+    <p>I tested Claude across three common UX activities to evaluate where it added the most value.</p>
+    <ul>
+      <li><strong>Research Synthesis —</strong> I provided raw notes, transcripts, and audit findings and prompted Claude to organize them into structured insight summaries. Results were strongest when prompts clearly defined role, context, and expected output format. Structured prompts produced actionable insights; vague prompts produced generic summaries.</li>
+      <li><strong>Ideation Support —</strong> I used Claude to explore alternative design directions and interaction patterns during early concepting. Rather than generating final solutions, AI was most useful as a thinking partner — surfacing options to evaluate, combine, or discard. Human judgment remained essential at every step.</li>
+      <li><strong>Documentation —</strong> Claude helped transform rough notes and bullet points into structured outlines for case studies and project documentation. Having a structured starting point significantly reduced the time spent staring at a blank page.</li>
+    </ul>
+  </div>
+  <div class="case-section reveal">
+    <h3>Key Insights</h3>
+    <p><strong>AI performs best with structure.</strong> Clear prompts that define the role, context, and goal consistently produced stronger results than open-ended requests. Iteration was equally important — the best outputs came from refining prompts and building on previous responses rather than expecting a single perfect result.</p>
+    <p><strong>AI is most effective at organizing complexity.</strong> It can quickly structure large amounts of messy information, which is exactly where design workflows slow down. What it cannot do is replace a designer's judgment about feasibility, usability, or alignment with real user needs.</p>
+    <p><strong>Human-centered design remains at the core.</strong> AI can generate ideas and structure information, but designers still need to evaluate every output against user research, business goals, and technical reality. The tool is only as effective as the judgment applied to its outputs.</p>
+  </div>
+  <div class="case-section reveal">
+    <h3>Results</h3>
+    <div class="result-chips">
+      <div class="result-chip"><span class="num">↑</span><span class="lbl">Ideation velocity</span></div>
+      <div class="result-chip"><span class="num">↑</span><span class="lbl">Research synthesis speed</span></div>
+      <div class="result-chip"><span class="num">↑</span><span class="lbl">Documentation clarity</span></div>
+    </div>
+    <p style="margin-top:1.5rem;color:#444;font-size:.92rem;line-height:1.88;">Used intentionally, AI can help designers accelerate early ideation, synthesize research more quickly, improve documentation clarity, and explore multiple solution paths in less time. Rather than replacing design thinking, it acts as a collaborative tool that supports deeper exploration and clearer communication — most effective when treated as a workflow tool, not a shortcut.</p>
+  </div>
+</div>
+
+<!-- RESUME -->
+<div id="resume">
+  <div class="resume-inner">
+    <div class="reveal">
+      <p class="section-label">Resume</p>
+      <h2>Experience &amp; credentials</h2>
+      <hr class="rule"/>
+    </div>
+    <div class="resume-box reveal">
+      <div>
+        <h3>David R. Bailey</h3>
+        <p>UX/UI Designer &amp; Technologist with 25+ years of cross-industry leadership. Available for remote roles — open to the Springfield, OH area for the right opportunity. Download my full resume to see work history, certifications, and more.</p>
+      </div>
+      <a href="/David_R_Bailey_Resume.pdf" target="_blank" class="btn btn-primary">Download Resume</a>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="reveal">
+    <p class="section-label">Contact</p>
+    <h2>Let's work together</h2>
+    <hr class="rule"/>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info reveal">
+      <p>I'm open to freelance projects, full-time opportunities, and collaborations. If you have a design challenge that needs a thoughtful approach, I'd love to hear about it.</p>
+      <div class="social-links">
+        <a href="http://www.linkedin.com/in/davidbaileyjr" target="_blank" class="social-link"><span class="social-icon">in</span> LinkedIn</a>
+        <a href="https://instagram.com/david.r.bailey" target="_blank" class="social-link"><span class="social-icon">ig</span> Instagram</a>
+        <a href="http://facebook.com/david.bailey.2693" target="_blank" class="social-link"><span class="social-icon">fb</span> Facebook</a>
+      </div>
+    </div>
+    <form class="reveal" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="contact"/>
+      <p style="display:none;"><label>Don't fill this out: <input name="bot-field"/></label></p>
+      <div class="form-group"><label>Name</label><input type="text" name="name" placeholder="Your name" required/></div>
+      <div class="form-group"><label>Email</label><input type="email" name="email" placeholder="your@email.com" required/></div>
+      <div class="form-group"><label>Message</label><textarea name="message" placeholder="Tell me about your project…" required></textarea></div>
+      <button type="submit" class="btn btn-primary" style="align-self:flex-start;margin-top:.5rem;">Send Message</button>
+      <p class="form-note" id="form-note"></p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 David R. Bailey — UX/UI Designer</p>
+  <p>Designed with intention.</p>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  function openCase() {
+    document.getElementById('case-study-detail').classList.add('open');
+    document.getElementById('work').style.display = 'none';
+    document.getElementById('case-study-detail').scrollIntoView({behavior:'smooth'});
+  }
+  function closeCase() {
+    document.getElementById('case-study-detail').classList.remove('open');
+    document.getElementById('work').style.display = '';
+    document.getElementById('work').scrollIntoView({behavior:'smooth'});
+  }
+
+  function openCaseAI() {
+    document.getElementById('case-study-detail-ai').classList.add('open');
+    document.getElementById('work').style.display = 'none';
+    document.getElementById('case-study-detail-ai').scrollIntoView({behavior:'smooth'});
+  }
+  function closeCaseAI() {
+    document.getElementById('case-study-detail-ai').classList.remove('open');
+    document.getElementById('work').style.display = '';
+    document.getElementById('work').scrollIntoView({behavior:'smooth'});
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  if(params.get('submitted') === 'true'){
+    const note = document.getElementById('form-note');
+    if(note){
+      note.style.color = '#2dd4bf';
+      note.textContent = "Thanks for reaching out — I'll be in touch soon!";
+      document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+    }
+  }
+</script>
+
+</body>
+</html>
