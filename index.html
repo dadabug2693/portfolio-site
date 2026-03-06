@@ -191,6 +191,51 @@
   .result-chip .num{font-family:var(--font-serif);font-size:2rem;font-weight:bold;background:linear-gradient(135deg,var(--accent),#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;}
   .result-chip .lbl{font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;}
 
+  /* ── NAVEASE DASHBOARD EMBED ── */
+  .ne-dashboard-section {
+    margin: 2.5rem 0;
+    border: 2px solid var(--ink);
+  }
+  .ne-dashboard-header {
+    background: #0a0f1a;
+    padding: 1.4rem 1.8rem;
+    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 1px solid #1e3a5f;
+  }
+  .ne-dashboard-header-left { display: flex; flex-direction: column; gap: .3rem; }
+  .ne-dashboard-eyebrow {
+    font-size: .62rem; letter-spacing: .2em; text-transform: uppercase;
+    color: #2dd4bf; font-weight: 700;
+  }
+  .ne-dashboard-title {
+    font-family: var(--font-serif); font-size: 1.1rem; color: #fff;
+    font-weight: bold; line-height: 1.2;
+  }
+  .ne-dashboard-badge {
+    font-size: .65rem; letter-spacing: .15em; text-transform: uppercase;
+    font-weight: 700; padding: .3rem .9rem; border-radius: 20px;
+    background: rgba(45,212,191,.15); color: #2dd4bf;
+    border: 1px solid rgba(45,212,191,.3);
+  }
+  .ne-dashboard-frame {
+    width: 100%; height: 640px; border: none; display: block;
+    background: #0a0e1a;
+  }
+  .ne-dashboard-caption {
+    background: #f7f3ed; border-top: 1px solid var(--border);
+    padding: .9rem 1.8rem; display: flex; align-items: center; gap: .8rem;
+  }
+  .ne-dashboard-caption-icon {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: linear-gradient(135deg, #2dd4bf, #7c3aed);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; flex-shrink: 0; color: #fff;
+  }
+  .ne-dashboard-caption p {
+    font-size: .78rem; color: #666; line-height: 1.6; margin: 0;
+  }
+  .ne-dashboard-caption strong { color: var(--ink); }
+
   /* ── NAVEASE DASHBOARD STYLES ── */
   .ne-hero-banner{
     background:var(--ink);border:2px solid var(--ink);
@@ -757,6 +802,34 @@
       <li>Designed slide architecture to guide non-technical audiences from problem to solution to business case without losing fidelity</li>
     </ul>
     <p>This phase reinforced a principle that runs through all of my work: the ability to translate between technical and non-technical contexts is itself a design skill — and often the one that determines whether good work actually ships.</p>
+  </div>
+
+  <!-- Dashboard Prototype -->
+  <div class="case-section reveal">
+    <h3>Dashboard Prototype</h3>
+    <p>To demonstrate NavEase's analytics layer in a tangible, interactive format, I built a functional dashboard prototype representing what the developer-facing interface would look like in production. This artifact bridges the proposal's written and visual components — translating the presentation's static infographic into a live, navigable tool.</p>
+    <p style="margin-bottom:1.5rem;">The prototype surfaces every core metric identified in the research phase: user activity scores, task completion benchmarks, traffic source breakdowns, page view distributions, navigation path analysis, global user distribution, and age-segmented retention rates — all rendered in real time with animated data visualizations.</p>
+    <div class="ne-dashboard-section">
+      <div class="ne-dashboard-header">
+        <div class="ne-dashboard-header-left">
+          <span class="ne-dashboard-eyebrow">Interactive Prototype · NavEase Analytics</span>
+          <span class="ne-dashboard-title">Developer Dashboard — Live UX Metrics View</span>
+        </div>
+        <span class="ne-dashboard-badge">⬤ Live Prototype</span>
+      </div>
+      <iframe
+        class="ne-dashboard-frame"
+        src="/navease-dashboard.html"
+        title="NavEase Analytics Dashboard Prototype"
+        loading="lazy"
+        scrolling="yes">
+      </iframe>
+      <div class="ne-dashboard-caption">
+        <div class="ne-dashboard-caption-icon">◈</div>
+        <p><strong>What you're seeing:</strong> A fully functional front-end prototype of the NavEase developer dashboard — built with HTML, CSS, and JavaScript. It demonstrates the analytics interface proposed in the NavEase product brief: real-time UX metrics, traffic source analysis, navigation path visualization, global user distribution, and user retention segmentation by age group. Scroll and interact within the frame to explore all panels.</p>
+      </div>
+    </div>
+    <p style="margin-top:1.5rem;">Building this prototype reinforced a key design principle from the research phase: <em>developers need visibility, not just guidance.</em> The dashboard doesn't tell teams what to fix — it shows them exactly where users drop off, which navigation paths are over- and under-used, and how retention differs across user segments. That specificity is what separates actionable analytics from decorative data.</p>
   </div>
 
   <!-- Impact -->
