@@ -178,9 +178,11 @@
 
   /* CASE DETAIL */
   #case-study-detail,
-  #case-study-detail-ai{display:none;padding:7rem 4rem;max-width:1100px;margin:0 auto;}
+  #case-study-detail-ai,
+  #case-study-detail-navease{display:none;padding:7rem 4rem;max-width:1100px;margin:0 auto;}
   #case-study-detail.open,
-  #case-study-detail-ai.open{display:block;}
+  #case-study-detail-ai.open,
+  #case-study-detail-navease.open{display:block;}
   .back-btn{background:none;border:none;cursor:pointer;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:2.5rem;display:flex;align-items:center;gap:.5rem;padding:0;color:var(--ink);border-bottom:2px solid var(--accent);padding-bottom:.2rem;font-family:var(--font-sans);}
   .back-btn::before{content:'←';}
   .case-meta-row{display:flex;gap:2rem;flex-wrap:wrap;color:var(--muted);font-size:.8rem;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);}
@@ -503,6 +505,29 @@
     </div>
   </div>
 
+  <!-- NavEase -->
+  <div class="cs-ai reveal" style="margin-top:1.5rem;">
+    <div class="cs-ai-panel" style="background:#0a0f1a;">
+      <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width=".8" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="5" y="2" width="14" height="20" rx="2"/><path d="M9 7h6M9 11h6M9 15h4"/>
+        <circle cx="17" cy="17" r="3"/><path d="m19 19 1.5 1.5"/>
+      </svg>
+    </div>
+    <div class="cs-ai-body">
+      <div>
+        <p class="cs-issue">Product Design · AI Integration · Mobile UX</p>
+        <h3>NavEase — Mobile Navigation Intelligence</h3>
+        <p>A end-to-end product proposal addressing one of mobile's most persistent problems: navigation that drives users away. Combines AI-powered personalization, contextual onboarding, and developer analytics into a scalable, technically grounded solution.</p>
+        <button class="cs-link" onclick="openCaseNavEase()">Read Case Study →</button>
+      </div>
+      <div class="cs-stats-row">
+        <div class="cs-stat"><span>43%</span><span>App abandonment rate addressed</span></div>
+        <div class="cs-stat"><span>150%</span><span>Projected ROI year one</span></div>
+        <div class="cs-stat"><span>20wk</span><span>Plan to deployment</span></div>
+      </div>
+    </div>
+  </div>
+
   <!-- AI Workflow -->
   <div class="cs-ai reveal">
     <div class="cs-ai-panel">
@@ -600,6 +625,117 @@
       <div class="result-chip"><span class="num">9yr</span><span class="lbl">Ongoing partnership</span></div>
     </div>
     <p style="margin-top:1.5rem;color:#444;font-size:.92rem;line-height:1.88;">This project reinforced that effective UX is often about prioritization rather than expansion. By aligning analytics, user behavior insights, and business goals, the website evolved from an information hub into a structured engagement tool — and the broader technology partnership ensured the church's entire digital infrastructure could support that growth.</p>
+  </div>
+</div>
+
+<!-- NAVEASE CASE DETAIL -->
+<div id="case-study-detail-navease">
+  <button class="back-btn" onclick="closeCaseNavEase()">Back to Work</button>
+  <div class="reveal">
+    <p class="section-label">Case Study</p>
+    <h2>NavEase — Mobile Navigation Intelligence</h2>
+    <div class="case-meta-row">
+      <span><strong>Role:</strong> UX Strategist &amp; Product Designer</span>
+      <span><strong>Timeline:</strong> 20 Weeks — Planning to Deployment</span>
+      <span><strong>Tools:</strong> Figma, PowerPoint, Venngage, Cameo, React, Django, AWS</span>
+    </div>
+  </div>
+
+  <div class="case-section reveal">
+    <h3>Project Overview</h3>
+    <p>NavEase is a mobile app navigation solution that combines AI-powered personalization, contextual onboarding, and developer analytics to solve one of the most persistent challenges in mobile UX: confusing, inefficient navigation that drives users away before they ever discover the product's value.</p>
+    <p>This project demonstrates end-to-end product thinking — from identifying a measurable user problem to proposing a technically grounded, scalable solution with clear business impact. It was developed as a complete product proposal covering every stage from problem discovery through technical architecture and go-to-market planning.</p>
+    <div class="result-chips" style="margin-top:1.5rem;">
+      <div class="result-chip"><span class="num">43%</span><span class="lbl">Users abandon apps due to poor navigation</span></div>
+      <div class="result-chip"><span class="num">150%</span><span class="lbl">Projected ROI increase year one</span></div>
+      <div class="result-chip"><span class="num">20wk</span><span class="lbl">Planning to deployment</span></div>
+    </div>
+  </div>
+
+  <div class="case-section reveal">
+    <h3>The Problem</h3>
+    <p>Poor mobile app navigation is a critical and widespread pain point. Research shows that 43% of users abandon apps when they encounter navigation problems — not because the product lacks value, but because users can't find it. These issues compound into serious business consequences: low retention, increased customer support load, and direct revenue loss.</p>
+    <ul>
+      <li>Confusing menu structures leading to user frustration and disengagement</li>
+      <li>Important features buried deep within interfaces, reducing discoverability</li>
+      <li>Convoluted multi-step task flows that slow users down</li>
+      <li>Static, one-time onboarding tutorials that don't adapt as users explore</li>
+      <li>No personalization — every user gets the same experience regardless of behavior</li>
+      <li>Accessibility gaps leaving portions of the user base underserved</li>
+      <li>Developer blind spots — teams lack real-time visibility into where users struggle</li>
+    </ul>
+  </div>
+
+  <div class="case-section reveal">
+    <h3>Research &amp; Problem Definition</h3>
+    <p>The research phase focused on quantifying the navigation problem and identifying exactly where and why users disengage. Rather than relying on anecdotal evidence, I grounded the problem in behavioral data and industry research.</p>
+    <ul>
+      <li>Analyzed user behavior data and industry research to quantify the navigation abandonment problem</li>
+      <li>Mapped user task flows to identify specific friction points and drop-off moments</li>
+      <li>Conducted a structured usability breakdown to categorize and prioritize interface issues by severity and frequency</li>
+      <li>Developed personas for the primary developer audience: tech-savvy professionals aged 25–45 prioritizing efficiency and data-driven product insights</li>
+    </ul>
+    <p>A key insight from this phase: most navigation failures aren't the result of bad design intent — they're the result of teams building without real-time visibility into how users actually move through their product. NavEase addresses both sides of that problem.</p>
+  </div>
+
+  <div class="case-section reveal">
+    <h3>The Solution</h3>
+    <p>NavEase addresses navigation failures through a suite of intelligent, user-centered features designed for both end-users and the developers building for them. The dual-audience strategy was a deliberate product decision — solving only the user side without giving developers the tools to maintain and improve navigation over time would create an incomplete solution.</p>
+    <ul>
+      <li><strong>AI-Powered Navigation —</strong> Adapts menu structure and content based on individual user behavior, reducing friction over time without requiring manual reconfiguration.</li>
+      <li><strong>Contextual Onboarding &amp; Tooltips —</strong> Provides real-time, in-context guidance rather than static one-time tutorials that users skip and forget.</li>
+      <li><strong>Predictive Search &amp; Shortcuts —</strong> Surfaces relevant features proactively based on usage patterns, reducing the cognitive load of navigation entirely.</li>
+      <li><strong>User Flow Mapping —</strong> Gives developers a visual map of how users navigate their app — the missing visibility layer most teams lack.</li>
+      <li><strong>Heatmap Analytics —</strong> Shows exactly where users tap, hesitate, and drop off, enabling targeted iteration rather than guesswork.</li>
+      <li><strong>Pre-Designed UX Templates —</strong> Accelerates development with research-backed navigation patterns, reducing time-to-quality for new products.</li>
+    </ul>
+  </div>
+
+  <div class="case-section reveal">
+    <h3>Technical Architecture</h3>
+    <p>A product proposal without a credible technical foundation is just a concept. NavEase was designed with a production-ready architecture from the start — scalable, modular, and compliant with enterprise data requirements.</p>
+    <ul>
+      <li><strong>Front-end:</strong> React (JavaScript) — component-based UI enabling rapid iteration and broad developer adoption</li>
+      <li><strong>Back-end:</strong> Python / Django — robust, well-supported framework suited for AI/ML integration</li>
+      <li><strong>Database:</strong> PostgreSQL — reliable relational structure for behavioral and analytics data</li>
+      <li><strong>Cloud infrastructure:</strong> AWS with auto-scaling — ensures performance under variable load without over-provisioning</li>
+      <li><strong>Architecture:</strong> Microservices model enabling independent scaling of AI, analytics, and onboarding modules</li>
+      <li><strong>Compliance:</strong> GDPR and HIPAA compliance built into the data architecture — enabling deployment across healthcare, finance, and enterprise contexts</li>
+    </ul>
+  </div>
+
+  <div class="case-section reveal">
+    <h3>Planning &amp; Execution</h3>
+    <p>The 20-week implementation roadmap was structured across five phases to ensure quality at each stage without compressing testing or deployment timelines — two areas where product teams most commonly cut corners and pay for it later.</p>
+    <ul>
+      <li><strong>Phase 1 — Planning (Weeks 1–3):</strong> Requirements definition, stakeholder alignment, technical spec finalization</li>
+      <li><strong>Phase 2 — Design (Weeks 4–7):</strong> UX design, AI model architecture, template library development</li>
+      <li><strong>Phase 3 — Development (Weeks 8–14):</strong> Front-end and back-end build, AI training, analytics pipeline</li>
+      <li><strong>Phase 4 — Testing (Weeks 15–17):</strong> Usability testing, performance testing, security and compliance audit</li>
+      <li><strong>Phase 5 — Deployment (Weeks 18–20):</strong> Staged rollout, monitoring, go-to-market activation</li>
+    </ul>
+    <p>Risk mitigation strategies were documented for AI bias, data security, development delays, and scaling challenges. Total budget: $150K development, $50K AI training, $20K cloud infrastructure.</p>
+  </div>
+
+  <div class="case-section reveal">
+    <h3>Communication &amp; Storytelling</h3>
+    <p>A technically sound product proposal only creates value if it can be communicated clearly to the people who need to act on it. This phase required translating complex UX and architectural concepts into materials accessible to non-technical stakeholders.</p>
+    <ul>
+      <li>Synthesized a technical research paper into a compelling visual presentation using PowerPoint and Venngage infographics</li>
+      <li>Produced video narration via Cameo to deliver the proposal in a format suited for async stakeholder review</li>
+      <li>Designed slide architecture to guide non-technical audiences from problem to solution to business case without losing fidelity</li>
+    </ul>
+    <p>This phase reinforced a principle that runs through all of my work: the ability to translate between technical and non-technical contexts is itself a design skill — and often the one that determines whether good work actually ships.</p>
+  </div>
+
+  <div class="case-section reveal">
+    <h3>Impact &amp; Outcomes</h3>
+    <div class="result-chips">
+      <div class="result-chip"><span class="num">150%</span><span class="lbl">Projected ROI year one</span></div>
+      <div class="result-chip"><span class="num">25%</span><span class="lbl">AI energy reduction vs. comparable tools</span></div>
+      <div class="result-chip"><span class="num">↑</span><span class="lbl">User retention &amp; discoverability</span></div>
+    </div>
+    <p style="margin-top:1.5rem;color:#444;font-size:.92rem;line-height:1.88;">NavEase demonstrates that the most impactful UX solutions address both sides of the product relationship — the user experience and the developer's ability to understand and improve it. By combining AI personalization with real-time analytics, NavEase creates a feedback loop that makes products smarter over time rather than requiring constant manual redesign. The architecture supports future expansion to wearables and IoT, and the sustainability-first infrastructure positions it for global enterprise adoption.</p>
   </div>
 </div>
 
@@ -801,6 +937,17 @@
   }
   function closeCase() {
     document.getElementById('case-study-detail').classList.remove('open');
+    document.getElementById('work').style.display = '';
+    document.getElementById('work').scrollIntoView({behavior:'smooth'});
+  }
+
+  function openCaseNavEase() {
+    document.getElementById('case-study-detail-navease').classList.add('open');
+    document.getElementById('work').style.display = 'none';
+    document.getElementById('case-study-detail-navease').scrollIntoView({behavior:'smooth'});
+  }
+  function closeCaseNavEase() {
+    document.getElementById('case-study-detail-navease').classList.remove('open');
     document.getElementById('work').style.display = '';
     document.getElementById('work').scrollIntoView({behavior:'smooth'});
   }
