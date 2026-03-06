@@ -140,8 +140,6 @@
   .cs-stat span:last-child{font-size:.68rem;color:var(--muted);}
   .cs-link{font-size:.73rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);font-weight:700;display:inline-flex;align-items:center;gap:.4rem;background:none;border:none;border-bottom:2px solid var(--accent);padding-bottom:.1rem;cursor:pointer;transition:color .2s;font-family:var(--font-sans);}
   .cs-link:hover{color:var(--accent);}
-
-  /* AI case study card — dark panel */
   .cs-ai{display:grid;grid-template-columns:1fr 1.3fr;gap:0;border:2px solid var(--ink);margin-top:1.5rem;}
   .cs-ai-panel{background:#0d0d0d;min-height:320px;overflow:hidden;}
   .cs-ai-panel img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;}
@@ -169,14 +167,9 @@
   .wf-insight{background:#111;padding:.9rem 1rem;border-left:2px solid #2dd4bf;}
   .wf-insight-label{font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:#2dd4bf;font-weight:700;margin-bottom:.25rem;}
   .wf-insight-text{font-size:.72rem;color:#888;line-height:1.6;}
-  @media(max-width:768px){
-    .wf-phases,.wf-insights{grid-template-columns:1fr;}
-    .wf-flow{grid-template-columns:1fr;}
-    .wf-flow-arrow{transform:rotate(90deg);}
-  }
   .cs-ai-body{padding:2.5rem;display:flex;flex-direction:column;justify-content:space-between;border-left:2px solid var(--ink);background:var(--glass);backdrop-filter:blur(14px);}
 
-  /* CASE DETAIL */
+  /* CASE DETAIL — shared */
   #case-study-detail,
   #case-study-detail-ai,
   #case-study-detail-navease{display:none;padding:7rem 4rem;max-width:1100px;margin:0 auto;}
@@ -197,6 +190,91 @@
   .result-chip:last-child{border-right:none;}
   .result-chip .num{font-family:var(--font-serif);font-size:2rem;font-weight:bold;background:linear-gradient(135deg,var(--accent),#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;}
   .result-chip .lbl{font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;}
+
+  /* ── NAVEASE DASHBOARD STYLES ── */
+  .ne-hero-banner{
+    background:var(--ink);border:2px solid var(--ink);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    padding:3.5rem 2rem;margin-bottom:2.5rem;position:relative;overflow:hidden;
+  }
+  .ne-hero-banner::before{
+    content:'';position:absolute;inset:0;
+    background:radial-gradient(ellipse at 50% 0%,rgba(45,212,191,.18),transparent 65%);
+    pointer-events:none;
+  }
+  .ne-hero-tag{
+    font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--accent);font-weight:700;margin-bottom:1rem;
+  }
+  .ne-hero-banner h2{
+    font-family:var(--font-serif);font-size:clamp(1.8rem,4vw,2.8rem);
+    color:#fff;font-weight:bold;line-height:1.1;letter-spacing:-.02em;
+    text-align:center;margin-bottom:.8rem;
+  }
+  .ne-hero-banner h2 em{color:var(--accent);font-style:italic;}
+  .ne-hero-deck{font-size:.88rem;color:#888;text-align:center;max-width:520px;line-height:1.8;}
+
+  /* stats row */
+  .ne-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:2px solid var(--ink);margin-bottom:3rem;}
+  .ne-stat{padding:1.8rem 1.5rem;text-align:center;border-right:1px solid var(--border);background:var(--glass);backdrop-filter:blur(10px);}
+  .ne-stat:last-child{border-right:none;}
+  .ne-stat-num{font-family:var(--font-serif);font-size:2.2rem;font-weight:bold;line-height:1;margin-bottom:.3rem;background:linear-gradient(135deg,var(--accent),#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+  .ne-stat:nth-child(2) .ne-stat-num{background:linear-gradient(135deg,#2dd4bf,#0ea5e9);-webkit-background-clip:text;background-clip:text;}
+  .ne-stat:nth-child(3) .ne-stat-num{background:linear-gradient(135deg,#f97316,#ec4899);-webkit-background-clip:text;background-clip:text;}
+  .ne-stat-label{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700;}
+  .ne-stat-sub{font-size:.75rem;color:var(--muted);margin-top:.3rem;}
+
+  /* tab nav */
+  .ne-tabs{display:flex;gap:0;border:2px solid var(--ink);width:fit-content;margin-bottom:1.5rem;}
+  .ne-tab{padding:.55rem 1.4rem;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;background:transparent;color:var(--muted);border:none;border-right:1px solid var(--border);cursor:pointer;transition:.15s;font-family:var(--font-sans);}
+  .ne-tab:last-child{border-right:none;}
+  .ne-tab.active{background:var(--ink);color:#fff;}
+  .ne-tab-pane{display:none;}
+  .ne-tab-pane.active{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);}
+  .ne-card{background:var(--bg);padding:1.4rem;transition:.15s;}
+  .ne-card:hover{background:rgba(45,212,191,.06);}
+  .ne-card-tag{font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;color:var(--accent2);font-weight:700;margin-bottom:.5rem;}
+  .ne-card h4{font-family:var(--font-serif);font-size:.95rem;font-weight:bold;margin-bottom:.4rem;color:var(--ink);}
+  .ne-card p{font-size:.8rem;color:#666;line-height:1.6;}
+
+  /* roadmap */
+  .ne-roadmap{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);border:2px solid var(--ink);margin-bottom:2.5rem;}
+  .ne-phase{background:var(--bg);padding:1.4rem 1.1rem;transition:.15s;}
+  .ne-phase:hover{background:rgba(45,212,191,.06);}
+  .ne-phase-num{font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;color:var(--accent2);font-weight:700;margin-bottom:.4rem;}
+  .ne-phase-name{font-family:var(--font-serif);font-size:.95rem;font-weight:bold;color:var(--ink);margin-bottom:.2rem;}
+  .ne-phase-weeks{font-size:.72rem;color:var(--muted);margin-bottom:.8rem;}
+  .ne-phase-tasks{list-style:none;}
+  .ne-phase-tasks li{font-size:.75rem;color:#666;padding:.18rem 0;padding-left:.9rem;position:relative;}
+  .ne-phase-tasks li::before{content:'—';position:absolute;left:0;color:var(--accent);}
+
+  /* budget + skills */
+  .ne-two-col{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start;margin-bottom:2.5rem;}
+  @media(max-width:640px){.ne-two-col{grid-template-columns:1fr;}}
+  .ne-budget-title{font-family:var(--font-serif);font-size:1rem;font-weight:bold;color:var(--ink);margin-bottom:1.2rem;}
+  .ne-bar-item{margin-bottom:1.1rem;}
+  .ne-bar-top{display:flex;justify-content:space-between;font-size:.78rem;margin-bottom:.35rem;}
+  .ne-bar-top span:first-child{color:var(--ink);font-weight:600;}
+  .ne-bar-top span:last-child{color:var(--muted);}
+  .ne-bar-track{height:3px;background:var(--border);}
+  .ne-bar-fill{height:100%;background:linear-gradient(90deg,var(--accent),#7c3aed);transition:width 1s ease;}
+  .ne-skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);}
+  .ne-skill-box{background:var(--bg);padding:1.1rem 1.2rem;}
+  .ne-skill-box h4{font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;color:var(--accent2);font-weight:700;margin-bottom:.6rem;}
+  .ne-skill-tag{display:inline-block;font-size:.7rem;background:rgba(45,212,191,.1);border:1px solid rgba(45,212,191,.25);color:var(--ink);padding:.18rem .55rem;margin:.15rem .15rem 0 0;}
+
+  /* impact */
+  .ne-impact{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:2px solid var(--ink);margin-bottom:2.5rem;}
+  @media(max-width:600px){.ne-impact{grid-template-columns:1fr 1fr;}}
+  .ne-impact-item{background:var(--bg);padding:1.5rem 1.3rem;transition:.15s;}
+  .ne-impact-item:hover{background:rgba(45,212,191,.06);}
+  .ne-impact-num{font-family:var(--font-serif);font-size:1.6rem;font-weight:bold;background:linear-gradient(135deg,var(--accent),#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.3rem;}
+  .ne-impact-item h4{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:.4rem;}
+  .ne-impact-item p{font-size:.78rem;color:#666;line-height:1.6;}
+
+  /* tech pills */
+  .ne-tech-pills{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem;}
+  .ne-tech-pill{font-size:.76rem;background:var(--glass);border:1px solid var(--glass-border);backdrop-filter:blur(8px);padding:.32rem .8rem;color:var(--ink);font-weight:600;}
 
   /* RESUME */
   #resume{background:rgba(232,226,216,.7);max-width:100%;padding:7rem 0;}
@@ -229,6 +307,7 @@
     .skills-grid{grid-template-columns:repeat(3,1fr);}
     .tl-grid{grid-template-columns:1fr;}
     .tl-wc-grid{grid-template-columns:repeat(3,1fr);}
+    .ne-roadmap{grid-template-columns:1fr 1fr;}
   }
   @media(max-width:768px){
     nav .nav-top{padding:.8rem 1.5rem;justify-content:center;}
@@ -236,7 +315,7 @@
     #hero{grid-template-columns:1fr;margin-top:100px;}
     .hero-right{height:320px;}
     .hero-left{padding:3rem 1.5rem;}
-    section,#case-study-detail,#case-study-detail-ai{padding-left:1.5rem;padding-right:1.5rem;}
+    section,#case-study-detail,#case-study-detail-ai,#case-study-detail-navease{padding-left:1.5rem;padding-right:1.5rem;}
     .skills-inner,.resume-inner,.tl-inner{padding-left:1.5rem;padding-right:1.5rem;}
     .strip-inner{grid-template-columns:1fr;padding:0 1.5rem;}
     .strip-img{width:100%;height:180px;}
@@ -248,6 +327,10 @@
     footer{padding:2rem 1.5rem;}
     h1{font-size:3rem;}
     .tl-wc-grid{grid-template-columns:repeat(2,1fr);}
+    .ne-stats,.ne-impact{grid-template-columns:1fr;}
+    .wf-phases,.wf-insights{grid-template-columns:1fr;}
+    .wf-flow{grid-template-columns:1fr;}
+    .wf-flow-arrow{transform:rotate(90deg);}
   }
 </style>
 </head>
@@ -285,22 +368,10 @@
       <a href="#contact" class="btn btn-outline">Get In Touch</a>
     </div>
     <div class="hero-stats">
-      <div class="stat-item">
-        <div class="stat-num">36</div>
-        <div class="stat-label">Operations scaled across 4 states</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">3%</div>
-        <div class="stat-label">Sustained multi-state revenue growth YoY</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">4.0</div>
-        <div class="stat-label">GPA · B.S. Computer Science</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">25+</div>
-        <div class="stat-label">Years of cross-industry leadership</div>
-      </div>
+      <div class="stat-item"><div class="stat-num">36</div><div class="stat-label">Operations scaled across 4 states</div></div>
+      <div class="stat-item"><div class="stat-num">3%</div><div class="stat-label">Sustained multi-state revenue growth YoY</div></div>
+      <div class="stat-item"><div class="stat-num">4.0</div><div class="stat-label">GPA · B.S. Computer Science</div></div>
+      <div class="stat-item"><div class="stat-num">25+</div><div class="stat-label">Years of cross-industry leadership</div></div>
     </div>
   </div>
   <div class="hero-right">
@@ -312,7 +383,7 @@
   </div>
 </div>
 
-<!-- FEATURED WORK STRIP -->
+<!-- FEATURED STRIP -->
 <div id="featured-strip">
   <div class="strip-inner">
     <div class="reveal">
@@ -348,20 +419,9 @@
     <div class="about-right reveal">
       <img class="about-img" src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=800&q=80" alt="Design process — wireframing in Figma"/>
       <p class="about-img-caption">Design process · Figma wireframing</p>
-      <div class="sidebar-card">
-        <h4>Education</h4>
-        <p class="deg">B.S. Computer Science – Software Development</p>
-        <p class="school">Tiffin University · Tiffin, OH · GPA 4.0</p>
-      </div>
-      <div class="sidebar-card">
-        <h4>Education</h4>
-        <p class="deg">A.S. Baking &amp; Pastry Arts — Honors, Silver Medalist</p>
-        <p class="school">Sullivan University · Louisville, KY</p>
-      </div>
-      <div class="sidebar-card">
-        <h4>Tools &amp; Platforms</h4>
-        <p>Figma · Adobe Photoshop · Blender · Shapr3D · Google Analytics · Hotjar · Wix · WordPress</p>
-      </div>
+      <div class="sidebar-card"><h4>Education</h4><p class="deg">B.S. Computer Science – Software Development</p><p class="school">Tiffin University · Tiffin, OH · GPA 4.0</p></div>
+      <div class="sidebar-card"><h4>Education</h4><p class="deg">A.S. Baking &amp; Pastry Arts — Honors, Silver Medalist</p><p class="school">Sullivan University · Louisville, KY</p></div>
+      <div class="sidebar-card"><h4>Tools &amp; Platforms</h4><p>Figma · Adobe Photoshop · Blender · Shapr3D · Google Analytics · Hotjar · Wix · WordPress</p></div>
     </div>
   </div>
 </section>
@@ -397,14 +457,8 @@
     <div class="tl-visuals reveal">
       <p class="tl-visuals-label">Pastry Design — Concept to Delivery</p>
       <div class="tl-visual-row">
-        <div class="tl-visual-wrap">
-          <img class="tl-visual-img" src="/images/cake-sketch.jpg" alt="Wedding cake design sketch"/>
-          <div class="tl-visual-cap">Design sketch · Client consultation phase</div>
-        </div>
-        <div class="tl-visual-wrap">
-          <img class="tl-visual-img" src="/images/sketch-final.jpg" alt="Finished wedding cake"/>
-          <div class="tl-visual-cap">Finished cake · Delivered result</div>
-        </div>
+        <div class="tl-visual-wrap"><img class="tl-visual-img" src="/images/cake-sketch.jpg" alt="Wedding cake design sketch"/><div class="tl-visual-cap">Design sketch · Client consultation phase</div></div>
+        <div class="tl-visual-wrap"><img class="tl-visual-img" src="/images/sketch-final.jpg" alt="Finished wedding cake"/><div class="tl-visual-cap">Finished cake · Delivered result</div></div>
       </div>
       <p class="tl-visuals-label">Cake Portfolio — Selected Works</p>
       <div class="tl-wc-grid" style="grid-template-columns:repeat(4,1fr);">
@@ -445,36 +499,11 @@
       <hr class="rule" style="border-top-color:#2a2a2a;"/>
     </div>
     <div class="skills-grid">
-      <div class="skill-group reveal">
-        <h3>Design &amp; UX</h3>
-        <ul class="skill-list">
-          <li>UX Research</li><li>UI Design</li><li>Wireframing</li><li>Prototyping</li><li>Figma / Adobe XD</li><li>Accessibility (WCAG)</li><li>Usability Testing</li>
-        </ul>
-      </div>
-      <div class="skill-group reveal">
-        <h3>Technical</h3>
-        <ul class="skill-list">
-          <li>IT Support</li><li>Troubleshooting</li><li>HTML / CSS</li><li>Wix / WordPress</li><li>Web Analytics</li><li>SEO Optimization</li><li>GitHub / Git</li>
-        </ul>
-      </div>
-      <div class="skill-group reveal">
-        <h3>Strategy &amp; Leadership</h3>
-        <ul class="skill-list">
-          <li>Project Management</li><li>People Management</li><li>Digital Strategy</li><li>Data-Driven Decisions</li><li>Mentorship</li><li>Budget Oversight</li>
-        </ul>
-      </div>
-      <div class="skill-group reveal">
-        <h3>Business</h3>
-        <ul class="skill-list">
-          <li>E-commerce</li><li>Targeted Marketing</li><li>Sales Leadership</li><li>Inventory Optimization</li><li>P&amp;L Analysis</li><li>Cross-functional Teams</li>
-        </ul>
-      </div>
-      <div class="skill-group reveal">
-        <h3>Creative &amp; Craft</h3>
-        <ul class="skill-list">
-          <li>Watercolor Painting</li><li>Wedding Cake Design</li><li>3D Modeling (Blender)</li><li>Shapr3D</li><li>Adobe Photoshop</li><li>Procreate</li><li>Illustration</li>
-        </ul>
-      </div>
+      <div class="skill-group reveal"><h3>Design &amp; UX</h3><ul class="skill-list"><li>UX Research</li><li>UI Design</li><li>Wireframing</li><li>Prototyping</li><li>Figma / Adobe XD</li><li>Accessibility (WCAG)</li><li>Usability Testing</li></ul></div>
+      <div class="skill-group reveal"><h3>Technical</h3><ul class="skill-list"><li>IT Support</li><li>Troubleshooting</li><li>HTML / CSS</li><li>Wix / WordPress</li><li>Web Analytics</li><li>SEO Optimization</li><li>GitHub / Git</li></ul></div>
+      <div class="skill-group reveal"><h3>Strategy &amp; Leadership</h3><ul class="skill-list"><li>Project Management</li><li>People Management</li><li>Digital Strategy</li><li>Data-Driven Decisions</li><li>Mentorship</li><li>Budget Oversight</li></ul></div>
+      <div class="skill-group reveal"><h3>Business</h3><ul class="skill-list"><li>E-commerce</li><li>Targeted Marketing</li><li>Sales Leadership</li><li>Inventory Optimization</li><li>P&amp;L Analysis</li><li>Cross-functional Teams</li></ul></div>
+      <div class="skill-group reveal"><h3>Creative &amp; Craft</h3><ul class="skill-list"><li>Watercolor Painting</li><li>Wedding Cake Design</li><li>3D Modeling (Blender)</li><li>Shapr3D</li><li>Adobe Photoshop</li><li>Procreate</li><li>Illustration</li></ul></div>
     </div>
   </div>
 </div>
@@ -507,17 +536,14 @@
 
   <!-- NavEase -->
   <div class="cs-ai reveal" style="margin-top:1.5rem;">
-    <div class="cs-ai-panel" style="background:#0a0f1a;">
-      <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width=".8" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="5" y="2" width="14" height="20" rx="2"/><path d="M9 7h6M9 11h6M9 15h4"/>
-        <circle cx="17" cy="17" r="3"/><path d="m19 19 1.5 1.5"/>
-      </svg>
+    <div class="cs-ai-panel" style="background:#0a0f1a;display:flex;align-items:center;justify-content:center;padding:2rem;">
+      <img src="/images/Nav.png" alt="NavEase Logo" style="width:220px;max-width:80%;object-fit:contain;"/>
     </div>
     <div class="cs-ai-body">
       <div>
         <p class="cs-issue">Product Design · AI Integration · Mobile UX</p>
         <h3>NavEase — Mobile Navigation Intelligence</h3>
-        <p>A end-to-end product proposal addressing one of mobile's most persistent problems: navigation that drives users away. Combines AI-powered personalization, contextual onboarding, and developer analytics into a scalable, technically grounded solution.</p>
+        <p>An end-to-end product proposal addressing one of mobile's most persistent problems: navigation that drives users away. Combines AI-powered personalization, contextual onboarding, and developer analytics into a scalable, technically grounded solution.</p>
         <button class="cs-link" onclick="openCaseNavEase()">Read Case Study →</button>
       </div>
       <div class="cs-stats-row">
@@ -530,9 +556,7 @@
 
   <!-- AI Workflow -->
   <div class="cs-ai reveal">
-    <div class="cs-ai-panel">
-      <img src="/images/ai-card.jpg" alt="AI-assisted UX workflow"/>
-    </div>
+    <div class="cs-ai-panel"><img src="/images/ai-card.jpg" alt="AI-assisted UX workflow"/></div>
     <div class="cs-ai-body">
       <div>
         <p class="cs-issue">UX Research · AI-Assisted Workflows</p>
@@ -561,111 +585,99 @@
       <span><strong>Tools:</strong> Figma, Wix, WordPress, Google Analytics, Hotjar</span>
     </div>
   </div>
-  <div class="case-section reveal">
-    <h3>Project Overview</h3>
-    <p>What began as a website redesign has evolved into a 9-year ongoing technology partnership with Springfield Church of Christ. Over that time, I've served as the church's de facto technology advisor — leading a full UX redesign and digital strategy, integrating a networked camera security system, managing and upgrading the church's network infrastructure, advising on hardware procurement and specifications for three computer replacements, and working alongside the church's Audio and Video team to build and maintain a live streaming capability that has kept the congregation connected through illness, distance, and the COVID-19 pandemic.</p>
-    <p>The website redesign — and the digital strategy surrounding it — is one major initiative within a much broader, trust-based relationship. That relationship itself is part of the story.</p>
-  </div>
-  <div class="case-section reveal">
-    <h3>The Challenge</h3>
-    <p>First-time visitors were struggling to find essential information. Service times, beliefs, and event details required multiple clicks, with no clear calls to action guiding next steps. But the digital challenges ran deeper than the website.</p>
-    <ul>
-      <li>Low digital engagement limited outreach and community growth</li>
-      <li>Inconsistent event participation with no digital conversion path</li>
-      <li>Website and social media operated in silos</li>
-      <li>No live streaming capability — services were inaccessible to remote or ill congregants</li>
-      <li>Aging, unmanaged network infrastructure inadequate for modern digital demands</li>
-      <li>Outdated hardware with no clear procurement or replacement strategy</li>
-      <li>No security camera system for facility monitoring</li>
-      <li>Limited budget and volunteer support across every initiative</li>
-    </ul>
-  </div>
-  <div class="case-section reveal">
-    <h3>Research &amp; Planning</h3>
-    <p>Analytics revealed high drop-off rates on key pages. Heatmaps indicated hesitation within primary navigation. Task-based walkthroughs confirmed visitors could find information, but it required too many steps.</p>
-    <ul>
-      <li>Critical information buried beneath layered navigation</li>
-      <li>Dense text reduced readability and engagement</li>
-      <li>No consistent CTA hierarchy guided user journeys</li>
-      <li>Social traffic lacked a defined conversion path</li>
-    </ul>
-  </div>
-  <div class="case-section reveal">
-    <h3>Designing the Solution</h3>
-    <p>The redesign centered on three primary user journeys: planning a visit, understanding beliefs, and discovering events. Wireframes validated structure before implementation. But the solution extended well beyond the website.</p>
-    <ul>
-      <li>Service times brought above the fold; "Plan Your Visit" as the primary CTA</li>
-      <li>Long-form content broken into scannable, human sections — especially "What We Believe"</li>
-      <li>Mobile-first layouts reflecting actual traffic patterns</li>
-      <li>Accessible color contrast and simplified navigation throughout</li>
-      <li>Networked camera security system installed and integrated for remote facility monitoring</li>
-      <li>Hardware advisory for three computer replacements — spec recommendations matched to actual use cases and budget</li>
-      <li>Network assessment and infrastructure upgrades to support streaming, security, and congregation-level demand</li>
-      <li>AV/streaming pipeline built in close collaboration with the church's Audio and Video team, enabling consistent live broadcast of Sunday services</li>
-    </ul>
-  </div>
-  <div class="case-section reveal">
-    <h3>Key Decisions &amp; Tradeoffs</h3>
-    <p><strong>Simplifying the nav rather than expanding it.</strong> Research and analytics consistently showed that older users — the church's primary demographic — were hesitating and dropping off within the navigation. My decision was to reduce, clarify, and surface the most critical paths. This became even more critical during the COVID-19 pandemic, when the site transformed from a supplementary resource into the church's primary point of contact with its community.</p>
-    <p><strong>Reducing content density on key pages.</strong> Several pages were essentially digitized paper documents — dense, text-heavy, and formatted for print, not screens. The decision to restructure this content into scannable, human sections required prioritizing comprehension over completeness.</p>
-    <p><strong>Prioritizing "Plan Your Visit" over other CTAs.</strong> Multiple CTA options competed for prominence. The decision to elevate "Plan Your Visit" was grounded in stakeholder input confirming new visitor attendance as the primary goal, and competitive analysis showing this language had become the regional standard — meaning users would already recognize and trust it.</p>
-    <p><strong>Working creatively within platform and budget constraints.</strong> This was a pro bono engagement with a client-mandated Wix platform. Rather than treating constraints as failures, I used them as forcing functions toward simplicity. I've also explored pointing the domain to Netlify or Cloudflare to host custom HTML builds, giving more design control while preserving access to Wix tools the client still relies on.</p>
-    <p><strong>Building a streaming infrastructure under pressure.</strong> When COVID-19 forced suspension of in-person services, the church had no existing capability to reach its congregation digitally. Working alongside the AV team, I helped design and implement a live streaming workflow that prioritized reliability over sophistication — making sure the service went out every Sunday without fail, to people who needed it.</p>
-  </div>
-  <div class="case-section reveal">
-    <h3>Ongoing Engagement</h3>
-    <p>Nine years is a long time to work with a single client. It's also the clearest signal I can offer that the work has delivered value. Over that period, the relationship has expanded from a focused redesign project into a broad technology advisory role — one built on trust, consistency, and the ability to translate complex technical decisions into plain language for non-technical stakeholders.</p>
-    <p>The church continues to reach congregants who cannot be present in person. The network supports modern digital demands. The hardware is current. The site continues to evolve. That's not a finished project — that's an ongoing partnership.</p>
-  </div>
-  <div class="case-section reveal">
-    <h3>Results</h3>
+  <div class="case-section reveal"><h3>Project Overview</h3><p>What began as a website redesign has evolved into a 9-year ongoing technology partnership with Springfield Church of Christ. Over that time, I've served as the church's de facto technology advisor — leading a full UX redesign and digital strategy, integrating a networked camera security system, managing and upgrading the church's network infrastructure, advising on hardware procurement and specifications for three computer replacements, and working alongside the church's Audio and Video team to build and maintain a live streaming capability that has kept the congregation connected through illness, distance, and the COVID-19 pandemic.</p><p>The website redesign — and the digital strategy surrounding it — is one major initiative within a much broader, trust-based relationship. That relationship itself is part of the story.</p></div>
+  <div class="case-section reveal"><h3>The Challenge</h3><p>First-time visitors were struggling to find essential information. Service times, beliefs, and event details required multiple clicks, with no clear calls to action guiding next steps. But the digital challenges ran deeper than the website.</p><ul><li>Low digital engagement limited outreach and community growth</li><li>Inconsistent event participation with no digital conversion path</li><li>Website and social media operated in silos</li><li>No live streaming capability — services were inaccessible to remote or ill congregants</li><li>Aging, unmanaged network infrastructure inadequate for modern digital demands</li><li>Outdated hardware with no clear procurement or replacement strategy</li><li>No security camera system for facility monitoring</li><li>Limited budget and volunteer support across every initiative</li></ul></div>
+  <div class="case-section reveal"><h3>Research &amp; Planning</h3><p>Analytics revealed high drop-off rates on key pages. Heatmaps indicated hesitation within primary navigation. Task-based walkthroughs confirmed visitors could find information, but it required too many steps.</p><ul><li>Critical information buried beneath layered navigation</li><li>Dense text reduced readability and engagement</li><li>No consistent CTA hierarchy guided user journeys</li><li>Social traffic lacked a defined conversion path</li></ul></div>
+  <div class="case-section reveal"><h3>Designing the Solution</h3><p>The redesign centered on three primary user journeys: planning a visit, understanding beliefs, and discovering events. Wireframes validated structure before implementation. But the solution extended well beyond the website.</p><ul><li>Service times brought above the fold; "Plan Your Visit" as the primary CTA</li><li>Long-form content broken into scannable, human sections — especially "What We Believe"</li><li>Mobile-first layouts reflecting actual traffic patterns</li><li>Accessible color contrast and simplified navigation throughout</li><li>Networked camera security system installed and integrated for remote facility monitoring</li><li>Hardware advisory for three computer replacements — spec recommendations matched to actual use cases and budget</li><li>Network assessment and infrastructure upgrades to support streaming, security, and congregation-level demand</li><li>AV/streaming pipeline built in close collaboration with the church's Audio and Video team, enabling consistent live broadcast of Sunday services</li></ul></div>
+  <div class="case-section reveal"><h3>Key Decisions &amp; Tradeoffs</h3><p><strong>Simplifying the nav rather than expanding it.</strong> Research and analytics consistently showed that older users — the church's primary demographic — were hesitating and dropping off within the navigation. My decision was to reduce, clarify, and surface the most critical paths.</p><p><strong>Reducing content density on key pages.</strong> Several pages were essentially digitized paper documents — dense, text-heavy, and formatted for print, not screens. The decision to restructure this content into scannable, human sections required prioritizing comprehension over completeness.</p><p><strong>Prioritizing "Plan Your Visit" over other CTAs.</strong> Multiple CTA options competed for prominence. The decision to elevate "Plan Your Visit" was grounded in stakeholder input confirming new visitor attendance as the primary goal.</p><p><strong>Working creatively within platform and budget constraints.</strong> This was a pro bono engagement with a client-mandated Wix platform. Rather than treating constraints as failures, I used them as forcing functions toward simplicity.</p><p><strong>Building a streaming infrastructure under pressure.</strong> When COVID-19 forced suspension of in-person services, the church had no existing capability to reach its congregation digitally. Working alongside the AV team, I helped design and implement a live streaming workflow that prioritized reliability over sophistication.</p></div>
+  <div class="case-section reveal"><h3>Ongoing Engagement</h3><p>Nine years is a long time to work with a single client. It's also the clearest signal I can offer that the work has delivered value. Over that period, the relationship has expanded from a focused redesign project into a broad technology advisory role — one built on trust, consistency, and the ability to translate complex technical decisions into plain language for non-technical stakeholders.</p></div>
+  <div class="case-section reveal"><h3>Results</h3>
     <div class="result-chips">
       <div class="result-chip"><span class="num">78%</span><span class="lbl">Web traffic increase</span></div>
       <div class="result-chip"><span class="num">2×</span><span class="lbl">Event attendance</span></div>
       <div class="result-chip"><span class="num">9yr</span><span class="lbl">Ongoing partnership</span></div>
     </div>
-    <p style="margin-top:1.5rem;color:#444;font-size:.92rem;line-height:1.88;">This project reinforced that effective UX is often about prioritization rather than expansion. By aligning analytics, user behavior insights, and business goals, the website evolved from an information hub into a structured engagement tool — and the broader technology partnership ensured the church's entire digital infrastructure could support that growth.</p>
+    <p style="margin-top:1.5rem;color:#444;font-size:.92rem;line-height:1.88;">This project reinforced that effective UX is often about prioritization rather than expansion. By aligning analytics, user behavior insights, and business goals, the website evolved from an information hub into a structured engagement tool.</p>
   </div>
 </div>
 
-<!-- NAVEASE CASE DETAIL -->
+<!-- ═══════════════════════════════════════════════
+     NAVEASE CASE DETAIL — integrated dashboard
+════════════════════════════════════════════════ -->
 <div id="case-study-detail-navease">
   <button class="back-btn" onclick="closeCaseNavEase()">Back to Work</button>
+
+  <!-- Hero Banner -->
+  <div class="ne-hero-banner reveal">
+    <div class="ne-hero-tag">Product Design · AI Integration · Mobile UX</div>
+    <h2>NavEase — Mobile Navigation <em>Intelligence.</em></h2>
+    <p class="ne-hero-deck">An end-to-end product proposal addressing one of mobile's most persistent problems: navigation that drives users away before they ever discover the product's value.</p>
+  </div>
+
+  <!-- Meta row -->
   <div class="reveal">
     <p class="section-label">Case Study</p>
-    <h2>NavEase — Mobile Navigation Intelligence</h2>
-    <div class="case-meta-row">
+    <div class="case-meta-row" style="margin-bottom:2rem;">
       <span><strong>Role:</strong> UX Strategist &amp; Product Designer</span>
       <span><strong>Timeline:</strong> 20 Weeks — Planning to Deployment</span>
       <span><strong>Tools:</strong> Figma, PowerPoint, Venngage, Cameo, React, Django, AWS</span>
     </div>
   </div>
 
+  <!-- Key Stats -->
+  <div class="ne-stats reveal">
+    <div class="ne-stat">
+      <div class="ne-stat-num" id="ne-s1">0%</div>
+      <div class="ne-stat-label">App Abandonment Rate</div>
+      <div class="ne-stat-sub">of users leave due to poor navigation</div>
+    </div>
+    <div class="ne-stat">
+      <div class="ne-stat-num" id="ne-s2">0%</div>
+      <div class="ne-stat-label">Projected ROI</div>
+      <div class="ne-stat-sub">increase for adopters in year one</div>
+    </div>
+    <div class="ne-stat">
+      <div class="ne-stat-num" id="ne-s3">0wk</div>
+      <div class="ne-stat-label">Timeline</div>
+      <div class="ne-stat-sub">planning through deployment</div>
+    </div>
+  </div>
+
+  <!-- Overview -->
   <div class="case-section reveal">
     <h3>Project Overview</h3>
     <p>NavEase is a mobile app navigation solution that combines AI-powered personalization, contextual onboarding, and developer analytics to solve one of the most persistent challenges in mobile UX: confusing, inefficient navigation that drives users away before they ever discover the product's value.</p>
     <p>This project demonstrates end-to-end product thinking — from identifying a measurable user problem to proposing a technically grounded, scalable solution with clear business impact. It was developed as a complete product proposal covering every stage from problem discovery through technical architecture and go-to-market planning.</p>
-    <div class="result-chips" style="margin-top:1.5rem;">
-      <div class="result-chip"><span class="num">43%</span><span class="lbl">Users abandon apps due to poor navigation</span></div>
-      <div class="result-chip"><span class="num">150%</span><span class="lbl">Projected ROI increase year one</span></div>
-      <div class="result-chip"><span class="num">20wk</span><span class="lbl">Planning to deployment</span></div>
+  </div>
+
+  <!-- Problem & Solution tabs -->
+  <div class="case-section reveal">
+    <h3>Problem &amp; Solution</h3>
+    <p style="margin-bottom:1.2rem;">Research shows that 43% of users abandon apps not because the product lacks value — but because they can't find it. These issues compound into low retention, increased support costs, and direct revenue loss.</p>
+    <div class="ne-tabs">
+      <button class="ne-tab active" onclick="neTab(0)">Pain Points</button>
+      <button class="ne-tab" onclick="neTab(1)">Features</button>
+    </div>
+    <div class="ne-tab-pane active" id="ne-tab0">
+      <div class="ne-card"><div class="ne-card-tag">Navigation</div><h4>Confusing Menus</h4><p>Complex menu structures drive frustration and disengagement before users find the product's value.</p></div>
+      <div class="ne-card"><div class="ne-card-tag">Discoverability</div><h4>Buried Features</h4><p>Key functionality hidden deep within interfaces reduces adoption and long-term engagement.</p></div>
+      <div class="ne-card"><div class="ne-card-tag">Task Flows</div><h4>Multi-Step Complexity</h4><p>Convoluted flows slow users down and increase drop-off at every unnecessary step.</p></div>
+      <div class="ne-card"><div class="ne-card-tag">Onboarding</div><h4>Static Tutorials</h4><p>One-time tutorials that don't adapt leave users stranded the moment they explore independently.</p></div>
+      <div class="ne-card"><div class="ne-card-tag">Personalization</div><h4>No Adaptation</h4><p>Every user receives the same experience regardless of their individual behavior or needs.</p></div>
+      <div class="ne-card"><div class="ne-card-tag">Accessibility</div><h4>Underserved Users</h4><p>Gaps in accessibility leave significant portions of the user base without adequate support.</p></div>
+      <div class="ne-card"><div class="ne-card-tag">Analytics</div><h4>Developer Blind Spots</h4><p>Teams lack real-time visibility into exactly where users struggle within their products.</p></div>
+    </div>
+    <div class="ne-tab-pane" id="ne-tab1">
+      <div class="ne-card"><div class="ne-card-tag">AI</div><h4>AI-Powered Navigation</h4><p>Adapts menu structure and content based on individual user behavior, reducing friction over time without manual reconfiguration.</p></div>
+      <div class="ne-card"><div class="ne-card-tag">Onboarding</div><h4>Contextual Tooltips</h4><p>Real-time, in-context guidance that replaces one-time tutorials users skip and forget.</p></div>
+      <div class="ne-card"><div class="ne-card-tag">Search</div><h4>Predictive Shortcuts</h4><p>Surfaces relevant features proactively based on usage patterns, reducing navigation cognitive load.</p></div>
+      <div class="ne-card"><div class="ne-card-tag">Developer</div><h4>User Flow Mapping</h4><p>Gives teams a visual map of how users actually navigate their app in real time.</p></div>
+      <div class="ne-card"><div class="ne-card-tag">Analytics</div><h4>Heatmap Analytics</h4><p>Shows exactly where users tap, hesitate, and drop off — enabling targeted iteration, not guesswork.</p></div>
+      <div class="ne-card"><div class="ne-card-tag">Templates</div><h4>Pre-Designed UX Patterns</h4><p>Research-backed navigation templates that accelerate development and reduce time-to-quality.</p></div>
     </div>
   </div>
 
-  <div class="case-section reveal">
-    <h3>The Problem</h3>
-    <p>Poor mobile app navigation is a critical and widespread pain point. Research shows that 43% of users abandon apps when they encounter navigation problems — not because the product lacks value, but because users can't find it. These issues compound into serious business consequences: low retention, increased customer support load, and direct revenue loss.</p>
-    <ul>
-      <li>Confusing menu structures leading to user frustration and disengagement</li>
-      <li>Important features buried deep within interfaces, reducing discoverability</li>
-      <li>Convoluted multi-step task flows that slow users down</li>
-      <li>Static, one-time onboarding tutorials that don't adapt as users explore</li>
-      <li>No personalization — every user gets the same experience regardless of behavior</li>
-      <li>Accessibility gaps leaving portions of the user base underserved</li>
-      <li>Developer blind spots — teams lack real-time visibility into where users struggle</li>
-    </ul>
-  </div>
-
+  <!-- Research -->
   <div class="case-section reveal">
     <h3>Research &amp; Problem Definition</h3>
     <p>The research phase focused on quantifying the navigation problem and identifying exactly where and why users disengage. Rather than relying on anecdotal evidence, I grounded the problem in behavioral data and industry research.</p>
@@ -675,48 +687,67 @@
       <li>Conducted a structured usability breakdown to categorize and prioritize interface issues by severity and frequency</li>
       <li>Developed personas for the primary developer audience: tech-savvy professionals aged 25–45 prioritizing efficiency and data-driven product insights</li>
     </ul>
-    <p>A key insight from this phase: most navigation failures aren't the result of bad design intent — they're the result of teams building without real-time visibility into how users actually move through their product. NavEase addresses both sides of that problem.</p>
+    <p>A key insight: most navigation failures aren't the result of bad design intent — they're the result of teams building without real-time visibility into how users actually move through their product.</p>
   </div>
 
+  <!-- Roadmap -->
   <div class="case-section reveal">
-    <h3>The Solution</h3>
-    <p>NavEase addresses navigation failures through a suite of intelligent, user-centered features designed for both end-users and the developers building for them. The dual-audience strategy was a deliberate product decision — solving only the user side without giving developers the tools to maintain and improve navigation over time would create an incomplete solution.</p>
-    <ul>
-      <li><strong>AI-Powered Navigation —</strong> Adapts menu structure and content based on individual user behavior, reducing friction over time without requiring manual reconfiguration.</li>
-      <li><strong>Contextual Onboarding &amp; Tooltips —</strong> Provides real-time, in-context guidance rather than static one-time tutorials that users skip and forget.</li>
-      <li><strong>Predictive Search &amp; Shortcuts —</strong> Surfaces relevant features proactively based on usage patterns, reducing the cognitive load of navigation entirely.</li>
-      <li><strong>User Flow Mapping —</strong> Gives developers a visual map of how users navigate their app — the missing visibility layer most teams lack.</li>
-      <li><strong>Heatmap Analytics —</strong> Shows exactly where users tap, hesitate, and drop off, enabling targeted iteration rather than guesswork.</li>
-      <li><strong>Pre-Designed UX Templates —</strong> Accelerates development with research-backed navigation patterns, reducing time-to-quality for new products.</li>
-    </ul>
-  </div>
-
-  <div class="case-section reveal">
-    <h3>Technical Architecture</h3>
-    <p>A product proposal without a credible technical foundation is just a concept. NavEase was designed with a production-ready architecture from the start — scalable, modular, and compliant with enterprise data requirements.</p>
-    <ul>
-      <li><strong>Front-end:</strong> React (JavaScript) — component-based UI enabling rapid iteration and broad developer adoption</li>
-      <li><strong>Back-end:</strong> Python / Django — robust, well-supported framework suited for AI/ML integration</li>
-      <li><strong>Database:</strong> PostgreSQL — reliable relational structure for behavioral and analytics data</li>
-      <li><strong>Cloud infrastructure:</strong> AWS with auto-scaling — ensures performance under variable load without over-provisioning</li>
-      <li><strong>Architecture:</strong> Microservices model enabling independent scaling of AI, analytics, and onboarding modules</li>
-      <li><strong>Compliance:</strong> GDPR and HIPAA compliance built into the data architecture — enabling deployment across healthcare, finance, and enterprise contexts</li>
-    </ul>
-  </div>
-
-  <div class="case-section reveal">
-    <h3>Planning &amp; Execution</h3>
-    <p>The 20-week implementation roadmap was structured across five phases to ensure quality at each stage without compressing testing or deployment timelines — two areas where product teams most commonly cut corners and pay for it later.</p>
-    <ul>
-      <li><strong>Phase 1 — Planning (Weeks 1–3):</strong> Requirements definition, stakeholder alignment, technical spec finalization</li>
-      <li><strong>Phase 2 — Design (Weeks 4–7):</strong> UX design, AI model architecture, template library development</li>
-      <li><strong>Phase 3 — Development (Weeks 8–14):</strong> Front-end and back-end build, AI training, analytics pipeline</li>
-      <li><strong>Phase 4 — Testing (Weeks 15–17):</strong> Usability testing, performance testing, security and compliance audit</li>
-      <li><strong>Phase 5 — Deployment (Weeks 18–20):</strong> Staged rollout, monitoring, go-to-market activation</li>
-    </ul>
+    <h3>Planning &amp; Execution — 20-Week Roadmap</h3>
+    <p style="margin-bottom:1.5rem;">Structured across five phases to maintain quality at each stage without compressing testing or deployment — the two areas where teams most commonly cut corners.</p>
+    <div class="ne-roadmap">
+      <div class="ne-phase"><div class="ne-phase-num">Phase 1</div><div class="ne-phase-name">Planning</div><div class="ne-phase-weeks">Weeks 1–4</div><ul class="ne-phase-tasks"><li>User research</li><li>Persona development</li><li>Risk assessment</li><li>Budget planning</li></ul></div>
+      <div class="ne-phase"><div class="ne-phase-num">Phase 2</div><div class="ne-phase-name">Design</div><div class="ne-phase-weeks">Weeks 5–8</div><ul class="ne-phase-tasks"><li>UX wireframes</li><li>Prototyping</li><li>Usability testing</li><li>Design system</li></ul></div>
+      <div class="ne-phase"><div class="ne-phase-num">Phase 3</div><div class="ne-phase-name">Development</div><div class="ne-phase-weeks">Weeks 9–14</div><ul class="ne-phase-tasks"><li>Front-end build</li><li>Back-end APIs</li><li>AI model training</li><li>Database setup</li></ul></div>
+      <div class="ne-phase"><div class="ne-phase-num">Phase 4</div><div class="ne-phase-name">Testing</div><div class="ne-phase-weeks">Weeks 15–18</div><ul class="ne-phase-tasks"><li>QA &amp; bug fixes</li><li>Security audit</li><li>Performance tests</li><li>Beta rollout</li></ul></div>
+      <div class="ne-phase"><div class="ne-phase-num">Phase 5</div><div class="ne-phase-name">Deployment</div><div class="ne-phase-weeks">Weeks 19–20</div><ul class="ne-phase-tasks"><li>AWS deployment</li><li>Monitoring setup</li><li>Go-to-market</li><li>Launch</li></ul></div>
+    </div>
     <p>Risk mitigation strategies were documented for AI bias, data security, development delays, and scaling challenges. Total budget: $150K development, $50K AI training, $20K cloud infrastructure.</p>
   </div>
 
+  <!-- Budget & Skills -->
+  <div class="case-section reveal">
+    <h3>Budget &amp; Skills</h3>
+    <div class="ne-two-col">
+      <div>
+        <div class="ne-budget-title">Budget Breakdown — $220K Total</div>
+        <div class="ne-bar-item"><div class="ne-bar-top"><span>Development</span><span>$150K · 68%</span></div><div class="ne-bar-track"><div class="ne-bar-fill" style="width:0%" data-w="68"></div></div></div>
+        <div class="ne-bar-item"><div class="ne-bar-top"><span>AI Training</span><span>$50K · 23%</span></div><div class="ne-bar-track"><div class="ne-bar-fill" style="width:0%" data-w="23"></div></div></div>
+        <div class="ne-bar-item"><div class="ne-bar-top"><span>Cloud Infrastructure</span><span>$20K · 9%</span></div><div class="ne-bar-track"><div class="ne-bar-fill" style="width:0%" data-w="9"></div></div></div>
+      </div>
+      <div class="ne-skills-grid">
+        <div class="ne-skill-box"><h4>UX &amp; Product</h4><span class="ne-skill-tag">User Research</span><span class="ne-skill-tag">Task Flow</span><span class="ne-skill-tag">Usability</span><span class="ne-skill-tag">Personas</span></div>
+        <div class="ne-skill-box"><h4>Technical</h4><span class="ne-skill-tag">React</span><span class="ne-skill-tag">Django</span><span class="ne-skill-tag">PostgreSQL</span><span class="ne-skill-tag">AWS</span></div>
+        <div class="ne-skill-box"><h4>Strategy</h4><span class="ne-skill-tag">ROI Modeling</span><span class="ne-skill-tag">Risk</span><span class="ne-skill-tag">Go-to-Market</span></div>
+        <div class="ne-skill-box"><h4>Communication</h4><span class="ne-skill-tag">Data Viz</span><span class="ne-skill-tag">Storytelling</span><span class="ne-skill-tag">Presentation</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tech Architecture -->
+  <div class="case-section reveal">
+    <h3>Technical Architecture</h3>
+    <p>A product proposal without a credible technical foundation is just a concept. NavEase was designed with a production-ready architecture from the start — scalable, modular, and compliant with enterprise data requirements.</p>
+    <ul style="margin-bottom:1.2rem;">
+      <li><strong>Front-end:</strong> React (JavaScript) — component-based UI enabling rapid iteration and broad developer adoption</li>
+      <li><strong>Back-end:</strong> Python / Django — robust, well-supported framework suited for AI/ML integration</li>
+      <li><strong>Database:</strong> PostgreSQL — reliable relational structure for behavioral and analytics data</li>
+      <li><strong>Cloud:</strong> AWS with auto-scaling — ensures performance under variable load without over-provisioning</li>
+      <li><strong>Architecture:</strong> Microservices model enabling independent scaling of AI, analytics, and onboarding modules</li>
+      <li><strong>Compliance:</strong> GDPR and HIPAA built into the data architecture from day one</li>
+    </ul>
+    <div class="ne-tech-pills">
+      <span class="ne-tech-pill">React (JavaScript)</span>
+      <span class="ne-tech-pill">Python / Django</span>
+      <span class="ne-tech-pill">PostgreSQL</span>
+      <span class="ne-tech-pill">AWS Auto-Scaling</span>
+      <span class="ne-tech-pill">Microservices</span>
+      <span class="ne-tech-pill">GDPR Compliant</span>
+      <span class="ne-tech-pill">HIPAA Compliant</span>
+      <span class="ne-tech-pill">IoT Ready</span>
+    </div>
+  </div>
+
+  <!-- Communication -->
   <div class="case-section reveal">
     <h3>Communication &amp; Storytelling</h3>
     <p>A technically sound product proposal only creates value if it can be communicated clearly to the people who need to act on it. This phase required translating complex UX and architectural concepts into materials accessible to non-technical stakeholders.</p>
@@ -728,14 +759,23 @@
     <p>This phase reinforced a principle that runs through all of my work: the ability to translate between technical and non-technical contexts is itself a design skill — and often the one that determines whether good work actually ships.</p>
   </div>
 
+  <!-- Impact -->
   <div class="case-section reveal">
     <h3>Impact &amp; Outcomes</h3>
-    <div class="result-chips">
+    <div class="ne-impact">
+      <div class="ne-impact-item"><div class="ne-impact-num">150%</div><h4>Projected ROI</h4><p>Return on investment increase for businesses in their first year of adoption.</p></div>
+      <div class="ne-impact-item"><div class="ne-impact-num">25%</div><h4>Energy Reduction</h4><p>AI algorithms optimized to reduce energy consumption vs. comparable tools.</p></div>
+      <div class="ne-impact-item"><div class="ne-impact-num">↑</div><h4>User Retention</h4><p>Personalized flows replace frustrating navigation and reduce abandonment rates.</p></div>
+      <div class="ne-impact-item"><div class="ne-impact-num">Global</div><h4>GDPR &amp; HIPAA</h4><p>Compliance built in from day one for regulated, worldwide enterprise deployment.</p></div>
+      <div class="ne-impact-item"><div class="ne-impact-num">↓</div><h4>Support Costs</h4><p>Self-service automated guidance reduces customer support load significantly.</p></div>
+      <div class="ne-impact-item"><div class="ne-impact-num">IoT+</div><h4>Future-Ready</h4><p>Architecture supports future expansion to wearables and IoT device integration.</p></div>
+    </div>
+    <div class="result-chips" style="margin-top:0;">
       <div class="result-chip"><span class="num">150%</span><span class="lbl">Projected ROI year one</span></div>
-      <div class="result-chip"><span class="num">25%</span><span class="lbl">AI energy reduction vs. comparable tools</span></div>
+      <div class="result-chip"><span class="num">25%</span><span class="lbl">AI energy reduction</span></div>
       <div class="result-chip"><span class="num">↑</span><span class="lbl">User retention &amp; discoverability</span></div>
     </div>
-    <p style="margin-top:1.5rem;color:#444;font-size:.92rem;line-height:1.88;">NavEase demonstrates that the most impactful UX solutions address both sides of the product relationship — the user experience and the developer's ability to understand and improve it. By combining AI personalization with real-time analytics, NavEase creates a feedback loop that makes products smarter over time rather than requiring constant manual redesign. The architecture supports future expansion to wearables and IoT, and the sustainability-first infrastructure positions it for global enterprise adoption.</p>
+    <p style="margin-top:1.5rem;color:#444;font-size:.92rem;line-height:1.88;">NavEase demonstrates that the most impactful UX solutions address both sides of the product relationship — the user experience and the developer's ability to understand and improve it. By combining AI personalization with real-time analytics, NavEase creates a feedback loop that makes products smarter over time rather than requiring constant manual redesign.</p>
   </div>
 </div>
 
@@ -751,125 +791,45 @@
       <span><strong>Tools:</strong> Claude (Anthropic), Figma, Google Docs</span>
     </div>
   </div>
-  <div class="case-section reveal">
-    <h3>Project Overview</h3>
-    <p>As AI tools become more integrated into creative and analytical work, designers are exploring how these technologies can support research, ideation, and documentation. After completing structured AI training, I began experimenting with how Claude could assist parts of the UX design process — organizing research insights, exploring design directions, and improving documentation clarity.</p>
-    <p>This project explores how AI can augment design workflows without replacing critical thinking or user-centered decision making.</p>
-  </div>
-  <div class="case-section reveal">
-    <h3>The Challenge</h3>
-    <p>Designers spend a significant amount of time organizing information, synthesizing research, and documenting design decisions. These tasks are essential but can slow down early exploration and iteration. I wanted to explore three specific questions:</p>
-    <ul>
-      <li>How effectively can AI help organize and synthesize research insights?</li>
-      <li>Can AI meaningfully accelerate idea generation and iteration?</li>
-      <li>How can AI support clearer, more structured documentation of design thinking?</li>
-    </ul>
-  </div>
-  <div class="case-section reveal">
-    <h3>Research &amp; Planning</h3>
-    <p>I began by identifying the phases of a typical UX workflow where time and cognitive load are highest — not the creative moments, but the organizational ones. Research synthesis stood out immediately. Summarizing interview transcripts, meeting notes, and audit findings into structured insights is time-consuming and often delays the transition into design work.</p>
-    <p>Documentation was a close second: translating rough notes and design decisions into coherent case study writing requires significant effort that often happens at the end of a project, when energy is lowest. The planning focus became clear — test AI assistance at the handoff points, where messy input needs to become structured output.</p>
-  </div>
-  <!-- WORKFLOW DIAGRAM -->
+  <div class="case-section reveal"><h3>Project Overview</h3><p>As AI tools become more integrated into creative and analytical work, designers are exploring how these technologies can support research, ideation, and documentation. After completing structured AI training, I began experimenting with how Claude could assist parts of the UX design process — organizing research insights, exploring design directions, and improving documentation clarity.</p><p>This project explores how AI can augment design workflows without replacing critical thinking or user-centered decision making.</p></div>
+  <div class="case-section reveal"><h3>The Challenge</h3><p>Designers spend a significant amount of time organizing information, synthesizing research, and documenting design decisions. These tasks are essential but can slow down early exploration and iteration. I wanted to explore three specific questions:</p><ul><li>How effectively can AI help organize and synthesize research insights?</li><li>Can AI meaningfully accelerate idea generation and iteration?</li><li>How can AI support clearer, more structured documentation of design thinking?</li></ul></div>
+  <div class="case-section reveal"><h3>Research &amp; Planning</h3><p>I began by identifying the phases of a typical UX workflow where time and cognitive load are highest — not the creative moments, but the organizational ones. Research synthesis stood out immediately. Summarizing interview transcripts, meeting notes, and audit findings into structured insights is time-consuming and often delays the transition into design work.</p><p>Documentation was a close second: translating rough notes and design decisions into coherent case study writing requires significant effort that often happens at the end of a project, when energy is lowest. The planning focus became clear — test AI assistance at the handoff points, where messy input needs to become structured output.</p></div>
   <div class="workflow reveal">
     <p class="workflow-eyebrow">UX + AI · Workflow Study</p>
     <p class="workflow-title">AI-Assisted UX Design Workflow</p>
     <p class="workflow-sub">How Claude augments research, ideation, and documentation — without replacing human judgment.</p>
     <div class="wf-phases">
-      <div class="wf-phase">
-        <div class="wf-num">01</div>
-        <div class="wf-tag">Research Synthesis</div>
-        <div class="wf-phase-title">Raw input → structured insight</div>
-        <p class="wf-phase-desc">Transcripts, notes, and audit findings fed into Claude with structured prompts. Output: organized insight summaries ready for design decisions.</p>
-      </div>
-      <div class="wf-phase">
-        <div class="wf-num">02</div>
-        <div class="wf-tag">Ideation Support</div>
-        <div class="wf-phase-title">Thinking partner, not decision maker</div>
-        <p class="wf-phase-desc">Claude surfaces alternative interaction patterns and design directions. Designer evaluates, combines, and discards. Human judgment drives every choice.</p>
-      </div>
-      <div class="wf-phase">
-        <div class="wf-num">03</div>
-        <div class="wf-tag">Documentation</div>
-        <div class="wf-phase-title">Rough notes → clear structure</div>
-        <p class="wf-phase-desc">Bullet points and rough decisions transformed into structured case study outlines. A strong first draft removes the blank-page barrier entirely.</p>
-      </div>
+      <div class="wf-phase"><div class="wf-num">01</div><div class="wf-tag">Research Synthesis</div><div class="wf-phase-title">Raw input → structured insight</div><p class="wf-phase-desc">Transcripts, notes, and audit findings fed into Claude with structured prompts. Output: organized insight summaries ready for design decisions.</p></div>
+      <div class="wf-phase"><div class="wf-num">02</div><div class="wf-tag">Ideation Support</div><div class="wf-phase-title">Thinking partner, not decision maker</div><p class="wf-phase-desc">Claude surfaces alternative interaction patterns and design directions. Designer evaluates, combines, and discards. Human judgment drives every choice.</p></div>
+      <div class="wf-phase"><div class="wf-num">03</div><div class="wf-tag">Documentation</div><div class="wf-phase-title">Rough notes → clear structure</div><p class="wf-phase-desc">Bullet points and rough decisions transformed into structured case study outlines. A strong first draft removes the blank-page barrier entirely.</p></div>
     </div>
-    <div class="wf-arrow-row">
-      <div class="wf-arrow-cell">↓</div>
-      <div class="wf-arrow-cell">↓</div>
-      <div class="wf-arrow-cell">↓</div>
-    </div>
+    <div class="wf-arrow-row"><div class="wf-arrow-cell">↓</div><div class="wf-arrow-cell">↓</div><div class="wf-arrow-cell">↓</div></div>
     <div class="wf-flow">
-      <div class="wf-step">
-        <div class="wf-step-icon">📋</div>
-        <div class="wf-step-label">Research Notes</div>
-        <div class="wf-step-sub">Transcripts, audits, observations</div>
-      </div>
+      <div class="wf-step"><div class="wf-step-icon">📋</div><div class="wf-step-label">Research Notes</div><div class="wf-step-sub">Transcripts, audits, observations</div></div>
       <div class="wf-flow-arrow">→</div>
-      <div class="wf-step">
-        <div class="wf-step-icon">✦</div>
-        <div class="wf-step-label">Claude AI</div>
-        <div class="wf-step-sub">Organize · Summarize · Ideate</div>
-      </div>
+      <div class="wf-step"><div class="wf-step-icon">✦</div><div class="wf-step-label">Claude AI</div><div class="wf-step-sub">Organize · Summarize · Ideate</div></div>
       <div class="wf-flow-arrow">→</div>
-      <div class="wf-step">
-        <div class="wf-step-icon">💡</div>
-        <div class="wf-step-label">Insights</div>
-        <div class="wf-step-sub">Structured, actionable, reviewed</div>
-      </div>
+      <div class="wf-step"><div class="wf-step-icon">💡</div><div class="wf-step-label">Insights</div><div class="wf-step-sub">Structured, actionable, reviewed</div></div>
       <div class="wf-flow-arrow">→</div>
-      <div class="wf-step">
-        <div class="wf-step-icon">🖼</div>
-        <div class="wf-step-label">Design Concepts</div>
-        <div class="wf-step-sub">Wireframes, prototypes, decisions</div>
-      </div>
+      <div class="wf-step"><div class="wf-step-icon">🖼</div><div class="wf-step-label">Design Concepts</div><div class="wf-step-sub">Wireframes, prototypes, decisions</div></div>
       <div class="wf-flow-arrow">→</div>
-      <div class="wf-step">
-        <div class="wf-step-icon">📁</div>
-        <div class="wf-step-label">Case Study</div>
-        <div class="wf-step-sub">Documented, published, shared</div>
-      </div>
+      <div class="wf-step"><div class="wf-step-icon">📁</div><div class="wf-step-label">Case Study</div><div class="wf-step-sub">Documented, published, shared</div></div>
     </div>
     <div class="wf-insights">
-      <div class="wf-insight">
-        <div class="wf-insight-label">Key Finding 01</div>
-        <p class="wf-insight-text">Structure drives quality. Specific prompts with clear role, context, and goal outperform open-ended requests every time.</p>
-      </div>
-      <div class="wf-insight">
-        <div class="wf-insight-label">Key Finding 02</div>
-        <p class="wf-insight-text">AI organizes complexity fast. The highest-value use is turning messy input into structured output at workflow handoff points.</p>
-      </div>
-      <div class="wf-insight">
-        <div class="wf-insight-label">Key Finding 03</div>
-        <p class="wf-insight-text">Human judgment is irreplaceable. AI surfaces options — designers evaluate feasibility, usability, and user alignment.</p>
-      </div>
+      <div class="wf-insight"><div class="wf-insight-label">Key Finding 01</div><p class="wf-insight-text">Structure drives quality. Specific prompts with clear role, context, and goal outperform open-ended requests every time.</p></div>
+      <div class="wf-insight"><div class="wf-insight-label">Key Finding 02</div><p class="wf-insight-text">AI organizes complexity fast. The highest-value use is turning messy input into structured output at workflow handoff points.</p></div>
+      <div class="wf-insight"><div class="wf-insight-label">Key Finding 03</div><p class="wf-insight-text">Human judgment is irreplaceable. AI surfaces options — designers evaluate feasibility, usability, and user alignment.</p></div>
     </div>
   </div>
-
-  <div class="case-section reveal">
-    <h3>Designing the Solution</h3>
-    <p>I tested Claude across three common UX activities to evaluate where it added the most value.</p>
-    <ul>
-      <li><strong>Research Synthesis —</strong> I provided raw notes, transcripts, and audit findings and prompted Claude to organize them into structured insight summaries. Results were strongest when prompts clearly defined role, context, and expected output format. Structured prompts produced actionable insights; vague prompts produced generic summaries.</li>
-      <li><strong>Ideation Support —</strong> I used Claude to explore alternative design directions and interaction patterns during early concepting. Rather than generating final solutions, AI was most useful as a thinking partner — surfacing options to evaluate, combine, or discard. Human judgment remained essential at every step.</li>
-      <li><strong>Documentation —</strong> Claude helped transform rough notes and bullet points into structured outlines for case studies and project documentation. Having a structured starting point significantly reduced the time spent staring at a blank page.</li>
-    </ul>
-  </div>
-  <div class="case-section reveal">
-    <h3>Key Insights</h3>
-    <p><strong>AI performs best with structure.</strong> Clear prompts that define the role, context, and goal consistently produced stronger results than open-ended requests. Iteration was equally important — the best outputs came from refining prompts and building on previous responses rather than expecting a single perfect result.</p>
-    <p><strong>AI is most effective at organizing complexity.</strong> It can quickly structure large amounts of messy information, which is exactly where design workflows slow down. What it cannot do is replace a designer's judgment about feasibility, usability, or alignment with real user needs.</p>
-    <p><strong>Human-centered design remains at the core.</strong> AI can generate ideas and structure information, but designers still need to evaluate every output against user research, business goals, and technical reality. The tool is only as effective as the judgment applied to its outputs.</p>
-  </div>
-  <div class="case-section reveal">
-    <h3>Results</h3>
+  <div class="case-section reveal"><h3>Designing the Solution</h3><p>I tested Claude across three common UX activities to evaluate where it added the most value.</p><ul><li><strong>Research Synthesis —</strong> I provided raw notes, transcripts, and audit findings and prompted Claude to organize them into structured insight summaries. Results were strongest when prompts clearly defined role, context, and expected output format.</li><li><strong>Ideation Support —</strong> I used Claude to explore alternative design directions and interaction patterns during early concepting. Rather than generating final solutions, AI was most useful as a thinking partner — surfacing options to evaluate, combine, or discard.</li><li><strong>Documentation —</strong> Claude helped transform rough notes and bullet points into structured outlines for case studies and project documentation. Having a structured starting point significantly reduced the time spent staring at a blank page.</li></ul></div>
+  <div class="case-section reveal"><h3>Key Insights</h3><p><strong>AI performs best with structure.</strong> Clear prompts that define the role, context, and goal consistently produced stronger results than open-ended requests.</p><p><strong>AI is most effective at organizing complexity.</strong> It can quickly structure large amounts of messy information, which is exactly where design workflows slow down.</p><p><strong>Human-centered design remains at the core.</strong> AI can generate ideas and structure information, but designers still need to evaluate every output against user research, business goals, and technical reality.</p></div>
+  <div class="case-section reveal"><h3>Results</h3>
     <div class="result-chips">
       <div class="result-chip"><span class="num">↑</span><span class="lbl">Ideation velocity</span></div>
       <div class="result-chip"><span class="num">↑</span><span class="lbl">Research synthesis speed</span></div>
       <div class="result-chip"><span class="num">↑</span><span class="lbl">Documentation clarity</span></div>
     </div>
-    <p style="margin-top:1.5rem;color:#444;font-size:.92rem;line-height:1.88;">Used intentionally, AI can help designers accelerate early ideation, synthesize research more quickly, improve documentation clarity, and explore multiple solution paths in less time. Rather than replacing design thinking, it acts as a collaborative tool that supports deeper exploration and clearer communication — most effective when treated as a workflow tool, not a shortcut.</p>
+    <p style="margin-top:1.5rem;color:#444;font-size:.92rem;line-height:1.88;">Used intentionally, AI can help designers accelerate early ideation, synthesize research more quickly, improve documentation clarity, and explore multiple solution paths in less time. Rather than replacing design thinking, it acts as a collaborative tool that supports deeper exploration and clearer communication.</p>
   </div>
 </div>
 
@@ -925,54 +885,53 @@
 </footer>
 
 <script>
+  // Scroll reveal
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
   }, {threshold:.12});
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-  function openCase() {
-    document.getElementById('case-study-detail').classList.add('open');
-    document.getElementById('work').style.display = 'none';
-    document.getElementById('case-study-detail').scrollIntoView({behavior:'smooth'});
-  }
-  function closeCase() {
-    document.getElementById('case-study-detail').classList.remove('open');
-    document.getElementById('work').style.display = '';
-    document.getElementById('work').scrollIntoView({behavior:'smooth'});
-  }
+  // Springfield case
+  function openCase(){document.getElementById('case-study-detail').classList.add('open');document.getElementById('work').style.display='none';document.getElementById('case-study-detail').scrollIntoView({behavior:'smooth'});}
+  function closeCase(){document.getElementById('case-study-detail').classList.remove('open');document.getElementById('work').style.display='';document.getElementById('work').scrollIntoView({behavior:'smooth'});}
 
-  function openCaseNavEase() {
+  // NavEase case
+  function openCaseNavEase(){
     document.getElementById('case-study-detail-navease').classList.add('open');
-    document.getElementById('work').style.display = 'none';
+    document.getElementById('work').style.display='none';
     document.getElementById('case-study-detail-navease').scrollIntoView({behavior:'smooth'});
+    // Trigger counters + bars once opened
+    setTimeout(()=>{
+      animCount(document.getElementById('ne-s1'),43,'%',1100);
+      animCount(document.getElementById('ne-s2'),150,'%',1300);
+      animCount(document.getElementById('ne-s3'),20,'wk',900);
+      document.querySelectorAll('.ne-bar-fill').forEach(b=>{b.style.width=b.dataset.w+'%';});
+    },300);
   }
-  function closeCaseNavEase() {
-    document.getElementById('case-study-detail-navease').classList.remove('open');
-    document.getElementById('work').style.display = '';
-    document.getElementById('work').scrollIntoView({behavior:'smooth'});
+  function closeCaseNavEase(){document.getElementById('case-study-detail-navease').classList.remove('open');document.getElementById('work').style.display='';document.getElementById('work').scrollIntoView({behavior:'smooth'});}
+
+  // AI case
+  function openCaseAI(){document.getElementById('case-study-detail-ai').classList.add('open');document.getElementById('work').style.display='none';document.getElementById('case-study-detail-ai').scrollIntoView({behavior:'smooth'});}
+  function closeCaseAI(){document.getElementById('case-study-detail-ai').classList.remove('open');document.getElementById('work').style.display='';document.getElementById('work').scrollIntoView({behavior:'smooth'});}
+
+  // NavEase tabs
+  function neTab(i){
+    document.querySelectorAll('.ne-tab').forEach((b,j)=>b.classList.toggle('active',i===j));
+    document.querySelectorAll('.ne-tab-pane').forEach((p,j)=>p.classList.toggle('active',i===j));
   }
 
-  function openCaseAI() {
-    document.getElementById('case-study-detail-ai').classList.add('open');
-    document.getElementById('work').style.display = 'none';
-    document.getElementById('case-study-detail-ai').scrollIntoView({behavior:'smooth'});
-  }
-  function closeCaseAI() {
-    document.getElementById('case-study-detail-ai').classList.remove('open');
-    document.getElementById('work').style.display = '';
-    document.getElementById('work').scrollIntoView({behavior:'smooth'});
+  // Counter animation
+  function animCount(el,target,suffix,dur){
+    let v=0,step=target/60;
+    let t=setInterval(()=>{v+=step;if(v>=target){v=target;clearInterval(t);}el.textContent=Math.round(v)+suffix;},dur/60);
   }
 
-  const params = new URLSearchParams(window.location.search);
-  if(params.get('submitted') === 'true'){
-    const note = document.getElementById('form-note');
-    if(note){
-      note.style.color = '#2dd4bf';
-      note.textContent = "Thanks for reaching out — I'll be in touch soon!";
-      document.getElementById('contact').scrollIntoView({behavior:'smooth'});
-    }
+  // Form submitted param
+  const params=new URLSearchParams(window.location.search);
+  if(params.get('submitted')==='true'){
+    const note=document.getElementById('form-note');
+    if(note){note.style.color='#2dd4bf';note.textContent="Thanks for reaching out — I'll be in touch soon!";document.getElementById('contact').scrollIntoView({behavior:'smooth'});}
   }
 </script>
-
 </body>
 </html>
