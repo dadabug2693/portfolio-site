@@ -377,6 +377,88 @@
     .wf-flow{grid-template-columns:1fr;}
     .wf-flow-arrow{transform:rotate(90deg);}
   }
+
+  /* ── INLINE DASHBOARD COMPONENT ── */
+  #ne-dash-mount {
+    height: 640px; overflow-y: auto; overflow-x: hidden;
+    background: #0a0e1a; position: relative;
+    font-family: 'Exo 2', 'Segoe UI', sans-serif; color: #cce4f6;
+  }
+  .ned-grid-bg {
+    position: absolute; inset: 0; pointer-events: none; z-index: 0;
+    background-image: linear-gradient(rgba(0,200,224,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,200,224,.04) 1px,transparent 1px);
+    background-size: 38px 38px;
+  }
+  .ned-inner { position: relative; z-index: 1; padding: 18px 22px; }
+  .ned-topbar { display:flex;align-items:center;justify-content:space-between;padding:0 22px;height:52px;background:rgba(10,14,26,.97);border-bottom:1px solid #1e3a5f;position:sticky;top:0;z-index:50; }
+  .ned-logo { display:flex;align-items:center;gap:10px; }
+  .ned-logo-icon { width:30px;height:30px;border-radius:50%;background:conic-gradient(from 180deg,#00c8e0,#1565c0,#00c8e0);display:flex;align-items:center;justify-content:center;font-size:14px;box-shadow:0 0 12px rgba(0,200,224,.4); }
+  .ned-logo-text { font-size:17px;font-weight:900;letter-spacing:1px;color:#f0f8ff; }
+  .ned-logo-text span { color:#00c8e0; }
+  .ned-nav { display:flex;gap:2px; }
+  .ned-nav a { color:#7aaac8;text-decoration:none;padding:5px 11px;border-radius:5px;font-size:11px;font-weight:600;letter-spacing:.5px;text-transform:uppercase; }
+  .ned-nav a.active,.ned-nav a:hover { color:#00c8e0;background:rgba(0,200,224,.08); }
+  .ned-nav a.active { border-bottom:2px solid #00c8e0; }
+  .ned-search { background:#111c30;border:1px solid #1e3a5f;border-radius:7px;padding:5px 12px;color:#7aaac8;font-size:12px;width:150px;outline:none; }
+  .ned-badge { background:#00c8e0;color:#0a0e1a;font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px; }
+  .ned-stat-row { display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:14px; }
+  .ned-stat-card { background:#0f1a2e;border:1px solid #1e3a5f;border-radius:10px;padding:14px 16px;display:flex;align-items:center;gap:12px; }
+  .ned-stat-icon { width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px; }
+  .ned-si-teal{background:rgba(0,200,224,.12);} .ned-si-blue{background:rgba(21,101,192,.2);} .ned-si-green{background:rgba(0,230,118,.1);} .ned-si-warn{background:rgba(255,107,53,.12);}
+  .ned-sv { font-size:22px;font-weight:900;color:#f0f8ff;line-height:1; }
+  .ned-sl { font-size:11px;color:#7aaac8;margin-top:2px; }
+  .ned-sd { font-size:10px;font-weight:700;margin-top:3px;font-family:monospace; }
+  .ned-up{color:#00e676;} .ned-dn{color:#ff6b35;}
+  .ned-card { background:#111c30;border:1px solid #1e3a5f;border-radius:12px;padding:16px 18px;position:relative;overflow:hidden; }
+  .ned-card::before { content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#00c8e0,#1565c0);opacity:.6; }
+  .ned-ct { font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:#7aaac8;margin-bottom:12px; }
+  .ned-main-grid { display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:12px; }
+  .ned-span2 { grid-column:span 2; }
+  .ned-gauges { display:flex;gap:24px;justify-content:center; }
+  .ned-gauge-wrap { display:flex;flex-direction:column;align-items:center; }
+  .ned-gauge-svg { width:110px;height:60px;overflow:visible; }
+  .ned-gsl { font-size:10px;color:#7aaac8;margin-top:4px; }
+  .ned-hbars { display:flex;flex-direction:column;gap:8px; }
+  .ned-hbar-row { display:flex;align-items:center;gap:8px; }
+  .ned-hbar-lbl { font-size:11px;color:#7aaac8;width:54px;text-align:right;flex-shrink:0; }
+  .ned-hbar-track { flex:1;height:20px;background:rgba(255,255,255,.05);border-radius:4px;overflow:hidden; }
+  .ned-hbar-fill { height:100%;border-radius:4px;width:0;display:flex;align-items:center;padding-left:7px;font-size:10px;font-weight:700;color:#0a0e1a;transition:width 1.3s cubic-bezier(.4,0,.2,1); }
+  .ned-hb1{background:linear-gradient(90deg,#00c8e0,#1976d2);} .ned-hb2{background:linear-gradient(90deg,#1976d2,#1565c0);} .ned-hb3{background:linear-gradient(90deg,#1565c0,#0d47a1);} .ned-hb4{background:linear-gradient(90deg,#0d47a1,#1a237e);}
+  .ned-cols { display:flex;align-items:flex-end;justify-content:space-around;height:90px;gap:6px;padding-bottom:2px; }
+  .ned-col-wrap { display:flex;flex-direction:column;align-items:center;gap:5px;flex:1; }
+  .ned-col-bar { width:100%;border-radius:4px 4px 0 0;height:0;transition:height 1.2s cubic-bezier(.4,0,.2,1);position:relative; }
+  .ned-col-val { position:absolute;top:-16px;left:50%;transform:translateX(-50%);font-size:10px;font-weight:700;color:#f0f8ff;font-family:monospace; }
+  .ned-col-lbl { font-size:9px;color:#4a7fa5;text-align:center; }
+  .ned-pie-wrap { display:flex;align-items:center;gap:14px; }
+  .ned-pie-svg { width:90px;height:90px;flex-shrink:0; }
+  .ned-legend { display:flex;flex-direction:column;gap:6px; }
+  .ned-legend-item { display:flex;align-items:center;gap:6px;font-size:11px;color:#cce4f6; }
+  .ned-dot { width:8px;height:8px;border-radius:50%;flex-shrink:0; }
+  .ned-map-svg { width:100%;max-height:150px; }
+  .ned-map-dots { display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:10px; }
+  .ned-map-item { display:flex;align-items:center;gap:6px;font-size:11px;color:#cce4f6; }
+  .ned-pulse { width:8px;height:8px;border-radius:50%;background:#00c8e0;box-shadow:0 0 0 3px rgba(0,200,224,.2);animation:ned-pulse 2s ease-in-out infinite; }
+  .ned-pulse.b{background:#1976d2;box-shadow:0 0 0 3px rgba(25,118,210,.2);animation-delay:.5s;}
+  .ned-pulse.a{background:#00e5c8;box-shadow:0 0 0 3px rgba(0,229,200,.2);animation-delay:1s;}
+  .ned-pulse.m{background:#4a7fa5;box-shadow:0 0 0 3px rgba(74,127,165,.2);animation-delay:1.5s;}
+  @keyframes ned-pulse{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(1.3);opacity:.7;}}
+  .ned-bottom-grid { display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px; }
+  .ned-donut-svg { width:80px;height:80px; }
+  .ned-donut-inner { display:flex;flex-direction:column;align-items:center;gap:8px; }
+  .ned-donut-title { font-size:10px;color:#7aaac8;text-align:center; }
+  .ned-donut-legend { display:flex;gap:6px;flex-wrap:wrap;justify-content:center; }
+  .ned-dl-item { font-size:9px;display:flex;align-items:center;gap:3px;color:#cce4f6; }
+  .ned-phone-wrap { display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%; }
+  .ned-phone { width:96px;background:#0a0e1a;border:2px solid #1e3a5f;border-radius:20px;padding:12px 8px;box-shadow:0 0 30px rgba(0,200,224,.15); }
+  .ned-phone-screen { background:linear-gradient(160deg,#0d2040,#061020);border-radius:10px;padding:10px 8px;text-align:center; }
+  .ned-phone-time { font-size:22px;font-weight:900;color:#f0f8ff;letter-spacing:2px; }
+  .ned-notifs { display:flex;flex-direction:column;gap:5px;margin-top:8px; }
+  .ned-notif { height:18px;border-radius:5px;display:flex;align-items:center;padding-left:6px;gap:5px; }
+  .ned-n1{background:rgba(0,200,224,.15);} .ned-n2{background:rgba(0,230,118,.12);} .ned-n3{background:rgba(255,152,0,.12);}
+  .ned-ndot{width:5px;height:5px;border-radius:50%;}
+  .ned-n1 .ned-ndot{background:#00c8e0;} .ned-n2 .ned-ndot{background:#00e676;} .ned-n3 .ned-ndot{background:#ff9800;}
+  .ned-nline{flex:1;height:2px;border-radius:2px;background:rgba(255,255,255,.1);}
+  .ned-phone-lbl{font-size:9px;color:#4a7fa5;margin-top:7px;text-align:center;}
 </style>
 </head>
 <body>
@@ -817,13 +899,242 @@
         </div>
         <span class="ne-dashboard-badge">⬤ Live Prototype</span>
       </div>
-      <iframe
-        class="ne-dashboard-frame"
-        src="/navease-dashboard.html"
-        title="NavEase Analytics Dashboard Prototype"
-        loading="lazy"
-        scrolling="yes">
-      </iframe>
+      <div class="ne-dashboard-frame" id="ne-dash-mount">
+        <!-- dashboard content below -->
+
+      <!-- Dashboard Topbar -->
+      <div class="ned-topbar">
+        <div class="ned-logo">
+          <div class="ned-logo-icon">⚙</div>
+          <div class="ned-logo-text">Nav<span>Ease</span></div>
+        </div>
+        <nav class="ned-nav">
+          <a href="#" class="active" onclick="return false;">Home</a>
+          <a href="#" onclick="return false;">About</a>
+          <a href="#" onclick="return false;">Trips</a>
+          <a href="#" onclick="return false;">Gallery</a>
+          <a href="#" onclick="return false;">Contact</a>
+        </nav>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <input class="ned-search" placeholder="Enter Keyword..." readonly/>
+          <span class="ned-badge">LIVE</span>
+        </div>
+      </div>
+
+      <!-- Dashboard Body -->
+      <div class="ned-inner">
+        <div class="ned-grid-bg"></div>
+
+        <!-- Stat Row -->
+        <div class="ned-stat-row">
+          <div class="ned-stat-card">
+            <div class="ned-stat-icon ned-si-teal">📊</div>
+            <div><div class="ned-sv">87%</div><div class="ned-sl">User Activity Score</div><div class="ned-sd ned-up">▲ +12% vs last month</div></div>
+          </div>
+          <div class="ned-stat-card">
+            <div class="ned-stat-icon ned-si-blue">⚡</div>
+            <div><div class="ned-sv">2.4s</div><div class="ned-sl">Avg Task Completion</div><div class="ned-sd ned-up">▲ 0.8s faster</div></div>
+          </div>
+          <div class="ned-stat-card">
+            <div class="ned-stat-icon ned-si-green">👥</div>
+            <div><div class="ned-sv">64K</div><div class="ned-sl">Monthly Active Users</div><div class="ned-sd ned-up">▲ +23% growth</div></div>
+          </div>
+          <div class="ned-stat-card">
+            <div class="ned-stat-icon ned-si-warn">📉</div>
+            <div><div class="ned-sv">43%</div><div class="ned-sl">Drop Rate (pre-NavEase)</div><div class="ned-sd ned-dn">▼ Target: &lt;10%</div></div>
+          </div>
+        </div>
+
+        <!-- Row 2: Gauges + Page Views + Map -->
+        <div class="ned-main-grid">
+
+          <!-- Gauges -->
+          <div class="ned-card ned-span2">
+            <div class="ned-ct">⬤ Real-Time Performance</div>
+            <div class="ned-gauges">
+              <div class="ned-gauge-wrap">
+                <svg class="ned-gauge-svg" viewBox="0 0 110 60">
+                  <path d="M10,55 A40,40 0 0,1 100,55" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="9" stroke-linecap="round"/>
+                  <path d="M10,55 A40,40 0 0,1 100,55" fill="none" stroke="url(#ng1)" stroke-width="9" stroke-linecap="round" stroke-dasharray="126" stroke-dashoffset="32"/>
+                  <defs><linearGradient id="ng1" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#00c8e0"/><stop offset="100%" style="stop-color:#1976d2"/></linearGradient></defs>
+                  <text x="55" y="50" text-anchor="middle" font-family="'Exo 2',sans-serif" font-size="15" font-weight="900" fill="#f0f8ff">87%</text>
+                </svg>
+                <div class="ned-gsl">Recent User Activity</div>
+              </div>
+              <div class="ned-gauge-wrap">
+                <svg class="ned-gauge-svg" viewBox="0 0 110 60">
+                  <path d="M10,55 A40,40 0 0,1 100,55" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="9" stroke-linecap="round"/>
+                  <path d="M10,55 A40,40 0 0,1 100,55" fill="none" stroke="url(#ng2)" stroke-width="9" stroke-linecap="round" stroke-dasharray="126" stroke-dashoffset="44"/>
+                  <defs><linearGradient id="ng2" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#00e5c8"/><stop offset="100%" style="stop-color:#0097b2"/></linearGradient></defs>
+                  <text x="55" y="50" text-anchor="middle" font-family="'Exo 2',sans-serif" font-size="15" font-weight="900" fill="#f0f8ff">65%</text>
+                </svg>
+                <div class="ned-gsl">Task Completion Time</div>
+              </div>
+              <!-- Col Chart -->
+              <div style="flex:1;display:flex;flex-direction:column;gap:6px;">
+                <div class="ned-ct" style="margin-bottom:6px;">▲ Conversion by Source</div>
+                <div class="ned-cols" id="ned-cols">
+                  <div class="ned-col-wrap">
+                    <div class="ned-col-bar" style="background:linear-gradient(0,#0097b2,#00c8e0);" data-h="64px"><span class="ned-col-val">30</span></div>
+                    <div class="ned-col-lbl">Direct</div>
+                  </div>
+                  <div class="ned-col-wrap">
+                    <div class="ned-col-bar" style="background:linear-gradient(0,#1565c0,#1976d2);" data-h="80px"><span class="ned-col-val">50</span></div>
+                    <div class="ned-col-lbl">Organic</div>
+                  </div>
+                  <div class="ned-col-wrap">
+                    <div class="ned-col-bar" style="background:linear-gradient(0,#0d47a1,#1565c0);" data-h="58px"><span class="ned-col-val">40</span></div>
+                    <div class="ned-col-lbl">Referral</div>
+                  </div>
+                  <div class="ned-col-wrap">
+                    <div class="ned-col-bar" style="background:linear-gradient(0,#4a148c,#7b1fa2);" data-h="36px"><span class="ned-col-val">20</span></div>
+                    <div class="ned-col-lbl">Social</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- World Map -->
+          <div class="ned-card">
+            <div class="ned-ct">◉ Global Users</div>
+            <svg viewBox="0 0 400 180" class="ned-map-svg">
+              <rect width="400" height="180" fill="rgba(13,37,78,.3)" rx="6"/>
+              <path d="M50,36 Q88,26 98,54 Q108,82 90,93 Q70,103 55,88 Q40,73 40,55 Z" fill="rgba(0,200,224,.22)" stroke="rgba(0,200,224,.45)" stroke-width="1"/>
+              <path d="M88,103 Q108,98 113,122 Q116,150 98,160 Q80,166 76,147 Q72,128 78,114 Z" fill="rgba(0,200,224,.16)" stroke="rgba(0,200,224,.3)" stroke-width="1"/>
+              <path d="M168,26 Q192,21 197,40 Q202,55 192,60 Q178,63 166,50 Q160,40 163,30 Z" fill="rgba(21,101,192,.32)" stroke="rgba(21,101,192,.45)" stroke-width="1"/>
+              <path d="M173,68 Q202,63 207,92 Q212,130 192,145 Q173,152 160,136 Q148,120 153,93 Q156,72 168,68 Z" fill="rgba(0,200,224,.13)" stroke="rgba(0,200,224,.28)" stroke-width="1"/>
+              <path d="M207,22 Q286,12 306,36 Q320,60 315,80 Q305,95 280,90 Q255,85 235,70 Q215,57 205,44 Q198,33 205,24 Z" fill="rgba(0,150,200,.22)" stroke="rgba(0,150,200,.4)" stroke-width="1"/>
+              <path d="M296,122 Q324,118 334,138 Q342,157 325,163 Q307,169 295,154 Q285,140 290,128 Z" fill="rgba(0,229,200,.16)" stroke="rgba(0,229,200,.3)" stroke-width="1"/>
+              <circle cx="68" cy="64" r="4" fill="#00c8e0" opacity=".9"/>
+              <circle cx="68" cy="64" r="8" fill="none" stroke="#00c8e0" stroke-width="1" opacity=".4"><animate attributeName="r" values="5;13;5" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values=".5;0;.5" dur="2s" repeatCount="indefinite"/></circle>
+              <circle cx="183" cy="41" r="3" fill="#1976d2" opacity=".9"/>
+              <circle cx="183" cy="41" r="6" fill="none" stroke="#1976d2" stroke-width="1" opacity=".4"><animate attributeName="r" values="4;11;4" dur="2.5s" repeatCount="indefinite"/><animate attributeName="opacity" values=".5;0;.5" dur="2.5s" repeatCount="indefinite"/></circle>
+              <circle cx="262" cy="50" r="5" fill="#00e5c8" opacity=".9"/>
+              <circle cx="262" cy="50" r="10" fill="none" stroke="#00e5c8" stroke-width="1" opacity=".4"><animate attributeName="r" values="6;15;6" dur="1.8s" repeatCount="indefinite"/><animate attributeName="opacity" values=".5;0;.5" dur="1.8s" repeatCount="indefinite"/></circle>
+              <circle cx="314" cy="142" r="3" fill="#4a7fa5" opacity=".8"/>
+            </svg>
+            <div class="ned-map-dots">
+              <div class="ned-map-item"><div class="ned-pulse"></div><span>N. America 38%</span></div>
+              <div class="ned-map-item"><div class="ned-pulse b"></div><span>Europe 27%</span></div>
+              <div class="ned-map-item"><div class="ned-pulse a"></div><span>Asia-Pac 24%</span></div>
+              <div class="ned-map-item"><div class="ned-pulse m"></div><span>Other 11%</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 3: Page Views + Nav Paths + Phone -->
+        <div class="ned-main-grid" style="margin-bottom:12px;">
+          <!-- Page Views -->
+          <div class="ned-card">
+            <div class="ned-ct">▐ Page Views by Type</div>
+            <div class="ned-hbars" id="ned-hbars">
+              <div class="ned-hbar-row"><div class="ned-hbar-lbl">Home</div><div class="ned-hbar-track"><div class="ned-hbar-fill ned-hb1" data-w="90">Home</div></div></div>
+              <div class="ned-hbar-row"><div class="ned-hbar-lbl">Product</div><div class="ned-hbar-track"><div class="ned-hbar-fill ned-hb2" data-w="62">Product</div></div></div>
+              <div class="ned-hbar-row"><div class="ned-hbar-lbl">About</div><div class="ned-hbar-track"><div class="ned-hbar-fill ned-hb3" data-w="38">About</div></div></div>
+              <div class="ned-hbar-row"><div class="ned-hbar-lbl">Contact</div><div class="ned-hbar-track"><div class="ned-hbar-fill ned-hb4" data-w="44">Contact</div></div></div>
+            </div>
+          </div>
+
+          <!-- Nav Paths Pie -->
+          <div class="ned-card">
+            <div class="ned-ct">◑ Navigation Paths</div>
+            <div class="ned-pie-wrap">
+              <svg class="ned-pie-svg" viewBox="0 0 90 90">
+                <circle cx="45" cy="45" r="30" fill="none" stroke="rgba(255,255,255,.05)" stroke-width="24"/>
+                <circle cx="45" cy="45" r="30" fill="none" stroke="#00c8e0" stroke-width="24" stroke-dasharray="71.6 117.3" stroke-dashoffset="0" transform="rotate(-90 45 45)"/>
+                <circle cx="45" cy="45" r="30" fill="none" stroke="#1976d2" stroke-width="24" stroke-dasharray="50.9 137.7" stroke-dashoffset="-71.6" transform="rotate(-90 45 45)"/>
+                <circle cx="45" cy="45" r="30" fill="none" stroke="#0d47a1" stroke-width="24" stroke-dasharray="37.7 151" stroke-dashoffset="-122.5" transform="rotate(-90 45 45)"/>
+                <circle cx="45" cy="45" r="30" fill="none" stroke="#7b1fa2" stroke-width="24" stroke-dasharray="28.3 160.4" stroke-dashoffset="-160.2" transform="rotate(-90 45 45)"/>
+                <circle cx="45" cy="45" r="19" fill="#111c30"/>
+              </svg>
+              <div class="ned-legend">
+                <div class="ned-legend-item"><div class="ned-dot" style="background:#00c8e0"></div>Direct 38%</div>
+                <div class="ned-legend-item"><div class="ned-dot" style="background:#1976d2"></div>Organic 27%</div>
+                <div class="ned-legend-item"><div class="ned-dot" style="background:#0d47a1"></div>Referral 20%</div>
+                <div class="ned-legend-item"><div class="ned-dot" style="background:#7b1fa2"></div>Social 15%</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Phone mockup -->
+          <div class="ned-card ned-phone-wrap">
+            <div class="ned-phone">
+              <div class="ned-phone-screen">
+                <div class="ned-phone-time">08:45</div>
+                <div class="ned-notifs">
+                  <div class="ned-notif ned-n1"><div class="ned-ndot"></div><div class="ned-nline"></div></div>
+                  <div class="ned-notif ned-n2"><div class="ned-ndot"></div><div class="ned-nline"></div></div>
+                  <div class="ned-notif ned-n3"><div class="ned-ndot"></div><div class="ned-nline"></div></div>
+                </div>
+              </div>
+            </div>
+            <div class="ned-phone-lbl">NavEase Mobile UI</div>
+          </div>
+        </div>
+
+        <!-- Bottom Row: 3 Donuts -->
+        <div class="ned-bottom-grid">
+          <div class="ned-card ned-donut-inner">
+            <div class="ned-ct">Traffic Sources</div>
+            <svg class="ned-donut-svg" viewBox="0 0 80 80">
+              <circle cx="40" cy="40" r="28" fill="none" stroke="rgba(255,255,255,.05)" stroke-width="13"/>
+              <circle cx="40" cy="40" r="28" fill="none" stroke="#00c8e0" stroke-width="13" stroke-dasharray="66.5 109.3" stroke-dashoffset="0" transform="rotate(-90 40 40)"/>
+              <circle cx="40" cy="40" r="28" fill="none" stroke="#1976d2" stroke-width="13" stroke-dasharray="47.3 128.5" stroke-dashoffset="-66.5" transform="rotate(-90 40 40)"/>
+              <circle cx="40" cy="40" r="28" fill="none" stroke="#7b1fa2" stroke-width="13" stroke-dasharray="35 140.8" stroke-dashoffset="-113.8" transform="rotate(-90 40 40)"/>
+              <circle cx="40" cy="40" r="28" fill="none" stroke="#00e676" stroke-width="13" stroke-dasharray="26.4 149.4" stroke-dashoffset="-148.8" transform="rotate(-90 40 40)"/>
+              <circle cx="40" cy="40" r="17" fill="#111c30"/>
+            </svg>
+            <div class="ned-donut-title">Traffic Sources</div>
+            <div class="ned-donut-legend">
+              <div class="ned-dl-item"><div class="ned-dot" style="width:7px;height:7px;background:#00c8e0"></div>Direct</div>
+              <div class="ned-dl-item"><div class="ned-dot" style="width:7px;height:7px;background:#1976d2"></div>Organic</div>
+              <div class="ned-dl-item"><div class="ned-dot" style="width:7px;height:7px;background:#7b1fa2"></div>Referral</div>
+              <div class="ned-dl-item"><div class="ned-dot" style="width:7px;height:7px;background:#00e676"></div>Social</div>
+            </div>
+          </div>
+
+          <div class="ned-card ned-donut-inner">
+            <div class="ned-ct">Bounce Rate by Device</div>
+            <svg class="ned-donut-svg" viewBox="0 0 80 80">
+              <circle cx="40" cy="40" r="28" fill="none" stroke="rgba(255,255,255,.05)" stroke-width="13"/>
+              <circle cx="40" cy="40" r="28" fill="none" stroke="#00c8e0" stroke-width="13" stroke-dasharray="88 87.8" stroke-dashoffset="0" transform="rotate(-90 40 40)"/>
+              <circle cx="40" cy="40" r="28" fill="none" stroke="#ff6b35" stroke-width="13" stroke-dasharray="52.7 123.1" stroke-dashoffset="-88" transform="rotate(-90 40 40)"/>
+              <circle cx="40" cy="40" r="28" fill="none" stroke="#1976d2" stroke-width="13" stroke-dasharray="35.1 140.7" stroke-dashoffset="-140.7" transform="rotate(-90 40 40)"/>
+              <circle cx="40" cy="40" r="17" fill="#111c30"/>
+            </svg>
+            <div class="ned-donut-title">Bounce Rate by Device</div>
+            <div class="ned-donut-legend">
+              <div class="ned-dl-item"><div class="ned-dot" style="width:7px;height:7px;background:#00c8e0"></div>Desktop</div>
+              <div class="ned-dl-item"><div class="ned-dot" style="width:7px;height:7px;background:#ff6b35"></div>Mobile</div>
+              <div class="ned-dl-item"><div class="ned-dot" style="width:7px;height:7px;background:#1976d2"></div>Tablet</div>
+            </div>
+          </div>
+
+          <div class="ned-card ned-donut-inner">
+            <div class="ned-ct">User Retention Rates</div>
+            <svg class="ned-donut-svg" viewBox="0 0 80 80">
+              <circle cx="40" cy="40" r="28" fill="none" stroke="rgba(255,255,255,.05)" stroke-width="13"/>
+              <circle cx="40" cy="40" r="28" fill="none" stroke="#00c8e0" stroke-width="13" stroke-dasharray="26.4 149.4" stroke-dashoffset="0" transform="rotate(-90 40 40)"/>
+              <circle cx="40" cy="40" r="28" fill="none" stroke="#ff9800" stroke-width="13" stroke-dasharray="35.2 140.6" stroke-dashoffset="-26.4" transform="rotate(-90 40 40)"/>
+              <circle cx="40" cy="40" r="28" fill="none" stroke="#7b1fa2" stroke-width="13" stroke-dasharray="52.8 123" stroke-dashoffset="-61.6" transform="rotate(-90 40 40)"/>
+              <circle cx="40" cy="40" r="28" fill="none" stroke="#00e676" stroke-width="13" stroke-dasharray="61.5 114.3" stroke-dashoffset="-114.4" transform="rotate(-90 40 40)"/>
+              <circle cx="40" cy="40" r="17" fill="#111c30"/>
+            </svg>
+            <div class="ned-donut-title">Retention by Age Group</div>
+            <div class="ned-donut-legend">
+              <div class="ned-dl-item"><div class="ned-dot" style="width:7px;height:7px;background:#00c8e0"></div>18–24: 15%</div>
+              <div class="ned-dl-item"><div class="ned-dot" style="width:7px;height:7px;background:#ff9800"></div>25–34: 20%</div>
+              <div class="ned-dl-item"><div class="ned-dot" style="width:7px;height:7px;background:#7b1fa2"></div>35–44: 30%</div>
+              <div class="ned-dl-item"><div class="ned-dot" style="width:7px;height:7px;background:#00e676"></div>45+: 35%</div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /ned-inner -->
+
+      </div><!-- /ne-dash-mount -->
+
       <div class="ne-dashboard-caption">
         <div class="ne-dashboard-caption-icon">◈</div>
         <p><strong>What you're seeing:</strong> A fully functional front-end prototype of the NavEase developer dashboard — built with HTML, CSS, and JavaScript. It demonstrates the analytics interface proposed in the NavEase product brief: real-time UX metrics, traffic source analysis, navigation path visualization, global user distribution, and user retention segmentation by age group. Scroll and interact within the frame to explore all panels.</p>
@@ -982,6 +1293,29 @@
     },300);
   }
   function closeCaseNavEase(){document.getElementById('case-study-detail-navease').classList.remove('open');document.getElementById('work').style.display='';document.getElementById('work').scrollIntoView({behavior:'smooth'});}
+
+  // Dashboard bar/column animations — trigger on scroll into view
+  (function(){
+    var dashAnimated = false;
+    function runDashAnims(){
+      if(dashAnimated) return; dashAnimated = true;
+      setTimeout(function(){
+        document.querySelectorAll('.ned-hbar-fill[data-w]').forEach(function(el){
+          el.style.width = el.dataset.w + '%';
+        });
+        document.querySelectorAll('.ned-col-bar[data-h]').forEach(function(el){
+          el.style.height = el.dataset.h;
+        });
+      }, 300);
+    }
+    var dashEl = document.getElementById('ne-dash-mount');
+    if(dashEl){
+      var dashObs = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){ if(e.isIntersecting) runDashAnims(); });
+      },{threshold:0.05});
+      dashObs.observe(dashEl);
+    }
+  })();
 
   // AI case
   function openCaseAI(){document.getElementById('case-study-detail-ai').classList.add('open');document.getElementById('work').style.display='none';document.getElementById('case-study-detail-ai').scrollIntoView({behavior:'smooth'});}
