@@ -191,6 +191,12 @@
   .result-chip .num{font-family:var(--font-serif);font-size:2rem;font-weight:bold;background:linear-gradient(135deg,var(--accent),#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;}
   .result-chip .lbl{font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;}
 
+  /* AI CASE HERO IMAGE */
+  .ai-case-hero{
+    width:100%;height:420px;object-fit:cover;object-position:center 30%;
+    display:block;border:2px solid var(--ink);margin-bottom:2.5rem;
+  }
+
   /* ── NAVEASE DASHBOARD EMBED ── */
   .ne-dashboard-section {
     margin: 2.5rem 0;
@@ -376,6 +382,7 @@
     .wf-phases,.wf-insights{grid-template-columns:1fr;}
     .wf-flow{grid-template-columns:1fr;}
     .wf-flow-arrow{transform:rotate(90deg);}
+    .ai-case-hero{height:240px;}
   }
 
   /* ── INLINE DASHBOARD COMPONENT ── */
@@ -681,9 +688,11 @@
     </div>
   </div>
 
-  <!-- AI Workflow -->
+  <!-- ✦ CHANGE 1: AI Workflow card thumbnail → ai-workflow-hero.jpg -->
   <div class="cs-ai reveal">
-    <div class="cs-ai-panel"><img src="/images/ai-card.jpg" alt="AI-assisted UX workflow"/></div>
+    <div class="cs-ai-panel">
+      <img src="/images/ai-workflow-hero.jpg" alt="Designer working through UX workflow"/>
+    </div>
     <div class="cs-ai-body">
       <div>
         <p class="cs-issue">UX Research · AI-Assisted Workflows</p>
@@ -900,7 +909,6 @@
         <span class="ne-dashboard-badge">⬤ Live Prototype</span>
       </div>
       <div class="ne-dashboard-frame" id="ne-dash-mount">
-        <!-- dashboard content below -->
 
       <!-- Dashboard Topbar -->
       <div class="ned-topbar">
@@ -1166,6 +1174,14 @@
 <!-- AI WORKFLOW CASE DETAIL -->
 <div id="case-study-detail-ai">
   <button class="back-btn" onclick="closeCaseAI()">Back to Work</button>
+
+  <!-- ✦ CHANGE 2: Hero image at top of AI Workflow case study -->
+  <img
+    class="ai-case-hero reveal"
+    src="/images/ai-workflow-hero.jpg"
+    alt="Designer working through a human-centered UX workflow"
+  />
+
   <div class="reveal">
     <p class="section-label">Case Study</p>
     <h2>Using AI to Support UX Design Workflows</h2>
@@ -1284,7 +1300,6 @@
     document.getElementById('case-study-detail-navease').classList.add('open');
     document.getElementById('work').style.display='none';
     document.getElementById('case-study-detail-navease').scrollIntoView({behavior:'smooth'});
-    // Trigger counters + bars once opened
     setTimeout(()=>{
       animCount(document.getElementById('ne-s1'),43,'%',1100);
       animCount(document.getElementById('ne-s2'),150,'%',1300);
@@ -1294,7 +1309,7 @@
   }
   function closeCaseNavEase(){document.getElementById('case-study-detail-navease').classList.remove('open');document.getElementById('work').style.display='';document.getElementById('work').scrollIntoView({behavior:'smooth'});}
 
-  // Dashboard bar/column animations — trigger on scroll into view
+  // Dashboard bar/column animations
   (function(){
     var dashAnimated = false;
     function runDashAnims(){
