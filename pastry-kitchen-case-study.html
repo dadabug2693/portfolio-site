@@ -64,10 +64,10 @@ h2{font-family:var(--font-serif);font-size:clamp(1.9rem,3.5vw,2.8rem);margin-bot
 .section-light .rule{border:none;border-top:2px solid var(--ink);margin-bottom:2.5rem;}
 
 /* SECTION 1: ORIGINS */
-.origins-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:3.5rem;align-items:start;margin-top:3rem;}
-.origins-images{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:#1e1e1e;}
+.origins-grid{display:flex;flex-direction:column;gap:3rem;margin-top:3rem;}
+.origins-images{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:#1e1e1e;}
 .origins-img{position:relative;overflow:hidden;background:#111;}
-.origins-img img{width:100%;height:auto;display:block;opacity:.82;transition:opacity .35s;}
+.origins-img img{width:100%;height:340px;object-fit:cover;display:block;opacity:.82;transition:opacity .35s;}
 .origins-img:hover img{opacity:1;}
 .origins-img-caption{padding:.75rem .9rem;border-top:1px solid #2a2a2a;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:#555;line-height:1.5;}
 .origins-text p{font-size:.95rem;color:#aaa;line-height:1.88;margin-bottom:1.4rem;}
@@ -131,8 +131,8 @@ footer p{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:
   nav .nav-top{padding:.8rem 1.5rem;}
   .cs-hero{padding:7rem 1.5rem 5rem;}
   .section-dark-inner,.section-light-inner{padding-left:1.5rem;padding-right:1.5rem;}
-  .origins-grid{grid-template-columns:1fr;gap:2rem;}
   .origins-images{grid-template-columns:1fr 1fr;}
+  .origins-img img{height:220px;}
   .process-step{grid-template-columns:1fr;}
   .step-what{border-right:none;border-bottom:1px solid var(--border);}
   .stories-grid{grid-template-columns:1fr;}
@@ -192,6 +192,10 @@ footer p{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:
         <div class="origins-img">
           <img src="/images/competition-board.jpg" alt="Sullivan University College of Hospitality Studies competition awards wall — David Bailey's name listed under Chicago NRA/ACF Culinary Salon, May 1992"/>
           <div class="origins-img-caption">Sullivan University &middot; College of Hospitality Studies &middot; Competition Awards Wall</div>
+        </div>
+        <div class="origins-img">
+          <img src="/images/competition-board-detail.jpg" alt="Close-up of Sullivan University honor board — Chicago NRA/ACF Culinary Salon / May 1992 — David Bailey, Silver Medal" style="object-position:center 40%;"/>
+          <div class="origins-img-caption">Chicago NRA/ACF Culinary Salon &middot; May 1992 &middot; David Bailey &middot; Silver Medal</div>
         </div>
       </div>
       <div class="origins-text reveal">
