@@ -1,1228 +1,437 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Pastry Kitchen — Brand & Web Design Case Study | David R. Bailey</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Georgia&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>The Pastry Kitchen · Case Study | David R. Bailey</title>
+<style>
+:root{
+  --bg:#ffffff;--bg2:#f5f5f5;--ink:#0d0d0d;--muted:#777;
+  --accent:#2dd4bf;--accent2:#1a9e8e;--border:#ccc7bc;
+  --glass:rgba(255,255,255,0.45);--glass-border:rgba(255,255,255,0.7);
+  --font-sans:'Inter',system-ui,sans-serif;--font-serif:'Georgia',serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-sans);line-height:1.7;overflow-x:hidden;}
 
-  <style>
-    :root {
-      --parchment: #f5f0e8;
-      --parchment-dark: #ede7d6;
-      --ink: #1a1a1a;
-      --ink-light: #3a3530;
-      --teal: #2dd4bf;
-      --teal-dark: #14b8a6;
-      --dark-panel: #0a0f1a;
-      --dark-panel-2: #111827;
-      --cream: #faf7f2;
-      --rule: #c8b89a;
-      --muted: #8a7d6e;
-      --crimson: #a01f3f;
-      --crimson-light: #c0294f;
-      --gold: #c9a84c;
-      --gold-light: #e4c070;
-    }
+.orb{position:fixed;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0;}
+.orb1{width:700px;height:700px;background:radial-gradient(circle,rgba(45,212,191,.13),transparent 70%);top:-200px;left:-200px;}
+.orb2{width:600px;height:600px;background:radial-gradient(circle,rgba(124,58,237,.09),transparent 70%);top:40%;right:-200px;}
+.orb3{width:500px;height:500px;background:radial-gradient(circle,rgba(29,78,216,.08),transparent 70%);bottom:10%;left:15%;}
+body>*{position:relative;z-index:1;}
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.97);backdrop-filter:blur(16px);border-bottom:2px solid var(--ink);}
+.nav-top{display:flex;align-items:center;justify-content:space-between;padding:.6rem 4rem;border-bottom:1px solid var(--border);}
+.nav-date{font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);}
+.nav-logo{font-family:var(--font-serif);font-size:1.55rem;font-weight:bold;letter-spacing:-.02em;color:var(--ink);text-decoration:none;}
+.nav-links{display:flex;list-style:none;}
+.nav-links li{flex:1;text-align:center;border-right:1px solid var(--border);}
+.nav-links li:last-child{border-right:none;}
+.nav-links a{display:block;padding:.55rem 1.4rem;color:var(--ink);text-decoration:none;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;transition:all .2s;}
+.nav-links a:hover{background:var(--ink);color:#fff;}
 
-    html { scroll-behavior: smooth; }
+/* HERO */
+.cs-hero{background:var(--ink);max-width:100%;padding:9rem 4rem 7rem;margin-top:95px;position:relative;overflow:hidden;border-bottom:1px solid #1e1e1c;}
+.cs-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 25% 60%,rgba(45,212,191,.14),transparent 58%);pointer-events:none;}
+.cs-hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(124,58,237,.08),transparent 55%);pointer-events:none;}
+.cs-hero-inner{max-width:1100px;margin:0 auto;position:relative;}
+.cs-back{display:inline-flex;align-items:center;gap:.5rem;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,.4);text-decoration:none;margin-bottom:2.8rem;transition:color .2s;}
+.cs-back::before{content:'←';font-size:.8rem;}
+.cs-back:hover{color:var(--accent);}
+.cs-eyebrow{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--accent);display:block;margin-bottom:1.2rem;}
+.cs-hero h1{font-family:var(--font-serif);font-size:clamp(3.5rem,6.5vw,6.2rem);line-height:.88;letter-spacing:-.03em;color:#fff;margin-bottom:1.8rem;font-weight:bold;}
+.cs-hero h1 em{font-style:italic;color:var(--accent);}
+.cs-hero-sub{font-size:1.05rem;color:rgba(255,255,255,.6);max-width:460px;line-height:1.8;border-left:3px solid var(--accent);padding-left:1.1rem;}
 
-    body {
-      background: var(--parchment);
-      color: var(--ink);
-      font-family: 'Source Serif 4', Georgia, serif;
-      font-size: 18px;
-      line-height: 1.75;
-      overflow-x: hidden;
-    }
+/* SHARED LABELS / HEADINGS */
+.section-label{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:.5rem;}
+h2{font-family:var(--font-serif);font-size:clamp(1.9rem,3.5vw,2.8rem);margin-bottom:1.2rem;line-height:1.05;letter-spacing:-.02em;font-weight:bold;}
 
-    /* ──────────────── NAV ──────────────── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      background: rgba(10, 15, 26, 0.97);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(45, 212, 191, 0.15);
-      padding: 0 clamp(1.5rem, 5vw, 4rem);
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .nav-brand {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1rem;
-      font-weight: 600;
-      color: #fff;
-      text-decoration: none;
-      letter-spacing: 0.02em;
-    }
-    .nav-brand span { color: var(--teal); }
-    .nav-back {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.75rem;
-      font-weight: 300;
-      color: var(--teal);
-      text-decoration: none;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      transition: opacity 0.2s;
-    }
-    .nav-back:hover { opacity: 0.7; }
-    .nav-back::before { content: '←'; font-size: 0.9em; }
+/* DARK SECTIONS */
+.section-dark{background:var(--ink);max-width:100%;padding:7rem 0;border-top:1px solid #1e1e1c;}
+.section-dark-inner{max-width:1100px;margin:0 auto;padding:0 4rem;}
+.section-dark .section-label{color:#555;}
+.section-dark h2{color:#fff;}
+.section-dark .rule{border:none;border-top:2px solid #2a2a2a;margin-bottom:2.5rem;}
 
-    /* ──────────────── HERO ──────────────── */
-    .hero {
-      min-height: 100vh;
-      background: var(--dark-panel);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 60% 50% at 70% 50%, rgba(160, 31, 63, 0.18) 0%, transparent 70%),
-        radial-gradient(ellipse 40% 60% at 20% 80%, rgba(45, 212, 191, 0.06) 0%, transparent 60%);
-      pointer-events: none;
-    }
-    .hero-texture {
-      position: absolute;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.015'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-      pointer-events: none;
-    }
+/* LIGHT SECTIONS */
+.section-light{background:var(--bg);max-width:100%;padding:7rem 0;border-top:2px solid var(--ink);}
+.section-light-inner{max-width:1100px;margin:0 auto;padding:0 4rem;}
+.section-light .section-label{color:var(--muted);}
+.section-light h2{color:var(--ink);}
+.section-light .rule{border:none;border-top:2px solid var(--ink);margin-bottom:2.5rem;}
 
-    .hero-content {
-      padding: clamp(5rem, 10vw, 8rem) clamp(2rem, 6vw, 5rem) clamp(4rem, 8vw, 6rem);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      position: relative;
-      z-index: 2;
-    }
-    .hero-eyebrow {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.7rem;
-      font-weight: 300;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--teal);
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-    .hero-eyebrow::before {
-      content: '';
-      display: block;
-      width: 40px;
-      height: 1px;
-      background: var(--teal);
-    }
-    .hero h1 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(2.8rem, 5.5vw, 5rem);
-      font-weight: 700;
-      line-height: 1.1;
-      color: #fff;
-      margin-bottom: 1rem;
-      letter-spacing: -0.02em;
-    }
-    .hero h1 em {
-      font-style: italic;
-      color: var(--gold-light);
-    }
-    .hero-sub {
-      font-size: 1.1rem;
-      color: rgba(255,255,255,0.6);
-      max-width: 440px;
-      line-height: 1.7;
-      margin-bottom: 3rem;
-      font-weight: 300;
-    }
-    .hero-meta {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      padding-top: 2rem;
-      max-width: 500px;
-    }
-    .hero-meta-item label {
-      display: block;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--teal);
-      margin-bottom: 0.3rem;
-    }
-    .hero-meta-item span {
-      display: block;
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.75);
-      font-weight: 300;
-    }
+/* SECTION 1: ORIGINS */
+.origins-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:3.5rem;align-items:start;margin-top:3rem;}
+.origins-images{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:#1e1e1e;}
+.origins-img{position:relative;overflow:hidden;background:#111;}
+.origins-img img{width:100%;height:auto;display:block;opacity:.82;transition:opacity .35s;}
+.origins-img:hover img{opacity:1;}
+.origins-img-caption{padding:.75rem .9rem;border-top:1px solid #2a2a2a;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:#555;line-height:1.5;}
+.origins-text p{font-size:.95rem;color:#aaa;line-height:1.88;margin-bottom:1.4rem;}
+.ux-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem;}
+.ux-tag{font-size:.65rem;background:rgba(45,212,191,.1);border:1px solid rgba(45,212,191,.25);color:var(--accent);padding:.3rem .8rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;}
 
-    .hero-visual {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: clamp(2rem, 5vw, 4rem);
-    }
+/* SECTION 2: CLIENT PROCESS */
+.process-intro{font-size:.95rem;color:#555;line-height:1.88;max-width:700px;margin-bottom:3rem;}
+.process-steps{border:2px solid var(--ink);}
+.process-step{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--border);}
+.process-step:last-child{border-bottom:none;}
+.step-what{padding:1.8rem 2rem;background:var(--bg);border-right:1px solid var(--border);}
+.step-ux{padding:1.8rem 2rem;background:rgba(45,212,191,.03);}
+.step-header{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;margin-bottom:.6rem;}
+.step-what .step-header{color:var(--muted);}
+.step-ux .step-header{color:var(--accent2);}
+.step-what p{font-size:.88rem;color:#555;line-height:1.72;}
+.step-ux-title{font-family:var(--font-serif);font-size:1.05rem;color:var(--ink);font-weight:bold;margin-bottom:.35rem;line-height:1.2;}
+.step-ux-desc{font-size:.82rem;color:var(--muted);line-height:1.65;}
 
-    /* Big decorative PK emblem */
-    .pk-emblem {
-      width: min(420px, 90%);
-      aspect-ratio: 1;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .pk-ring {
-      position: absolute;
-      border-radius: 50%;
-      border: 1px solid;
-    }
-    .pk-ring-1 {
-      inset: 0;
-      border-color: rgba(160, 31, 63, 0.4);
-      animation: spin 40s linear infinite;
-    }
-    .pk-ring-2 {
-      inset: 15%;
-      border-color: rgba(201, 168, 76, 0.3);
-      animation: spin 28s linear infinite reverse;
-      border-style: dashed;
-    }
-    .pk-ring-3 {
-      inset: 30%;
-      border-color: rgba(45, 212, 191, 0.2);
-      animation: spin 18s linear infinite;
-    }
-    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-    .pk-center {
-      position: relative;
-      z-index: 5;
-      text-align: center;
-    }
-    .pk-initials {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(5rem, 10vw, 8rem);
-      font-weight: 700;
-      line-height: 1;
-      background: linear-gradient(135deg, var(--crimson) 0%, var(--gold) 50%, var(--crimson-light) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      letter-spacing: -0.05em;
-    }
-    .pk-tagline {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.4);
-      margin-top: 0.5rem;
-    }
+/* SECTION 3: HARD STORIES */
+.hard-intro{font-size:.95rem;color:#888;line-height:1.85;max-width:660px;margin-bottom:3rem;}
+.stories-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#1e1e1e;border:1px solid #1e1e1e;}
+.story-card{background:#0d0d0d;padding:2.5rem 2rem;}
+.story-num{font-family:var(--font-serif);font-size:3rem;font-weight:bold;background:linear-gradient(135deg,var(--accent),#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:1.2rem;}
+.story-card h3{font-family:var(--font-serif);font-size:1.2rem;color:#fff;font-weight:bold;margin-bottom:1.2rem;line-height:1.2;}
+.story-card p{font-size:.88rem;color:#888;line-height:1.88;margin-bottom:1rem;}
+.story-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.8rem;padding-top:1.5rem;border-top:1px solid #1e1e1e;}
+.story-tag{font-size:.62rem;letter-spacing:.11em;text-transform:uppercase;color:var(--accent);font-weight:700;background:rgba(45,212,191,.07);border:1px solid rgba(45,212,191,.2);padding:.28rem .65rem;}
 
-    /* ──────────────── SECTION UTILITY ──────────────── */
-    section { position: relative; }
+/* SECTION 4: PHOTO GRID */
+.photo-intro{font-size:.95rem;color:#555;line-height:1.88;max-width:580px;margin-bottom:3rem;}
+.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:280px;gap:2px;background:var(--ink);border:2px solid var(--ink);}
+.photo-item{overflow:hidden;position:relative;background:#f0ebe3;}
+.photo-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .38s ease,opacity .3s;}
+.photo-item:hover img{transform:scale(1.04);opacity:.88;}
+.photo-caption{position:absolute;bottom:0;left:0;right:0;padding:.65rem 1rem;background:linear-gradient(transparent,rgba(0,0,0,.78));font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.8);opacity:0;transition:opacity .25s;}
+.photo-item:hover .photo-caption{opacity:1;}
 
-    .section-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 5vw, 3rem);
-    }
+/* SECTION 5: THROUGH LINE */
+.tl-quote{font-family:var(--font-serif);font-size:clamp(1.3rem,3vw,2rem);color:rgba(255,255,255,.88);line-height:1.5;font-style:italic;max-width:720px;margin:3rem 0;padding-left:2rem;border-left:3px solid var(--accent);}
+.tl-blocks{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#1e1e1e;margin-top:3rem;}
+.tl-block{background:#0d0d0d;padding:2.5rem 2rem;}
+.tl-block h4{font-family:var(--font-serif);font-size:1.1rem;color:#fff;font-weight:bold;margin-bottom:.85rem;line-height:1.2;}
+.tl-block p{font-size:.87rem;color:#888;line-height:1.82;}
+.tl-close{font-size:.92rem;color:#555;line-height:1.88;max-width:640px;margin-top:3rem;}
 
-    .section-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.68rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--muted);
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
-    .section-label::after {
-      content: '';
-      flex: 1;
-      max-width: 60px;
-      height: 1px;
-      background: var(--rule);
-    }
+/* FOOTER */
+footer{border-top:2px solid var(--ink);padding:2rem 4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;background:var(--bg);}
+footer p{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;}
+.footer-links{display:flex;gap:1.5rem;}
+.footer-links a{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:color .2s;}
+.footer-links a:hover{color:var(--ink);}
 
-    h2 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      font-weight: 700;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-      margin-bottom: 1.5rem;
-    }
-    h2 em { font-style: italic; color: var(--crimson); }
-    h3 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-bottom: 0.75rem;
-      line-height: 1.3;
-    }
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease;}
+.reveal.visible{opacity:1;transform:none;}
 
-    p { max-width: 68ch; }
-    p + p { margin-top: 1rem; }
-
-    /* ──────────────── OVERVIEW DARK BAND ──────────────── */
-    .overview-band {
-      background: var(--dark-panel-2);
-      color: #fff;
-    }
-    .overview-band h2 em { color: var(--gold-light); }
-
-    .overview-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: start;
-    }
-    .overview-text p { color: rgba(255,255,255,0.75); max-width: 55ch; }
-    .overview-text p + p { margin-top: 1rem; }
-
-    .stat-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      margin-top: 3rem;
-    }
-    .stat-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 4px;
-      padding: 1.5rem;
-      position: relative;
-      overflow: hidden;
-    }
-    .stat-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 3px;
-      height: 100%;
-      background: var(--crimson);
-    }
-    .stat-value {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #fff;
-      line-height: 1;
-      margin-bottom: 0.25rem;
-    }
-    .stat-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.45);
-    }
-
-    .overview-pull {
-      padding: 2rem 2.5rem;
-      border-left: 3px solid var(--gold);
-      background: rgba(201, 168, 76, 0.06);
-      border-radius: 0 4px 4px 0;
-    }
-    .overview-pull p {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1.25rem;
-      font-style: italic;
-      color: rgba(255,255,255,0.85);
-      line-height: 1.6;
-      max-width: 100%;
-    }
-
-    /* ──────────────── BRAND IDENTITY SECTION ──────────────── */
-    .brand-section { background: var(--cream); }
-
-    .brand-palette {
-      display: flex;
-      gap: 0;
-      height: 80px;
-      border-radius: 6px;
-      overflow: hidden;
-      margin: 2rem 0;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.12);
-    }
-    .swatch {
-      flex: 1;
-      display: flex;
-      align-items: flex-end;
-      padding: 0.5rem 0.75rem;
-    }
-    .swatch span {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.08em;
-      color: rgba(255,255,255,0.7);
-      mix-blend-mode: screen;
-    }
-
-    .brand-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      margin-top: 3rem;
-    }
-
-    .brand-card {
-      padding: 2rem;
-      background: #fff;
-      border: 1px solid var(--parchment-dark);
-      border-radius: 4px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-    }
-    .brand-card-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--crimson);
-      margin-bottom: 1rem;
-    }
-    .brand-card h3 { font-size: 1.15rem; margin-bottom: 0.6rem; }
-    .brand-card p { font-size: 0.95rem; color: var(--ink-light); line-height: 1.65; max-width: 100%; }
-
-    /* type specimens */
-    .type-specimen {
-      margin-top: 1rem;
-      padding: 1.25rem;
-      background: var(--parchment);
-      border-radius: 3px;
-    }
-    .type-display {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--crimson);
-      line-height: 1.2;
-    }
-    .type-body {
-      font-size: 0.9rem;
-      color: var(--ink-light);
-      margin-top: 0.5rem;
-      line-height: 1.65;
-    }
-    .type-mono {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.8rem;
-      color: var(--muted);
-      letter-spacing: 0.05em;
-    }
-
-    /* ──────────────── TIMELINE / LEGACY ──────────────── */
-    .legacy-section { background: var(--parchment); }
-
-    .timeline {
-      position: relative;
-      padding-left: 3rem;
-      margin-top: 3rem;
-    }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 0.5rem;
-      top: 0.5rem;
-      bottom: 0.5rem;
-      width: 1px;
-      background: linear-gradient(to bottom, var(--crimson), var(--gold), var(--teal));
-    }
-    .timeline-item {
-      position: relative;
-      margin-bottom: 3rem;
-      opacity: 0;
-      transform: translateX(-20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .timeline-item.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
-    .timeline-dot {
-      position: absolute;
-      left: -2.625rem;
-      top: 0.35rem;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: var(--crimson);
-      border: 2px solid var(--parchment);
-      box-shadow: 0 0 0 2px var(--crimson);
-    }
-    .timeline-year {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--crimson);
-      margin-bottom: 0.4rem;
-    }
-    .timeline-item h3 { margin-bottom: 0.5rem; font-size: 1.25rem; }
-    .timeline-item p { font-size: 0.95rem; color: var(--ink-light); max-width: 60ch; }
-
-    /* ──────────────── DESIGN DECISIONS ──────────────── */
-    .decisions-section { background: var(--dark-panel); color: #fff; }
-    .decisions-section .section-label { color: var(--teal); }
-    .decisions-section h2 em { color: var(--teal); }
-
-    .decisions-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin-top: 2.5rem;
-    }
-    .decision-card {
-      padding: 2rem;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 4px;
-      background: rgba(255,255,255,0.03);
-      position: relative;
-      overflow: hidden;
-      transition: border-color 0.3s, background 0.3s;
-    }
-    .decision-card:hover {
-      border-color: rgba(45, 212, 191, 0.3);
-      background: rgba(45, 212, 191, 0.04);
-    }
-    .decision-num {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 4rem;
-      font-weight: 700;
-      color: rgba(255,255,255,0.05);
-      line-height: 1;
-      position: absolute;
-      top: 0.5rem;
-      right: 1rem;
-    }
-    .decision-card h3 {
-      font-size: 1.05rem;
-      color: #fff;
-      margin-bottom: 0.75rem;
-      position: relative;
-    }
-    .decision-card p {
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.6);
-      line-height: 1.65;
-      max-width: 100%;
-      position: relative;
-    }
-    .decision-tag {
-      display: inline-block;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--teal);
-      background: rgba(45, 212, 191, 0.1);
-      border: 1px solid rgba(45, 212, 191, 0.2);
-      padding: 0.2rem 0.6rem;
-      border-radius: 2px;
-      margin-bottom: 1rem;
-      position: relative;
-    }
-
-    /* ──────────────── CAKE GALLERY STRIP ──────────────── */
-    .gallery-section { background: var(--parchment-dark); overflow: hidden; }
-    .gallery-label {
-      padding: 3rem clamp(1.5rem, 5vw, 3rem) 2rem;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .gallery-scroll {
-      display: flex;
-      gap: 1rem;
-      padding: 0 clamp(1.5rem, 5vw, 3rem) 3rem;
-      overflow-x: auto;
-      scrollbar-width: thin;
-      scrollbar-color: var(--rule) transparent;
-    }
-    .gallery-scroll::-webkit-scrollbar { height: 4px; }
-    .gallery-scroll::-webkit-scrollbar-track { background: transparent; }
-    .gallery-scroll::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 2px; }
-
-    .gallery-item {
-      flex: 0 0 260px;
-      aspect-ratio: 3/4;
-      border-radius: 4px;
-      overflow: hidden;
-      position: relative;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.12);
-    }
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-    .gallery-item:hover img { transform: scale(1.04); }
-    .gallery-item-overlay {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
-      padding: 1.5rem 1rem 1rem;
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-    .gallery-item:hover .gallery-item-overlay { opacity: 1; }
-    .gallery-item-overlay span {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.8);
-    }
-
-    /* ──────────────── UX CONNECTIONS ──────────────── */
-    .ux-section { background: var(--cream); }
-
-    .ux-bridge {
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      gap: 2rem;
-      align-items: center;
-      margin: 3rem 0;
-      padding: 2.5rem;
-      background: #fff;
-      border: 1px solid var(--parchment-dark);
-      border-radius: 6px;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
-    }
-    .ux-bridge-col h3 { font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--crimson); }
-    .ux-bridge-col p { font-size: 0.9rem; color: var(--ink-light); line-height: 1.6; max-width: 100%; }
-    .ux-bridge-arrow {
-      font-size: 1.5rem;
-      color: var(--teal);
-      text-align: center;
-    }
-
-    .ux-list {
-      list-style: none;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      margin-top: 2.5rem;
-    }
-    .ux-list li {
-      padding: 1.25rem 1.5rem;
-      border-left: 3px solid var(--crimson);
-      background: #fff;
-      border-radius: 0 4px 4px 0;
-      box-shadow: 0 1px 8px rgba(0,0,0,0.05);
-    }
-    .ux-list li strong {
-      display: block;
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 0.3rem;
-    }
-    .ux-list li span {
-      font-size: 0.88rem;
-      color: var(--ink-light);
-      line-height: 1.6;
-    }
-
-    /* ──────────────── RESULTS ──────────────── */
-    .results-section { background: var(--dark-panel-2); color: #fff; }
-    .results-section h2 em { color: var(--gold-light); }
-
-    .results-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-      margin-top: 3rem;
-    }
-    .result-card {
-      padding: 2rem 1.5rem;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 4px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      transition: border-color 0.3s;
-    }
-    .result-card::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 3px;
-      background: var(--crimson);
-    }
-    .result-card:hover { border-color: rgba(160, 31, 63, 0.4); }
-    .result-value {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 2.8rem;
-      font-weight: 700;
-      line-height: 1;
-      color: #fff;
-      margin-bottom: 0.5rem;
-    }
-    .result-value sup {
-      font-size: 1.2rem;
-      vertical-align: super;
-    }
-    .result-desc {
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.55);
-      line-height: 1.5;
-    }
-
-    /* ──────────────── QUOTE ──────────────── */
-    .quote-section {
-      background: var(--crimson);
-      padding: clamp(3rem, 7vw, 6rem) clamp(1.5rem, 5vw, 3rem);
-      text-align: center;
-    }
-    .quote-mark {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 8rem;
-      line-height: 0.5;
-      color: rgba(255,255,255,0.15);
-      display: block;
-      margin-bottom: 1rem;
-    }
-    .quote-section blockquote {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(1.4rem, 3vw, 2rem);
-      font-style: italic;
-      color: #fff;
-      max-width: 800px;
-      margin: 0 auto 1.5rem;
-      line-height: 1.5;
-    }
-    .quote-attribution {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.6);
-    }
-
-    /* ──────────────── NEXT STEPS / CTA ──────────────── */
-    .cta-section { background: var(--parchment); }
-    .cta-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-    .cta-text p { color: var(--ink-light); font-size: 1.05rem; }
-    .cta-links {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    .cta-link {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1.25rem 1.5rem;
-      border: 1px solid var(--rule);
-      border-radius: 4px;
-      text-decoration: none;
-      background: #fff;
-      color: var(--ink);
-      transition: border-color 0.2s, box-shadow 0.2s;
-      box-shadow: 0 1px 6px rgba(0,0,0,0.05);
-    }
-    .cta-link:hover {
-      border-color: var(--crimson);
-      box-shadow: 0 4px 16px rgba(160,31,63,0.12);
-    }
-    .cta-link-text { font-family: 'Playfair Display', Georgia, serif; font-size: 1.05rem; font-weight: 600; }
-    .cta-link-sub { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 0.2rem; }
-    .cta-link-arrow { color: var(--crimson); font-size: 1.2rem; }
-
-    /* ──────────────── FOOTER ──────────────── */
-    footer {
-      background: var(--dark-panel);
-      color: rgba(255,255,255,0.4);
-      padding: 2rem clamp(1.5rem, 5vw, 4rem);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.08em;
-      border-top: 1px solid rgba(255,255,255,0.06);
-    }
-    footer a { color: var(--teal); text-decoration: none; }
-
-    /* ──────────────── ANIMATIONS ──────────────── */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .fade-in.visible { opacity: 1; transform: translateY(0); }
-
-    /* ──────────────── RESPONSIVE ──────────────── */
-    @media (max-width: 900px) {
-      .hero { grid-template-columns: 1fr; }
-      .hero-visual { display: none; }
-      .overview-grid { grid-template-columns: 1fr; }
-      .brand-grid { grid-template-columns: 1fr; }
-      .decisions-grid { grid-template-columns: 1fr; }
-      .results-grid { grid-template-columns: 1fr 1fr; }
-      .cta-inner { grid-template-columns: 1fr; }
-      .ux-list { grid-template-columns: 1fr; }
-      .ux-bridge { grid-template-columns: 1fr; text-align: center; }
-      .ux-bridge-arrow { transform: rotate(90deg); }
-    }
-    @media (max-width: 600px) {
-      .stat-row { grid-template-columns: 1fr; }
-      .results-grid { grid-template-columns: 1fr; }
-      .hero-meta { grid-template-columns: 1fr 1fr; }
-    }
-  </style>
+/* RESPONSIVE */
+@media(max-width:768px){
+  nav .nav-top{padding:.8rem 1.5rem;}
+  .cs-hero{padding:7rem 1.5rem 5rem;}
+  .section-dark-inner,.section-light-inner{padding-left:1.5rem;padding-right:1.5rem;}
+  .origins-grid{grid-template-columns:1fr;gap:2rem;}
+  .origins-images{grid-template-columns:1fr 1fr;}
+  .process-step{grid-template-columns:1fr;}
+  .step-what{border-right:none;border-bottom:1px solid var(--border);}
+  .stories-grid{grid-template-columns:1fr;}
+  .photo-grid{grid-template-columns:1fr 1fr;grid-auto-rows:200px;}
+  .tl-blocks{grid-template-columns:1fr;}
+  footer{padding:2rem 1.5rem;}
+  h2{font-size:2rem;}
+}
+</style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <a href="https://davidrbailey.com" class="nav-brand">David R. <span>Bailey</span></a>
-    <a href="https://davidrbailey.com/#work" class="nav-back">Back to Work</a>
-  </nav>
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<div class="orb orb3"></div>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-texture"></div>
-    <div class="hero-content">
-      <div class="hero-eyebrow">Brand Design · Web · Identity · Legacy</div>
-      <h1>The Pastry<br/><em>Kitchen</em></h1>
-      <p class="hero-sub">
-        Building the brand identity, digital presence, and creative legacy of a professional pastry operation — where high-stakes design met high-stakes deliverables.
-      </p>
-      <div class="hero-meta">
-        <div class="hero-meta-item">
-          <label>Role</label>
-          <span>Designer & Founder</span>
+<!-- NAV -->
+<nav>
+  <div class="nav-top">
+    <span class="nav-date">Portfolio · 2026</span>
+    <a href="index.html" class="nav-logo">DAVID R. BAILEY</a>
+    <span class="nav-date">UX/UI Designer &amp; Technologist</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html#work">Work</a></li>
+    <li><a href="index.html#about-strip">About</a></li>
+    <li><a href="index.html#skills">Skills</a></li>
+    <li><a href="index.html#resume">Resume</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="cs-hero">
+  <div class="cs-hero-inner">
+    <a href="index.html#work" class="cs-back reveal">Back to Portfolio</a>
+    <span class="cs-eyebrow reveal">Case Study · 2002&ndash;Present</span>
+    <h1 class="reveal">The Pastry <em>Kitchen</em></h1>
+    <p class="cs-hero-sub reveal">Where UX Design Began &mdash; In Buttercream.</p>
+  </div>
+</div>
+
+<!-- SECTION 1: ORIGINS -->
+<div class="section-dark">
+  <div class="section-dark-inner">
+    <div class="reveal">
+      <p class="section-label">Section 01</p>
+      <h2>Origins in Competitive Pastry Arts</h2>
+      <hr class="rule"/>
+    </div>
+    <div class="origins-grid">
+      <div class="origins-images reveal">
+        <div class="origins-img">
+          <img src="/images/competition-1992.jpg" alt="Silhouette — ACF National Pastry Competition Entry, Chicago 1992"/>
+          <div class="origins-img-caption">&ldquo;Silhouette&rdquo; Display &middot; NRA/ACF Salon &middot; Chicago &middot; 1992</div>
         </div>
-        <div class="hero-meta-item">
-          <label>Timeline</label>
-          <span>10+ Years</span>
+        <div class="origins-img">
+          <img src="/images/competition-board.jpg" alt="Sullivan University honor board showing David Bailey's Silver Medal, Chicago NRA/ACF Culinary Salon, May 1992"/>
+          <div class="origins-img-caption">Sullivan University Honor Board &middot; Chicago NRA/ACF &middot; Silver Medal &middot; May 1992</div>
         </div>
-        <div class="hero-meta-item">
-          <label>Output</label>
-          <span>Brand · Web · Product</span>
+      </div>
+      <div class="origins-text reveal">
+        <p>In 1992, I competed as a solo apprentice-class competitor at the ACF-sanctioned National Restaurant Association Salon at McCormick Place in Chicago &mdash; representing Sullivan College in Louisville, Kentucky.</p>
+        <p>My entry was titled <em style="color:var(--accent);">&ldquo;Silhouette&rdquo;</em> &mdash; a Russian-themed pastry arts display featuring a pastillage centerpiece modeled after Saint Basil&rsquo;s Cathedral, accompanied by Charlotte Russe, plated petit desserts, and handcrafted decorative elements arranged on an oval mirror presentation. I earned a Silver Medal.</p>
+        <p>What I didn&rsquo;t know at the time was that everything required to conceive, build, and present that entry was indistinguishable from what would later be called design thinking.</p>
+        <p>The competition imposed strict technical constraints and a published judging rubric &mdash; and success demanded that every element work together, not just individually. Thematic cohesion wasn&rsquo;t a principle I&rsquo;d read about. It was the difference between silver and bronze. Every decorative element had to belong to the same visual world. Nothing arbitrary. Nothing extraneous. That constraint taught me compositional balance before I had a word for it.</p>
+        <p>Precision craftsmanship meant structural failure &mdash; a centerpiece that leaned, a glaze that cracked &mdash; wasn&rsquo;t recoverable at presentation. You iterated before the deadline, not during it. The competition was an exercise in iterative execution evaluated on criteria that rewarded precision, coherence, and originality in equal measure.</p>
+        <p>Designing under strict constraints for a panel of expert judges who would assess your work against a rubric? That&rsquo;s every UX deliverable I&rsquo;ve produced since.</p>
+        <div class="ux-tags">
+          <span class="ux-tag">Thematic Cohesion</span>
+          <span class="ux-tag">Precision Craftsmanship</span>
+          <span class="ux-tag">Compositional Balance</span>
+          <span class="ux-tag">Iterative Execution</span>
+          <span class="ux-tag">Constrained Design</span>
         </div>
       </div>
     </div>
-    <div class="hero-visual">
-      <div class="pk-emblem">
-        <div class="pk-ring pk-ring-1"></div>
-        <div class="pk-ring pk-ring-2"></div>
-        <div class="pk-ring pk-ring-3"></div>
-        <div class="pk-center">
-          <div class="pk-initials">PK</div>
-          <div class="pk-tagline">The Pastry Kitchen</div>
+  </div>
+</div>
+
+<!-- SECTION 2: THE CLIENT PROCESS -->
+<div class="section-light">
+  <div class="section-light-inner">
+    <div class="reveal">
+      <p class="section-label">Section 02</p>
+      <h2>The Client Process</h2>
+      <hr class="rule"/>
+    </div>
+    <p class="process-intro reveal">Every new wedding cake client began with a face-to-face meeting. I asked them to bring magazine clippings, fabric swatches &mdash; anything that captured their vision. Most clients had never done this before. I had done it hundreds of times. So I guided them through decisions they didn&rsquo;t know they needed to make. What follows is what that process looked like &mdash; and what it maps to.</p>
+    <div class="process-steps reveal">
+      <div class="process-step">
+        <div class="step-what">
+          <div class="step-header">What I Did</div>
+          <p>Scheduled a face-to-face meeting before any design decisions were made. No sketches. No assumptions. Just a conversation.</p>
+        </div>
+        <div class="step-ux">
+          <div class="step-header">UX Equivalent</div>
+          <div class="step-ux-title">Stakeholder Interview</div>
+          <div class="step-ux-desc">Establishing shared context before committing to a direction. Understanding the human behind the project, not just the ask.</div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-what">
+          <div class="step-header">What I Did</div>
+          <p>Asked clients to bring magazine clippings and fabric swatches &mdash; physical artifacts that represented their vision before they could find words for it.</p>
+        </div>
+        <div class="step-ux">
+          <div class="step-header">UX Equivalent</div>
+          <div class="step-ux-title">Contextual Inquiry &amp; Artifact Elicitation</div>
+          <div class="step-ux-desc">Real artifacts carry meaning that words alone don&rsquo;t. A swatch communicates color, texture, and emotional tone simultaneously &mdash; and often reveals what the client values but can&rsquo;t yet articulate.</div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-what">
+          <div class="step-header">What I Did</div>
+          <p>Asked about guest count, date, time of day, food service style, cake and icing flavors, the exact shade of the dress so the cake could complement it, and whether they wanted to save the topper or have a fresh replica made for their first anniversary.</p>
+        </div>
+        <div class="step-ux">
+          <div class="step-header">UX Equivalent</div>
+          <div class="step-ux-title">Requirements Gathering</div>
+          <div class="step-ux-desc">Systematic exploration of constraints, dependencies, and success criteria &mdash; including details the client didn&rsquo;t know would matter. The anniversary topper question wasn&rsquo;t optional. It changed the structural design of the final product.</div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-what">
+          <div class="step-header">What I Did</div>
+          <p>Guided them through decisions they didn&rsquo;t know they needed to make. Together we mixed and matched ideas &mdash; their inspirations, my expertise &mdash; until we created something unique to their journey.</p>
+        </div>
+        <div class="step-ux">
+          <div class="step-header">UX Equivalent</div>
+          <div class="step-ux-title">Co-Design &amp; Facilitated Ideation</div>
+          <div class="step-ux-desc">The designer&rsquo;s job isn&rsquo;t to have all the ideas &mdash; it&rsquo;s to create the conditions where the right ones emerge from the collaboration. My expertise structured the process. Their vision defined the outcome.</div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-what">
+          <div class="step-header">What I Did</div>
+          <p>Took a couple of days after the meeting to process everything before producing any output. The meeting was data collection. What came next was different work.</p>
+        </div>
+        <div class="step-ux">
+          <div class="step-header">UX Equivalent</div>
+          <div class="step-ux-title">Synthesis</div>
+          <div class="step-ux-desc">Turning raw input into coherent insight. The clippings, swatches, and answers &mdash; alone they were fragments. Synthesis turned them into a design brief I could build from.</div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-what">
+          <div class="step-header">What I Did</div>
+          <p>Produced a detailed sketch showing layout, tier proportions, florals, decorative elements, and color relationships &mdash; specific enough to communicate intent, open enough to invite final approval.</p>
+        </div>
+        <div class="step-ux">
+          <div class="step-header">UX Equivalent</div>
+          <div class="step-ux-title">Wireframe &amp; Design Specification</div>
+          <div class="step-ux-desc">The sketch was a deliverable, not a draft. It gave the client something concrete to respond to and gave me a documented plan to build from. That distinction matters.</div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-what">
+          <div class="step-header">What I Did</div>
+          <p>Delivered a signed invoice that itemized every element and formalized the agreement before a single cake was baked. Both parties signed. Both parties knew exactly what was being built.</p>
+        </div>
+        <div class="step-ux">
+          <div class="step-header">UX Equivalent</div>
+          <div class="step-ux-title">Design Contract &amp; Scope Management</div>
+          <div class="step-ux-desc">A signed invoice is a scope document. It protects both parties &mdash; and it prevents the creep that derails projects long after the handshake. I learned this in buttercream before I had a name for it in Figma.</div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</div>
 
-  <!-- OVERVIEW -->
-  <section class="overview-band">
-    <div class="section-inner">
-      <div class="section-label">Overview</div>
-      <div class="overview-grid">
-        <div class="overview-text fade-in">
-          <h2>Ten years of craft.<br/><em>Every detail intentional.</em></h2>
-          <p>
-            The Pastry Kitchen began as a professional pastry operation and grew into a fully realized creative brand — one built on the same principles that define good UX: deep user research, iterative refinement, and a relentless commitment to the finished experience.
-          </p>
-          <p>
-            Every element of the brand — from the crimson palette to the typography to the web presence at <strong style="color:rgba(255,255,255,0.85)">thepastrykitchen.net</strong> — was designed from scratch to communicate warmth, precision, and artisan quality. This is the story of building that identity, and how it shaped the designer I am today.
-          </p>
-          <div class="overview-pull" style="margin-top:2rem;">
-            <p>"Before I knew what a design system was, I was building one — in fondant, buttercream, and high-stakes wedding timelines."</p>
-          </div>
+<!-- SECTION 3: WHEN IT GOT HARD -->
+<div class="section-dark">
+  <div class="section-dark-inner">
+    <div class="reveal">
+      <p class="section-label">Section 03</p>
+      <h2>When It Got Hard</h2>
+      <hr class="rule"/>
+    </div>
+    <p class="hard-intro reveal">Design is tested when things go wrong. These two moments &mdash; one planned for, one not &mdash; taught me more about process than any smooth delivery ever did.</p>
+    <div class="stories-grid">
+      <div class="story-card reveal">
+        <div class="story-num">01</div>
+        <h3>The Three-Cake Delivery Day</h3>
+        <p>I had three wedding cakes scheduled for delivery on the same day. Different venues. Different timelines. One team. The logistics alone were a design problem.</p>
+        <p>Before the day started, I created a detailed delivery checklist &mdash; venue contacts, routes, setup sequences, handling instructions specific to each cake. Then I trained my team explicitly, walking through every step so there were no assumptions and no gaps.</p>
+        <p>We ran a mock delivery. Not just a briefing &mdash; an actual walkthrough that surfaced the questions nobody had thought to ask. What happens at the freight elevator? Who stabilizes the base while the tiers are assembled? Where does the floristry get placed last, and by whom?</p>
+        <p>On the day itself, I dispatched two deliveries with my team while I stayed back, completed the final and largest cake, and delivered it myself. Everything landed. Every cake, every venue, on time.</p>
+        <p>The mock delivery is what made it work. We found the failure points before they were failures.</p>
+        <div class="story-tags">
+          <span class="story-tag">Systems Design</span>
+          <span class="story-tag">Documentation</span>
+          <span class="story-tag">Delegation</span>
+          <span class="story-tag">Usability Testing</span>
         </div>
-        <div class="fade-in" style="transition-delay:0.15s">
-          <div class="stat-row">
-            <div class="stat-card">
-              <div class="stat-value">10<span style="font-size:1.5rem">+</span></div>
-              <div class="stat-label">Years of operation</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-value" style="color:var(--gold-light)">🥈</div>
-              <div class="stat-label">Silver Medalist, Sullivan Univ.</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-value">3</div>
-              <div class="stat-label">Digital platforms built</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-value">∞</div>
-              <div class="stat-label">Iterations per cake</div>
-            </div>
-          </div>
+      </div>
+      <div class="story-card reveal">
+        <div class="story-num">02</div>
+        <h3>The Client Pickup Recovery</h3>
+        <p>A client insisted on transporting the cake themselves. I advised against it &mdash; a tiered wedding cake is a precision-stacked structural system, not a passenger &mdash; but the decision was theirs to make. I documented the handling instructions and sent them off.</p>
+        <p>The cake didn&rsquo;t survive the journey.</p>
+        <p>They called me from the event space. I loaded my tools, drove to the venue, and performed an on-site repair that saved the event. Structural rebuilding. Fresh piping. Presentation restored. Done before the guests arrived.</p>
+        <p>That cake ended up being one of my favorites &mdash; not because it went perfectly, but because the final result was better than I&rsquo;d expected under those conditions. Constraints have a way of making you work differently.</p>
+        <p>The lesson wasn&rsquo;t about the client&rsquo;s decision. It was about being the kind of designer who shows up when the product breaks in the field &mdash; with tools, composure, and no interest in placing blame.</p>
+        <div class="story-tags">
+          <span class="story-tag">Edge Case Handling</span>
+          <span class="story-tag">Graceful Degradation</span>
+          <span class="story-tag">On-Site Remediation</span>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</div>
 
-  <!-- BRAND IDENTITY -->
-  <section class="brand-section">
-    <div class="section-inner">
-      <div class="section-label">Brand Identity</div>
-      <h2>A palette built on<br/><em>warmth and precision.</em></h2>
-      <p style="color:var(--ink-light); margin-bottom:2rem;">Every color, font, and layout decision was made to evoke the feeling of professional artisan craft — approachable enough for a first-time client, polished enough for a discerning one.</p>
-
-      <div class="brand-palette fade-in">
-        <div class="swatch" style="background:#a01f3f; flex:2"><span>#a01f3f</span></div>
-        <div class="swatch" style="background:#c0294f;"><span>#c0294f</span></div>
-        <div class="swatch" style="background:#7a1530"><span>#7a1530</span></div>
-        <div class="swatch" style="background:#c9a84c; flex:1.5"><span>#c9a84c</span></div>
-        <div class="swatch" style="background:#e4c070"><span>#e4c070</span></div>
-        <div class="swatch" style="background:#faf7f2; flex:1"><span>#faf7f2</span></div>
-        <div class="swatch" style="background:#1a1a1a; flex:1"><span>#1a1a1a</span></div>
+<!-- SECTION 4: THE WORK -->
+<div class="section-light">
+  <div class="section-light-inner">
+    <div class="reveal">
+      <p class="section-label">Section 04</p>
+      <h2>The Work</h2>
+      <hr class="rule"/>
+    </div>
+    <p class="photo-intro reveal">Each cake began with a conversation. This is what became of them.</p>
+    <div class="photo-grid reveal">
+      <div class="photo-item" style="grid-column:1;grid-row:1/3;">
+        <img src="/images/Wedding-1.jpg" alt="Wedding Cake"/>
+        <div class="photo-caption">Wedding</div>
       </div>
-
-      <div class="brand-grid fade-in">
-        <div class="brand-card">
-          <div class="brand-card-label">Typography</div>
-          <h3>Voice through type</h3>
-          <p>Playfair Display for headlines — a typeface that speaks to elegance and tradition without stiffness. Clean serif body copy for readability in menus, proposals, and digital contexts. Monospaced accents for labels and details.</p>
-          <div class="type-specimen">
-            <div class="type-display">The Pastry Kitchen</div>
-            <div class="type-body">Artisan wedding cakes & custom confections — designed with intention, delivered with precision.</div>
-            <div class="type-mono" style="margin-top:0.5rem;">WEDDING · CELEBRATION · CUSTOM</div>
-          </div>
-        </div>
-
-        <div class="brand-card">
-          <div class="brand-card-label">Visual Language</div>
-          <h3>Crimson as a signal</h3>
-          <p>The core crimson (#a01f3f) was chosen for its dual resonance: the warmth of hospitality and the gravity of a high-stakes event. Gold accents echo celebration. The cream background grounds everything in approachability.</p>
-          <div class="type-specimen" style="background:var(--dark-panel); padding:1.5rem; border-radius:4px; margin-top:1rem;">
-            <div style="font-family:'Playfair Display',Georgia,serif; font-size:1.5rem; font-weight:700; color:#a01f3f;">The Pastry Kitchen</div>
-            <div style="font-size:0.85rem; color:rgba(255,255,255,0.6); margin-top:0.5rem; font-family:'Source Serif 4',Georgia,serif;">thepastrykitchen.net</div>
-            <div style="width:40px; height:3px; background:#c9a84c; margin-top:0.75rem; border-radius:2px;"></div>
-          </div>
-        </div>
-
-        <div class="brand-card">
-          <div class="brand-card-label">Digital Platform</div>
-          <h3>thepastrykitchen.net</h3>
-          <p>The full web presence was designed and deployed on Netlify from a custom build — featuring the brand's crimson/burgundy palette, gallery of finished work, contact and inquiry forms, and full SSL on a Wix-migrated domain. Every technical decision was made to maximize first-impression clarity for prospective clients.</p>
-        </div>
-
-        <div class="brand-card">
-          <div class="brand-card-label">PK Designs System</div>
-          <h3>A parent brand concept</h3>
-          <p>The Pastry Kitchen is the anchor brand within a broader creative ecosystem — PK Designs — envisioned as a hub for the pastry brand, a watercolor print shop, and a 3D print brand. Each sub-brand shares a visual DNA while maintaining its own identity. A design system in the truest sense: scalable, extensible, and cohesive.</p>
-        </div>
+      <div class="photo-item" style="grid-column:2;grid-row:1;">
+        <img src="/images/Wedding-2.jpg" alt="Wedding Cake"/>
+        <div class="photo-caption">Wedding</div>
+      </div>
+      <div class="photo-item" style="grid-column:3;grid-row:1;">
+        <img src="/images/Wedding-3.jpg" alt="Wedding Cake"/>
+        <div class="photo-caption">Wedding</div>
+      </div>
+      <div class="photo-item" style="grid-column:2;grid-row:2;">
+        <img src="/images/Wedding-4.jpg" alt="Wedding Cake"/>
+        <div class="photo-caption">Wedding</div>
+      </div>
+      <div class="photo-item" style="grid-column:3;grid-row:2;">
+        <img src="/images/Wedding-5.jpg" alt="Wedding Cake"/>
+        <div class="photo-caption">Wedding</div>
+      </div>
+      <div class="photo-item" style="grid-column:1/3;grid-row:3;">
+        <img src="/images/Baby-1.jpg" alt="Baby Shower Cake"/>
+        <div class="photo-caption">Baby Shower</div>
+      </div>
+      <div class="photo-item" style="grid-column:3;grid-row:3;">
+        <img src="/images/Birthday-1.jpg" alt="Birthday Cake"/>
+        <div class="photo-caption">Birthday</div>
       </div>
     </div>
-  </section>
+  </div>
+</div>
 
-  <!-- GALLERY -->
-  <section class="gallery-section">
-    <div class="gallery-label fade-in">
-      <div class="section-label">Portfolio of Work</div>
-      <h2>From sketch to <em style="color:var(--crimson)">delivery.</em></h2>
-      <p style="color:var(--ink-light); font-size:1rem;">Selected work from The Pastry Kitchen's portfolio — wedding cakes, celebration cakes, and custom confections. Each piece was designed to client specification through a research-and-iteration process that mirrors UX methodology.</p>
+<!-- SECTION 5: THE THROUGH LINE -->
+<div class="section-dark">
+  <div class="section-dark-inner">
+    <div class="reveal">
+      <p class="section-label">Section 05</p>
+      <h2>The Through Line</h2>
+      <hr class="rule"/>
     </div>
-    <div class="gallery-scroll">
-      <div class="gallery-item">
-        <img src="https://davidrbailey.com/images/Wedding-1.jpg" alt="Wedding Cake 1" loading="lazy" />
-        <div class="gallery-item-overlay"><span>Wedding · Custom Design</span></div>
+    <blockquote class="tl-quote reveal">The tools changed. The process never did.</blockquote>
+    <div class="tl-blocks">
+      <div class="tl-block reveal">
+        <h4>Understand what someone needs.</h4>
+        <p>Every client meeting. Every clipping and swatch brought in. Every question about the dress shade and the anniversary topper. That wasn&rsquo;t customer service &mdash; that was research. Structured, intentional, and conducted before a single decision was made.</p>
       </div>
-      <div class="gallery-item">
-        <img src="https://davidrbailey.com/images/Wedding-2.jpg" alt="Wedding Cake 2" loading="lazy" />
-        <div class="gallery-item-overlay"><span>Wedding · Multi-tier</span></div>
+      <div class="tl-block reveal">
+        <h4>Design something that serves that need.</h4>
+        <p>The sketch wasn&rsquo;t decoration. It was a specification. It earned a signature because it had to &mdash; because both parties needed to know exactly what was being built before anyone picked up a pastry bag. Or opened Figma.</p>
       </div>
-      <div class="gallery-item">
-        <img src="https://davidrbailey.com/images/Wedding-3.jpg" alt="Wedding Cake 3" loading="lazy" />
-        <div class="gallery-item-overlay"><span>Wedding · Floral Detail</span></div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://davidrbailey.com/images/Wedding-4.jpg" alt="Wedding Cake 4" loading="lazy" />
-        <div class="gallery-item-overlay"><span>Wedding · Artisan Finish</span></div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://davidrbailey.com/images/Wedding-5.jpg" alt="Wedding Cake 5" loading="lazy" />
-        <div class="gallery-item-overlay"><span>Wedding · Signature Tier</span></div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://davidrbailey.com/images/Birthday-1.jpg" alt="Birthday Cake 1" loading="lazy" />
-        <div class="gallery-item-overlay"><span>Celebration · Birthday</span></div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://davidrbailey.com/images/Birthday-2.jpg" alt="Birthday Cake 2" loading="lazy" />
-        <div class="gallery-item-overlay"><span>Celebration · Custom</span></div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://davidrbailey.com/images/Baby-1.jpg" alt="Baby Shower Cake" loading="lazy" />
-        <div class="gallery-item-overlay"><span>Celebration · Baby Shower</span></div>
+      <div class="tl-block reveal">
+        <h4>Deliver it with care.</h4>
+        <p>Whether the medium is buttercream or a design file, the delivery is part of the work. The mock run. The checklist. The willingness to show up at the venue with tools when something breaks. That discipline doesn&rsquo;t change with the platform.</p>
       </div>
     </div>
-  </section>
+    <p class="tl-close reveal">The Pastry Kitchen wasn&rsquo;t a detour from UX design. It was the beginning of it. The vocabulary came later. The practice was already there.</p>
+  </div>
+</div>
 
-  <!-- LEGACY / TIMELINE -->
-  <section class="legacy-section">
-    <div class="section-inner">
-      <div class="section-label">Legacy & Process</div>
-      <h2>The <em>process</em> behind<br/>every piece.</h2>
-      <p style="color:var(--ink-light);">Long before "design thinking" entered my vocabulary, the Pastry Kitchen ran on the same principles. Here is how the work actually happened.</p>
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2026 David R. Bailey &middot; UX/UI Designer &amp; Technologist</p>
+  <div class="footer-links">
+    <a href="index.html#work">Portfolio</a>
+    <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+    <a href="mailto:contact@davidrbailey.com">Email</a>
+    <a href="/David_R_Bailey_Resume.pdf" target="_blank">Resume</a>
+  </div>
+</footer>
 
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-dot" style="background:var(--crimson)"></div>
-          <div class="timeline-year">Phase 01 · Discovery</div>
-          <h3>Deep client research before a single sketch</h3>
-          <p>Every engagement began with a thorough client consultation — understanding the vision, the venue, the palette, the guest count, the formality, and the story the couple wanted to tell. This is user research. The deliverable is just edible.</p>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot" style="background:var(--gold)"></div>
-          <div class="timeline-year">Phase 02 · Ideation</div>
-          <h3>Iterative sketches reviewed with the client</h3>
-          <p>Multiple design directions were sketched and presented. Client feedback shaped each revision. Nothing went to production without buy-in. The parallels to wireframing and design critique are exact — just with fondant instead of Figma.</p>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot" style="background:var(--teal)"></div>
-          <div class="timeline-year">Phase 03 · Production</div>
-          <h3>High-precision execution under deadline pressure</h3>
-          <p>Wedding timelines are unforgiving. Every element — structure, flavor, decoration, transport — had to be planned and executed with zero tolerance for failure. Stakeholder expectations were sky-high. Delivery had to be flawless.</p>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot" style="background:var(--crimson-light)"></div>
-          <div class="timeline-year">Phase 04 · Delivery & Reflection</div>
-          <h3>The moment of truth — and what came after</h3>
-          <p>Every delivery became a retrospective. What worked? What would be designed differently? That culture of honest evaluation — of measuring finished work against original intent — is the root of how I approach UX today.</p>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot" style="background:var(--gold-light)"></div>
-          <div class="timeline-year">Phase 05 · Recognition</div>
-          <h3>A.S. Baking & Pastry Arts — Honors, Silver Medalist</h3>
-          <p>Sullivan University, Louisville, KY. The Silver Medal is a signal — that the craft was pursued to a standard beyond the minimum. That standard is still the baseline.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- DESIGN DECISIONS -->
-  <section class="decisions-section">
-    <div class="section-inner">
-      <div class="section-label">Key Decisions</div>
-      <h2>What I chose — and <em>why.</em></h2>
-      <p style="color:rgba(255,255,255,0.6); max-width:55ch;">Every brand and design decision was intentional. These are the choices that shaped the identity and what they communicate about the thinking behind the work.</p>
-
-      <div class="decisions-grid fade-in">
-        <div class="decision-card">
-          <div class="decision-num">01</div>
-          <div class="decision-tag">Color</div>
-          <h3>Crimson over pastel</h3>
-          <p>Many pastry brands default to pinks and creams. The choice to anchor the palette in deep crimson was a deliberate signal: this is a professional operation, not a hobby. Warmth without softness.</p>
-        </div>
-        <div class="decision-card">
-          <div class="decision-num">02</div>
-          <div class="decision-tag">Platform</div>
-          <h3>Custom build over template</h3>
-          <p>Rather than using a generic Wix or Squarespace template, the site was built and deployed on Netlify via GitHub — giving full control over performance, structure, and brand expression. The technical investment paid off in brand integrity.</p>
-        </div>
-        <div class="decision-card">
-          <div class="decision-num">03</div>
-          <div class="decision-tag">Architecture</div>
-          <h3>PK Designs as parent brand</h3>
-          <p>Rather than treating the Pastry Kitchen as a standalone, it was positioned as the first leg of PK Designs — a scalable creative brand system with room for a watercolor print shop and 3D print brand. Design systems thinking from day one.</p>
-        </div>
-        <div class="decision-card">
-          <div class="decision-num">04</div>
-          <div class="decision-tag">Narrative</div>
-          <h3>Process as the differentiator</h3>
-          <p>Many cake businesses show the finished product. The Pastry Kitchen documents the process — sketches, consultations, iterations. This builds trust and positions the work as design-led, not just craft-led.</p>
-        </div>
-        <div class="decision-card">
-          <div class="decision-num">05</div>
-          <div class="decision-tag">Typography</div>
-          <h3>Serif as tone-setter</h3>
-          <p>Playfair Display was chosen for its editorial weight — the kind of typeface you find in premium publications. It communicates experience and taste without pretension. A deliberate departure from the script fonts common in the space.</p>
-        </div>
-        <div class="decision-card">
-          <div class="decision-num">06</div>
-          <div class="decision-tag">Portfolio</div>
-          <h3>Integration into the design narrative</h3>
-          <p>The Pastry Kitchen's work is embedded directly into the davidrbailey.com portfolio — not as a curiosity, but as evidence that UX principles predate the tools. The "Three Careers, One Through Line" narrative makes it the strongest argument in the deck.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- UX CONNECTIONS -->
-  <section class="ux-section">
-    <div class="section-inner">
-      <div class="section-label">The Bridge</div>
-      <h2>Pastry design <em>is</em><br/>UX design.</h2>
-      <p style="color:var(--ink-light);">This isn't a metaphor. It's a literal description of the same process — client research, iterative design, stakeholder management, and high-stakes delivery — applied to a different medium.</p>
-
-      <div class="ux-bridge fade-in">
-        <div class="ux-bridge-col">
-          <h3>Pastry Kitchen</h3>
-          <p>Client consultation · Sketch iteration · Structural planning · Flavor system design · Deadline-driven delivery · Post-event reflection</p>
-        </div>
-        <div class="ux-bridge-arrow">⇄</div>
-        <div class="ux-bridge-col">
-          <h3>UX/UI Design</h3>
-          <p>User research · Wireframe iteration · Information architecture · Design system creation · Sprint-driven delivery · Retrospective analysis</p>
-        </div>
-      </div>
-
-      <ul class="ux-list fade-in">
-        <li>
-          <strong>Client empathy → User empathy</strong>
-          <span>Reading a bride's vision from a three-word brief taught me that the stated request is never the whole picture. UX interviews work the same way.</span>
-        </li>
-        <li>
-          <strong>Sketch → Wireframe</strong>
-          <span>Multiple design directions on paper before committing to any one. The medium changed; the discipline didn't.</span>
-        </li>
-        <li>
-          <strong>Structural engineering → Information architecture</strong>
-          <span>A five-tier cake has to hold. So does a five-level navigation hierarchy. Both require thinking about load, flow, and failure modes.</span>
-        </li>
-        <li>
-          <strong>Decoration decisions → Visual hierarchy</strong>
-          <span>Where does the eye land first? What communicates premium quality immediately? These are design questions — whether the canvas is fondant or a screen.</span>
-        </li>
-        <li>
-          <strong>Wedding deadline → Sprint deadline</strong>
-          <span>No extensions. No "let's push it a week." The discipline of planning every phase backward from a hard delivery date is directly transferable to product timelines.</span>
-        </li>
-        <li>
-          <strong>Client feedback loops → Design critique</strong>
-          <span>Presenting multiple options, receiving feedback, iterating, and presenting again. The cadence of a design review and a cake consultation are identical in structure.</span>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- PULL QUOTE -->
-  <section class="quote-section">
-    <span class="quote-mark">"</span>
-    <blockquote>
-      Long before I knew the term "UX," I was practicing it. Every wedding cake began with deep client research, iterative sketches, and a high-stakes delivery where failure was not an option.
-    </blockquote>
-    <div class="quote-attribution">David R. Bailey · davidrbailey.com · UX/UI Designer & Technologist</div>
-  </section>
-
-  <!-- RESULTS -->
-  <section class="results-section">
-    <div class="section-inner">
-      <div class="section-label">Outcomes</div>
-      <h2>What ten years<br/><em>actually built.</em></h2>
-      <p style="color:rgba(255,255,255,0.6); max-width:58ch;">The Pastry Kitchen wasn't just a business — it was a decade-long design education. The outcomes are measured in more than revenue.</p>
-
-      <div class="results-grid fade-in">
-        <div class="result-card">
-          <div class="result-value">🥈</div>
-          <div class="result-desc">Silver Medal · Sullivan University Culinary Arts Honors Program</div>
-        </div>
-        <div class="result-card">
-          <div class="result-value">10<sup>+</sup></div>
-          <div class="result-desc">Years of professional operation and client delivery</div>
-        </div>
-        <div class="result-card">
-          <div class="result-value">3</div>
-          <div class="result-desc">Digital brand platforms designed and deployed from scratch</div>
-        </div>
-        <div class="result-card">
-          <div class="result-value">∞</div>
-          <div class="result-desc">Design principles carried forward into every UX project since</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta-section">
-    <div class="section-inner">
-      <div class="cta-inner fade-in">
-        <div class="cta-text">
-          <div class="section-label">Continue Exploring</div>
-          <h2>See where this<br/><em>leads.</em></h2>
-          <p>The Pastry Kitchen is one chapter of a three-career story. See how the same through line runs into UX design, product thinking, and technology leadership.</p>
-        </div>
-        <div class="cta-links">
-          <a href="https://davidrbailey.com/#work" class="cta-link">
-            <div>
-              <div class="cta-link-text">View All Case Studies</div>
-              <div class="cta-link-sub">Portfolio · davidrbailey.com</div>
-            </div>
-            <div class="cta-link-arrow">→</div>
-          </a>
-          <a href="https://thepastrykitchen.net" class="cta-link" target="_blank" rel="noopener">
-            <div>
-              <div class="cta-link-text">The Pastry Kitchen</div>
-              <div class="cta-link-sub">Live site · thepastrykitchen.net</div>
-            </div>
-            <div class="cta-link-arrow">→</div>
-          </a>
-          <a href="https://davidrbailey.com/#contact" class="cta-link">
-            <div>
-              <div class="cta-link-text">Work Together</div>
-              <div class="cta-link-sub">Open to remote roles & freelance</div>
-            </div>
-            <div class="cta-link-arrow">→</div>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <span>© 2026 David R. Bailey — UX/UI Designer & Technologist</span>
-    <a href="https://davidrbailey.com">davidrbailey.com</a>
-  </footer>
-
-  <script>
-    // Intersection Observer for fade-in and timeline animations
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-    document.querySelectorAll('.fade-in, .timeline-item').forEach(el => observer.observe(el));
-
-    // Stagger fade-in children within grids
-    document.querySelectorAll('.decisions-grid .decision-card, .results-grid .result-card, .brand-grid .brand-card').forEach((el, i) => {
-      el.style.transitionDelay = `${i * 0.08}s`;
-      el.classList.add('fade-in');
-      observer.observe(el);
-    });
-  </script>
+<script>
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
 </body>
 </html>
