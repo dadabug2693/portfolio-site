@@ -285,7 +285,8 @@ footer p{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:
  
 /* ── RESPONSIVE ── */
 @media(max-width:768px){
-  nav .nav-top{padding:.8rem 1.5rem;}
+  nav .nav-top{padding:.8rem 1.5rem;display:grid;grid-template-columns:1fr auto 1fr;}
+  nav .nav-top .nav-date:last-of-type{text-align:right;}
   #hero{grid-template-columns:1fr;margin-top:100px;}
   .hero-right{height:320px;}
   .hero-left{padding:3rem 1.5rem;}
