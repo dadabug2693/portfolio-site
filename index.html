@@ -343,10 +343,7 @@ footer p{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:
   .ne-roadmap{grid-template-columns:1fr 1fr;}
   .ne-stats{grid-template-columns:1fr;}
   .ne-two-col,.wf-phases,.wf-insights,.ai-tool-grid,.ai-vs-grid{grid-template-columns:1fr;}
-  .small-card[style*="flex-direction:row"]{flex-direction:column!important;height:auto!important;}
-  .small-card[style*="flex-direction:row"] .small-visual{width:100%!important;height:200px!important;}
-  .small-card[style*="flex-direction:row"] .small-card-body{border-left:none!important;border-top:2px solid var(--ink)!important;}
-  footer{padding:2rem 1.5rem;}
+footer{padding:2rem 1.5rem;}
   h1{font-size:3rem;}
   #about-strip{grid-template-columns:1fr;}
   .about-photo{display:none;}
@@ -528,14 +525,25 @@ footer p{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:
     </div>
   </a>
 
-  <!-- Pastry Kitchen — horizontal card -->
-  <a href="pastry-kitchen-case-study.html" class="small-card reveal" style="display:flex;flex-direction:row;margin-bottom:1.2rem;height:180px;">
-    <div class="small-visual pastry" style="padding:0;overflow:hidden;width:260px;flex-shrink:0;height:100%;position:relative;">
-      <img src="images/competition-1992.jpg" alt="The Pastry Kitchen — Silhouette competition display, 1992" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block;opacity:.85;"/>
+  <!-- Pastry Kitchen — featured card -->
+  <a href="pastry-kitchen-case-study.html" class="featured-card reveal">
+    <div class="card-visual" style="padding:0;overflow:hidden;background:#1a0e08;">
+      <span class="card-visual-label">Craftsmanship · Process · Retrospective</span>
+      <img src="images/competition-1992.jpg" alt="The Pastry Kitchen — Silhouette competition display, 1992" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block;opacity:.85;z-index:1;"/>
     </div>
-    <div class="small-card-body" style="border-top:none;border-left:2px solid var(--ink);flex:1;display:flex;flex-direction:column;justify-content:center;">
-      <div class="small-card-title">The Pastry Kitchen</div>
-      <div class="small-card-sub">Stakeholder interviews, constraints analysis, prototyping, and delivery — in buttercream.</div>
+    <div class="card-body">
+      <div>
+        <p class="card-tag">Craftsmanship · Process Design · Retrospective</p>
+        <h3 class="card-title">The Pastry Kitchen — Silhouette Competition, 1992</h3>
+        <p class="card-desc">Before UX had a name, the same principles applied: understand the client, work within constraints, execute with precision, and know that one structural failure undoes everything.</p>
+      </div>
+      <div class="card-footer">
+        <div class="card-metrics">
+          <div><div class="metric-val">1992</div><div class="metric-label">Competition</div></div>
+          <div><div class="metric-val">5</div><div class="metric-label">Case study chapters</div></div>
+        </div>
+        <span class="card-arrow">↗</span>
+      </div>
     </div>
   </a>
  
