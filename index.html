@@ -295,6 +295,7 @@ footer p{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:
   .skills-inner,.resume-inner,.tl-inner{padding-left:1.5rem;padding-right:1.5rem;}
   #work,#about-strip,footer{padding-left:1.5rem;padding-right:1.5rem;}
   .featured-card,.small-grid,.contact-grid{grid-template-columns:1fr;}
+  .featured-card{overflow:hidden;}
   .card-body{border-left:none;border-top:2px solid var(--ink);}
   .small-grid{grid-template-columns:1fr;}
   .tl-grid{grid-template-columns:1fr;}
@@ -389,8 +390,8 @@ footer p{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:
   <!-- Church -->
   <a href="javascript:void(0)" onclick="openCase()" class="featured-card reveal">
     <div class="card-visual church" style="padding:0;overflow:hidden;">
-      <span class="card-visual-label">UX/UI · Digital Strategy</span>
-      <img src="/images/church-website.jpg" alt="Springfield Church of Christ website" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;opacity:.85;"/>
+      <span class="card-visual-label" style="z-index:2;">UX/UI · Digital Strategy</span>
+      <img src="/images/church-website.jpg" alt="Springfield Church of Christ website" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;display:block;opacity:.85;z-index:1;"/>
     </div>
     <div class="card-body">
       <div>
