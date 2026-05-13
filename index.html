@@ -595,7 +595,32 @@ footer{padding:2rem 1.5rem;}
   #about-strip{grid-template-columns:1fr;}
   .about-photo{display:none;}
   .testimonial-inner{padding:0 1.5rem;}
+  .scc-partner-band{flex-direction:column;}
+  .scc-partner-stat{border-right:none;border-bottom:1px solid var(--border);}
+  .scc-partner-stat:last-child{border-bottom:none;}
+  .scc-process-table th,.scc-process-table td{padding:.55rem .6rem;}
 }
+
+/* ── SCC PROSE LAYOUT ── */
+#case-study-detail .case-section{margin-bottom:2.5rem;}
+#case-study-detail .case-section p{max-width:680px;margin-left:auto;margin-right:auto;margin-bottom:1.1rem;line-height:1.75;}
+#case-study-detail .case-section>ul{max-width:680px;margin-left:auto;margin-right:auto;}
+
+/* ── SCC PARTNERSHIP BAND ── */
+.scc-partner-band{display:flex;justify-content:center;border:1px solid var(--border);overflow:hidden;margin:1.5rem 0 2rem;}
+.scc-partner-stat{flex:1;padding:1.1rem .8rem;text-align:center;background:rgba(45,212,191,.04);border-right:1px solid var(--border);}
+.scc-partner-stat:last-child{border-right:none;}
+.scc-partner-num{font-family:var(--font-serif);font-size:1.9rem;font-weight:700;color:var(--accent);line-height:1;}
+.scc-partner-lbl{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:.35rem;}
+
+/* ── SCC PROCESS TABLE ── */
+.scc-process-wrap{margin:1.5rem 0 2rem;overflow-x:auto;}
+.scc-process-table{width:100%;border-collapse:collapse;font-size:.82rem;}
+.scc-process-table th{background:rgba(45,212,191,.08);color:var(--accent2);font-family:var(--font-serif);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;padding:.65rem 1rem;text-align:left;border-bottom:2px solid var(--accent);}
+.scc-process-table td{padding:.7rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;color:#555;line-height:1.55;}
+.scc-process-table tr:last-child td{border-bottom:none;}
+.scc-process-table td:first-child{font-weight:700;color:var(--ink);white-space:nowrap;}
+.scc-process-table td strong{color:var(--accent2);}
 </style>
 </head>
 <body>
@@ -956,10 +981,24 @@ footer{padding:2rem 1.5rem;}
       <span><strong>Tools:</strong> Figma, VS Code, GitHub, Netlify, Google Analytics, Hotjar</span>
     </div>
   </div>
+  <div class="scc-partner-band reveal">
+    <div class="scc-partner-stat">
+      <div class="scc-partner-num">9</div>
+      <div class="scc-partner-lbl">Year Partnership</div>
+    </div>
+    <div class="scc-partner-stat">
+      <div class="scc-partner-num">2010</div>
+      <div class="scc-partner-lbl">Active Since</div>
+    </div>
+    <div class="scc-partner-stat">
+      <div class="scc-partner-num">∞</div>
+      <div class="scc-partner-lbl">Ongoing Optimization</div>
+    </div>
+  </div>
   <div class="scc-building-img reveal">
     <img src="images/church-building.jpg" alt="Springfield Church of Christ, 1620 Buck Creek Lane, Springfield, OH"/>
   </div>
-  <div class="case-section reveal"><h3>Project Overview</h3><p>What began as a website redesign has evolved into an ongoing technology partnership, active since 2010, with Springfield Church of Christ. Over that time, I've served as the church's de facto technology advisor: leading a full UX redesign and digital strategy, integrating a networked camera security system, managing and upgrading the church's network infrastructure, advising on hardware procurement and specifications for three computer replacements, and working alongside the church's Audio and Video team to build and maintain a live streaming capability that has kept the congregation connected through illness, distance, and the COVID-19 pandemic.</p><p>The technical foundation has evolved alongside the relationship. I inherited the site on WordPress, worked within its constraints while learning the platform, then moved it to Wix for greater design flexibility. The current site is written by hand in VS Code, version-controlled through GitHub, and deployed on Netlify. It is a stack that reflects how far both the project and my own skills have come.</p><p>The website redesign and the digital strategy surrounding it form one major initiative within a much broader, trust-based relationship. That relationship itself is part of the story.</p>
+  <div class="case-section reveal"><h3>Project Overview</h3><p>What began as a website redesign became a decade-long technology partnership. As SCC's de facto technology advisor, I led a full UX redesign and digital strategy, integrated a networked security camera system, managed and upgraded network infrastructure, advised on three computer replacements, and built a live streaming capability — alongside the church's AV team — that kept the congregation connected through illness, distance, and COVID-19.</p><p>The technical foundation evolved in step. I inherited the site on WordPress, moved it to Wix for design flexibility, then rebuilt it by hand in VS Code — version-controlled on GitHub and deployed on Netlify.</p>
     <div class="scc-platform-timeline">
       <div class="scc-platform-phase">
         <div class="scc-platform-label">WordPress</div>
@@ -987,10 +1026,41 @@ footer{padding:2rem 1.5rem;}
       </div>
     </div>
   </div>
-  <div class="case-section reveal"><h3>The Challenge</h3><p>First-time visitors were struggling to find essential information. Service times, beliefs, and event details required multiple clicks, with no clear calls to action guiding next steps. But the digital challenges ran deeper than the website.</p><ul><li>Low digital engagement limited outreach and community growth</li><li>Inconsistent event participation with no digital conversion path</li><li>Website and social media operated in silos</li><li>No live streaming capability, leaving services inaccessible to remote or ill congregants</li><li>Aging, unmanaged network infrastructure inadequate for modern digital demands</li><li>Outdated hardware with no clear procurement or replacement strategy</li><li>No security camera system for facility monitoring</li><li>Limited budget and volunteer support across every initiative</li></ul></div>
-  <div class="case-section reveal"><h3>Research &amp; Planning</h3><p>Analytics revealed high drop-off rates on key pages. Heatmaps indicated hesitation within primary navigation. Task-based walkthroughs confirmed visitors could find information, but it required too many steps.</p><ul><li>Critical information buried beneath layered navigation</li><li>Dense text reduced readability and engagement</li><li>No consistent CTA hierarchy guided user journeys</li><li>Social traffic lacked a defined conversion path</li></ul></div>
+  <div class="case-section reveal"><h3>The Challenge</h3><p>First-time visitors couldn't find essential information. Service times, beliefs, and events required multiple clicks with no CTAs guiding next steps — and the digital challenges ran deeper than the website.</p><ul><li>Low digital engagement limited outreach and community growth</li><li>Inconsistent event participation with no digital conversion path</li><li>Website and social media operated in silos</li><li>No live streaming capability, leaving services inaccessible to remote or ill congregants</li><li>Aging, unmanaged network infrastructure inadequate for modern digital demands</li><li>Outdated hardware with no clear procurement or replacement strategy</li><li>No security camera system for facility monitoring</li><li>Limited budget and volunteer support across every initiative</li></ul></div>
+  <div class="case-section reveal"><h3>Research &amp; Planning</h3><p>Analytics showed high drop-off on key pages. Heatmaps revealed hesitation in primary navigation. Task-based walkthroughs confirmed visitors could find information — but it took too many steps.</p><ul><li>Critical information buried beneath layered navigation</li><li>Dense text reduced readability and engagement</li><li>No consistent CTA hierarchy guided user journeys</li><li>Social traffic lacked a defined conversion path</li></ul></div>
+  <div class="case-section reveal"><h3>Process at a Glance</h3>
+    <div class="scc-process-wrap">
+      <table class="scc-process-table">
+        <thead>
+          <tr><th>Phase</th><th>Activities</th><th>Outcome</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Discovery</td>
+            <td>Analytics review, heatmap analysis, task-based walkthroughs</td>
+            <td>Identified visitor friction points</td>
+          </tr>
+          <tr>
+            <td>IA &amp; Navigation</td>
+            <td>Navigation restructure, CTA hierarchy, mobile-first layout</td>
+            <td>Reduced clicks to critical info</td>
+          </tr>
+          <tr>
+            <td>Accessibility</td>
+            <td>WCAG contrast, simplified nav, readable typography</td>
+            <td>Improved usability for older users</td>
+          </tr>
+          <tr>
+            <td>Iteration</td>
+            <td>Ongoing analytics review, content updates, streaming build</td>
+            <td><strong>78% traffic growth, 2× event attendance</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
   <div class="case-section reveal"><h3>Before &amp; After</h3>
-    <p style="margin-bottom:1.5rem;">The original site was built as an information repository, not a communication tool. Every page competed for attention equally, there was no hierarchy, and the navigation assumed users already knew what they were looking for.</p>
+    <p style="margin-bottom:1.5rem;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.75;">The original site was an information repository, not a communication tool. Every page competed for equal attention, navigation assumed users already knew what they were looking for, and there was no hierarchy.</p>
     <div class="scc-ba-wrap">
       <!-- BEFORE -->
       <div class="scc-ba-col">
@@ -1029,15 +1099,15 @@ footer{padding:2rem 1.5rem;}
     </div>
   </div>
 
-  <div class="case-section reveal"><h3>Designing the Solution</h3><p>The redesign centered on three primary user journeys: planning a visit, understanding beliefs, and discovering events. Wireframes validated structure before implementation. But the solution extended well beyond the website.</p><ul><li>Service times brought above the fold; "Plan Your Visit" as the primary CTA</li><li>Long-form content broken into scannable, human sections</li><li>Mobile-first layouts reflecting actual traffic patterns</li><li>Accessible color contrast and simplified navigation throughout</li><li>Networked camera security system installed and integrated</li><li>Hardware advisory for three computer replacements</li><li>Network assessment and infrastructure upgrades</li><li>AV/streaming pipeline built with the church's Audio and Video team</li></ul></div>
-  <div class="case-section reveal"><h3>Key Decisions &amp; Tradeoffs</h3><p><strong>Simplifying the nav rather than expanding it.</strong> Research and analytics consistently showed that older users, the church's primary demographic, were hesitating and dropping off. My decision was to reduce, clarify, and surface the most critical paths.</p><p><strong>Reducing content density on key pages.</strong> Several pages were essentially digitized paper documents. The decision to restructure into scannable sections required prioritizing comprehension over completeness.</p><p><strong>Prioritizing "Plan Your Visit" over other CTAs.</strong> Multiple options competed for prominence. Elevated based on stakeholder input confirming new visitor attendance as the primary goal.</p><p><strong>Building a streaming infrastructure under pressure.</strong> When COVID-19 forced suspension of in-person services, the church had no existing capability to reach its congregation digitally. I helped design and implement a live streaming workflow that prioritized reliability over sophistication.</p></div>
+  <div class="case-section reveal"><h3>Designing the Solution</h3><p>The redesign focused on three user journeys: planning a visit, understanding beliefs, and discovering events. Wireframes validated structure before implementation. The solution extended well beyond the website.</p><ul><li>Service times brought above the fold; "Plan Your Visit" as the primary CTA</li><li>Long-form content broken into scannable, human sections</li><li>Mobile-first layouts reflecting actual traffic patterns</li><li>Accessible color contrast and simplified navigation throughout</li><li>Networked camera security system installed and integrated</li><li>Hardware advisory for three computer replacements</li><li>Network assessment and infrastructure upgrades</li><li>AV/streaming pipeline built with the church's Audio and Video team</li></ul></div>
+  <div class="case-section reveal"><h3>Key Decisions &amp; Tradeoffs</h3><p><strong>Simplifying the nav.</strong> Analytics consistently showed older users — SCC's primary demographic — hesitating and dropping off. I reduced, clarified, and surfaced the most critical paths.</p><p><strong>Reducing content density.</strong> Several pages were digitized paper documents. Restructuring into scannable sections meant prioritizing comprehension over completeness.</p><p><strong>Prioritizing "Plan Your Visit."</strong> Multiple CTAs competed for prominence. Stakeholder input confirmed new visitor attendance as the primary goal.</p><p><strong>Building streaming infrastructure under pressure.</strong> When COVID-19 suspended in-person services, the church had no digital capability. I helped design and implement a live streaming workflow that prioritized reliability over sophistication.</p></div>
   <div class="case-section reveal"><h3>Results</h3>
     <div class="result-chips">
       <div class="result-chip"><span class="num">78%</span><span class="lbl">Web traffic increase</span></div>
       <div class="result-chip"><span class="num">2×</span><span class="lbl">Event attendance</span></div>
       <div class="result-chip"><span class="num">2010</span><span class="lbl">Partnership since</span></div>
     </div>
-    <p style="margin-top:1.5rem;color:#444;font-size:.92rem;line-height:1.88;">This project reinforced that effective UX is often about prioritization rather than expansion. By aligning analytics, user behavior insights, and business goals, the website evolved from an information hub into a structured engagement tool.</p>
+    <p style="margin-top:1.5rem;max-width:680px;margin-left:auto;margin-right:auto;color:#444;font-size:.92rem;line-height:1.88;">This project reinforced that effective UX is about prioritization, not expansion. Aligning analytics, user behavior, and business goals evolved the website from an information hub into a structured engagement tool.</p>
   </div>
 </div>
  
