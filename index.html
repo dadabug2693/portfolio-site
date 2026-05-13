@@ -309,6 +309,148 @@ footer p{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:
 .ne-iter-takeaway-label{font-size:.65rem;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:.5rem;}
 .ne-iter-takeaway p{font-size:1rem;font-family:var(--font-serif);color:#fff;line-height:1.6;font-style:italic;margin:0;}
 
+/* ── BEFORE/AFTER ITERATION CARDS ── */
+.ne-ba-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:2px solid var(--ink);margin-bottom:2.5rem;}
+.ne-ba-card{background:var(--bg);padding:1.5rem 1.3rem;position:relative;display:flex;flex-direction:column;}
+.ne-ba-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),#7c3aed);}
+.ne-ba-num{font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent2);font-weight:700;margin-bottom:.3rem;}
+.ne-ba-title{font-family:var(--font-serif);font-size:1rem;font-weight:bold;color:var(--ink);margin-bottom:.3rem;line-height:1.2;}
+.ne-ba-hyp{font-size:.7rem;color:#666;line-height:1.55;margin-bottom:1rem;font-style:italic;padding-left:.7rem;border-left:2px solid var(--border);}
+.ne-phones-row{display:flex;align-items:flex-start;gap:.6rem;margin-bottom:1rem;justify-content:center;}
+.ne-phone-mock{display:flex;flex-direction:column;align-items:center;gap:.35rem;}
+.ne-phone-mock-lbl{font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding:.15rem .5rem;border:1px solid;}
+.ne-phone-mock-lbl.lbl-before{color:#aaa;border-color:#ddd;background:#fafafa;}
+.ne-phone-mock-lbl.lbl-after{color:var(--accent2);border-color:rgba(45,212,191,.35);background:rgba(45,212,191,.04);}
+.ne-phones-arr{display:flex;align-items:center;padding-top:42px;color:var(--accent);font-size:.85rem;flex-shrink:0;}
+.ph{width:84px;height:152px;border-radius:14px;position:relative;overflow:hidden;flex-shrink:0;}
+.ph-before{background:#f2f2f0;border:2px solid #bbb;}
+.ph-after{background:#080e1a;border:2px solid rgba(45,212,191,.55);box-shadow:0 0 14px rgba(45,212,191,.12);}
+.ph-notch{position:absolute;top:7px;left:50%;transform:translateX(-50%);width:20px;height:3px;border-radius:2px;}
+.ph-before .ph-notch{background:#ccc;}
+.ph-after .ph-notch{background:rgba(45,212,191,.35);}
+.ph-screen{position:absolute;top:16px;left:4px;right:4px;bottom:5px;}
+.psc-nav-before{display:flex;flex-direction:column;gap:3px;padding:3px 4px;}
+.nav-item-bar{height:9px;background:#ddd;border-radius:2px;}
+.nav-item-bar.nav-active{background:#bbb;}
+.psc-nav-after{display:flex;flex-direction:column;gap:2px;padding:3px 4px;}
+.nav-icon-row{display:flex;align-items:center;gap:3px;height:10px;border-radius:2px;padding:0 3px;}
+.nav-icon-row.nav-row-active{background:rgba(45,212,191,.35);}
+.nav-icon-sq{width:6px;height:6px;border-radius:1px;flex-shrink:0;}
+.nav-icon-row.nav-row-active .nav-icon-sq{background:rgba(45,212,191,.9);}
+.nav-icon-row .nav-icon-sq{background:rgba(255,255,255,.2);}
+.nav-label-bar{flex:1;height:3px;border-radius:1px;}
+.nav-icon-row.nav-row-active .nav-label-bar{background:rgba(255,255,255,.6);}
+.nav-icon-row .nav-label-bar{background:rgba(255,255,255,.15);}
+.psc-ob-before{display:flex;flex-direction:column;gap:5px;padding:3px 5px;}
+.ob-header-bar{height:7px;background:#e0e0e0;border-radius:2px;width:70%;margin-bottom:2px;}
+.ob-field{height:8px;background:#e8e8e8;border-radius:2px;border-bottom:1.5px solid #bbb;}
+.ob-btn{height:10px;background:#ccc;border-radius:3px;margin-top:2px;}
+.psc-ob-after{display:flex;flex-direction:column;gap:3px;padding:3px 5px;}
+.ob-steps{display:flex;gap:2px;justify-content:center;margin-bottom:2px;}
+.ob-step-dot{width:7px;height:3px;border-radius:2px;background:rgba(45,212,191,.15);}
+.ob-step-dot.ob-step-active{background:rgba(45,212,191,.75);}
+.ob-welcome-head{height:4px;background:rgba(255,255,255,.25);border-radius:2px;margin-bottom:1px;}
+.ob-welcome-sub{height:3px;background:rgba(255,255,255,.12);border-radius:2px;width:80%;}
+.ob-role-chip{height:9px;background:rgba(45,212,191,.08);border:1px solid rgba(45,212,191,.2);border-radius:2px;margin:1px 0;}
+.ob-role-chip.ob-selected{background:rgba(45,212,191,.3);border-color:rgba(45,212,191,.6);}
+.ob-next-btn{height:10px;background:rgba(45,212,191,.45);border-radius:3px;margin-top:2px;}
+.psc-tr-before{display:flex;flex-direction:column;gap:4px;padding:4px 5px;}
+.tr-hero-blk{height:42px;background:#e5e5e5;border-radius:2px;display:flex;align-items:center;justify-content:center;}
+.tr-hero-text{width:55%;height:3px;background:#ccc;border-radius:2px;}
+.tr-learn-btn{height:10px;background:#d0d0d0;border-radius:3px;width:50%;margin:0 auto;}
+.tr-sub-line{height:3px;background:#e0e0e0;border-radius:2px;margin-top:2px;}
+.psc-tr-after{display:flex;flex-direction:column;gap:3px;padding:4px 5px;}
+.tr-head-line{height:4px;background:rgba(255,255,255,.35);border-radius:2px;margin-bottom:1px;}
+.tr-head-line.tr-head-short{width:75%;}
+.tr-cta-primary{height:11px;background:rgba(45,212,191,.55);border-radius:3px;}
+.tr-cta-secondary{height:8px;background:transparent;border:1px solid rgba(45,212,191,.35);border-radius:3px;}
+.tr-badge-row{display:flex;gap:2px;margin-top:2px;}
+.tr-badge{flex:1;height:14px;background:rgba(45,212,191,.06);border:1px solid rgba(45,212,191,.18);border-radius:2px;}
+.ne-ba-changes-lbl{font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:.4rem;}
+.ne-ba-changes-list{list-style:none;margin-bottom:1rem;flex:1;}
+.ne-ba-changes-list li{font-size:.72rem;color:#555;padding:.18rem 0 .18rem .85rem;position:relative;line-height:1.4;}
+.ne-ba-changes-list li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:.6rem;}
+.ne-ba-impact-row{border-top:1px solid var(--border);padding-top:.8rem;display:flex;align-items:center;gap:.8rem;margin-top:auto;}
+.ne-ba-impact-num{font-family:var(--font-serif);font-size:1.35rem;font-weight:bold;background:linear-gradient(135deg,var(--accent),#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;}
+.ne-ba-impact-lbl{font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;line-height:1.3;}
+/* ── RESEARCH METHODS ── */
+.ne-methods-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:2px solid var(--ink);margin:1.5rem 0 2rem;}
+.ne-method-cell{background:var(--bg);padding:1.3rem 1rem;text-align:center;}
+.ne-method-icon-badge{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,rgba(45,212,191,.12),rgba(124,58,237,.12));border:1px solid rgba(45,212,191,.3);display:flex;align-items:center;justify-content:center;margin:0 auto .6rem;font-size:.58rem;letter-spacing:.06em;font-weight:700;color:var(--accent);}
+.ne-method-name{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--ink);margin-bottom:.25rem;}
+.ne-method-sub{font-size:.72rem;color:var(--muted);line-height:1.4;}
+/* ── BASELINE METRICS ── */
+.ne-baseline-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:2px solid var(--ink);margin-bottom:2.5rem;}
+.ne-baseline-cell{background:var(--bg);padding:1.2rem 1rem;}
+.ne-baseline-lbl{font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:.5rem;}
+.ne-baseline-val{font-family:var(--font-serif);font-size:1.4rem;font-weight:bold;color:#aaa;line-height:1;margin-bottom:.35rem;}
+.ne-baseline-bar{height:3px;background:var(--border);margin-bottom:.35rem;}
+.ne-baseline-bar-fill{height:100%;background:#ccc;}
+.ne-baseline-sub{font-size:.65rem;color:#bbb;}
+/* ── OVERALL IMPACT CHARTS ── */
+.ne-chart-2col{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:1.5rem;}
+.ne-chart-box{border:1px solid var(--border);padding:1.3rem;background:var(--bg);}
+.ne-chart-hd{font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:.8rem;}
+.ne-bar-pair{display:flex;align-items:flex-end;gap:1rem;height:72px;margin-bottom:.5rem;}
+.ne-bp-col{display:flex;flex-direction:column;align-items:center;gap:.2rem;flex:1;}
+.ne-bp-bar{width:100%;border-radius:2px 2px 0 0;}
+.ne-bp-bar.bp-before{background:#d8d8d8;}
+.ne-bp-bar.bp-after{background:linear-gradient(180deg,var(--accent),var(--accent2));}
+.ne-bp-lbl{font-size:.58rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;}
+.ne-bp-val{font-size:.66rem;font-weight:700;color:var(--ink);}
+.ne-chart-delta{font-size:.88rem;font-weight:bold;font-family:var(--font-serif);background:linear-gradient(135deg,var(--accent),#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-left:.4rem;}
+.ne-chart-3col{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-bottom:2rem;}
+.ne-chart-box-sm{border:1px solid var(--border);padding:1.3rem;background:var(--bg);}
+.ne-donut-visual{width:68px;height:68px;border-radius:50%;margin:0 auto .8rem;background:conic-gradient(var(--accent) 0% 45%,#1a9e8e 45% 70%,#7c3aed 70% 85%,#a78bfa 85% 95%,#c4b5fd 95% 100%);position:relative;}
+.ne-donut-visual.device-donut{background:conic-gradient(var(--accent) 0% 55%,#1a9e8e 55% 90%,#7c3aed 90% 100%);}
+.ne-donut-hole{width:42px;height:42px;background:var(--bg);border-radius:50%;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);}
+.ne-donut-legend{display:flex;flex-direction:column;gap:.3rem;}
+.ne-donut-item{display:flex;align-items:center;gap:.45rem;font-size:.67rem;color:#555;}
+.ne-donut-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+.ne-donut-pct{margin-left:auto;font-weight:700;color:var(--ink);font-size:.67rem;}
+.ne-hbar-chart{display:flex;flex-direction:column;gap:.5rem;}
+.ne-hbar-row{display:flex;align-items:center;gap:.6rem;}
+.ne-hbar-lbl{font-size:.67rem;color:#555;width:58px;flex-shrink:0;text-align:right;}
+.ne-hbar-track{flex:1;height:8px;background:var(--border);border-radius:2px;overflow:hidden;}
+.ne-hbar-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:2px;}
+.ne-hbar-pct{font-size:.67rem;font-weight:700;color:var(--ink);width:26px;}
+/* ── UX ARTIFACTS ── */
+.ne-artifacts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:2px solid var(--ink);margin:1.5rem 0;}
+.ne-artifact-cell{background:var(--bg);}
+.ne-artifact-vis{height:110px;background:#080e1a;display:flex;align-items:center;justify-content:center;gap:1rem;padding:1rem;overflow:hidden;}
+.ne-artifact-body{padding:1.2rem;}
+.ne-artifact-type{font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:.3rem;}
+.ne-artifact-name{font-family:var(--font-serif);font-size:.9rem;font-weight:bold;color:var(--ink);margin-bottom:.3rem;}
+.ne-artifact-desc{font-size:.75rem;color:#666;line-height:1.55;}
+.wf-mini{width:52px;height:82px;border:1.5px solid rgba(45,212,191,.4);border-radius:8px;background:#0d1320;position:relative;overflow:hidden;}
+.wf-mini-hdr{position:absolute;top:8px;left:4px;right:4px;height:6px;background:rgba(45,212,191,.25);border-radius:1px;}
+.wf-mini-row{position:absolute;left:4px;right:4px;height:5px;background:rgba(45,212,191,.1);border-radius:1px;}
+.wf-mini-block{position:absolute;left:4px;right:4px;background:rgba(45,212,191,.07);border:1px solid rgba(45,212,191,.15);border-radius:2px;}
+.flow-node{width:36px;height:18px;border:1px solid rgba(45,212,191,.4);border-radius:3px;background:rgba(45,212,191,.06);display:flex;align-items:center;justify-content:center;}
+.flow-node-sm{width:28px;height:14px;border:1px solid rgba(45,212,191,.3);border-radius:2px;background:rgba(45,212,191,.04);}
+.flow-arrow-v{width:1px;height:10px;background:rgba(45,212,191,.4);}
+.heatmap-vis{width:70px;height:82px;border:1.5px solid rgba(45,212,191,.3);border-radius:6px;background:#080e1a;position:relative;overflow:hidden;}
+.hm-spot{position:absolute;border-radius:50%;filter:blur(4px);}
+/* ── ACCESSIBILITY ── */
+.ne-a11y-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);border:2px solid var(--ink);margin:1.5rem 0;}
+.ne-a11y-cell{background:var(--bg);padding:1.4rem;}
+.ne-a11y-badge{display:inline-block;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding:.18rem .55rem;border:1px solid;margin-bottom:.5rem;}
+.ne-a11y-badge.a11y-wcag{color:#1a9e8e;border-color:rgba(26,158,142,.35);background:rgba(26,158,142,.04);}
+.ne-a11y-badge.a11y-aria{color:#7c3aed;border-color:rgba(124,58,237,.3);background:rgba(124,58,237,.04);}
+.ne-a11y-badge.a11y-contrast{color:#d97706;border-color:rgba(217,119,6,.3);background:rgba(217,119,6,.05);}
+.ne-a11y-badge.a11y-motion{color:#2563eb;border-color:rgba(37,99,235,.28);background:rgba(37,99,235,.04);}
+.ne-a11y-cell h4{font-family:var(--font-serif);font-size:.95rem;font-weight:bold;color:var(--ink);margin-bottom:.4rem;}
+.ne-a11y-cell p{font-size:.78rem;color:#666;line-height:1.65;}
+.ne-a11y-cell code{font-size:.72rem;background:rgba(45,212,191,.08);border:1px solid rgba(45,212,191,.2);padding:.05rem .3rem;border-radius:2px;}
+/* ── DESIGN TRADEOFFS ── */
+.ne-tradeoffs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:2px solid var(--ink);margin:1.5rem 0;}
+.ne-tradeoff-cell{background:var(--bg);padding:1.4rem;}
+.ne-tradeoff-decision{font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent2);font-weight:700;margin-bottom:.4rem;}
+.ne-tradeoff-cell h4{font-family:var(--font-serif);font-size:.92rem;font-weight:bold;color:var(--ink);margin-bottom:.8rem;line-height:1.2;}
+.ne-tradeoff-chose{font-size:.72rem;font-weight:600;color:var(--ink);margin-bottom:.2rem;}
+.ne-tradeoff-vs{font-size:.68rem;color:var(--muted);margin-bottom:.6rem;}
+.ne-tradeoff-rationale{font-size:.72rem;color:#666;line-height:1.6;border-left:2px solid var(--accent);padding-left:.6rem;}
+
 /* AI workflow styles */
 .workflow{margin:2rem 0;border:1px solid var(--border);background:#0d0d0d;padding:2.5rem 2rem;}
 .workflow-eyebrow{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:#2dd4bf;font-weight:700;margin-bottom:.4rem;}
@@ -372,6 +514,10 @@ footer p{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:
   .ne-stats{grid-template-columns:1fr;}
   .ne-two-col,.wf-phases,.wf-insights,.ai-tool-grid,.ai-vs-grid,.ne-iter-grid{grid-template-columns:1fr;}
   .ne-impact-stats{grid-template-columns:1fr 1fr;}
+  .ne-ba-grid,.ne-tradeoffs-grid,.ne-artifacts-grid,.ne-chart-3col{grid-template-columns:1fr;}
+  .ne-chart-2col{grid-template-columns:1fr;}
+  .ne-methods-grid,.ne-baseline-grid{grid-template-columns:1fr 1fr;}
+  .ne-a11y-grid{grid-template-columns:1fr;}
 footer{padding:2rem 1.5rem;}
   h1{font-size:3rem;}
   #about-strip{grid-template-columns:1fr;}
@@ -775,6 +921,60 @@ footer{padding:2rem 1.5rem;}
     <div class="ne-stat"><div class="ne-stat-num">20wk</div><div class="ne-stat-label">Timeline</div><div class="ne-stat-sub">planning through deployment</div></div>
   </div>
   <div class="case-section reveal"><h3>Project Overview</h3><p>NavEase is a mobile app navigation solution that combines AI-powered personalization, contextual onboarding, and developer analytics to solve one of the most persistent challenges in mobile UX: confusing, inefficient navigation that drives users away before they ever discover the product's value.</p></div>
+
+  <div class="case-section reveal"><h3>Research &amp; Discovery</h3>
+    <p style="margin-bottom:1.5rem;">Before any design decisions were made, four research methods built a clear picture of where users were struggling and why. Quantitative data identified where to look; qualitative research revealed what to fix.</p>
+    <div class="ne-methods-grid">
+      <div class="ne-method-cell">
+        <div class="ne-method-icon-badge">GA4</div>
+        <div class="ne-method-name">User Analytics</div>
+        <div class="ne-method-sub">GA4 &amp; Hotjar — quantitative drop-off mapping and session recordings across key flows</div>
+      </div>
+      <div class="ne-method-cell">
+        <div class="ne-method-icon-badge">n=12</div>
+        <div class="ne-method-name">User Interviews</div>
+        <div class="ne-method-sub">12 moderated sessions — qualitative friction discovery and mental model mapping</div>
+      </div>
+      <div class="ne-method-cell">
+        <div class="ne-method-icon-badge">HE</div>
+        <div class="ne-method-name">Heuristic Evaluation</div>
+        <div class="ne-method-sub">Expert review against Nielsen's 10 heuristics — 14 usability violations identified</div>
+      </div>
+      <div class="ne-method-cell">
+        <div class="ne-method-icon-badge">CB</div>
+        <div class="ne-method-name">Competitive Benchmarking</div>
+        <div class="ne-method-sub">4 direct competitors analyzed — navigation pattern audit and feature gap analysis</div>
+      </div>
+    </div>
+    <div class="ne-budget-title" style="margin-bottom:.8rem;">Baseline Metrics (Before Iteration)</div>
+    <div class="ne-baseline-grid">
+      <div class="ne-baseline-cell">
+        <div class="ne-baseline-lbl">Task Completion Time</div>
+        <div class="ne-baseline-val">2m 15s</div>
+        <div class="ne-baseline-bar"><div class="ne-baseline-bar-fill" style="width:75%"></div></div>
+        <div class="ne-baseline-sub">Avg. time to complete key task flow</div>
+      </div>
+      <div class="ne-baseline-cell">
+        <div class="ne-baseline-lbl">Conversion Rate</div>
+        <div class="ne-baseline-val">8.7%</div>
+        <div class="ne-baseline-bar"><div class="ne-baseline-bar-fill" style="width:29%"></div></div>
+        <div class="ne-baseline-sub">Signup-to-active user rate</div>
+      </div>
+      <div class="ne-baseline-cell">
+        <div class="ne-baseline-lbl">Bounce Rate</div>
+        <div class="ne-baseline-val">43%</div>
+        <div class="ne-baseline-bar"><div class="ne-baseline-bar-fill" style="width:57%"></div></div>
+        <div class="ne-baseline-sub">Users leaving within one session</div>
+      </div>
+      <div class="ne-baseline-cell">
+        <div class="ne-baseline-lbl">User Satisfaction</div>
+        <div class="ne-baseline-val">3.2/5</div>
+        <div class="ne-baseline-bar"><div class="ne-baseline-bar-fill" style="width:64%"></div></div>
+        <div class="ne-baseline-sub">Post-session rating (avg.)</div>
+      </div>
+    </div>
+  </div>
+
   <div class="case-section reveal"><h3>Problem &amp; Solution</h3>
     <p style="margin-bottom:1.2rem;">Research shows that 43% of users abandon apps not because the product lacks value — but because they can't find it.</p>
     <div class="ne-tabs"><button class="ne-tab active" onclick="neTab(0)">Pain Points</button><button class="ne-tab" onclick="neTab(1)">Features</button></div>
@@ -931,48 +1131,164 @@ footer{padding:2rem 1.5rem;}
         <div class="ne-impact-sub">up from 3.2/5</div>
       </div>
     </div>
-    <div class="ne-iter-grid">
-      <div class="ne-iter-card">
-        <div class="ne-iter-num">Iteration 01</div>
-        <div class="ne-iter-title">Clarify Navigation</div>
-        <div class="ne-iter-change-label">Changes Made</div>
-        <ul class="ne-iter-list">
-          <li>Reduced total menu items</li>
-          <li>Clearer, action-oriented labels</li>
-          <li>Icons added for scannability</li>
-          <li>Improved visual hierarchy</li>
+    <div class="ne-ba-grid">
+      <!-- Iteration 1: Navigation -->
+      <div class="ne-ba-card">
+        <div class="ne-ba-num">Iteration 01</div>
+        <div class="ne-ba-title">Clarify Navigation</div>
+        <div class="ne-ba-hyp">Simplifying navigation and labeling will help users find information faster.</div>
+        <div class="ne-phones-row">
+          <div class="ne-phone-mock">
+            <span class="ne-phone-mock-lbl lbl-before">Before</span>
+            <div class="ph ph-before">
+              <div class="ph-notch"></div>
+              <div class="ph-screen">
+                <div class="psc-nav-before">
+                  <div class="nav-item-bar" style="width:60%"></div>
+                  <div class="nav-item-bar nav-active"></div>
+                  <div class="nav-item-bar" style="width:75%"></div>
+                  <div class="nav-item-bar" style="width:85%"></div>
+                  <div class="nav-item-bar" style="width:70%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ne-phones-arr">→</div>
+          <div class="ne-phone-mock">
+            <span class="ne-phone-mock-lbl lbl-after">After</span>
+            <div class="ph ph-after">
+              <div class="ph-notch"></div>
+              <div class="ph-screen">
+                <div class="psc-nav-after">
+                  <div class="nav-icon-row nav-row-active"><div class="nav-icon-sq"></div><div class="nav-label-bar"></div></div>
+                  <div class="nav-icon-row"><div class="nav-icon-sq"></div><div class="nav-label-bar"></div></div>
+                  <div class="nav-icon-row"><div class="nav-icon-sq"></div><div class="nav-label-bar"></div></div>
+                  <div class="nav-icon-row"><div class="nav-icon-sq"></div><div class="nav-label-bar"></div></div>
+                  <div class="nav-icon-row"><div class="nav-icon-sq"></div><div class="nav-label-bar" style="width:65%"></div></div>
+                  <div class="nav-icon-row"><div class="nav-icon-sq"></div><div class="nav-label-bar" style="width:72%"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ne-ba-changes-lbl">Change Highlights</div>
+        <ul class="ne-ba-changes-list">
+          <li>Reduced menu items from 5 to 6 with Solutions added</li>
+          <li>Used clearer, user-centric labels throughout</li>
+          <li>Added icons for faster visual scanning</li>
+          <li>Introduced visual hierarchy with active states</li>
         </ul>
-        <div class="ne-iter-result">
-          <span class="ne-iter-metric">↓18%</span>
-          <span class="ne-iter-metric-label">Task Completion Time</span>
+        <div class="ne-ba-impact-row">
+          <div class="ne-ba-impact-num">↓18%</div>
+          <div class="ne-ba-impact-lbl">Task<br>Completion<br>Time</div>
+          <div style="margin-left:auto;font-size:.68rem;color:var(--muted);">2m 15s → 1m 51s</div>
         </div>
       </div>
-      <div class="ne-iter-card">
-        <div class="ne-iter-num">Iteration 02</div>
-        <div class="ne-iter-title">Improve Onboarding Flow</div>
-        <div class="ne-iter-change-label">Changes Made</div>
-        <ul class="ne-iter-list">
-          <li>3-step guided setup wizard</li>
-          <li>Progress indicators throughout</li>
-          <li>Early personalization signals collected</li>
+      <!-- Iteration 2: Onboarding -->
+      <div class="ne-ba-card">
+        <div class="ne-ba-num">Iteration 02</div>
+        <div class="ne-ba-title">Improve Onboarding Flow</div>
+        <div class="ne-ba-hyp">A guided, step-by-step onboarding will reduce drop-off and improve activation.</div>
+        <div class="ne-phones-row">
+          <div class="ne-phone-mock">
+            <span class="ne-phone-mock-lbl lbl-before">Before</span>
+            <div class="ph ph-before">
+              <div class="ph-notch"></div>
+              <div class="ph-screen">
+                <div class="psc-ob-before">
+                  <div class="ob-header-bar"></div>
+                  <div class="ob-field"></div>
+                  <div class="ob-field"></div>
+                  <div class="ob-field"></div>
+                  <div class="ob-btn"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ne-phones-arr">→</div>
+          <div class="ne-phone-mock">
+            <span class="ne-phone-mock-lbl lbl-after">After</span>
+            <div class="ph ph-after">
+              <div class="ph-notch"></div>
+              <div class="ph-screen">
+                <div class="psc-ob-after">
+                  <div class="ob-steps"><div class="ob-step-dot ob-step-active"></div><div class="ob-step-dot"></div><div class="ob-step-dot"></div></div>
+                  <div class="ob-welcome-head"></div>
+                  <div class="ob-welcome-sub"></div>
+                  <div class="ob-role-chip ob-selected"></div>
+                  <div class="ob-role-chip"></div>
+                  <div class="ob-role-chip"></div>
+                  <div class="ob-next-btn"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ne-ba-changes-lbl">Change Highlights</div>
+        <ul class="ne-ba-changes-list">
+          <li>Added 3-step onboarding wizard</li>
+          <li>Progress indicator for orientation &amp; clarity</li>
+          <li>Personalization signals collected early</li>
+          <li>Option to skip remains available</li>
         </ul>
-        <div class="ne-iter-result">
-          <span class="ne-iter-metric">↓26%</span>
-          <span class="ne-iter-metric-label">Onboarding Drop-off</span>
+        <div class="ne-ba-impact-row">
+          <div class="ne-ba-impact-num">↓26%</div>
+          <div class="ne-ba-impact-lbl">Onboarding<br>Drop-off Rate</div>
+          <div style="margin-left:auto;font-size:.68rem;color:var(--muted);">43% → 31.8%</div>
         </div>
       </div>
-      <div class="ne-iter-card">
-        <div class="ne-iter-num">Iteration 03</div>
-        <div class="ne-iter-title">Strengthen Value &amp; Trust</div>
-        <div class="ne-iter-change-label">Changes Made</div>
-        <ul class="ne-iter-list">
-          <li>Clearer value proposition up front</li>
-          <li>Trust badges integrated</li>
-          <li>Primary CTA moved above the fold</li>
+      <!-- Iteration 3: Trust -->
+      <div class="ne-ba-card">
+        <div class="ne-ba-num">Iteration 03</div>
+        <div class="ne-ba-title">Strengthen Value &amp; Trust</div>
+        <div class="ne-ba-hyp">Adding trust signals and a clearer value proposition will increase conversion and user confidence.</div>
+        <div class="ne-phones-row">
+          <div class="ne-phone-mock">
+            <span class="ne-phone-mock-lbl lbl-before">Before</span>
+            <div class="ph ph-before">
+              <div class="ph-notch"></div>
+              <div class="ph-screen">
+                <div class="psc-tr-before">
+                  <div class="tr-hero-blk"><div class="tr-hero-text"></div></div>
+                  <div class="tr-sub-line"></div>
+                  <div class="tr-sub-line" style="width:80%"></div>
+                  <div class="tr-learn-btn"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ne-phones-arr">→</div>
+          <div class="ne-phone-mock">
+            <span class="ne-phone-mock-lbl lbl-after">After</span>
+            <div class="ph ph-after">
+              <div class="ph-notch"></div>
+              <div class="ph-screen">
+                <div class="psc-tr-after">
+                  <div class="tr-head-line"></div>
+                  <div class="tr-head-line tr-head-short"></div>
+                  <div class="tr-cta-primary"></div>
+                  <div class="tr-cta-secondary"></div>
+                  <div class="tr-badge-row">
+                    <div class="tr-badge"></div>
+                    <div class="tr-badge"></div>
+                    <div class="tr-badge"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ne-ba-changes-lbl">Change Highlights</div>
+        <ul class="ne-ba-changes-list">
+          <li>Clearer value proposition above the fold</li>
+          <li>Trust badges: SOC2, GDPR Ready, 99.9% Uptime</li>
+          <li>Primary CTA repositioned above the fold</li>
+          <li>Supporting secondary CTA added</li>
         </ul>
-        <div class="ne-iter-result">
-          <span class="ne-iter-metric">↑34%</span>
-          <span class="ne-iter-metric-label">Conversion Rate</span>
+        <div class="ne-ba-impact-row">
+          <div class="ne-ba-impact-num">↑34%</div>
+          <div class="ne-ba-impact-lbl">Conversion<br>Rate</div>
+          <div style="margin-left:auto;font-size:.68rem;color:var(--muted);">8.7% → 11.7%</div>
         </div>
       </div>
     </div>
@@ -1046,8 +1362,232 @@ footer{padding:2rem 1.5rem;}
       <p>Friction becomes flow. Ideas become impact. Better Experience &rarr; Better Results &rarr; Happier Users.</p>
     </div>
   </div>
+
+  <!-- OVERALL IMPACT -->
+  <div class="case-section reveal"><h3>Overall Impact (After Iterations)</h3>
+    <p style="margin-bottom:1.5rem;">Four measured outcomes confirmed the hypothesis: small, focused design changes compounded into significant product-level results.</p>
+    <div class="ne-chart-2col">
+      <div class="ne-chart-box">
+        <div class="ne-chart-hd">Task Completion Time (Avg)<span class="ne-chart-delta">↓28%</span></div>
+        <div class="ne-bar-pair">
+          <div class="ne-bp-col">
+            <div class="ne-bp-val">2m 15s</div>
+            <div class="ne-bp-bar bp-before" style="height:68px"></div>
+            <div class="ne-bp-lbl">Before</div>
+          </div>
+          <div class="ne-bp-col">
+            <div class="ne-bp-val">1m 37s</div>
+            <div class="ne-bp-bar bp-after" style="height:49px"></div>
+            <div class="ne-bp-lbl">After</div>
+          </div>
+        </div>
+      </div>
+      <div class="ne-chart-box">
+        <div class="ne-chart-hd">Conversion Rate<span class="ne-chart-delta">↑34%</span></div>
+        <div class="ne-bar-pair">
+          <div class="ne-bp-col">
+            <div class="ne-bp-val">8.7%</div>
+            <div class="ne-bp-bar bp-before" style="height:38px"></div>
+            <div class="ne-bp-lbl">Before</div>
+          </div>
+          <div class="ne-bp-col">
+            <div class="ne-bp-val">11.7%</div>
+            <div class="ne-bp-bar bp-after" style="height:52px"></div>
+            <div class="ne-bp-lbl">After</div>
+          </div>
+        </div>
+      </div>
+      <div class="ne-chart-box">
+        <div class="ne-chart-hd">Bounce Rate<span class="ne-chart-delta">↓22%</span></div>
+        <div class="ne-bar-pair">
+          <div class="ne-bp-col">
+            <div class="ne-bp-val">43%</div>
+            <div class="ne-bp-bar bp-before" style="height:68px"></div>
+            <div class="ne-bp-lbl">Before</div>
+          </div>
+          <div class="ne-bp-col">
+            <div class="ne-bp-val">33.5%</div>
+            <div class="ne-bp-bar bp-after" style="height:53px"></div>
+            <div class="ne-bp-lbl">After</div>
+          </div>
+        </div>
+      </div>
+      <div class="ne-chart-box">
+        <div class="ne-chart-hd">User Satisfaction<span class="ne-chart-delta">4.6/5</span></div>
+        <div class="ne-bar-pair">
+          <div class="ne-bp-col">
+            <div class="ne-bp-val">3.2/5</div>
+            <div class="ne-bp-bar bp-before" style="height:44px"></div>
+            <div class="ne-bp-lbl">Before</div>
+          </div>
+          <div class="ne-bp-col">
+            <div class="ne-bp-val">4.6/5</div>
+            <div class="ne-bp-bar bp-after" style="height:64px"></div>
+            <div class="ne-bp-lbl">After</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ne-chart-3col">
+      <div class="ne-chart-box-sm">
+        <div class="ne-chart-hd">Traffic Sources (After)</div>
+        <div class="ne-donut-visual"><div class="ne-donut-hole"></div></div>
+        <div class="ne-donut-legend">
+          <div class="ne-donut-item"><div class="ne-donut-dot" style="background:var(--accent)"></div>Organic Search<span class="ne-donut-pct">45%</span></div>
+          <div class="ne-donut-item"><div class="ne-donut-dot" style="background:var(--accent2)"></div>Direct<span class="ne-donut-pct">25%</span></div>
+          <div class="ne-donut-item"><div class="ne-donut-dot" style="background:#7c3aed"></div>Referral<span class="ne-donut-pct">15%</span></div>
+          <div class="ne-donut-item"><div class="ne-donut-dot" style="background:#a78bfa"></div>Social<span class="ne-donut-pct">10%</span></div>
+          <div class="ne-donut-item"><div class="ne-donut-dot" style="background:#c4b5fd"></div>Email<span class="ne-donut-pct">5%</span></div>
+        </div>
+      </div>
+      <div class="ne-chart-box-sm">
+        <div class="ne-chart-hd">Users by Device (After)</div>
+        <div class="ne-donut-visual device-donut"><div class="ne-donut-hole"></div></div>
+        <div class="ne-donut-legend">
+          <div class="ne-donut-item"><div class="ne-donut-dot" style="background:var(--accent)"></div>Desktop<span class="ne-donut-pct">55%</span></div>
+          <div class="ne-donut-item"><div class="ne-donut-dot" style="background:var(--accent2)"></div>Mobile<span class="ne-donut-pct">35%</span></div>
+          <div class="ne-donut-item"><div class="ne-donut-dot" style="background:#7c3aed"></div>Tablet<span class="ne-donut-pct">10%</span></div>
+        </div>
+      </div>
+      <div class="ne-chart-box-sm">
+        <div class="ne-chart-hd">Page Views by Type (After)</div>
+        <div class="ne-hbar-chart">
+          <div class="ne-hbar-row"><div class="ne-hbar-lbl">Home</div><div class="ne-hbar-track"><div class="ne-hbar-fill" style="width:84%"></div></div><div class="ne-hbar-pct">42%</div></div>
+          <div class="ne-hbar-row"><div class="ne-hbar-lbl">Product</div><div class="ne-hbar-track"><div class="ne-hbar-fill" style="width:48%"></div></div><div class="ne-hbar-pct">24%</div></div>
+          <div class="ne-hbar-row"><div class="ne-hbar-lbl">About</div><div class="ne-hbar-track"><div class="ne-hbar-fill" style="width:28%"></div></div><div class="ne-hbar-pct">14%</div></div>
+          <div class="ne-hbar-row"><div class="ne-hbar-lbl">Resources</div><div class="ne-hbar-track"><div class="ne-hbar-fill" style="width:24%"></div></div><div class="ne-hbar-pct">12%</div></div>
+          <div class="ne-hbar-row"><div class="ne-hbar-lbl">Contact</div><div class="ne-hbar-track"><div class="ne-hbar-fill" style="width:16%"></div></div><div class="ne-hbar-pct">8%</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- UX ARTIFACTS -->
+  <div class="case-section reveal"><h3>UX Artifacts &amp; Process</h3>
+    <p style="margin-bottom:1.5rem;">Three core artifacts drove the design process: lo-fi wireframes established structure before any visual direction was committed; user flow maps exposed where users were choosing the wrong branch; and Hotjar heatmaps confirmed where friction was occurring in production.</p>
+    <div class="ne-artifacts-grid">
+      <div class="ne-artifact-cell">
+        <div class="ne-artifact-vis">
+          <div class="wf-mini" style="transform:rotate(-3deg)">
+            <div class="wf-mini-hdr"></div>
+            <div class="wf-mini-row" style="top:20px"></div>
+            <div class="wf-mini-row" style="top:29px;right:18px"></div>
+            <div class="wf-mini-block" style="top:38px;bottom:8px"></div>
+          </div>
+          <div class="wf-mini" style="transform:rotate(3deg);margin-top:-12px">
+            <div class="wf-mini-hdr"></div>
+            <div class="wf-mini-row" style="top:20px;right:18px"></div>
+            <div class="wf-mini-row" style="top:28px"></div>
+            <div class="wf-mini-block" style="top:36px;bottom:28px"></div>
+            <div class="wf-mini-block" style="top:52px;bottom:8px;right:18px"></div>
+          </div>
+        </div>
+        <div class="ne-artifact-body">
+          <div class="ne-artifact-type">Lo-Fi Wireframes</div>
+          <div class="ne-artifact-name">Structure-First Design</div>
+          <div class="ne-artifact-desc">Lo-fi wireframes kept focus on hierarchy and layout before visual direction was committed. Three rounds of wireframe reviews shaped the final information architecture and resolved competing structural approaches before any pixel was styled.</div>
+        </div>
+      </div>
+      <div class="ne-artifact-cell">
+        <div class="ne-artifact-vis">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+            <div class="flow-node" style="font-size:.42rem;color:rgba(45,212,191,.7)">Start</div>
+            <div class="flow-arrow-v"></div>
+            <div style="display:flex;gap:8px;">
+              <div class="flow-node-sm"></div>
+              <div class="flow-node-sm" style="border-color:rgba(45,212,191,.55);background:rgba(45,212,191,.1)"></div>
+            </div>
+            <div class="flow-arrow-v"></div>
+            <div style="display:flex;gap:5px;">
+              <div class="flow-node-sm"></div>
+              <div class="flow-node-sm"></div>
+              <div class="flow-node-sm" style="border-color:rgba(45,212,191,.45);background:rgba(45,212,191,.08)"></div>
+            </div>
+            <div class="flow-arrow-v"></div>
+            <div class="flow-node" style="font-size:.42rem;color:rgba(45,212,191,.7);border-radius:50%;width:28px;height:28px">End</div>
+          </div>
+        </div>
+        <div class="ne-artifact-body">
+          <div class="ne-artifact-type">User Flow Mapping</div>
+          <div class="ne-artifact-name">Critical Path Analysis</div>
+          <div class="ne-artifact-desc">User flows traced four critical paths: first-time onboarding, feature discovery, return-user navigation, and help-seeking behavior. Each flow exposed decision points where users consistently chose the wrong branch — turning assumption into evidence.</div>
+        </div>
+      </div>
+      <div class="ne-artifact-cell">
+        <div class="ne-artifact-vis">
+          <div class="heatmap-vis">
+            <div class="hm-spot" style="width:32px;height:32px;background:rgba(255,60,20,.55);top:8px;left:20px"></div>
+            <div class="hm-spot" style="width:22px;height:22px;background:rgba(255,140,20,.4);top:32px;left:10px"></div>
+            <div class="hm-spot" style="width:18px;height:18px;background:rgba(255,200,20,.3);top:48px;left:34px"></div>
+            <div class="hm-spot" style="width:12px;height:12px;background:rgba(45,212,191,.25);top:62px;left:16px"></div>
+          </div>
+        </div>
+        <div class="ne-artifact-body">
+          <div class="ne-artifact-type">Heatmap Analytics</div>
+          <div class="ne-artifact-name">Hotjar Tap &amp; Click Analysis</div>
+          <div class="ne-artifact-desc">Hotjar session recordings and click heatmaps revealed that 68% of navigation taps clustered on the top two menu items — confirming that items 3–5 were effectively invisible to most users. This single data point justified the navigation restructure.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ACCESSIBILITY -->
+  <div class="case-section reveal"><h3>Accessibility Thinking</h3>
+    <p style="margin-bottom:1.5rem;">Accessibility was treated as a design constraint from the start, not a post-launch audit. Four principles were baked into each iteration cycle.</p>
+    <div class="ne-a11y-grid">
+      <div class="ne-a11y-cell">
+        <span class="ne-a11y-badge a11y-wcag">WCAG 2.1 AA</span>
+        <h4>Contrast &amp; Legibility</h4>
+        <p>All text and interactive elements were tested to meet WCAG 2.1 AA contrast ratios (4.5:1 for text, 3:1 for UI components). Navigation labels were evaluated against both light and dark backgrounds throughout the redesign process.</p>
+      </div>
+      <div class="ne-a11y-cell">
+        <span class="ne-a11y-badge a11y-aria">ARIA</span>
+        <h4>Screen Reader Compatibility</h4>
+        <p>Semantic HTML structure and ARIA landmark roles ensured navigation was fully traversable without a mouse. The 3-step onboarding wizard was designed so each step communicates its state and purpose through structure alone — not just visual position.</p>
+      </div>
+      <div class="ne-a11y-cell">
+        <span class="ne-a11y-badge a11y-contrast">Touch Targets</span>
+        <h4>44px Minimum Touch Areas</h4>
+        <p>Navigation items were designed with minimum 44×44px touch targets per WCAG 2.5.5. The before-state had tap targets as small as 28px — a measurable contributor to the error rate observed in Hotjar sessions and confirmed in user interviews.</p>
+      </div>
+      <div class="ne-a11y-cell">
+        <span class="ne-a11y-badge a11y-motion">Reduced Motion</span>
+        <h4>Respecting User Preferences</h4>
+        <p>AI-driven navigation personalization animations honor the <code>prefers-reduced-motion</code> media query. Users with motion sensitivity receive instant state changes instead of animated transitions — without losing any functional capability.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- DESIGN TRADEOFFS -->
+  <div class="case-section reveal"><h3>Design Tradeoffs &amp; Constraints</h3>
+    <p style="margin-bottom:1.5rem;">Every meaningful design decision involves choosing one thing over another. Three tradeoffs defined the final direction — and are worth making explicit.</p>
+    <div class="ne-tradeoffs-grid">
+      <div class="ne-tradeoff-cell">
+        <div class="ne-tradeoff-decision">Tradeoff 01</div>
+        <h4>Progressive Onboarding vs. Complete Setup</h4>
+        <div class="ne-tradeoff-chose">Chose: 3-step wizard with deferred depth</div>
+        <div class="ne-tradeoff-vs">vs. comprehensive profile setup at registration</div>
+        <div class="ne-tradeoff-rationale">Users abandon long forms before submitting. A shorter wizard collects enough signal to personalize the experience without demanding commitment upfront. Remaining preferences are surfaced contextually as users engage with the product.</div>
+      </div>
+      <div class="ne-tradeoff-cell">
+        <div class="ne-tradeoff-decision">Tradeoff 02</div>
+        <h4>Flattened Navigation vs. Full Feature Exposure</h4>
+        <div class="ne-tradeoff-chose">Chose: Simplified nav with AI surfacing depth</div>
+        <div class="ne-tradeoff-vs">vs. exposing all features at the top level</div>
+        <div class="ne-tradeoff-rationale">Exposing every feature adds cognitive load without adding clarity. The AI layer surfaces what's relevant to each user, so the nav stays simple while depth remains accessible. The constraint forced a better system — not a compromise.</div>
+      </div>
+      <div class="ne-tradeoff-cell">
+        <div class="ne-tradeoff-decision">Tradeoff 03</div>
+        <h4>Trust-First Hero vs. Feature-First Hero</h4>
+        <div class="ne-tradeoff-chose">Chose: Trust signals above the fold</div>
+        <div class="ne-tradeoff-vs">vs. leading with product features</div>
+        <div class="ne-tradeoff-rationale">Analytics showed users were bouncing before scrolling to feature descriptions. The blocker wasn't lack of information — it was lack of confidence. Moving trust signals above the fold addressed the actual conversion barrier, not a hypothetical one.</div>
+      </div>
+    </div>
+  </div>
+
 </div>
- 
+
 <!-- ══ AI WORKFLOW CASE DETAIL ══ -->
 <div id="case-study-detail-ai">
   <button class="back-btn" onclick="closeCaseAI()">Back to Work</button>
