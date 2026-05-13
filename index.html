@@ -391,13 +391,13 @@ footer p{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:
 .ne-chart-2col{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:1.5rem;}
 .ne-chart-box{border:1px solid var(--border);padding:1.3rem;background:var(--bg);}
 .ne-chart-hd{font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:.8rem;}
-.ne-bar-pair{display:flex;align-items:flex-end;gap:1rem;height:72px;margin-bottom:.5rem;}
+.ne-bar-pair{display:flex;align-items:flex-end;gap:1rem;min-height:72px;margin-bottom:.5rem;}
 .ne-bp-col{display:flex;flex-direction:column;align-items:center;gap:.2rem;flex:1;}
 .ne-bp-bar{width:100%;border-radius:2px 2px 0 0;}
 .ne-bp-bar.bp-before{background:#d8d8d8;}
 .ne-bp-bar.bp-after{background:linear-gradient(180deg,var(--accent),var(--accent2));}
-.ne-bp-lbl{font-size:.58rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;}
-.ne-bp-val{font-size:.66rem;font-weight:700;color:var(--ink);}
+.ne-bp-lbl{font-size:.58rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-top:.2rem;}
+.ne-bp-val{font-size:.7rem;font-weight:700;color:var(--ink);}
 .ne-chart-delta{font-size:.88rem;font-weight:bold;font-family:var(--font-serif);background:linear-gradient(135deg,var(--accent),#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-left:.4rem;}
 .ne-chart-3col{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-bottom:2rem;}
 .ne-chart-box-sm{border:1px solid var(--border);padding:1.3rem;background:var(--bg);}
@@ -1371,14 +1371,14 @@ footer{padding:2rem 1.5rem;}
         <div class="ne-chart-hd">Task Completion Time (Avg)<span class="ne-chart-delta">↓28%</span></div>
         <div class="ne-bar-pair">
           <div class="ne-bp-col">
-            <div class="ne-bp-val">2m 15s</div>
             <div class="ne-bp-bar bp-before" style="height:68px"></div>
             <div class="ne-bp-lbl">Before</div>
+            <div class="ne-bp-val">2m 15s</div>
           </div>
           <div class="ne-bp-col">
-            <div class="ne-bp-val">1m 37s</div>
             <div class="ne-bp-bar bp-after" style="height:49px"></div>
             <div class="ne-bp-lbl">After</div>
+            <div class="ne-bp-val">1m 37s</div>
           </div>
         </div>
       </div>
@@ -1386,14 +1386,14 @@ footer{padding:2rem 1.5rem;}
         <div class="ne-chart-hd">Conversion Rate<span class="ne-chart-delta">↑34%</span></div>
         <div class="ne-bar-pair">
           <div class="ne-bp-col">
-            <div class="ne-bp-val">8.7%</div>
             <div class="ne-bp-bar bp-before" style="height:38px"></div>
             <div class="ne-bp-lbl">Before</div>
+            <div class="ne-bp-val">8.7%</div>
           </div>
           <div class="ne-bp-col">
-            <div class="ne-bp-val">11.7%</div>
             <div class="ne-bp-bar bp-after" style="height:52px"></div>
             <div class="ne-bp-lbl">After</div>
+            <div class="ne-bp-val">11.7%</div>
           </div>
         </div>
       </div>
@@ -1401,14 +1401,14 @@ footer{padding:2rem 1.5rem;}
         <div class="ne-chart-hd">Bounce Rate<span class="ne-chart-delta">↓22%</span></div>
         <div class="ne-bar-pair">
           <div class="ne-bp-col">
-            <div class="ne-bp-val">43%</div>
             <div class="ne-bp-bar bp-before" style="height:68px"></div>
             <div class="ne-bp-lbl">Before</div>
+            <div class="ne-bp-val">43%</div>
           </div>
           <div class="ne-bp-col">
-            <div class="ne-bp-val">33.5%</div>
             <div class="ne-bp-bar bp-after" style="height:53px"></div>
             <div class="ne-bp-lbl">After</div>
+            <div class="ne-bp-val">33.5%</div>
           </div>
         </div>
       </div>
@@ -1416,14 +1416,14 @@ footer{padding:2rem 1.5rem;}
         <div class="ne-chart-hd">User Satisfaction<span class="ne-chart-delta">4.6/5</span></div>
         <div class="ne-bar-pair">
           <div class="ne-bp-col">
-            <div class="ne-bp-val">3.2/5</div>
             <div class="ne-bp-bar bp-before" style="height:44px"></div>
             <div class="ne-bp-lbl">Before</div>
+            <div class="ne-bp-val">3.2/5</div>
           </div>
           <div class="ne-bp-col">
-            <div class="ne-bp-val">4.6/5</div>
             <div class="ne-bp-bar bp-after" style="height:64px"></div>
             <div class="ne-bp-lbl">After</div>
+            <div class="ne-bp-val">4.6/5</div>
           </div>
         </div>
       </div>
