@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>AI-Assisted UX Workflows · Case Study | David R. Bailey</title>
+<style>
+:root{
+  --bg:#ffffff;--bg2:#f5f5f5;--ink:#0d0d0d;--muted:#777;
+  --accent:#2dd4bf;--accent2:#1a9e8e;--border:#ccc7bc;
+  --glass:rgba(255,255,255,0.45);--glass-border:rgba(255,255,255,0.7);
+  --font-sans:'Inter',system-ui,sans-serif;--font-serif:'Georgia',serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-sans);line-height:1.7;overflow-x:hidden;}
+
+.orb{position:fixed;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0;}
+.orb1{width:700px;height:700px;background:radial-gradient(circle,rgba(45,212,191,.13),transparent 70%);top:-200px;left:-200px;}
+.orb2{width:600px;height:600px;background:radial-gradient(circle,rgba(124,58,237,.09),transparent 70%);top:40%;right:-200px;}
+.orb3{width:500px;height:500px;background:radial-gradient(circle,rgba(29,78,216,.08),transparent 70%);bottom:10%;left:15%;}
+body>*{position:relative;z-index:1;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.97);backdrop-filter:blur(16px);border-bottom:2px solid var(--ink);}
+.nav-top{display:flex;align-items:center;justify-content:space-between;padding:.6rem 4rem;border-bottom:1px solid var(--border);}
+.nav-date{font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);}
+.nav-logo{font-family:var(--font-serif);font-size:1.55rem;font-weight:bold;letter-spacing:-.02em;color:var(--ink);text-decoration:none;}
+.nav-links{display:flex;list-style:none;}
+.nav-links li{flex:1;text-align:center;border-right:1px solid var(--border);}
+.nav-links li:last-child{border-right:none;}
+.nav-links a{display:block;padding:.55rem 1.4rem;color:var(--ink);text-decoration:none;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;transition:all .2s;}
+.nav-links a:hover{background:var(--ink);color:#fff;}
+
+/* HERO */
+.cs-hero{background:var(--ink);max-width:100%;padding:9rem 4rem 7rem;margin-top:95px;position:relative;overflow:hidden;border-bottom:1px solid #1e1e1c;}
+.cs-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 25% 60%,rgba(45,212,191,.14),transparent 58%);pointer-events:none;}
+.cs-hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(124,58,237,.08),transparent 55%);pointer-events:none;}
+.cs-hero-inner{max-width:1100px;margin:0 auto;position:relative;}
+.cs-back{display:inline-flex;align-items:center;gap:.5rem;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,.4);text-decoration:none;margin-bottom:2.8rem;transition:color .2s;}
+.cs-back::before{content:'←';font-size:.8rem;}
+.cs-back:hover{color:var(--accent);}
+.cs-eyebrow{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--accent);display:block;margin-bottom:1.2rem;}
+.cs-hero h1{font-family:var(--font-serif);font-size:clamp(3.5rem,6.5vw,6.2rem);line-height:.88;letter-spacing:-.03em;color:#fff;margin-bottom:1.8rem;font-weight:bold;}
+.cs-hero h1 em{font-style:italic;color:var(--accent);}
+.cs-hero-sub{font-size:1.05rem;color:rgba(255,255,255,.6);max-width:460px;line-height:1.8;border-left:3px solid var(--accent);padding-left:1.1rem;}
+
+/* FOOTER */
+footer{border-top:2px solid var(--ink);padding:2rem 4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;background:var(--bg);}
+footer p{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;}
+.footer-links{display:flex;gap:1.5rem;}
+.footer-links a{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:color .2s;}
+.footer-links a:hover{color:var(--ink);}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease;}
+.reveal.visible{opacity:1;transform:none;}
+
+/* CONTENT WRAPPER */
+.cs-content{max-width:1100px;margin:0 auto;padding:4rem 4rem 7rem;}
+
+/* SECTION SHARED */
+.section-label{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem;}
+h2{font-family:var(--font-serif);font-size:clamp(1.9rem,3.5vw,2.8rem);color:var(--ink);margin-bottom:1.2rem;line-height:1.05;letter-spacing:-.02em;font-weight:bold;}
+.rule{border:none;border-top:2px solid var(--ink);margin-bottom:2.5rem;}
+
+/* CASE STUDY STYLES */
+.case-section{margin-bottom:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid var(--border);}
+.case-section h3{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;font-weight:700;}
+.case-section p{color:#444;font-size:.92rem;line-height:1.88;margin-bottom:1rem;}
+.case-section ul{color:#444;font-size:.92rem;line-height:1.88;padding-left:1.2rem;}
+.case-section ul li{margin-bottom:.4rem;}
+.case-meta-row{display:flex;gap:2rem;flex-wrap:wrap;color:var(--muted);font-size:.8rem;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);}
+.case-meta-row span strong{color:var(--ink);}
+.result-chips{display:flex;gap:0;margin-top:1rem;border:2px solid var(--ink);}
+.result-chip{flex:1;padding:1.5rem;text-align:center;border-right:1px solid var(--border);background:var(--glass);backdrop-filter:blur(10px);}
+.result-chip:last-child{border-right:none;}
+.result-chip .num{font-family:var(--font-serif);font-size:2rem;font-weight:bold;background:linear-gradient(135deg,var(--accent),#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;}
+.result-chip .lbl{font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;}
+
+/* NE STATS */
+.ne-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:2px solid var(--ink);margin-bottom:3rem;}
+.ne-stat{padding:1.8rem 1.5rem;text-align:center;border-right:1px solid var(--border);background:var(--glass);backdrop-filter:blur(10px);}
+.ne-stat:last-child{border-right:none;}
+.ne-stat-num{font-family:var(--font-serif);font-size:2.2rem;font-weight:bold;line-height:1;margin-bottom:.3rem;background:linear-gradient(135deg,var(--accent),#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.ne-stat-label{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700;}
+.ne-stat-sub{font-size:.75rem;color:var(--muted);margin-top:.3rem;}
+
+/* WORKFLOW / AI STYLES */
+.workflow{margin:2rem 0;border:1px solid var(--border);background:#0d0d0d;padding:2.5rem 2rem;}
+.workflow-eyebrow{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:#2dd4bf;font-weight:700;margin-bottom:.4rem;}
+.workflow-title{font-family:var(--font-serif);font-size:1.1rem;color:#fff;font-weight:bold;margin-bottom:.3rem;}
+.workflow-sub{font-size:.75rem;color:#555;margin-bottom:2rem;}
+.wf-phases{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#1e1e1e;margin-bottom:1px;}
+.wf-phase{background:#111;padding:1.2rem 1rem .9rem;}
+.wf-num{font-family:var(--font-serif);font-size:1.5rem;font-weight:bold;background:linear-gradient(135deg,#2dd4bf,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:.4rem;}
+.wf-tag{font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:#2dd4bf;font-weight:700;margin-bottom:.3rem;}
+.wf-phase-title{font-family:var(--font-serif);font-size:.88rem;color:#fff;font-weight:bold;line-height:1.3;margin-bottom:.4rem;}
+.wf-phase-desc{font-size:.73rem;color:#666;line-height:1.65;}
+.wf-insights{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#1e1e1e;border:1px solid #1e1e1e;margin-bottom:1.5rem;}
+.wf-insight{background:#111;padding:.9rem 1rem;border-left:2px solid #2dd4bf;}
+.wf-insight-label{font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:#2dd4bf;font-weight:700;margin-bottom:.25rem;}
+.wf-insight-text{font-size:.72rem;color:#888;line-height:1.6;}
+
+/* AI TOOL / VS GRID */
+.ai-tool-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-top:1.5rem;margin-bottom:2rem;}
+.ai-tool-card{background:var(--bg);padding:1.4rem;}
+.ai-tool-name{font-family:var(--font-serif);font-size:1rem;font-weight:bold;color:var(--ink);margin-bottom:.2rem;}
+.ai-tool-role{font-size:.6rem;letter-spacing:.13em;text-transform:uppercase;color:var(--accent2);font-weight:700;margin-bottom:.6rem;}
+.ai-tool-desc{font-size:.82rem;color:#555;line-height:1.7;}
+.ai-vs-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:2px solid var(--ink);margin-top:1.5rem;}
+.ai-vs-col{background:var(--bg);padding:1.5rem;}
+.ai-vs-head{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--ink);}
+.ai-vs-head.human-head{color:var(--ink);}
+.ai-vs-head.ai-head{color:var(--accent);}
+.ai-vs-item{font-size:.82rem;color:#555;line-height:1.7;padding:.38rem 0;border-bottom:1px solid var(--border);}
+.ai-vs-item:last-child{border-bottom:none;}
+.ai-scenario{border-left:3px solid var(--accent);padding:.9rem 1.1rem;margin-bottom:1.2rem;background:rgba(45,212,191,.03);}
+.ai-scenario-label{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:.4rem;}
+.ai-scenario p{font-size:.85rem;color:#555;line-height:1.75;margin:0;}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  nav .nav-top{padding:.8rem 1.5rem;}
+  .cs-hero{padding:7rem 1.5rem 5rem;}
+  .cs-content{padding:3rem 1.5rem 5rem;}
+  footer{padding:2rem 1.5rem;}
+  h2{font-size:2rem;}
+  .ne-two-col,.wf-phases,.wf-insights,.ai-tool-grid,.ai-vs-grid{grid-template-columns:1fr;}
+  .ne-stats{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<div class="orb orb3"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-top">
+    <span class="nav-date">Portfolio &middot; 2026</span>
+    <a href="index.html" class="nav-logo">DAVID R. BAILEY</a>
+    <span class="nav-date">UX/UI Designer &amp; Technologist</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html#work">Work</a></li>
+    <li><a href="index.html#about-strip">About</a></li>
+    <li><a href="index.html#skills">Skills</a></li>
+    <li><a href="index.html#resume">Resume</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="cs-hero">
+  <div class="cs-hero-inner">
+    <a href="index.html#work" class="cs-back reveal">Back to Portfolio</a>
+    <span class="cs-eyebrow reveal">Case Study &middot; Independent Research</span>
+    <h1 class="reveal">AI-Assisted UX <em>Workflows</em></h1>
+    <p class="cs-hero-sub reveal">Human judgment first. AI acceleration second.</p>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="cs-content">
+
+  <div class="reveal">
+    <p class="section-label">Case Study</p>
+    <h2>AI-Assisted UX Workflows</h2>
+    <div class="case-meta-row" style="margin-bottom:2rem;">
+      <span><strong>Role:</strong> UX Designer &amp; Researcher</span>
+      <span><strong>Type:</strong> Independent Research</span>
+      <span><strong>Tools:</strong> Claude, ChatGPT, Figma, Notion</span>
+    </div>
+  </div>
+
+  <div class="ne-stats reveal">
+    <div class="ne-stat"><div class="ne-stat-num">3</div><div class="ne-stat-label">Integrated Phases</div><div class="ne-stat-sub">Discovery · Design · Documentation</div></div>
+    <div class="ne-stat"><div class="ne-stat-num">4</div><div class="ne-stat-label">Tools in Stack</div><div class="ne-stat-sub">Each with a defined, bounded role</div></div>
+    <div class="ne-stat"><div class="ne-stat-num">0</div><div class="ne-stat-label">Decisions Outsourced</div><div class="ne-stat-sub">AI accelerates. The designer decides.</div></div>
+  </div>
+
+  <div class="case-section reveal"><h3>The Challenge</h3>
+    <p>Design is a discipline that improves with friction — pushback, alternatives, a second opinion. Working solo means those feedback loops are either missing or slow. You can spiral inside your own assumptions without anyone to object.</p>
+    <p>AI doesn't replace a team. But used deliberately, it can recreate the structure of collaborative thinking: proposing alternatives you wouldn't have considered, surfacing objections before a stakeholder does, and compressing research synthesis from days to hours. The challenge is keeping the human judgment at the center — not outsourcing it.</p>
+  </div>
+
+  <div class="workflow reveal">
+    <div class="workflow-eyebrow">Research Framework</div>
+    <div class="workflow-title">Three-Phase AI Integration Model</div>
+    <div class="workflow-sub">How AI tools were integrated across discovery, design, and documentation — and where the line between AI and designer stays fixed</div>
+    <div class="wf-phases">
+      <div class="wf-phase"><div class="wf-num">01</div><div class="wf-tag">Discovery</div><div class="wf-phase-title">Research Synthesis</div><div class="wf-phase-desc">AI compresses raw research data, surfaces patterns, and identifies contradictions across sources — without making conclusions. The interpretation is yours.</div></div>
+      <div class="wf-phase"><div class="wf-num">02</div><div class="wf-tag">Design</div><div class="wf-phase-title">Ideation Partner</div><div class="wf-phase-desc">AI generates alternatives to your proposed direction, stress-tests assumptions, and surfaces the strongest objection to your own idea. Momentum, without echo chambers.</div></div>
+      <div class="wf-phase"><div class="wf-num">03</div><div class="wf-tag">Documentation</div><div class="wf-phase-title">Clearer Deliverables</div><div class="wf-phase-desc">AI restructures design rationale into handoff-ready documentation. The thinking is yours; AI makes sure it's readable, complete, and structured for the next person.</div></div>
+    </div>
+    <div class="wf-insights">
+      <div class="wf-insight"><div class="wf-insight-label">Key Insight</div><div class="wf-insight-text">AI doesn't replace collaboration — it recreates the structure of it for solo designers.</div></div>
+      <div class="wf-insight"><div class="wf-insight-label">Key Insight</div><div class="wf-insight-text">Human judgment remains the filter. AI accelerates; the designer decides.</div></div>
+      <div class="wf-insight"><div class="wf-insight-label">Key Insight</div><div class="wf-insight-text">The biggest gain is in synthesis — turning raw research into focused insight, faster.</div></div>
+    </div>
+  </div>
+
+  <div class="case-section reveal"><h3>In Practice</h3>
+    <p style="margin-bottom:1.5rem;">Three scenarios that show what this actually looks like — not as theory, but as a working method.</p>
+    <div class="ai-scenario">
+      <div class="ai-scenario-label">Phase 01 · Research Synthesis</div>
+      <p>Five user interviews. Thirty pages of notes. I feed the raw patterns to Claude and ask for synthesis — not conclusions. The prompt is: "What tensions or contradictions exist across these responses?" The AI surfaces the friction. I decide what it means.</p>
+    </div>
+    <div class="ai-scenario">
+      <div class="ai-scenario-label">Phase 02 · Ideation</div>
+      <p>I pitch a flow direction and ask for three alternatives, then ask for the strongest objection to my original idea. The pushback — not the alternatives — is where the real thinking happens. Having to defend a direction, or abandon it, sharpens both options.</p>
+    </div>
+    <div class="ai-scenario">
+      <div class="ai-scenario-label">Phase 03 · Documentation</div>
+      <p>I write the design rationale in plain language — why this decision, what was traded off, what would break this. AI restructures it for a handoff doc. Faster, cleaner, still mine. The thinking happened before the prompt.</p>
+    </div>
+  </div>
+
+  <div class="case-section reveal"><h3>The Tool Stack</h3>
+    <p>Four tools, each with a defined role. The discipline is not mixing them — keeping each bounded to what it's actually good at.</p>
+    <div class="ai-tool-grid">
+      <div class="ai-tool-card"><div class="ai-tool-name">Claude</div><div class="ai-tool-role">Strategic Thinking · Synthesis</div><p class="ai-tool-desc">Long-context reasoning and research synthesis. Used for compressing interview notes, structuring problem frames, and stress-testing design rationale. Strongest at nuance and sustained argument.</p></div>
+      <div class="ai-tool-card"><div class="ai-tool-name">ChatGPT</div><div class="ai-tool-role">Variation · Rapid Alternatives</div><p class="ai-tool-desc">Fast generation of alternatives, copy variations, and quick-turn lookups. Used when the goal is quantity over depth — get five versions of something quickly, then apply judgment to select and refine.</p></div>
+      <div class="ai-tool-card"><div class="ai-tool-name">Figma</div><div class="ai-tool-role">Design · Decision-Making</div><p class="ai-tool-desc">Where the actual design decisions are made and tested. AI informs what goes into Figma; Figma is where the conclusions are drawn. Not a place where AI makes choices — a place where the designer does.</p></div>
+      <div class="ai-tool-card"><div class="ai-tool-name">Notion</div><div class="ai-tool-role">Research Capture · Synthesis Docs</div><p class="ai-tool-desc">Research capture, prompt logging, and synthesis documentation. Tracking what was asked, what was useful, what failed — building an institutional memory of the AI-augmented process over time.</p></div>
+    </div>
+  </div>
+
+  <div class="case-section reveal"><h3>Where Human Judgment Stays</h3>
+    <p>The line between what AI does and what the designer does isn't ambiguous — it's deliberate. Letting that line blur is where AI augmentation becomes AI dependence.</p>
+    <div class="ai-vs-grid">
+      <div class="ai-vs-col"><div class="ai-vs-head human-head">The Designer</div><div class="ai-vs-item">Defines the problem worth solving</div><div class="ai-vs-item">Interprets research with context and empathy</div><div class="ai-vs-item">Makes the design decisions</div><div class="ai-vs-item">Evaluates AI outputs against user needs</div><div class="ai-vs-item">Takes responsibility for the final work</div><div class="ai-vs-item">Knows when to ignore the AI entirely</div></div>
+      <div class="ai-vs-col"><div class="ai-vs-head ai-head">The AI</div><div class="ai-vs-item">Compresses and patterns raw data</div><div class="ai-vs-item">Generates alternatives quickly</div><div class="ai-vs-item">Surfaces objections and edge cases</div><div class="ai-vs-item">Restructures documentation for clarity</div><div class="ai-vs-item">Accelerates repetitive synthesis tasks</div><div class="ai-vs-item">Asks useful questions back</div></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2026 David R. Bailey &middot; UX/UI Designer &amp; Technologist</p>
+  <div class="footer-links">
+    <a href="index.html#work">Portfolio</a>
+    <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+    <a href="mailto:contact@davidrbailey.com">Email</a>
+    <a href="/David_R_Bailey_Resume.pdf" target="_blank">Resume</a>
+  </div>
+</footer>
+
+<script>
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>

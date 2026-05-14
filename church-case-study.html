@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Springfield Church of Christ · Case Study | David R. Bailey</title>
+<style>
+:root{
+  --bg:#ffffff;--bg2:#f5f5f5;--ink:#0d0d0d;--muted:#777;
+  --accent:#2dd4bf;--accent2:#1a9e8e;--border:#ccc7bc;
+  --glass:rgba(255,255,255,0.45);--glass-border:rgba(255,255,255,0.7);
+  --font-sans:'Inter',system-ui,sans-serif;--font-serif:'Georgia',serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-sans);line-height:1.7;overflow-x:hidden;}
+
+.orb{position:fixed;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0;}
+.orb1{width:700px;height:700px;background:radial-gradient(circle,rgba(45,212,191,.13),transparent 70%);top:-200px;left:-200px;}
+.orb2{width:600px;height:600px;background:radial-gradient(circle,rgba(124,58,237,.09),transparent 70%);top:40%;right:-200px;}
+.orb3{width:500px;height:500px;background:radial-gradient(circle,rgba(29,78,216,.08),transparent 70%);bottom:10%;left:15%;}
+body>*{position:relative;z-index:1;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.97);backdrop-filter:blur(16px);border-bottom:2px solid var(--ink);}
+.nav-top{display:flex;align-items:center;justify-content:space-between;padding:.6rem 4rem;border-bottom:1px solid var(--border);}
+.nav-date{font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);}
+.nav-logo{font-family:var(--font-serif);font-size:1.55rem;font-weight:bold;letter-spacing:-.02em;color:var(--ink);text-decoration:none;}
+.nav-links{display:flex;list-style:none;}
+.nav-links li{flex:1;text-align:center;border-right:1px solid var(--border);}
+.nav-links li:last-child{border-right:none;}
+.nav-links a{display:block;padding:.55rem 1.4rem;color:var(--ink);text-decoration:none;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;transition:all .2s;}
+.nav-links a:hover{background:var(--ink);color:#fff;}
+
+/* HERO */
+.cs-hero{background:var(--ink);max-width:100%;padding:9rem 4rem 7rem;margin-top:95px;position:relative;overflow:hidden;border-bottom:1px solid #1e1e1c;}
+.cs-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 25% 60%,rgba(45,212,191,.14),transparent 58%);pointer-events:none;}
+.cs-hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(124,58,237,.08),transparent 55%);pointer-events:none;}
+.cs-hero-inner{max-width:1100px;margin:0 auto;position:relative;}
+.cs-back{display:inline-flex;align-items:center;gap:.5rem;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,.4);text-decoration:none;margin-bottom:2.8rem;transition:color .2s;}
+.cs-back::before{content:'←';font-size:.8rem;}
+.cs-back:hover{color:var(--accent);}
+.cs-eyebrow{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--accent);display:block;margin-bottom:1.2rem;}
+.cs-hero h1{font-family:var(--font-serif);font-size:clamp(3.5rem,6.5vw,6.2rem);line-height:.88;letter-spacing:-.03em;color:#fff;margin-bottom:1.8rem;font-weight:bold;}
+.cs-hero h1 em{font-style:italic;color:var(--accent);}
+.cs-hero-sub{font-size:1.05rem;color:rgba(255,255,255,.6);max-width:460px;line-height:1.8;border-left:3px solid var(--accent);padding-left:1.1rem;}
+
+/* SHARED LABELS / HEADINGS */
+.section-label{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem;}
+h2{font-family:var(--font-serif);font-size:clamp(1.9rem,3.5vw,2.8rem);color:var(--ink);margin-bottom:1.2rem;line-height:1.05;letter-spacing:-.02em;font-weight:bold;}
+.rule{border:none;border-top:2px solid var(--ink);margin-bottom:2.5rem;}
+
+/* CASE SECTION */
+.case-meta-row{display:flex;gap:2rem;flex-wrap:wrap;color:var(--muted);font-size:.8rem;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);}
+.case-meta-row span strong{color:var(--ink);}
+.case-section{margin-bottom:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid var(--border);}
+.case-section h3{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;font-weight:700;}
+.case-section p{color:#444;font-size:.92rem;line-height:1.88;margin-bottom:1rem;}
+.case-section ul{color:#444;font-size:.92rem;line-height:1.88;padding-left:1.2rem;}
+.case-section ul li{margin-bottom:.4rem;}
+.result-chips{display:flex;gap:0;margin-top:1rem;border:2px solid var(--ink);}
+.result-chip{flex:1;padding:1.5rem;text-align:center;border-right:1px solid var(--border);background:var(--glass);backdrop-filter:blur(10px);}
+.result-chip:last-child{border-right:none;}
+.result-chip .num{font-family:var(--font-serif);font-size:2rem;font-weight:bold;background:linear-gradient(135deg,var(--accent),#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;}
+.result-chip .lbl{font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;}
+
+/* BEFORE / AFTER */
+.scc-ba-wrap{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin:1.5rem 0 2rem;align-items:start;}
+.scc-ba-col{display:flex;flex-direction:column;}
+.scc-ba-state-lbl{font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding:.2rem .7rem;border:1px solid;display:inline-block;margin-bottom:.8rem;width:fit-content;}
+.scc-ba-state-lbl.scc-before{color:#aaa;border-color:#ddd;background:#fafafa;}
+.scc-ba-state-lbl.scc-after{color:var(--accent2);border-color:rgba(45,212,191,.35);background:rgba(45,212,191,.04);}
+.scc-browser{border:2px solid var(--ink);overflow:hidden;}
+.scc-screenshot{width:100%;display:block;object-fit:cover;object-position:center top;}
+.scc-chrome{height:26px;background:#e4e4e4;border-bottom:1px solid #ccc;display:flex;align-items:center;padding:0 8px;gap:5px;flex-shrink:0;}
+.scc-chrome-dot{width:7px;height:7px;border-radius:50%;background:#bbb;}
+.scc-chrome-bar{flex:1;height:13px;background:#fff;border:1px solid #ccc;border-radius:2px;margin:0 6px;}
+.scc-diff-list{list-style:none;margin-top:.9rem;}
+.scc-diff-item{display:flex;align-items:baseline;gap:.65rem;padding:.45rem 0;border-bottom:1px solid var(--border);font-size:.8rem;color:#555;line-height:1.55;}
+.scc-diff-item:last-child{border-bottom:none;}
+.scc-diff-num{font-family:var(--font-serif);font-size:1.05rem;font-weight:bold;color:#ddd;flex-shrink:0;line-height:1;width:1.2rem;text-align:right;}
+.scc-diff-num.improved{color:var(--accent);}
+.scc-diff-item strong{color:var(--ink);}
+
+/* ANNOUNCEMENT / TEXT HELPERS */
+.scc-announcement{background:#fff;border:1px solid #ccc;padding:3px 4px;margin-bottom:3px;}
+.scc-ann-head{font-size:.4rem;font-weight:700;color:#1b3d72;text-transform:uppercase;line-height:1.3;margin-bottom:2px;}
+.scc-txt{height:3px;background:#ccc;border-radius:1px;margin-bottom:2px;}
+.scc-txt.scc-b{background:#888;height:4px;}
+.scc-txt.scc-s{width:60%;}
+.scc-txt.scc-m{width:78%;}
+
+/* BUILDING IMAGE */
+.scc-building-img{border:2px solid var(--ink);overflow:hidden;margin-bottom:2.5rem;}
+.scc-building-img img{width:100%;height:340px;object-fit:cover;object-position:center 40%;display:block;}
+
+/* PLATFORM TIMELINE */
+.scc-platform-timeline{display:flex;align-items:center;gap:0;margin-top:1.5rem;border:1px solid var(--border);overflow:hidden;}
+.scc-platform-phase{flex:1;padding:.7rem .6rem;background:var(--bg2);text-align:center;}
+.scc-platform-phase.scc-platform-current{background:rgba(45,212,191,.06);border-bottom:2px solid var(--accent);}
+.scc-platform-label{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--ink);margin-bottom:.2rem;}
+.scc-platform-current .scc-platform-label{color:var(--accent2);}
+.scc-platform-sub{font-size:.65rem;color:var(--muted);}
+.scc-platform-connector{font-size:.75rem;color:var(--border);flex-shrink:0;padding:0 .1rem;}
+
+/* PARTNERSHIP BAND */
+.scc-partner-band{display:flex;justify-content:center;border:1px solid var(--border);overflow:hidden;margin:1.5rem 0 2rem;}
+.scc-partner-stat{flex:1;padding:1.1rem .8rem;text-align:center;background:rgba(45,212,191,.04);border-right:1px solid var(--border);}
+.scc-partner-stat:last-child{border-right:none;}
+.scc-partner-num{font-family:var(--font-serif);font-size:1.9rem;font-weight:700;color:var(--accent);line-height:1;}
+.scc-partner-lbl{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:.35rem;}
+
+/* PROCESS TABLE */
+.scc-process-wrap{margin:1.5rem 0 2rem;overflow-x:auto;}
+.scc-process-table{width:100%;border-collapse:collapse;font-size:.82rem;}
+.scc-process-table th{background:rgba(45,212,191,.08);color:var(--accent2);font-family:var(--font-serif);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;padding:.65rem 1rem;text-align:left;border-bottom:2px solid var(--accent);}
+.scc-process-table td{padding:.7rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;color:#555;line-height:1.55;}
+.scc-process-table tr:last-child td{border-bottom:none;}
+.scc-process-table td:first-child{font-weight:700;color:var(--ink);white-space:nowrap;}
+.scc-process-table td strong{color:var(--accent2);}
+
+/* CS CONTENT WRAPPER */
+.cs-content{max-width:1100px;margin:0 auto;padding:4rem 4rem 7rem;}
+
+/* PROSE LAYOUT */
+.cs-content .case-section{margin-bottom:2.5rem;}
+.cs-content .case-section p{max-width:680px;margin-left:auto;margin-right:auto;margin-bottom:1.1rem;line-height:1.75;}
+.cs-content .case-section>ul{max-width:680px;margin-left:auto;margin-right:auto;}
+
+/* FOOTER */
+footer{border-top:2px solid var(--ink);padding:2rem 4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;background:var(--bg);}
+footer p{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;}
+.footer-links{display:flex;gap:1.5rem;}
+.footer-links a{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:color .2s;}
+.footer-links a:hover{color:var(--ink);}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease;}
+.reveal.visible{opacity:1;transform:none;}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  nav .nav-top{padding:.8rem 1.5rem;}
+  .cs-hero{padding:7rem 1.5rem 5rem;}
+  .cs-content{padding:2.5rem 1.5rem 5rem;}
+  footer{padding:2rem 1.5rem;}
+  h2{font-size:2rem;}
+  .scc-ba-wrap{grid-template-columns:1fr;}
+  .scc-partner-band{flex-direction:column;}
+  .scc-partner-stat{border-right:none;border-bottom:1px solid var(--border);}
+  .scc-partner-stat:last-child{border-bottom:none;}
+  .scc-process-table th,.scc-process-table td{padding:.55rem .6rem;}
+}
+</style>
+</head>
+<body>
+
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<div class="orb orb3"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-top">
+    <span class="nav-date">Portfolio · 2026</span>
+    <a href="index.html" class="nav-logo">DAVID R. BAILEY</a>
+    <span class="nav-date">UX/UI Designer &amp; Technologist</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html#work">Work</a></li>
+    <li><a href="index.html#about-strip">About</a></li>
+    <li><a href="index.html#skills">Skills</a></li>
+    <li><a href="index.html#resume">Resume</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="cs-hero">
+  <div class="cs-hero-inner">
+    <a href="index.html#work" class="cs-back reveal">Back to Portfolio</a>
+    <span class="cs-eyebrow reveal">Case Study &middot; 2010&ndash;Present</span>
+    <h1 class="reveal">Springfield Church<br>of <em>Christ</em></h1>
+    <p class="cs-hero-sub reveal">Website Redesign &amp; 16-Year Digital Partnership</p>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="cs-content">
+
+  <div class="reveal">
+    <p class="section-label">Case Study</p>
+    <h2>Springfield Church of Christ</h2>
+    <div class="case-meta-row">
+      <span><strong>Role:</strong> UX/UI Designer &amp; Digital Strategy Lead</span>
+      <span><strong>Timeline:</strong> 2010 – Present</span>
+      <span><strong>Tools:</strong> Figma, VS Code, GitHub, Netlify, Google Analytics, Hotjar</span>
+    </div>
+  </div>
+
+  <div class="scc-partner-band reveal">
+    <div class="scc-partner-stat">
+      <div class="scc-partner-num">16</div>
+      <div class="scc-partner-lbl">Year Partnership</div>
+    </div>
+    <div class="scc-partner-stat">
+      <div class="scc-partner-num">2010</div>
+      <div class="scc-partner-lbl">Active Since</div>
+    </div>
+    <div class="scc-partner-stat">
+      <div class="scc-partner-num">&#x221e;</div>
+      <div class="scc-partner-lbl">Ongoing Optimization</div>
+    </div>
+  </div>
+
+  <div class="scc-building-img reveal">
+    <img src="images/church-building.jpg" alt="Springfield Church of Christ, 1620 Buck Creek Lane, Springfield, OH"/>
+  </div>
+
+  <div class="case-section reveal">
+    <h3>Project Overview</h3>
+    <p>What began as a website redesign became a decade-long technology partnership. As SCC's de facto technology advisor, I led a full UX redesign and digital strategy, integrated a networked security camera system, managed and upgraded network infrastructure, advised on three computer replacements, and built a live streaming capability — alongside the church's AV team — that kept the congregation connected through illness, distance, and COVID-19.</p>
+    <p>The technical foundation evolved in step. I inherited the site on WordPress, moved it to Wix for design flexibility, then rebuilt it by hand in VS Code — version-controlled on GitHub and deployed on Netlify.</p>
+    <div class="scc-platform-timeline">
+      <div class="scc-platform-phase">
+        <div class="scc-platform-label">WordPress</div>
+        <div class="scc-platform-sub">Inherited &amp; adapted</div>
+      </div>
+      <div class="scc-platform-connector">→</div>
+      <div class="scc-platform-phase">
+        <div class="scc-platform-label">Wix</div>
+        <div class="scc-platform-sub">Redesign &amp; flexibility</div>
+      </div>
+      <div class="scc-platform-connector">→</div>
+      <div class="scc-platform-phase scc-platform-current">
+        <div class="scc-platform-label">VS Code</div>
+        <div class="scc-platform-sub">Custom-built</div>
+      </div>
+      <div class="scc-platform-connector">→</div>
+      <div class="scc-platform-phase scc-platform-current">
+        <div class="scc-platform-label">GitHub</div>
+        <div class="scc-platform-sub">Version control</div>
+      </div>
+      <div class="scc-platform-connector">→</div>
+      <div class="scc-platform-phase scc-platform-current">
+        <div class="scc-platform-label">Netlify</div>
+        <div class="scc-platform-sub">Deployed &amp; live</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="case-section reveal">
+    <h3>The Challenge</h3>
+    <p>First-time visitors couldn't find essential information. Service times, beliefs, and events required multiple clicks with no CTAs guiding next steps — and the digital challenges ran deeper than the website.</p>
+    <ul>
+      <li>Low digital engagement limited outreach and community growth</li>
+      <li>Inconsistent event participation with no digital conversion path</li>
+      <li>Website and social media operated in silos</li>
+      <li>No live streaming capability, leaving services inaccessible to remote or ill congregants</li>
+      <li>Aging, unmanaged network infrastructure inadequate for modern digital demands</li>
+      <li>Outdated hardware with no clear procurement or replacement strategy</li>
+      <li>No security camera system for facility monitoring</li>
+      <li>Limited budget and volunteer support across every initiative</li>
+    </ul>
+  </div>
+
+  <div class="case-section reveal">
+    <h3>Research &amp; Planning</h3>
+    <p>Analytics showed high drop-off on key pages. Heatmaps revealed hesitation in primary navigation. Task-based walkthroughs confirmed visitors could find information — but it took too many steps.</p>
+    <ul>
+      <li>Critical information buried beneath layered navigation</li>
+      <li>Dense text reduced readability and engagement</li>
+      <li>No consistent CTA hierarchy guided user journeys</li>
+      <li>Social traffic lacked a defined conversion path</li>
+    </ul>
+  </div>
+
+  <div class="case-section reveal">
+    <h3>Process at a Glance</h3>
+    <div class="scc-process-wrap">
+      <table class="scc-process-table">
+        <thead>
+          <tr><th>Phase</th><th>Activities</th><th>Outcome</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Discovery</td>
+            <td>Analytics review, heatmap analysis, task-based walkthroughs</td>
+            <td>Identified visitor friction points</td>
+          </tr>
+          <tr>
+            <td>IA &amp; Navigation</td>
+            <td>Navigation restructure, CTA hierarchy, mobile-first layout</td>
+            <td>Reduced clicks to critical info</td>
+          </tr>
+          <tr>
+            <td>Accessibility</td>
+            <td>WCAG contrast, simplified nav, readable typography</td>
+            <td>Improved usability for older users</td>
+          </tr>
+          <tr>
+            <td>Iteration</td>
+            <td>Ongoing analytics review, content updates, streaming build</td>
+            <td><strong>78% traffic growth, 2&times; event attendance</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="case-section reveal">
+    <h3>Before &amp; After</h3>
+    <p style="margin-bottom:1.5rem;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.75;">The original site was an information repository, not a communication tool. Every page competed for equal attention, navigation assumed users already knew what they were looking for, and there was no hierarchy.</p>
+    <div class="scc-ba-wrap">
+      <!-- BEFORE -->
+      <div class="scc-ba-col">
+        <span class="scc-ba-state-lbl scc-before">Before &middot; c. 2010</span>
+        <div class="scc-browser">
+          <div class="scc-chrome">
+            <div class="scc-chrome-dot"></div><div class="scc-chrome-dot"></div><div class="scc-chrome-dot"></div>
+            <div class="scc-chrome-bar"></div>
+          </div>
+          <img src="images/scc-before-2010.jpg" alt="Springfield Church of Christ website circa 2010" class="scc-screenshot" style="object-position:center top;"/>
+        </div>
+        <ul class="scc-diff-list">
+          <li class="scc-diff-item"><span class="scc-diff-num">1</span><span><strong>12-item navigation</strong> with no hierarchy; all items given equal weight regardless of visitor intent.</span></li>
+          <li class="scc-diff-item"><span class="scc-diff-num">2</span><span><strong>No primary CTA</strong> anywhere on the page. A first-time visitor had no guided next step.</span></li>
+          <li class="scc-diff-item"><span class="scc-diff-num">3</span><span><strong>Two competing columns</strong> of dense text gave the page no visual anchor or reading order.</span></li>
+          <li class="scc-diff-item"><span class="scc-diff-num">4</span><span><strong>Service times buried</strong> below the fold, requiring scrolling to find the most-sought information.</span></li>
+        </ul>
+      </div>
+      <!-- AFTER -->
+      <div class="scc-ba-col">
+        <span class="scc-ba-state-lbl scc-after">After &middot; Redesigned</span>
+        <div class="scc-browser">
+          <div class="scc-chrome">
+            <div class="scc-chrome-dot"></div><div class="scc-chrome-dot"></div><div class="scc-chrome-dot"></div>
+            <div class="scc-chrome-bar"></div>
+          </div>
+          <img src="images/church-website.jpg" alt="Springfield Church of Christ, redesigned website" class="scc-screenshot"/>
+        </div>
+        <ul class="scc-diff-list">
+          <li class="scc-diff-item"><span class="scc-diff-num improved">1</span><span><strong>6-item navigation</strong> organized around visitor intent, not internal church structure.</span></li>
+          <li class="scc-diff-item"><span class="scc-diff-num improved">2</span><span><strong>Two persistent CTAs in the header</strong> (Give, Watch Live) plus dual hero CTAs (Join Us Live, Plan Your Visit) visible without scrolling.</span></li>
+          <li class="scc-diff-item"><span class="scc-diff-num improved">3</span><span><strong>Building as the hero</strong>: the church itself is the first thing visitors see, overlaid with clear typographic hierarchy and the tagline.</span></li>
+          <li class="scc-diff-item"><span class="scc-diff-num improved">4</span><span><strong>Prayer request surfaced prominently</strong> as a dedicated banner, giving a pastoral touchpoint priority placement above the fold.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="case-section reveal">
+    <h3>Designing the Solution</h3>
+    <p>The redesign focused on three user journeys: planning a visit, understanding beliefs, and discovering events. Wireframes validated structure before implementation. The solution extended well beyond the website.</p>
+    <ul>
+      <li>Service times brought above the fold; "Plan Your Visit" as the primary CTA</li>
+      <li>Long-form content broken into scannable, human sections</li>
+      <li>Mobile-first layouts reflecting actual traffic patterns</li>
+      <li>Accessible color contrast and simplified navigation throughout</li>
+      <li>Networked camera security system installed and integrated</li>
+      <li>Hardware advisory for three computer replacements</li>
+      <li>Network assessment and infrastructure upgrades</li>
+      <li>AV/streaming pipeline built with the church's Audio and Video team</li>
+    </ul>
+  </div>
+
+  <div class="case-section reveal">
+    <h3>Design System</h3>
+    <p>Formalized in 2026 to document the design decisions that have emerged and evolved across 16 years of iteration. Brand colors, neutrals, and typography were defined to ensure visual consistency across all pages.</p>
+    <div class="scc-building-img" style="margin-bottom:0;">
+      <img src="images/scc-styleguide.png" alt="Springfield Church of Christ style guide — brand colors, neutrals, and typography" style="height:auto;object-position:center top;"/>
+    </div>
+  </div>
+
+  <div class="case-section reveal">
+    <h3>Key Decisions &amp; Tradeoffs</h3>
+    <p><strong>Simplifying the nav.</strong> Analytics consistently showed older users — SCC's primary demographic — hesitating and dropping off. I reduced, clarified, and surfaced the most critical paths.</p>
+    <p><strong>Reducing content density.</strong> Several pages were digitized paper documents. Restructuring into scannable sections meant prioritizing comprehension over completeness.</p>
+    <p><strong>Prioritizing "Plan Your Visit."</strong> Multiple CTAs competed for prominence. Stakeholder input confirmed new visitor attendance as the primary goal.</p>
+    <p><strong>Building streaming infrastructure under pressure.</strong> When COVID-19 suspended in-person services, the church had no digital capability. I helped design and implement a live streaming workflow that prioritized reliability over sophistication.</p>
+  </div>
+
+  <div class="case-section reveal">
+    <h3>Results</h3>
+    <div class="result-chips">
+      <div class="result-chip"><span class="num">78%</span><span class="lbl">Web traffic increase</span></div>
+      <div class="result-chip"><span class="num">2&times;</span><span class="lbl">Event attendance</span></div>
+      <div class="result-chip"><span class="num">2010</span><span class="lbl">Partnership since</span></div>
+    </div>
+    <p style="margin-top:1.5rem;max-width:680px;margin-left:auto;margin-right:auto;color:#444;font-size:.92rem;line-height:1.88;">This project reinforced that effective UX is about prioritization, not expansion. Aligning analytics, user behavior, and business goals evolved the website from an information hub into a structured engagement tool.</p>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2026 David R. Bailey &middot; UX/UI Designer &amp; Technologist</p>
+  <div class="footer-links">
+    <a href="index.html#work">Portfolio</a>
+    <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+    <a href="mailto:contact@davidrbailey.com">Email</a>
+    <a href="/David_R_Bailey_Resume.pdf" target="_blank">Resume</a>
+  </div>
+</footer>
+
+<script>
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
