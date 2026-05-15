@@ -317,6 +317,35 @@ h2{font-family:var(--font-serif);font-size:clamp(1.9rem,3.5vw,2.8rem);color:var(
 .ne-flow-caption{font-size:.78rem;color:var(--muted);line-height:1.6;font-style:italic;margin-top:.65rem;}
 .ne-flow-bridge{font-size:.88rem;color:#555;line-height:1.8;padding-top:1rem;border-top:1px solid var(--border);margin-top:.5rem;}
 
+/* ADAPTIVE LOGIC / TRUST SECTIONS */
+.case-section h3.ne-section-head{font-family:var(--font-serif);font-size:1.4rem;color:var(--ink);font-weight:bold;letter-spacing:-.01em;text-transform:none;margin-bottom:1.2rem;line-height:1.15;}
+.ne-adaptive-img{width:100%;display:block;border:1px solid var(--border);border-radius:2px;margin:1.5rem 0 2rem;}
+.ne-subsection-head{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent2);font-weight:700;margin-bottom:.85rem;margin-top:1.8rem;display:block;}
+.ne-signal-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem 2.5rem;margin:.2rem 0 .5rem;}
+.ne-signal-label{font-size:.85rem;font-weight:700;color:var(--ink);margin-bottom:.2rem;}
+.ne-signal-desc{font-size:.82rem;color:#555;line-height:1.65;}
+.ne-engine-steps{list-style:none;margin:.2rem 0 .5rem;counter-reset:engine;}
+.ne-engine-step{display:flex;gap:1rem;padding:.7rem 0;border-bottom:1px solid var(--border);counter-increment:engine;align-items:baseline;}
+.ne-engine-step:last-child{border-bottom:none;}
+.ne-engine-step::before{content:counter(engine);font-family:var(--font-serif);font-size:1.1rem;font-weight:bold;background:linear-gradient(135deg,var(--accent),#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;flex-shrink:0;line-height:1;width:1.4rem;text-align:right;}
+.ne-engine-step-title{font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:.15rem;}
+.ne-engine-step-desc{font-size:.8rem;color:#555;line-height:1.6;}
+.ne-state-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);margin:.2rem 0 .5rem;}
+.ne-state-card{background:var(--bg);padding:1.3rem 1.2rem 1.1rem;position:relative;padding-top:2.5rem;}
+.ne-state-badge{position:absolute;top:.85rem;left:1.2rem;font-family:var(--font-serif);font-size:1.1rem;font-weight:bold;color:rgba(45,212,191,.3);line-height:1;}
+.ne-state-title{font-family:var(--font-serif);font-size:.95rem;font-weight:bold;color:var(--ink);margin-bottom:.5rem;line-height:1.2;}
+.ne-state-session{font-size:.72rem;font-weight:400;color:var(--muted);font-style:normal;font-family:var(--font-sans);}
+.ne-state-nav{font-size:.8rem;color:#555;line-height:1.6;margin-bottom:.5rem;}
+.ne-state-note{font-size:.72rem;color:var(--muted);font-style:italic;line-height:1.5;border-top:1px solid var(--border);padding-top:.5rem;margin-top:.5rem;}
+.ne-trust-rules{list-style:none;margin:1.5rem 0 1.8rem;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);}
+.ne-trust-rule{background:var(--bg);padding:1.2rem 1.2rem 1.2rem 1.5rem;border-left:3px solid var(--accent);}
+.ne-trust-rule-num{font-size:.58rem;letter-spacing:.13em;text-transform:uppercase;color:var(--accent2);font-weight:700;margin-bottom:.3rem;}
+.ne-trust-rule-title{font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:.25rem;}
+.ne-trust-rule-desc{font-size:.8rem;color:#555;line-height:1.65;}
+.ne-scenario-callout{border-left:4px solid var(--accent);padding:1.3rem 1.5rem;background:rgba(45,212,191,.04);margin:1.5rem 0;}
+.ne-scenario-callout p{font-size:.9rem;color:#444;line-height:1.88;margin:0;}
+.ne-scenario-reflection{font-size:.88rem;color:var(--muted);font-style:italic;line-height:1.7;margin-top:1.2rem;padding-top:1rem;border-top:1px solid var(--border);}
+
 /* RESPONSIVE */
 @media(max-width:768px){
   nav .nav-top{padding:.8rem 1.5rem;}
@@ -330,6 +359,7 @@ h2{font-family:var(--font-serif);font-size:clamp(1.9rem,3.5vw,2.8rem);color:var(
   .ne-chart-2col{grid-template-columns:1fr;}
   .ne-methods-grid,.ne-baseline-grid{grid-template-columns:1fr 1fr;}
   .ne-a11y-grid{grid-template-columns:1fr;}
+  .ne-signal-grid,.ne-state-grid,.ne-trust-rules{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -548,6 +578,116 @@ h2{font-family:var(--font-serif);font-size:clamp(1.9rem,3.5vw,2.8rem);color:var(
       </div>
     </div>
   </div>
+</div>
+
+<!-- AI Decision Logic Section -->
+<div class="case-section reveal">
+  <p class="section-label">AI Decision Logic</p>
+  <h3 class="ne-section-head">How the system thinks</h3>
+  <p>NavEase doesn't randomly reorder navigation. Every adaptation is the output of a weighted decision engine that evaluates four signal categories, applies contextual constraints, and produces a bounded navigation change — never an abrupt one. Here's the full logic.</p>
+  <img src="/images/navease-adaptive-logic.png" class="ne-adaptive-img" alt="NavEase adaptive navigation logic diagram showing signal inputs, decision engine steps, navigation output, state transitions, and trust safeguards across four user scenarios." />
+
+  <span class="ne-subsection-head">Signal inputs</span>
+  <div class="ne-signal-grid">
+    <div>
+      <div class="ne-signal-label">Behavioral frequency</div>
+      <div class="ne-signal-desc">How often a feature is accessed across the rolling 14-day window. High frequency is the strongest single signal.</div>
+    </div>
+    <div>
+      <div class="ne-signal-label">Time-of-day pattern</div>
+      <div class="ne-signal-desc">Whether usage clusters around specific hours. Morning commute patterns and workday windows are detected after 3+ consistent days.</div>
+    </div>
+    <div>
+      <div class="ne-signal-label">Location and motion context</div>
+      <div class="ne-signal-desc">Whether the device is stationary or moving. Stationary signals workday or home mode; transit motion elevates commute-relevant features.</div>
+    </div>
+    <div>
+      <div class="ne-signal-label">Recent session behavior</div>
+      <div class="ne-signal-desc">What was used in the last 1–3 sessions. Recent behavior is weighted higher than historical average to catch shifting patterns quickly.</div>
+    </div>
+  </div>
+
+  <span class="ne-subsection-head">Decision engine</span>
+  <ol class="ne-engine-steps">
+    <li class="ne-engine-step"><div><div class="ne-engine-step-title">Behavior log</div><div class="ne-engine-step-desc">14-day rolling window analyzed across all signal categories.</div></div></li>
+    <li class="ne-engine-step"><div><div class="ne-engine-step-title">Frequency scoring</div><div class="ne-engine-step-desc">Each feature scored 0–100 based on access frequency and recency.</div></div></li>
+    <li class="ne-engine-step"><div><div class="ne-engine-step-title">Context weighting</div><div class="ne-engine-step-desc">Time and location signals applied as multipliers to frequency scores.</div></div></li>
+    <li class="ne-engine-step"><div><div class="ne-engine-step-title">Priority ranking</div><div class="ne-engine-step-desc">Features ranked; top 4 fill the adaptive navigation slots.</div></div></li>
+    <li class="ne-engine-step"><div><div class="ne-engine-step-title">Navigation output</div><div class="ne-engine-step-desc">Changes applied gradually, max one position shift per session.</div></div></li>
+  </ol>
+
+  <span class="ne-subsection-head">Four user states</span>
+  <div class="ne-state-grid">
+    <div class="ne-state-card">
+      <span class="ne-state-badge">1</span>
+      <div class="ne-state-title">New user <span class="ne-state-session">(session 1)</span></div>
+      <div class="ne-state-nav">Generic default order. AI initializes from onboarding signals. No personalization yet.</div>
+      <div class="ne-state-note">Personalization begins from session 2 onward.</div>
+    </div>
+    <div class="ne-state-card">
+      <span class="ne-state-badge">2</span>
+      <div class="ne-state-title">Commuter <span class="ne-state-session">(sessions 2–5)</span></div>
+      <div class="ne-state-nav">Maps, Transit elevated during morning window (7–9 AM). Resets at 10 AM.</div>
+      <div class="ne-state-note">Time and motion signals dominate this scenario.</div>
+    </div>
+    <div class="ne-state-card">
+      <span class="ne-state-badge">3</span>
+      <div class="ne-state-title">Power user <span class="ne-state-session">(sessions 5+)</span></div>
+      <div class="ne-state-nav">Stabilized around dominant feature cluster. Changes slow as pattern solidifies.</div>
+      <div class="ne-state-note">Frequency signal dominates when no strong contextual signal exists.</div>
+    </div>
+    <div class="ne-state-card">
+      <span class="ne-state-badge">4</span>
+      <div class="ne-state-title">Shifted behavior</div>
+      <div class="ne-state-nav">System detects pattern change after 3 consecutive sessions. Gradually transitions nav.</div>
+      <div class="ne-state-note">Never abrupt — max one position shift per session during transition.</div>
+    </div>
+  </div>
+</div>
+
+<!-- User Scenario Section -->
+<div class="case-section reveal">
+  <p class="section-label">User Scenario</p>
+  <h3 class="ne-section-head">Sarah's morning commute</h3>
+  <div class="ne-scenario-callout">
+    <p>Sarah commutes every weekday, usually opening the app around 7:30 AM. She consistently checks Maps, then switches to Transit for her bus status, then queues a podcast. After four consistent days of this pattern, NavEase has elevated Maps and Transit to nav positions 2 and 3 during the 7–9 AM window — without Sarah configuring anything. At 10 AM, the nav returns to her general usage pattern. She notices her commute features are always ready when she needs them. She never notices the system changing.</p>
+  </div>
+  <p class="ne-scenario-reflection">The goal isn't to impress the user with AI. It's to make the AI invisible by being consistently useful.</p>
+</div>
+
+<!-- Trust Safeguards Section -->
+<div class="case-section reveal">
+  <p class="section-label">Design Constraints</p>
+  <h3 class="ne-section-head">Preserving user trust</h3>
+  <p>Adaptive interfaces carry a specific risk: they can feel unpredictable. A navigation system that moves things around without warning creates cognitive load rather than reducing it. Five design constraints were built into NavEase from the start — not as feature toggles, but as hard rules the AI cannot override.</p>
+  <ul class="ne-trust-rules">
+    <li class="ne-trust-rule">
+      <div class="ne-trust-rule-num">01 &mdash; Core actions are fixed</div>
+      <div class="ne-trust-rule-title">Home, Settings, Help, Account never move.</div>
+      <div class="ne-trust-rule-desc">Users always know where to find them, regardless of AI state.</div>
+    </li>
+    <li class="ne-trust-rule">
+      <div class="ne-trust-rule-num">02 &mdash; Adaptive zone is bounded</div>
+      <div class="ne-trust-rule-title">Only positions 3–6 adapt.</div>
+      <div class="ne-trust-rule-desc">The top 2 and bottom 1 slots are always stable — giving users a reliable anchor.</div>
+    </li>
+    <li class="ne-trust-rule">
+      <div class="ne-trust-rule-num">03 &mdash; Users can pin features</div>
+      <div class="ne-trust-rule-title">Any item can be pinned to a fixed position.</div>
+      <div class="ne-trust-rule-desc">Pinned items permanently override AI suggestions and are never displaced.</div>
+    </li>
+    <li class="ne-trust-rule">
+      <div class="ne-trust-rule-num">04 &mdash; Changes are gradual</div>
+      <div class="ne-trust-rule-title">Max one position shift per session.</div>
+      <div class="ne-trust-rule-desc">The system never makes abrupt reorderings that disorient users.</div>
+    </li>
+    <li class="ne-trust-rule">
+      <div class="ne-trust-rule-num">05 &mdash; Transparent and opt-out</div>
+      <div class="ne-trust-rule-title">A persistent indicator appears when AI is active.</div>
+      <div class="ne-trust-rule-desc">Users can disable personalization entirely at any time from Settings.</div>
+    </li>
+  </ul>
+  <p>This is the core tension in adaptive design: personalization vs predictability. NavEase resolves it by treating personalization as a suggestion layer on top of a stable, predictable foundation — not as a replacement for it.</p>
 </div>
 
 <div class="case-section reveal"><h3>Design Iteration in Action</h3>
