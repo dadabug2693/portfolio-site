@@ -155,7 +155,17 @@ footer p{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:
   .scc-partner-stat{border-right:none;border-bottom:1px solid var(--border);}
   .scc-partner-stat:last-child{border-bottom:none;}
   .scc-process-table th,.scc-process-table td{padding:.55rem .6rem;}
+  .wf-exploration-grid{grid-template-columns:1fr;}
 }
+
+/* WIREFRAME EXPLORATION */
+.wf-exploration-section h3.wf-section-head{font-family:var(--font-serif);font-size:1.4rem;color:var(--ink);font-weight:bold;letter-spacing:-.01em;text-transform:none;margin-bottom:1.2rem;line-height:1.15;}
+.wf-exploration-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin:1.5rem 0 2rem;}
+.wf-card{display:flex;flex-direction:column;}
+.wf-card img{width:100%;display:block;border:1px solid var(--border);border-radius:2px;}
+.wf-var-label{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-top:.9rem;margin-bottom:.25rem;}
+.wf-var-title{font-family:var(--font-serif);font-size:1rem;color:var(--ink);font-weight:bold;margin-bottom:.35rem;line-height:1.2;}
+.wf-var-desc{font-size:.82rem;color:var(--muted);line-height:1.6;}
 </style>
 </head>
 <body>
@@ -352,6 +362,34 @@ footer p{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:
         </ul>
       </div>
     </div>
+  </div>
+
+  <!-- Wireframe Exploration Section -->
+  <div class="case-section wf-exploration-section reveal">
+    <p class="section-label">Design Process</p>
+    <h3 class="wf-section-head">Wireframe Exploration</h3>
+    <p>Before committing to any visual design, I explored three distinct layout structures — each built around a different hypothesis about the primary user goal. All three were built at 1440px desktop width using only rectangles, text labels, and spacing. No color, no imagery, no styling decisions.</p>
+    <div class="wf-exploration-grid">
+      <div class="wf-card">
+        <img src="/images/wireframe-a.png" alt="Wireframe Variation A — broadcast-first layout with centered hero and card grid at 1440px desktop width" />
+        <p class="wf-var-label">Variation A</p>
+        <p class="wf-var-title">Broadcast-first</p>
+        <p class="wf-var-desc">Tests whether a full-bleed hero with centered copy and dual CTAs is enough to orient a first-time visitor and drive action above the fold.</p>
+      </div>
+      <div class="wf-card">
+        <img src="/images/wireframe-b.png" alt="Wireframe Variation B — information-forward layout with split hero and persistent sidebar at 1440px desktop width" />
+        <p class="wf-var-label">Variation B</p>
+        <p class="wf-var-title">Information-forward</p>
+        <p class="wf-var-desc">Tests whether a split hero and persistent sidebar can serve both new and returning visitors simultaneously without sacrificing either experience.</p>
+      </div>
+      <div class="wf-card">
+        <img src="/images/wireframe-c.png" alt="Wireframe Variation C — story-driven layout with stacked narrative and alternating sections at 1440px desktop width" />
+        <p class="wf-var-label">Variation C</p>
+        <p class="wf-var-title">Story-driven</p>
+        <p class="wf-var-desc">Tests whether an editorial, narrative-first layout builds enough trust with a skeptical first-time visitor before asking them to commit to a visit.</p>
+      </div>
+    </div>
+    <p>Variation C was selected as the foundation for the final design. The alternating section rhythm, single-CTA hero, and narrative flow aligned most closely with what research revealed about the site's primary audience — first-time visitors who needed to understand who the church was before they would consider showing up.</p>
   </div>
 
   <div class="case-section reveal">
