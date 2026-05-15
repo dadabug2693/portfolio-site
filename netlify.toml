@@ -7,6 +7,27 @@
   status = 301
   force = true
 
+# Permanent redirects for old case study URLs
+[[redirects]]
+  from = "/church-case-study.html"
+  to = "/springfield-cofc/"
+  status = 301
+
+[[redirects]]
+  from = "/navease-case-study.html"
+  to = "/navease/"
+  status = 301
+
+[[redirects]]
+  from = "/ai-workflows-case-study.html"
+  to = "/ai-workflows/"
+  status = 301
+
+[[redirects]]
+  from = "/pastry-kitchen-case-study.html"
+  to = "/pastry-kitchen/"
+  status = 301
+
 # After Netlify form submission, redirect back to the site with a success flag
 [[redirects]]
   from = "/success"
