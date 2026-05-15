@@ -156,7 +156,22 @@ footer p{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:
   .scc-partner-stat:last-child{border-bottom:none;}
   .scc-process-table th,.scc-process-table td{padding:.55rem .6rem;}
   .wf-exploration-grid{grid-template-columns:1fr;}
+  .mob-wf-grid{grid-template-columns:1fr;}
 }
+
+@media(max-width:540px){
+  .mob-wf-states{grid-template-columns:1fr;}
+}
+
+/* MOBILE WIREFRAME EXPLORATION */
+.mob-wf-section h3.wf-section-head{font-family:var(--font-serif);font-size:1.4rem;color:var(--ink);font-weight:bold;letter-spacing:-.01em;text-transform:none;margin-bottom:1.2rem;line-height:1.15;}
+.mob-wf-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin:1.5rem 0 2rem;}
+.mob-wf-block{border:1px solid var(--border);padding:1.5rem;display:flex;flex-direction:column;gap:.75rem;}
+.mob-wf-hyp{font-size:.82rem;color:var(--muted);line-height:1.6;font-style:italic;}
+.mob-wf-states{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:.25rem;}
+.mob-wf-state{display:flex;flex-direction:column;align-items:center;gap:.4rem;}
+.mob-wf-state img{width:100%;display:block;border:1px solid var(--border);border-radius:2px;}
+.mob-wf-caption{font-size:.72rem;color:var(--muted);text-align:center;line-height:1.4;}
 
 /* WIREFRAME EXPLORATION */
 .wf-exploration-section h3.wf-section-head{font-family:var(--font-serif);font-size:1.4rem;color:var(--ink);font-weight:bold;letter-spacing:-.01em;text-transform:none;margin-bottom:1.2rem;line-height:1.15;}
@@ -390,6 +405,46 @@ footer p{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:
       </div>
     </div>
     <p>Variation C was selected as the foundation for the final design. The alternating section rhythm, single-CTA hero, and narrative flow aligned most closely with what research revealed about the site's primary audience — first-time visitors who needed to understand who the church was before they would consider showing up.</p>
+  </div>
+
+  <!-- Mobile Wireframe Section -->
+  <div class="case-section mob-wf-section reveal">
+    <p class="section-label">Design Process</p>
+    <h3 class="wf-section-head">Mobile Navigation Exploration</h3>
+    <p>Mobile users were identified as the primary audience for first-time visitors — most people search for a church on their phone Sunday morning. Two distinct navigation patterns were explored at 390px, each with two states shown to demonstrate interaction behavior.</p>
+    <div class="mob-wf-grid">
+      <div class="mob-wf-block">
+        <p class="wf-var-label">Variation M1</p>
+        <p class="wf-var-title">Hamburger Nav</p>
+        <p class="mob-wf-hyp">Tests whether the familiar hamburger pattern gives first-time visitors enough confidence to find service times and plan a visit without friction.</p>
+        <div class="mob-wf-states">
+          <div class="mob-wf-state">
+            <img src="/images/mobile-m1-closed.png" alt="Mobile wireframe M1 default state — hamburger nav closed, full homepage visible at 390px" />
+            <p class="mob-wf-caption">Default state — hero + trust strip visible</p>
+          </div>
+          <div class="mob-wf-state">
+            <img src="/images/mobile-m1-drawer.png" alt="Mobile wireframe M1 drawer open state — all 5 nav links and CTAs accessible at 390px" />
+            <p class="mob-wf-caption">Drawer open — all 5 links + CTAs accessible</p>
+          </div>
+        </div>
+      </div>
+      <div class="mob-wf-block">
+        <p class="wf-var-label">Variation M2</p>
+        <p class="wf-var-title">Bottom Tab Bar</p>
+        <p class="mob-wf-hyp">Tests whether surfacing Sermons as a dedicated tab destination increases watch engagement and positions the church as a media-forward congregation.</p>
+        <div class="mob-wf-states">
+          <div class="mob-wf-state">
+            <img src="/images/mobile-m2-home.png" alt="Mobile wireframe M2 home tab active — compact hero, sermon and event content visible at 390px" />
+            <p class="mob-wf-caption">Home tab — compact hero, sermon + event visible</p>
+          </div>
+          <div class="mob-wf-state">
+            <img src="/images/mobile-m2-sermons.png" alt="Mobile wireframe M2 sermons tab active — dedicated sermon browse experience at 390px" />
+            <p class="mob-wf-caption">Sermons tab — dedicated browse experience</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p>Variation M1 was carried forward. Research showed that first-time visitors were coming to the site with a specific question — when do you meet, and where — not to browse sermons. The hamburger pattern keeps the homepage focused on that conversion without the tab bar's structural commitment to four fixed destinations.</p>
   </div>
 
   <div class="case-section reveal">
