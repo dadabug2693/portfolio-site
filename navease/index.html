@@ -306,6 +306,17 @@ h2{font-family:var(--font-serif);font-size:clamp(1.9rem,3.5vw,2.8rem);color:var(
 .ne-tradeoff-vs{font-size:.68rem;color:var(--muted);margin-bottom:.6rem;}
 .ne-tradeoff-rationale{font-size:.72rem;color:#666;line-height:1.6;border-left:2px solid var(--accent);padding-left:.6rem;}
 
+/* USER FLOW DIAGRAMS */
+.ne-flow-legend{display:flex;flex-wrap:wrap;gap:.55rem 1.4rem;padding:.85rem 1.1rem;border:1px solid var(--border);background:var(--bg2);margin-bottom:2rem;}
+.ne-flow-legend-item{display:flex;align-items:center;gap:.45rem;font-size:.68rem;color:var(--muted);letter-spacing:.04em;}
+.ne-flow-swatch{width:11px;height:11px;border-radius:2px;flex-shrink:0;}
+.ne-flow-dashed{width:22px;height:0;border-top:2px dashed var(--muted);flex-shrink:0;}
+.ne-flow-block{margin-bottom:2.5rem;}
+.ne-flow-label{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:700;display:block;margin-bottom:.55rem;}
+.ne-flow-block img{width:100%;display:block;border:1px solid var(--border);border-radius:2px;}
+.ne-flow-caption{font-size:.78rem;color:var(--muted);line-height:1.6;font-style:italic;margin-top:.65rem;}
+.ne-flow-bridge{font-size:.88rem;color:#555;line-height:1.8;padding-top:1rem;border-top:1px solid var(--border);margin-top:.5rem;}
+
 /* RESPONSIVE */
 @media(max-width:768px){
   nav .nav-top{padding:.8rem 1.5rem;}
@@ -657,7 +668,7 @@ h2{font-family:var(--font-serif);font-size:clamp(1.9rem,3.5vw,2.8rem);color:var(
           <div class="flow-node" style="font-size:.42rem;color:rgba(45,212,191,.7);border-radius:50%;width:28px;height:28px">End</div>
         </div>
       </div>
-      <div class="ne-artifact-body"><div class="ne-artifact-type">User Flow Mapping</div><div class="ne-artifact-name">Critical Path Analysis</div><div class="ne-artifact-desc">User flows traced four critical paths: first-time onboarding, feature discovery, return-user navigation, and help-seeking behavior. Each flow exposed decision points where users consistently chose the wrong branch — turning assumption into evidence.</div></div>
+      <div class="ne-artifact-body"><div class="ne-artifact-type">User Flow Mapping</div><div class="ne-artifact-name">Critical Path Analysis</div><div class="ne-artifact-desc">Four critical paths were mapped to expose where users consistently chose the wrong branch. Each flow is annotated with friction points, AI touchpoints, and the design intervention that addressed them.</div></div>
     </div>
     <div class="ne-artifact-cell">
       <div class="ne-artifact-vis">
@@ -666,6 +677,41 @@ h2{font-family:var(--font-serif);font-size:clamp(1.9rem,3.5vw,2.8rem);color:var(
       <div class="ne-artifact-body"><div class="ne-artifact-type">Heatmap Analytics</div><div class="ne-artifact-name">Hotjar Tap &amp; Click Analysis</div><div class="ne-artifact-desc">Hotjar session recordings and click heatmaps revealed that 68% of navigation taps clustered on the top two menu items — confirming that items 3–5 were effectively invisible to most users. This single data point justified the navigation restructure.</div></div>
     </div>
   </div>
+
+  <!-- User Flow Maps — updated -->
+  <div class="ne-flow-legend" aria-label="Flow diagram legend">
+    <span class="ne-flow-legend-item"><span class="ne-flow-swatch" style="background:var(--accent);"></span>AI touchpoint</span>
+    <span class="ne-flow-legend-item"><span class="ne-flow-swatch" style="background:#2563eb;"></span>User action / screen</span>
+    <span class="ne-flow-legend-item"><span class="ne-flow-swatch" style="background:rgba(255,60,20,.8);"></span>Friction point / failure</span>
+    <span class="ne-flow-legend-item"><span class="ne-flow-swatch" style="background:var(--accent2);"></span>Success state</span>
+    <span class="ne-flow-legend-item"><span class="ne-flow-dashed"></span>Wrong branch / drop-off</span>
+  </div>
+
+  <div class="ne-flow-block">
+    <span class="ne-flow-label">Flow 1 — First-time onboarding</span>
+    <img src="/images/navease-flow-1-onboarding.png" alt="User flow diagram for first-time onboarding — 7-step wizard reduced to 3 steps, showing decision points, AI touchpoints, and the friction that caused 43% abandonment" />
+    <p class="ne-flow-caption">Onboarding drop-off traced to a 7-step wizard; reducing to 3 steps with deferred depth cut abandonment from 43% to 31.8%.</p>
+  </div>
+
+  <div class="ne-flow-block">
+    <span class="ne-flow-label">Flow 2 — Feature discovery</span>
+    <img src="/images/navease-flow-2-feature.png" alt="User flow diagram for feature discovery — Hotjar heatmap data overlay showing 68% of taps on top two nav items, confirming items 3–5 were invisible to most users" />
+    <p class="ne-flow-caption">Hotjar confirmed 68% of taps on the top two nav items — items 3–5 were effectively invisible, justifying the AI-assisted surfacing model.</p>
+  </div>
+
+  <div class="ne-flow-block">
+    <span class="ne-flow-label">Flow 3 — Return user navigation</span>
+    <img src="/images/navease-flow-3-return.png" alt="User flow diagram for return user navigation — AI feedback loop showing how navigation personalizes across sessions, stabilizing by session 5" />
+    <p class="ne-flow-caption">The AI feedback loop means the navigation improves with each session — personalization stabilizes by session 5 and continues refining.</p>
+  </div>
+
+  <div class="ne-flow-block">
+    <span class="ne-flow-label">Flow 4 — Help-seeking behavior</span>
+    <img src="/images/navease-flow-4-help-seeking.png" alt="User flow diagram for help-seeking behavior — showing that users opening help were navigation-lost, not information-seeking, leading to contextual tooltip intervention" />
+    <p class="ne-flow-caption">The key insight: users opening help were navigation-lost, not information-seeking. Contextual tooltips replaced static tutorials.</p>
+  </div>
+
+  <p class="ne-flow-bridge">These four flows were the diagnostic foundation for each design iteration. Every metric improvement in the results section traces back to a friction point identified in one of these paths.</p>
 </div>
 
 <div class="case-section reveal"><h3>Accessibility Thinking</h3>
