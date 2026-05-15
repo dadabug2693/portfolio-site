@@ -157,11 +157,25 @@ footer p{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:
   .scc-process-table th,.scc-process-table td{padding:.55rem .6rem;}
   .wf-exploration-grid{grid-template-columns:1fr;}
   .mob-wf-grid{grid-template-columns:1fr;}
+  .ia-decisions-grid{grid-template-columns:1fr;}
 }
 
 @media(max-width:540px){
   .mob-wf-states{grid-template-columns:1fr;}
 }
+
+/* IA / SITE MAP SECTION */
+.ia-section h3.wf-section-head{font-family:var(--font-serif);font-size:1.4rem;color:var(--ink);font-weight:bold;letter-spacing:-.01em;text-transform:none;margin-bottom:1.2rem;line-height:1.15;}
+.ia-diagram-block{margin:1.5rem 0;}
+.ia-diagram-label{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;margin-bottom:.6rem;display:block;}
+.ia-diagram-label.ia-before{color:var(--muted);}
+.ia-diagram-label.ia-after{color:var(--accent);}
+.ia-diagram-block img{width:100%;display:block;border:1px solid var(--border);border-radius:2px;}
+.ia-caption{font-size:.75rem;color:var(--muted);line-height:1.55;margin-top:.65rem;padding-left:.1rem;}
+.ia-decisions-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem 2.5rem;margin:1.5rem 0 1.2rem;}
+.ia-decision-item{}
+.ia-decision-label{font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:.2rem;}
+.ia-decision-body{font-size:.85rem;color:#555;line-height:1.65;}
 
 /* MOBILE WIREFRAME EXPLORATION */
 .mob-wf-section h3.wf-section-head{font-family:var(--font-serif);font-size:1.4rem;color:var(--ink);font-weight:bold;letter-spacing:-.01em;text-transform:none;margin-bottom:1.2rem;line-height:1.15;}
@@ -303,6 +317,51 @@ footer p{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:
       <li>No consistent CTA hierarchy guided user journeys</li>
       <li>Social traffic lacked a defined conversion path</li>
     </ul>
+  </div>
+
+  <!-- IA / Site Map Section -->
+  <div class="case-section ia-section reveal">
+    <p class="section-label">Information Architecture</p>
+    <h3 class="wf-section-head">Site Map — Before &amp; After</h3>
+    <p>The existing site had evolved organically over years of incremental updates, resulting in redundant sermon and video paths, duplicate event listings, and inconsistent labeling. The redesign began by mapping the full existing structure, identifying the friction points, then proposing a simplified hierarchy built around two primary user goals.</p>
+    <div class="ia-diagram-block">
+      <span class="ia-diagram-label ia-before">Before — existing structure</span>
+      <img src="/images/ia-before.png" alt="Information architecture diagram of the existing Springfield Church of Christ site — 5 top-level nav items with inconsistent depth ranging from 2 to 4 levels, redundant sermon and video paths, and no dedicated entry point for first-time visitors" />
+      <p class="ia-caption">5 top-level nav items &middot; inconsistent depth (2–4 levels) &middot; redundant sermon and video paths &middot; no dedicated first-time visitor entry point</p>
+    </div>
+    <p>Three core problems drove the restructure: content was duplicated across multiple nav paths, first-time visitors had no clear entry point, and the 'Watch Online' journey required too many clicks to reach.</p>
+    <div class="ia-diagram-block">
+      <span class="ia-diagram-label ia-after">After — proposed structure</span>
+      <img src="/images/ia-after.png" alt="Information architecture diagram of the proposed Springfield Church of Christ site — 6 top-level nav items at maximum 2-click depth, a single path to each destination, and two distinct user journeys for first-time visitors and returning members" />
+      <p class="ia-caption">6 top-level nav items &middot; max 2-click depth &middot; single path to each destination &middot; two distinct user journeys supported</p>
+    </div>
+    <div class="ia-decisions-grid">
+      <div class="ia-decision-item">
+        <p class="ia-decision-label">Consolidated livestream access</p>
+        <p class="ia-decision-body">Watch Live appears once — not scattered across two separate nav branches.</p>
+      </div>
+      <div class="ia-decision-item">
+        <p class="ia-decision-label">New Here as a dedicated path</p>
+        <p class="ia-decision-body">First-time visitors get a direct route to service times, beliefs, and visit planning.</p>
+      </div>
+      <div class="ia-decision-item">
+        <p class="ia-decision-label">Sermons replaces Messages</p>
+        <p class="ia-decision-body">Consistent, expected labeling eliminates the ambiguity of the old "Messages" / "Past Messages" split.</p>
+      </div>
+      <div class="ia-decision-item">
+        <p class="ia-decision-label">Events centralized</p>
+        <p class="ia-decision-body">Calendar and Upcoming merged into a single Events destination.</p>
+      </div>
+      <div class="ia-decision-item">
+        <p class="ia-decision-label">Reduced navigation depth</p>
+        <p class="ia-decision-body">All key content reachable within 2 clicks of the homepage.</p>
+      </div>
+      <div class="ia-decision-item">
+        <p class="ia-decision-label">Two journeys, one structure</p>
+        <p class="ia-decision-body">First-time visitors and returning members both served without structural compromise.</p>
+      </div>
+    </div>
+    <p>This structure became the foundation for both the wireframe exploration and the final design. Every layout decision in the wireframes maps back to this hierarchy.</p>
   </div>
 
   <div class="case-section reveal">
