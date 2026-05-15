@@ -30,7 +30,8 @@ body>*{position:relative;z-index:1;}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.97);backdrop-filter:blur(16px);border-bottom:2px solid var(--ink);}
 .nav-top{display:flex;align-items:center;justify-content:space-between;padding:.6rem 4rem;border-bottom:1px solid var(--border);}
 .nav-date{font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);}
-.nav-logo{font-family:var(--font-serif);font-size:1.55rem;font-weight:bold;letter-spacing:-.02em;color:var(--ink);text-decoration:none;}
+.nav-logo{font-family:var(--font-serif);font-size:1.55rem;font-weight:bold;letter-spacing:-.02em;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:.55rem;}
+.nav-logo-icon{height:2.2rem;width:auto;display:block;}
 .nav-links{display:flex;list-style:none;}
 .nav-links li{flex:1;text-align:center;border-right:1px solid var(--border);}
 .nav-links li:last-child{border-right:none;}
@@ -570,7 +571,7 @@ footer p{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:
 @media(max-width:768px){
   nav .nav-top{padding:.8rem 1.5rem;display:grid;grid-template-columns:1fr auto 1fr;}
   nav .nav-top .nav-date:last-of-type{text-align:right;}
-  .nav-logo{text-align:center;}
+  .nav-logo{justify-content:center;}
   #hero{grid-template-columns:1fr;margin-top:100px;}
   .hero-right{height:320px;}
   .hero-left{padding:3rem 1.5rem;}
@@ -630,7 +631,10 @@ footer{padding:2rem 1.5rem;}
 <nav>
   <div class="nav-top">
     <span class="nav-date">Portfolio · 2026</span>
-    <a href="#hero" class="nav-logo">DAVID R. BAILEY</a>
+    <a href="#hero" class="nav-logo">
+      <img src="images/logo-db.png" alt="" class="nav-logo-icon">
+      DAVID R. BAILEY
+    </a>
     <span class="nav-date">UX/UI Designer &amp; Technologist</span>
   </div>
   <ul class="nav-links">
@@ -654,7 +658,7 @@ footer{padding:2rem 1.5rem;}
     </div>
   </div>
   <div class="hero-right">
-    <img src="images/hero-headshot.jpg" alt="David R. Bailey"/>
+    <img src="images/hero-headshot.png" alt="David R. Bailey"/>
       <div class="overlay-title">Springfield Church of Christ<br/>Website Redesign</div>
     </div>
   </div>
@@ -851,7 +855,7 @@ footer{padding:2rem 1.5rem;}
 <!-- ABOUT STRIP (LIGHT) -->
 <div id="about-strip" style="scroll-margin-top:95px;">
   <div class="about-photo">
-    <img src="images/hero-headshot.jpg" alt="David R. Bailey"/>
+    <img src="images/hero-headshot.png" alt="David R. Bailey"/>
   </div>
   <div class="reveal">
     <p class="about-name">David R. Bailey — designer with an unusual background</p>
