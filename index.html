@@ -569,9 +569,10 @@ footer p{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:
 
 /* ── RESPONSIVE ── */
 @media(max-width:768px){
-  nav .nav-top{position:relative;padding:.8rem 1.5rem;display:flex;align-items:center;}
-  nav .nav-top .nav-date:last-of-type{margin-left:auto;text-align:right;}
-  .nav-logo{position:absolute;left:50%;transform:translateX(-50%);white-space:nowrap;}
+  nav .nav-top{padding:.8rem 1.5rem;display:flex;flex-wrap:wrap;align-items:center;}
+  nav .nav-top .nav-date{flex:1;}
+  nav .nav-top .nav-date:last-of-type{text-align:right;}
+  .nav-logo{order:-1;width:100%;justify-content:center;margin-bottom:.25rem;}
   #hero{grid-template-columns:1fr;margin-top:100px;}
   .hero-right{height:320px;}
   .hero-left{padding:3rem 1.5rem;}
