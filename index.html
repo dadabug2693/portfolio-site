@@ -569,10 +569,10 @@ footer p{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:
 
 /* ── RESPONSIVE ── */
 @media(max-width:768px){
-  nav .nav-top{padding:.8rem 1.5rem;display:flex;flex-wrap:wrap;align-items:center;}
-  nav .nav-top .nav-date{flex:1;}
-  nav .nav-top .nav-date:last-of-type{text-align:right;}
-  .nav-logo{order:-1;width:100%;justify-content:center;margin-bottom:.25rem;}
+  nav .nav-top{padding:.7rem 1.5rem;display:flex;flex-direction:column;align-items:center;gap:.2rem;}
+  .nav-logo{order:1;justify-content:center;}
+  nav .nav-top .nav-date:last-of-type{order:2;text-align:center;}
+  nav .nav-top .nav-date:first-of-type{order:3;font-size:.58rem;opacity:.6;text-align:center;}
   #hero{grid-template-columns:1fr;margin-top:100px;}
   .hero-right{height:320px;}
   .hero-left{padding:3rem 1.5rem;}
