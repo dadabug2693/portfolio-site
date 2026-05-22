@@ -132,13 +132,13 @@ h2{font-family:var(--font-serif);font-size:clamp(1.9rem,3.5vw,2.8rem);color:var(
 .cs-content .case-section p{max-width:680px;margin-left:auto;margin-right:auto;margin-bottom:1.1rem;line-height:1.78;}
 .cs-content .case-section>ul{max-width:680px;margin-left:auto;margin-right:auto;}
 
-/* UX STEP LABELS */
-.ux-step-label{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:.45rem;display:block;font-family:var(--font-sans);}
-
 /* CHAPTER / PART HEADERS */
-.cs-part-header{margin:5rem 0 2.5rem;padding:2rem 0 1.8rem;border-top:3px solid var(--ink);}
-.cs-part-num{font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;font-weight:700;color:var(--accent);display:block;margin-bottom:.75rem;font-family:var(--font-sans);}
-.cs-part-title{font-family:var(--font-serif);font-size:clamp(2.6rem,5vw,4rem);color:var(--ink);line-height:.95;letter-spacing:-.03em;font-weight:bold;font-style:italic;}
+.cs-part-header{margin:5rem 0 2.5rem;padding:2rem 0 1.8rem;border-top:2px solid var(--ink);}
+.cs-part-num{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--accent);display:block;margin-bottom:.6rem;font-family:var(--font-sans);}
+.cs-part-title{font-family:var(--font-serif);font-size:clamp(2.6rem,5vw,4rem);color:var(--ink);line-height:.95;letter-spacing:-.03em;font-weight:bold;}
+
+/* SECTION STEP LABELS — same treatment as part numbers, scaled to h3 */
+.cs-step-num{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--accent);display:block;margin-bottom:.4rem;font-family:var(--font-sans);}
 
 /* FOOTER */
 footer{border-top:2px solid var(--ink);padding:2rem 4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;background:var(--bg);}
@@ -335,8 +335,7 @@ footer p{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:
   </div>
 
   <div class="case-section reveal">
-    <p class="ux-step-label">Step 01 &middot; Empathize</p>
-    <h3>Research &amp; Planning</h3>
+    <h3><span class="cs-step-num">Step 01 &middot; Empathize</span>Research &amp; Planning</h3>
     <p>Analytics showed high drop-off on key pages. Heatmaps revealed hesitation in primary navigation. Task-based walkthroughs confirmed visitors could find information — but it took too many steps.</p>
     <ul>
       <li>Critical information buried beneath layered navigation</li>
@@ -348,8 +347,7 @@ footer p{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:
 
   <!-- IA / Site Map Section -->
   <div class="case-section ia-section reveal">
-    <p class="ux-step-label">Step 02 &middot; Define</p>
-    <h3 class="wf-section-head">Site Map — Before &amp; After</h3>
+    <h3 class="wf-section-head"><span class="cs-step-num">Step 02 &middot; Define</span>Site Map — Before &amp; After</h3>
     <p>The existing site had evolved organically over years of incremental updates, resulting in redundant sermon and video paths, duplicate event listings, and inconsistent labeling. The redesign began by mapping the full existing structure, identifying the friction points, then proposing a simplified hierarchy built around two primary user goals.</p>
     <div class="ia-diagram-block">
       <span class="ia-diagram-label ia-before">Before — existing structure</span>
@@ -426,8 +424,7 @@ footer p{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:
 
   <!-- Wireframe Exploration Section -->
   <div class="case-section wf-exploration-section reveal">
-    <p class="ux-step-label">Step 03 &middot; Ideate</p>
-    <h3 class="wf-section-head">Wireframe Exploration</h3>
+    <h3 class="wf-section-head"><span class="cs-step-num">Step 03 &middot; Ideate</span>Wireframe Exploration</h3>
     <p>Before committing to any visual design, I explored three distinct layout structures — each built around a different hypothesis about the primary user goal. All three were built at 1440px desktop width using only rectangles, text labels, and spacing. No color, no imagery, no styling decisions.</p>
     <div class="wf-exploration-grid">
       <div class="wf-card">
@@ -549,8 +546,7 @@ footer p{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:
   </div>
 
   <div class="case-section reveal">
-    <p class="ux-step-label">Step 04 &middot; Prototype</p>
-    <h3>Designing the Solution</h3>
+    <h3><span class="cs-step-num">Step 04 &middot; Prototype</span>Designing the Solution</h3>
     <p>The redesign focused on three user journeys: planning a visit, understanding beliefs, and discovering events. Wireframes validated structure before implementation. The solution extended well beyond the website.</p>
     <ul>
       <li>Service times brought above the fold; "Plan Your Visit" as the primary CTA</li>
@@ -573,8 +569,7 @@ footer p{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:
   </div>
 
   <div class="case-section reveal">
-    <p class="ux-step-label">Step 05 &middot; Test</p>
-    <h3>Results</h3>
+    <h3><span class="cs-step-num">Step 05 &middot; Test</span>Results</h3>
     <div class="result-chips">
       <div class="result-chip"><span class="num">78%</span><span class="lbl">Web traffic increase</span></div>
       <div class="result-chip"><span class="num">2&times;</span><span class="lbl">Event attendance</span></div>
