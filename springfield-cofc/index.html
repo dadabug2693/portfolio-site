@@ -132,6 +132,11 @@ h2{font-family:var(--font-serif);font-size:clamp(1.9rem,3.5vw,2.8rem);color:var(
 .cs-content .case-section p{max-width:680px;margin-left:auto;margin-right:auto;margin-bottom:1.1rem;line-height:1.75;}
 .cs-content .case-section>ul{max-width:680px;margin-left:auto;margin-right:auto;}
 
+/* CHAPTER / PART HEADERS */
+.cs-part-header{margin:5rem 0 2.5rem;padding:2rem 0 1.8rem;border-top:3px solid var(--ink);}
+.cs-part-num{font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;font-weight:700;color:var(--accent);display:block;margin-bottom:.75rem;font-family:var(--font-sans);}
+.cs-part-title{font-family:var(--font-serif);font-size:clamp(2.6rem,5vw,4rem);color:var(--ink);line-height:.95;letter-spacing:-.03em;font-weight:bold;font-style:italic;}
+
 /* FOOTER */
 footer{border-top:2px solid var(--ink);padding:2rem 4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;background:var(--bg);}
 footer p{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;}
@@ -158,6 +163,7 @@ footer p{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:
   .wf-exploration-grid{grid-template-columns:1fr;}
   .mob-wf-grid{grid-template-columns:1fr;}
   .ia-decisions-grid{grid-template-columns:1fr;}
+  .cs-part-title{font-size:2.4rem;}
 }
 
 @media(max-width:540px){
@@ -242,6 +248,14 @@ footer p{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:
     </div>
   </div>
 
+  <!-- ============================================================ -->
+  <!-- PART 1: THE CHALLENGE                                        -->
+  <!-- ============================================================ -->
+  <div class="cs-part-header reveal">
+    <span class="cs-part-num">Part 01</span>
+    <p class="cs-part-title">The Challenge</p>
+  </div>
+
   <div class="scc-partner-band reveal">
     <div class="scc-partner-stat">
       <div class="scc-partner-num">16</div>
@@ -306,6 +320,14 @@ footer p{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:
       <li>No security camera system for facility monitoring</li>
       <li>Limited budget and volunteer support across every initiative</li>
     </ul>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- PART 2: THE PROCESS                                          -->
+  <!-- ============================================================ -->
+  <div class="cs-part-header reveal">
+    <span class="cs-part-num">Part 02</span>
+    <p class="cs-part-title">The Process</p>
   </div>
 
   <div class="case-section reveal">
@@ -397,47 +419,6 @@ footer p{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:
     </div>
   </div>
 
-  <div class="case-section reveal">
-    <h3>Before &amp; After</h3>
-    <p style="margin-bottom:1.5rem;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.75;">The original site was an information repository, not a communication tool. Every page competed for equal attention, navigation assumed users already knew what they were looking for, and there was no hierarchy.</p>
-    <div class="scc-ba-wrap">
-      <!-- BEFORE -->
-      <div class="scc-ba-col">
-        <span class="scc-ba-state-lbl scc-before">Before &middot; c. 2010</span>
-        <div class="scc-browser">
-          <div class="scc-chrome">
-            <div class="scc-chrome-dot"></div><div class="scc-chrome-dot"></div><div class="scc-chrome-dot"></div>
-            <div class="scc-chrome-bar"></div>
-          </div>
-          <img src="/images/scc-before-2010.jpg" alt="Springfield Church of Christ website circa 2010" class="scc-screenshot" style="object-position:center top;"/>
-        </div>
-        <ul class="scc-diff-list">
-          <li class="scc-diff-item"><span class="scc-diff-num">1</span><span><strong>12-item navigation</strong> with no hierarchy; all items given equal weight regardless of visitor intent.</span></li>
-          <li class="scc-diff-item"><span class="scc-diff-num">2</span><span><strong>No primary CTA</strong> anywhere on the page. A first-time visitor had no guided next step.</span></li>
-          <li class="scc-diff-item"><span class="scc-diff-num">3</span><span><strong>Two competing columns</strong> of dense text gave the page no visual anchor or reading order.</span></li>
-          <li class="scc-diff-item"><span class="scc-diff-num">4</span><span><strong>Service times buried</strong> below the fold, requiring scrolling to find the most-sought information.</span></li>
-        </ul>
-      </div>
-      <!-- AFTER -->
-      <div class="scc-ba-col">
-        <span class="scc-ba-state-lbl scc-after">After &middot; Redesigned</span>
-        <div class="scc-browser">
-          <div class="scc-chrome">
-            <div class="scc-chrome-dot"></div><div class="scc-chrome-dot"></div><div class="scc-chrome-dot"></div>
-            <div class="scc-chrome-bar"></div>
-          </div>
-          <img src="/images/church-website.jpg" alt="Springfield Church of Christ, redesigned website" class="scc-screenshot"/>
-        </div>
-        <ul class="scc-diff-list">
-          <li class="scc-diff-item"><span class="scc-diff-num improved">1</span><span><strong>6-item navigation</strong> organized around visitor intent, not internal church structure.</span></li>
-          <li class="scc-diff-item"><span class="scc-diff-num improved">2</span><span><strong>Two persistent CTAs in the header</strong> (Give, Watch Live) plus dual hero CTAs (Join Us Live, Plan Your Visit) visible without scrolling.</span></li>
-          <li class="scc-diff-item"><span class="scc-diff-num improved">3</span><span><strong>Building as the hero</strong>: the church itself is the first thing visitors see, overlaid with clear typographic hierarchy and the tagline.</span></li>
-          <li class="scc-diff-item"><span class="scc-diff-num improved">4</span><span><strong>Prayer request surfaced prominently</strong> as a dedicated banner, giving a pastoral touchpoint priority placement above the fold.</span></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
   <!-- Wireframe Exploration Section -->
   <div class="case-section wf-exploration-section reveal">
     <p class="section-label">Design Process</p>
@@ -507,6 +488,63 @@ footer p{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:
   </div>
 
   <div class="case-section reveal">
+    <h3>Design System</h3>
+    <p>Formalized in 2026 to document the design decisions that have emerged and evolved across 16 years of iteration. Brand colors, neutrals, and typography were defined to ensure visual consistency across all pages.</p>
+    <div class="scc-building-img" style="margin-bottom:0;">
+      <img src="/images/scc-styleguide.png" alt="Springfield Church of Christ style guide — brand colors, neutrals, and typography" style="height:auto;object-position:center top;"/>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- PART 3: THE SOLUTION                                         -->
+  <!-- ============================================================ -->
+  <div class="cs-part-header reveal">
+    <span class="cs-part-num">Part 03</span>
+    <p class="cs-part-title">The Solution</p>
+  </div>
+
+  <div class="case-section reveal">
+    <h3>Before &amp; After</h3>
+    <p style="margin-bottom:1.5rem;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.75;">The original site was an information repository, not a communication tool. Every page competed for equal attention, navigation assumed users already knew what they were looking for, and there was no hierarchy.</p>
+    <div class="scc-ba-wrap">
+      <!-- BEFORE -->
+      <div class="scc-ba-col">
+        <span class="scc-ba-state-lbl scc-before">Before &middot; c. 2010</span>
+        <div class="scc-browser">
+          <div class="scc-chrome">
+            <div class="scc-chrome-dot"></div><div class="scc-chrome-dot"></div><div class="scc-chrome-dot"></div>
+            <div class="scc-chrome-bar"></div>
+          </div>
+          <img src="/images/scc-before-2010.jpg" alt="Springfield Church of Christ website circa 2010" class="scc-screenshot" style="object-position:center top;"/>
+        </div>
+        <ul class="scc-diff-list">
+          <li class="scc-diff-item"><span class="scc-diff-num">1</span><span><strong>12-item navigation</strong> with no hierarchy; all items given equal weight regardless of visitor intent.</span></li>
+          <li class="scc-diff-item"><span class="scc-diff-num">2</span><span><strong>No primary CTA</strong> anywhere on the page. A first-time visitor had no guided next step.</span></li>
+          <li class="scc-diff-item"><span class="scc-diff-num">3</span><span><strong>Two competing columns</strong> of dense text gave the page no visual anchor or reading order.</span></li>
+          <li class="scc-diff-item"><span class="scc-diff-num">4</span><span><strong>Service times buried</strong> below the fold, requiring scrolling to find the most-sought information.</span></li>
+        </ul>
+      </div>
+      <!-- AFTER -->
+      <div class="scc-ba-col">
+        <span class="scc-ba-state-lbl scc-after">After &middot; Redesigned</span>
+        <div class="scc-browser">
+          <div class="scc-chrome">
+            <div class="scc-chrome-dot"></div><div class="scc-chrome-dot"></div><div class="scc-chrome-dot"></div>
+            <div class="scc-chrome-bar"></div>
+          </div>
+          <img src="/images/church-website.jpg" alt="Springfield Church of Christ, redesigned website" class="scc-screenshot"/>
+        </div>
+        <ul class="scc-diff-list">
+          <li class="scc-diff-item"><span class="scc-diff-num improved">1</span><span><strong>6-item navigation</strong> organized around visitor intent, not internal church structure.</span></li>
+          <li class="scc-diff-item"><span class="scc-diff-num improved">2</span><span><strong>Two persistent CTAs in the header</strong> (Give, Watch Live) plus dual hero CTAs (Join Us Live, Plan Your Visit) visible without scrolling.</span></li>
+          <li class="scc-diff-item"><span class="scc-diff-num improved">3</span><span><strong>Building as the hero</strong>: the church itself is the first thing visitors see, overlaid with clear typographic hierarchy and the tagline.</span></li>
+          <li class="scc-diff-item"><span class="scc-diff-num improved">4</span><span><strong>Prayer request surfaced prominently</strong> as a dedicated banner, giving a pastoral touchpoint priority placement above the fold.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="case-section reveal">
     <h3>Designing the Solution</h3>
     <p>The redesign focused on three user journeys: planning a visit, understanding beliefs, and discovering events. Wireframes validated structure before implementation. The solution extended well beyond the website.</p>
     <ul>
@@ -519,14 +557,6 @@ footer p{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:
       <li>Network assessment and infrastructure upgrades</li>
       <li>AV/streaming pipeline built with the church's Audio and Video team</li>
     </ul>
-  </div>
-
-  <div class="case-section reveal">
-    <h3>Design System</h3>
-    <p>Formalized in 2026 to document the design decisions that have emerged and evolved across 16 years of iteration. Brand colors, neutrals, and typography were defined to ensure visual consistency across all pages.</p>
-    <div class="scc-building-img" style="margin-bottom:0;">
-      <img src="/images/scc-styleguide.png" alt="Springfield Church of Christ style guide — brand colors, neutrals, and typography" style="height:auto;object-position:center top;"/>
-    </div>
   </div>
 
   <div class="case-section reveal">
@@ -545,6 +575,7 @@ footer p{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:
       <div class="result-chip"><span class="num">2010</span><span class="lbl">Partnership since</span></div>
     </div>
     <p style="margin-top:1.5rem;max-width:680px;margin-left:auto;margin-right:auto;color:#444;font-size:.92rem;line-height:1.88;">This project reinforced that effective UX is about prioritization, not expansion. Aligning analytics, user behavior, and business goals evolved the website from an information hub into a structured engagement tool.</p>
+    <p style="margin-top:1.5rem;max-width:680px;margin-left:auto;margin-right:auto;color:#444;font-size:.92rem;line-height:1.88;">Sixteen years is an unusually long time to work with any client — longer still for a website. What this partnership demonstrated, more than any single launch or metric, is that UX is a discipline of ongoing attention rather than a one-time intervention. Springfield Church of Christ had no dedicated tech staff, a modest budget, and a congregation with real needs. That combination forced a kind of clarity: every decision had to earn its place, because there was no room for the gratuitous. The work that survived wasn't the most sophisticated — it was the most considered. If good design is the elimination of everything that doesn't need to be there, this project was sixteen years of that practice.</p>
   </div>
 
 </div>
