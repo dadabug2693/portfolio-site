@@ -566,6 +566,9 @@ footer p{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:
 .scc-diff-num.improved{color:var(--accent);}
 .scc-diff-item strong{color:var(--ink);}
 
+/* CREATIVE WORK CARD — centered half-width on desktop */
+.creative-half{grid-column:1/-1;max-width:calc(50% - 1.25rem);margin:0 auto;width:100%;}
+
 /* ── RESPONSIVE ── */
 @media(max-width:768px){
   nav .nav-top{padding:.7rem 1.5rem;display:flex;flex-direction:column;align-items:center;gap:.2rem;}
@@ -583,6 +586,7 @@ footer p{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:
   .skills-inner,.resume-inner,.tl-inner{padding-left:1.5rem;padding-right:1.5rem;}
   #work,#about-strip,footer{padding-left:1.5rem;padding-right:1.5rem;}
   .featured-card-grid,.small-grid,.contact-grid{grid-template-columns:1fr;}
+  .creative-half{max-width:100%;}
   .card-body{padding-top:1rem;}
   .small-grid{grid-template-columns:1fr;}
   .tl-grid{grid-template-columns:1fr;}
@@ -824,7 +828,7 @@ footer{padding:2rem 1.5rem;}
   </a>
  
   <!-- Creative Work -->
-  <a href="creative-work.html" class="featured-card reveal" style="grid-column:1/-1;max-width:calc(50% - 1.25rem);margin:0 auto;width:100%;">
+  <a href="creative-work.html" class="featured-card reveal creative-half">
     <div class="card-visual" style="padding:0;overflow:hidden;background:#0d0d0d;">
       <span class="card-visual-label" style="z-index:2;">Watercolors · Pastry · 3D</span>
       <img id="creative-rotator" src="images/Watercolor-1.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:.85;transition:opacity 1.2s ease;z-index:1;"/>
