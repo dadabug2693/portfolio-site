@@ -100,7 +100,9 @@ h2{font-family:var(--font-serif);font-size:clamp(1.9rem,3.5vw,2.8rem);color:var(
 .scc-building-img img{width:100%;height:auto;display:block;}
 
 /* PLATFORM TIMELINE */
+.scc-platform-timeline-wrap{position:relative;}
 .scc-platform-timeline{display:flex;align-items:center;gap:0;margin-top:1.5rem;border:1px solid var(--border);overflow-x:auto;-webkit-overflow-scrolling:touch;}
+.scc-scroll-hint{display:none;}
 .scc-platform-phase{flex:1;min-width:90px;padding:.7rem .6rem;background:var(--bg2);text-align:center;}
 .scc-platform-phase.scc-platform-current{background:rgba(45,212,191,.06);border-bottom:2px solid var(--accent);}
 .scc-platform-label{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--ink);margin-bottom:.2rem;}
@@ -167,6 +169,9 @@ footer p{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:
   .scc-partner-stat{border-right:none;border-bottom:1px solid var(--border);}
   .scc-partner-stat:last-child{border-bottom:none;}
   .scc-process-table th,.scc-process-table td{padding:.55rem .6rem;}
+  .scc-platform-timeline-wrap::after{content:'';position:absolute;top:0;right:0;bottom:0;width:48px;background:linear-gradient(to right,transparent,rgba(255,255,255,.95));pointer-events:none;margin-top:1.5rem;}
+  .scc-scroll-hint{display:flex;align-items:center;justify-content:center;gap:.4rem;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:.55rem;}
+  .scc-scroll-hint::after{content:'→';font-size:.75rem;}
   .wf-exploration-grid{grid-template-columns:1fr;}
   .mob-wf-grid{grid-template-columns:1fr;}
   .ia-decisions-grid{grid-template-columns:1fr;}
@@ -287,31 +292,34 @@ footer p{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:
     <h3>Project Overview</h3>
     <p>What began as a website redesign became a decade-long technology partnership. As SCC's de facto technology advisor, I led a full UX redesign and digital strategy, integrated a networked security camera system, managed and upgraded network infrastructure, advised on three computer replacements, and built a live streaming capability — alongside the church's AV team — that kept the congregation connected through illness, distance, and COVID-19.</p>
     <p>The technical foundation evolved in step. I inherited the site on WordPress, moved it to Wix for design flexibility, then rebuilt it by hand in VS Code — version-controlled on GitHub and deployed on Netlify.</p>
-    <div class="scc-platform-timeline">
-      <div class="scc-platform-phase">
-        <div class="scc-platform-label">WordPress</div>
-        <div class="scc-platform-sub">Inherited &amp; adapted</div>
+    <div class="scc-platform-timeline-wrap">
+      <div class="scc-platform-timeline">
+        <div class="scc-platform-phase">
+          <div class="scc-platform-label">WordPress</div>
+          <div class="scc-platform-sub">Inherited &amp; adapted</div>
+        </div>
+        <div class="scc-platform-connector">→</div>
+        <div class="scc-platform-phase">
+          <div class="scc-platform-label">Wix</div>
+          <div class="scc-platform-sub">Redesign &amp; flexibility</div>
+        </div>
+        <div class="scc-platform-connector">→</div>
+        <div class="scc-platform-phase scc-platform-current">
+          <div class="scc-platform-label">VS Code</div>
+          <div class="scc-platform-sub">Custom-built</div>
+        </div>
+        <div class="scc-platform-connector">→</div>
+        <div class="scc-platform-phase scc-platform-current">
+          <div class="scc-platform-label">GitHub</div>
+          <div class="scc-platform-sub">Version control</div>
+        </div>
+        <div class="scc-platform-connector">→</div>
+        <div class="scc-platform-phase scc-platform-current">
+          <div class="scc-platform-label">Netlify</div>
+          <div class="scc-platform-sub">Deployed &amp; live</div>
+        </div>
       </div>
-      <div class="scc-platform-connector">→</div>
-      <div class="scc-platform-phase">
-        <div class="scc-platform-label">Wix</div>
-        <div class="scc-platform-sub">Redesign &amp; flexibility</div>
-      </div>
-      <div class="scc-platform-connector">→</div>
-      <div class="scc-platform-phase scc-platform-current">
-        <div class="scc-platform-label">VS Code</div>
-        <div class="scc-platform-sub">Custom-built</div>
-      </div>
-      <div class="scc-platform-connector">→</div>
-      <div class="scc-platform-phase scc-platform-current">
-        <div class="scc-platform-label">GitHub</div>
-        <div class="scc-platform-sub">Version control</div>
-      </div>
-      <div class="scc-platform-connector">→</div>
-      <div class="scc-platform-phase scc-platform-current">
-        <div class="scc-platform-label">Netlify</div>
-        <div class="scc-platform-sub">Deployed &amp; live</div>
-      </div>
+      <p class="scc-scroll-hint">Swipe to see full timeline</p>
     </div>
   </div>
 
