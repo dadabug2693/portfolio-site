@@ -355,7 +355,11 @@ h2{font-family:var(--font-serif);font-size:clamp(1.9rem,3.5vw,2.8rem);color:var(
 
 /* RESPONSIVE */
 @media(max-width:768px){
-  nav .nav-top{padding:.8rem 1.5rem;}
+  nav .nav-top{padding:.7rem 1.5rem;display:flex;flex-direction:column;align-items:center;gap:.2rem;}
+  .nav-logo{order:1;justify-content:center;}
+  nav .nav-top .nav-date:last-of-type{order:2;text-align:center;}
+  nav .nav-top .nav-date:first-of-type{order:3;font-size:.58rem;opacity:.6;text-align:center;}
+  .nav-links a{padding:.5rem .4rem;font-size:.62rem;letter-spacing:.07em;}
   .cs-hero{padding:7rem 1.5rem 5rem;}
   .cs-content{padding:2rem 1.5rem 5rem;}
   footer{padding:2rem 1.5rem;}
