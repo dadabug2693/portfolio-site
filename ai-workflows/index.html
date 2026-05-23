@@ -70,11 +70,17 @@ h2{font-family:var(--font-serif);font-size:clamp(1.9rem,3.5vw,2.8rem);color:var(
 .rule{border:none;border-top:2px solid var(--ink);margin-bottom:2.5rem;}
 
 /* CASE STUDY STYLES */
-.case-section{margin-bottom:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid var(--border);}
-.case-section h3{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;font-weight:700;}
-.case-section p{color:#444;font-size:.92rem;line-height:1.88;margin-bottom:1rem;}
-.case-section ul{color:#444;font-size:.92rem;line-height:1.88;padding-left:1.2rem;}
+.case-section{margin-bottom:3rem;padding-bottom:3rem;border-bottom:1px solid var(--border);}
+.case-section h3{font-family:var(--font-serif);font-size:clamp(1.35rem,2.5vw,1.65rem);color:var(--ink);font-weight:bold;letter-spacing:-.015em;line-height:1.15;margin-bottom:1rem;}
+.case-section p{color:#444;font-size:1rem;line-height:1.78;margin-bottom:1rem;}
+.case-section ul{color:#444;font-size:1rem;line-height:1.78;padding-left:1.2rem;}
 .case-section ul li{margin-bottom:.4rem;}
+.cs-content .case-section p{max-width:680px;margin-left:auto;margin-right:auto;margin-bottom:1.1rem;line-height:1.78;}
+.cs-content .case-section>ul{max-width:680px;margin-left:auto;margin-right:auto;}
+.cs-part-header{margin:5rem 0 2.5rem;padding:2rem 0 1.8rem;border-top:2px solid var(--ink);}
+.cs-part-num{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--accent);display:block;margin-bottom:.6rem;font-family:var(--font-sans);}
+.cs-part-title{font-family:var(--font-serif);font-size:clamp(2.6rem,5vw,4rem);color:var(--ink);line-height:.95;letter-spacing:-.03em;font-weight:bold;}
+.cs-step-num{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--accent);display:block;margin-bottom:.4rem;font-family:var(--font-sans);}
 .case-meta-row{display:flex;gap:2rem;flex-wrap:wrap;color:var(--muted);font-size:.8rem;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);}
 .case-meta-row span strong{color:var(--ink);}
 .result-chips{display:flex;gap:0;margin-top:1rem;border:2px solid var(--ink);}
@@ -131,6 +137,8 @@ h2{font-family:var(--font-serif);font-size:clamp(1.9rem,3.5vw,2.8rem);color:var(
   .cs-content{padding:3rem 1.5rem 5rem;}
   footer{padding:2rem 1.5rem;}
   h2{font-size:2rem;}
+  .cs-part-title{font-size:2.4rem;}
+  .case-section h3{font-size:1.35rem;}
   .ne-two-col,.wf-phases,.wf-insights,.ai-tool-grid,.ai-vs-grid{grid-template-columns:1fr;}
   .ne-stats{grid-template-columns:1fr;}
 }
@@ -187,13 +195,23 @@ h2{font-family:var(--font-serif);font-size:clamp(1.9rem,3.5vw,2.8rem);color:var(
     <div class="ne-stat"><div class="ne-stat-num">0</div><div class="ne-stat-label">Decisions Outsourced</div><div class="ne-stat-sub">AI accelerates. The designer decides.</div></div>
   </div>
 
-  <div class="case-section reveal"><h3>The Challenge</h3>
+  <div class="cs-part-header reveal">
+    <span class="cs-part-num">Part 01</span>
+    <p class="cs-part-title">The Challenge</p>
+  </div>
+
+  <div class="case-section reveal"><h3><span class="cs-step-num">Step 01 &middot; Empathize</span>The Challenge</h3>
     <p>Design is a discipline that improves with friction — pushback, alternatives, a second opinion. Working solo means those feedback loops are either missing or slow. You can spiral inside your own assumptions without anyone to object.</p>
     <p>AI doesn't replace a team. But used deliberately, it can recreate the structure of collaborative thinking: proposing alternatives you wouldn't have considered, surfacing objections before a stakeholder does, and compressing research synthesis from days to hours. The challenge is keeping the human judgment at the center — not outsourcing it.</p>
   </div>
 
+  <div class="cs-part-header reveal">
+    <span class="cs-part-num">Part 02</span>
+    <p class="cs-part-title">The Process</p>
+  </div>
+
   <div class="workflow reveal">
-    <div class="workflow-eyebrow">Research Framework</div>
+    <div class="workflow-eyebrow"><span class="cs-step-num" style="color:var(--accent);">Step 02 &middot; Define</span>Research Framework</div>
     <div class="workflow-title">Three-Phase AI Integration Model</div>
     <div class="workflow-sub">How AI tools were integrated across discovery, design, and documentation — and where the line between AI and designer stays fixed</div>
     <div class="wf-phases">
@@ -208,7 +226,7 @@ h2{font-family:var(--font-serif);font-size:clamp(1.9rem,3.5vw,2.8rem);color:var(
     </div>
   </div>
 
-  <div class="case-section reveal"><h3>In Practice</h3>
+  <div class="case-section reveal"><h3><span class="cs-step-num">Step 03 &middot; Ideate</span>In Practice</h3>
     <p style="margin-bottom:1.5rem;">Three scenarios that show what this actually looks like — not as theory, but as a working method.</p>
     <div class="ai-scenario">
       <div class="ai-scenario-label">Phase 01 · Research Synthesis</div>
@@ -224,7 +242,7 @@ h2{font-family:var(--font-serif);font-size:clamp(1.9rem,3.5vw,2.8rem);color:var(
     </div>
   </div>
 
-  <div class="case-section reveal"><h3>The Tool Stack</h3>
+  <div class="case-section reveal"><h3><span class="cs-step-num">Step 04 &middot; Prototype</span>The Tool Stack</h3>
     <p>Four tools, each with a defined role. The discipline is not mixing them — keeping each bounded to what it's actually good at.</p>
     <div class="ai-tool-grid">
       <div class="ai-tool-card"><div class="ai-tool-name">Claude</div><div class="ai-tool-role">Strategic Thinking · Synthesis</div><p class="ai-tool-desc">Long-context reasoning and research synthesis. Used for compressing interview notes, structuring problem frames, and stress-testing design rationale. Strongest at nuance and sustained argument.</p></div>
@@ -234,7 +252,12 @@ h2{font-family:var(--font-serif);font-size:clamp(1.9rem,3.5vw,2.8rem);color:var(
     </div>
   </div>
 
-  <div class="case-section reveal"><h3>Where Human Judgment Stays</h3>
+  <div class="cs-part-header reveal">
+    <span class="cs-part-num">Part 03</span>
+    <p class="cs-part-title">The Solution</p>
+  </div>
+
+  <div class="case-section reveal"><h3><span class="cs-step-num">Step 05 &middot; Test</span>Where Human Judgment Stays</h3>
     <p>The line between what AI does and what the designer does isn't ambiguous — it's deliberate. Letting that line blur is where AI augmentation becomes AI dependence.</p>
     <div class="ai-vs-grid">
       <div class="ai-vs-col"><div class="ai-vs-head human-head">The Designer</div><div class="ai-vs-item">Defines the problem worth solving</div><div class="ai-vs-item">Interprets research with context and empathy</div><div class="ai-vs-item">Makes the design decisions</div><div class="ai-vs-item">Evaluates AI outputs against user needs</div><div class="ai-vs-item">Takes responsibility for the final work</div><div class="ai-vs-item">Knows when to ignore the AI entirely</div></div>

@@ -73,11 +73,17 @@ h2{font-family:var(--font-serif);font-size:clamp(1.9rem,3.5vw,2.8rem);color:var(
 /* CASE STUDY DETAILS */
 .case-meta-row{display:flex;gap:2rem;flex-wrap:wrap;color:var(--muted);font-size:.8rem;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);}
 .case-meta-row span strong{color:var(--ink);}
-.case-section{margin-bottom:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid var(--border);}
-.case-section h3{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;font-weight:700;}
-.case-section p{color:#444;font-size:.92rem;line-height:1.88;margin-bottom:1rem;}
-.case-section ul{color:#444;font-size:.92rem;line-height:1.88;padding-left:1.2rem;}
+.case-section{margin-bottom:3rem;padding-bottom:3rem;border-bottom:1px solid var(--border);}
+.case-section h3{font-family:var(--font-serif);font-size:clamp(1.35rem,2.5vw,1.65rem);color:var(--ink);font-weight:bold;letter-spacing:-.015em;line-height:1.15;margin-bottom:1rem;}
+.case-section p{color:#444;font-size:1rem;line-height:1.78;margin-bottom:1rem;}
+.case-section ul{color:#444;font-size:1rem;line-height:1.78;padding-left:1.2rem;}
 .case-section ul li{margin-bottom:.4rem;}
+.cs-content .case-section p{max-width:680px;margin-left:auto;margin-right:auto;margin-bottom:1.1rem;line-height:1.78;}
+.cs-content .case-section>ul{max-width:680px;margin-left:auto;margin-right:auto;}
+.cs-part-header{margin:5rem 0 2.5rem;padding:2rem 0 1.8rem;border-top:2px solid var(--ink);}
+.cs-part-num{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--accent);display:block;margin-bottom:.6rem;font-family:var(--font-sans);}
+.cs-part-title{font-family:var(--font-serif);font-size:clamp(2.6rem,5vw,4rem);color:var(--ink);line-height:.95;letter-spacing:-.03em;font-weight:bold;}
+.cs-step-num{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--accent);display:block;margin-bottom:.4rem;font-family:var(--font-sans);}
 .result-chips{display:flex;gap:0;margin-top:1rem;border:2px solid var(--ink);}
 .result-chip{flex:1;padding:1.5rem;text-align:center;border-right:1px solid var(--border);background:var(--glass);backdrop-filter:blur(10px);}
 .result-chip:last-child{border-right:none;}
@@ -354,6 +360,8 @@ h2{font-family:var(--font-serif);font-size:clamp(1.9rem,3.5vw,2.8rem);color:var(
   .cs-content{padding:2rem 1.5rem 5rem;}
   footer{padding:2rem 1.5rem;}
   h2{font-size:2rem;}
+  .cs-part-title{font-size:2.4rem;}
+  .case-section h3{font-size:1.35rem;}
   .ne-roadmap{grid-template-columns:1fr 1fr;}
   .ne-stats{grid-template-columns:1fr;}
   .ne-two-col,.ne-methods-grid,.ne-baseline-grid,.ne-ba-grid,.ne-tradeoffs-grid,.ne-artifacts-grid,.ne-chart-3col{grid-template-columns:1fr;}
@@ -417,9 +425,15 @@ h2{font-family:var(--font-serif);font-size:clamp(1.9rem,3.5vw,2.8rem);color:var(
   <div class="ne-stat"><div class="ne-stat-num">150%</div><div class="ne-stat-label">Projected ROI</div><div class="ne-stat-sub">for adopters in year one</div></div>
   <div class="ne-stat"><div class="ne-stat-num">20 wks</div><div class="ne-stat-label">End-to-end timeline</div><div class="ne-stat-sub">research through deployment</div></div>
 </div>
+
+<div class="cs-part-header reveal">
+  <span class="cs-part-num">Part 01</span>
+  <p class="cs-part-title">The Challenge</p>
+</div>
+
 <div class="case-section reveal"><h3>Project Overview</h3><p>NavEase starts with a problem that most product teams underestimate: navigation friction accumulates. Every redundant tap, every wrong branch, every moment a user pauses looking for something they've looked for before. These are small costs that compound into abandonment. NavEase is a framework for making that friction visible, measurable, and systematically reducible. The adaptive navigation layer is how the system acts on what it learns.</p></div>
 
-<div class="case-section reveal"><h3>Research &amp; Discovery</h3>
+<div class="case-section reveal"><h3><span class="cs-step-num">Step 01 &middot; Empathize</span>Research &amp; Discovery</h3>
   <p style="margin-bottom:1.5rem;">Before any design decisions were made, four research methods built a friction map, identifying not just where users were struggling, but how friction was accumulating and why. Quantitative data showed where to look. Qualitative research revealed what was actually happening.</p>
   <div class="ne-methods-grid">
     <div class="ne-method-cell">
@@ -472,7 +486,7 @@ h2{font-family:var(--font-serif);font-size:clamp(1.9rem,3.5vw,2.8rem);color:var(
   </div>
 </div>
 
-<div class="case-section reveal"><h3>The friction accumulation problem</h3>
+<div class="case-section reveal"><h3><span class="cs-step-num">Step 02 &middot; Define</span>The friction accumulation problem</h3>
   <p style="margin-bottom:1.2rem;">The research revealed a consistent pattern: users weren't abandoning apps because the product lacked value. They were abandoning because the path to value was obstructed: by menus that didn't match mental models, by features buried too deep, by onboarding that taught nothing useful at the moment it was needed. Friction, not product quality, was driving the 43% abandonment rate.</p>
   <div class="ne-tabs"><button class="ne-tab active" onclick="neTab(0)">Pain Points</button><button class="ne-tab" onclick="neTab(1)">Features</button></div>
   <div class="ne-tab-pane active" id="ne-tab0">
@@ -491,7 +505,12 @@ h2{font-family:var(--font-serif);font-size:clamp(1.9rem,3.5vw,2.8rem);color:var(
   </div>
 </div>
 
-<div class="case-section reveal"><h3>20-Week Roadmap</h3>
+<div class="cs-part-header reveal">
+  <span class="cs-part-num">Part 02</span>
+  <p class="cs-part-title">The Process</p>
+</div>
+
+<div class="case-section reveal"><h3><span class="cs-step-num">Step 03 &middot; Ideate</span>20-Week Roadmap</h3>
   <div class="ne-roadmap">
     <div class="ne-phase"><div class="ne-phase-num">Phase 1</div><div class="ne-phase-name">Planning</div><div class="ne-phase-weeks">Weeks 1–4</div><ul class="ne-phase-tasks"><li>User research</li><li>Persona development</li><li>Risk assessment</li><li>Budget planning</li></ul></div>
     <div class="ne-phase"><div class="ne-phase-num">Phase 2</div><div class="ne-phase-name">Design</div><div class="ne-phase-weeks">Weeks 5–8</div><ul class="ne-phase-tasks"><li>UX wireframes</li><li>Prototyping</li><li>Usability testing</li><li>Design system</li></ul></div>
@@ -584,7 +603,7 @@ h2{font-family:var(--font-serif);font-size:clamp(1.9rem,3.5vw,2.8rem);color:var(
 <!-- AI Decision Logic Section -->
 <div class="case-section reveal">
   <p class="section-label">AI Decision Logic</p>
-  <h3 class="ne-section-head">How the system thinks</h3>
+  <h3 class="ne-section-head"><span class="cs-step-num">Step 04 &middot; Prototype</span>How the system thinks</h3>
   <p>The adaptive navigation layer is NavEase's primary response to the friction patterns the research identified. It doesn't randomly reorder navigation; it reads behavioral signals, identifies recurring friction points, and gradually adjusts interface priorities to match how each user actually works. The system's goal is not to impress users with personalization. It's to make friction invisible by eliminating it before users notice it.</p>
   <img src="/images/navease-adaptive-logic.png" class="ne-adaptive-img" alt="NavEase adaptive navigation logic diagram showing signal inputs, decision engine steps, navigation output, state transitions, and trust safeguards across four user scenarios." />
 
@@ -691,7 +710,12 @@ h2{font-family:var(--font-serif);font-size:clamp(1.9rem,3.5vw,2.8rem);color:var(
   <p>This is the core tension in adaptive design: personalization vs. predictability. NavEase resolves it by treating personalization as a suggestion layer on top of a stable, predictable foundation, not as a replacement for it.</p>
 </div>
 
-<div class="case-section reveal"><h3>Design Iteration in Action</h3>
+<div class="cs-part-header reveal">
+  <span class="cs-part-num">Part 03</span>
+  <p class="cs-part-title">The Solution</p>
+</div>
+
+<div class="case-section reveal"><h3><span class="cs-step-num">Step 05 &middot; Test</span>Design Iteration in Action</h3>
   <p style="margin-bottom:1.8rem;">Three targeted iterations addressed the three highest-friction points the research identified: navigation structure, onboarding failure, and conversion trust. Each iteration followed the same protocol: identify friction through data, test a focused change, measure the outcome before moving on.</p>
   <div class="ne-impact-stats">
     <div class="ne-impact-stat"><div class="ne-impact-arrow">↓28%</div><div class="ne-impact-label">Task Completion Time</div><div class="ne-impact-sub">2m 15s → 1m 37s</div></div>
