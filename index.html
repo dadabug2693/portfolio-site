@@ -29,9 +29,6 @@
   font-weight:500;font-size:14px;letter-spacing:1.12px;text-transform:uppercase;opacity:0.9;
 }
 .reg-marks .line{width:154px;height:1px;background:var(--cream);opacity:0.4;margin-top:8px;}
-.practice-notes{position:absolute;right:21.7%;top:0;width:240px;text-align:right;letter-spacing:0.4px;}
-.practice-notes .pn-title{margin:0 0 8px;font-weight:500;font-size:16px;}
-.practice-notes .light{margin:0;font-weight:300;font-size:12px;line-height:1.5;opacity:0.8;}
 .reg-icon{
   position:absolute;right:5.2%;top:-12px;
   width:clamp(44px,6.5vw,80px);height:auto;color:var(--cream);opacity:0.35;
@@ -73,7 +70,6 @@
 @media (max-width:760px){
   .hero-top{min-height:auto;display:flex;flex-direction:column;}
   .reg-marks{position:static;}
-  .practice-notes{position:static;width:auto;text-align:left;margin:18px 0 0;}
   .reg-icon,.drafting-frame{display:none;}
   .hero-sub-row{flex-direction:column;gap:20px;}
   .hero-cta{margin-top:0;}
@@ -350,10 +346,6 @@
       <div class="reg-marks">
         A0.00<br>Home Sheet
         <div class="line"></div>
-      </div>
-      <div class="practice-notes">
-        <p class="pn-title">Practice Notes</p>
-        <p class="light">Currently redesigning<br>complex digital systems<br>through UX, engineering,<br>and thoughtful documentation.</p>
       </div>
       <!-- registration mark, as printed in the corner of a drawing sheet -->
       <svg class="reg-icon" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
