@@ -475,6 +475,14 @@ footer.site-footer{
 .cs-row3 figcaption{margin:10px 0 0;font-size:12px;font-weight:600;letter-spacing:1.6px;text-transform:uppercase;color:var(--stone-ink);}
 @media (max-width:700px){ .cs-row3{grid-template-columns:1fr;} }
 
+/* equal-height row: set each figure's flex-grow to its image's width/height
+   ratio and every image renders at the same height, uncropped */
+.cs-equal{display:flex;gap:24px;align-items:flex-start;max-width:620px;margin:40px 0 28px;}
+.cs-equal figure{flex-basis:0;min-width:0;margin:0;}
+.cs-equal .zoom img{width:100%;border-radius:6px;box-shadow:0 24px 50px -24px rgba(13,13,11,0.45);}
+.cs-equal figcaption{margin:10px 0 0;font-size:12px;font-weight:600;letter-spacing:1.6px;text-transform:uppercase;color:var(--stone-ink);}
+@media (max-width:480px){ .cs-equal{gap:12px;} .cs-equal figcaption{font-size:11px;letter-spacing:1px;} }
+
 /* prev / next */
 .cs-nav{background:var(--ink);border-bottom:1px solid var(--rule-dark);padding:60px 0;}
 .cs-nav-row{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;}
