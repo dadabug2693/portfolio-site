@@ -3,273 +3,198 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Creative Work | David R. Bailey</title>
+<title>Creative Work | The Drafting Table</title>
+<meta name="description" content="Watercolors and 35+ years of cake and pastry design by David R. Bailey: the same eye for composition, proportion, and detail that drives the UX work."/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="Creative Work | The Drafting Table"/>
+<meta property="og:description" content="The same eye for composition, proportion, and detail that drives the UX work, expressed in watercolor and sugar."/>
 <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
 <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 <link rel="shortcut icon" href="favicon.ico" />
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
 <link rel="manifest" href="site.webmanifest" />
-<style>
-:root{
-  --bg:#ffffff;--bg2:#f5f5f5;--ink:#0d0d0d;--muted:#777;
-  --accent:#2dd4bf;--accent2:#1a9e8e;--border:#ccc7bc;
-  --glass:rgba(255,255,255,0.45);--glass-border:rgba(255,255,255,0.7);
-  --font-sans:'Inter',system-ui,sans-serif;--font-serif:'Georgia',serif;
-}
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{background:var(--bg);color:var(--ink);font-family:var(--font-sans);line-height:1.7;overflow-x:hidden;}
-
-.orb{position:fixed;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0;}
-.orb1{width:700px;height:700px;background:radial-gradient(circle,rgba(45,212,191,.13),transparent 70%);top:-200px;left:-200px;}
-.orb2{width:600px;height:600px;background:radial-gradient(circle,rgba(124,58,237,.09),transparent 70%);top:40%;right:-200px;}
-.orb3{width:500px;height:500px;background:radial-gradient(circle,rgba(29,78,216,.08),transparent 70%);bottom:10%;left:15%;}
-body>*{position:relative;z-index:1;}
-
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.97);backdrop-filter:blur(16px);border-bottom:2px solid var(--ink);}
-.nav-top{display:flex;align-items:center;justify-content:space-between;padding:.6rem 4rem;border-bottom:1px solid var(--border);}
-.nav-date{font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);}
-.nav-logo{font-family:var(--font-serif);font-size:1.55rem;font-weight:bold;letter-spacing:-.02em;color:var(--ink);text-decoration:none;}
-.nav-links{display:flex;list-style:none;}
-.nav-links li{flex:1;text-align:center;border-right:1px solid var(--border);}
-.nav-links li:last-child{border-right:none;}
-.nav-links a{display:block;padding:.55rem 1.4rem;color:var(--ink);text-decoration:none;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;transition:all .2s;}
-.nav-links a:hover{background:var(--ink);color:#fff;}
-
-/* HERO */
-.cs-hero{background:var(--ink);max-width:100%;padding:9rem 4rem 7rem;margin-top:95px;position:relative;overflow:hidden;border-bottom:1px solid #1e1e1c;}
-.cs-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 25% 60%,rgba(45,212,191,.14),transparent 58%);pointer-events:none;}
-.cs-hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(124,58,237,.08),transparent 55%);pointer-events:none;}
-.cs-hero-inner{max-width:1100px;margin:0 auto;position:relative;}
-.cs-back{display:inline-flex;align-items:center;gap:.5rem;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,.4);text-decoration:none;margin-bottom:2.8rem;transition:color .2s;}
-.cs-back::before{content:'←';font-size:.8rem;}
-.cs-back:hover{color:var(--accent);}
-.cs-eyebrow{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--accent);display:block;margin-bottom:1.2rem;}
-.cs-hero h1{font-family:var(--font-serif);font-size:clamp(3.5rem,6.5vw,6.2rem);line-height:.88;letter-spacing:-.03em;color:#fff;margin-bottom:1.8rem;font-weight:bold;}
-.cs-hero h1 em{font-style:italic;color:var(--accent);}
-.cs-hero-sub{font-size:1.05rem;color:rgba(255,255,255,.6);max-width:460px;line-height:1.8;border-left:3px solid var(--accent);padding-left:1.1rem;}
-
-/* SHARED */
-.section-label{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:.5rem;}
-h2{font-family:var(--font-serif);font-size:clamp(1.9rem,3.5vw,2.8rem);margin-bottom:1.2rem;line-height:1.05;letter-spacing:-.02em;font-weight:bold;}
-
-/* DARK SECTIONS */
-.section-dark{background:var(--ink);max-width:100%;padding:7rem 0;border-top:1px solid #1e1e1c;}
-.section-dark-inner{max-width:1100px;margin:0 auto;padding:0 4rem;}
-.section-dark .section-label{color:#555;}
-.section-dark h2{color:#fff;}
-.section-dark .rule{border:none;border-top:2px solid #2a2a2a;margin-bottom:2.5rem;}
-
-/* LIGHT SECTIONS */
-.section-light{background:var(--bg);max-width:100%;padding:7rem 0;border-top:2px solid var(--ink);}
-.section-light-inner{max-width:1100px;margin:0 auto;padding:0 4rem;}
-.section-light .section-label{color:var(--muted);}
-.section-light h2{color:var(--ink);}
-.section-light .rule{border:none;border-top:2px solid var(--ink);margin-bottom:2.5rem;}
-
-/* GALLERY INTRO */
-.gallery-intro{font-size:.95rem;color:#555;line-height:1.88;max-width:680px;margin-bottom:3rem;}
-.section-dark .gallery-intro{color:#888;}
-
-/* PHOTO GRIDS */
-.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:300px;gap:2px;background:var(--ink);border:2px solid var(--ink);}
-.photo-grid-dark{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:300px;gap:2px;background:#1a1a1a;border:2px solid #1a1a1a;}
-.photo-item{overflow:hidden;position:relative;background:#f0ebe3;}
-.photo-item-dark{overflow:hidden;position:relative;background:#111;}
-.photo-item img,.photo-item-dark img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .38s ease,opacity .3s;}
-.photo-item:hover img,.photo-item-dark:hover img{transform:scale(1.04);opacity:.88;}
-.photo-caption{position:absolute;bottom:0;left:0;right:0;padding:.65rem 1rem;background:linear-gradient(transparent,rgba(0,0,0,.78));font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.85);opacity:0;transition:opacity .25s;}
-.photo-item:hover .photo-caption,.photo-item-dark:hover .photo-caption{opacity:1;}
-
-/* CLOSING SECTION */
-.closing-quote{font-family:var(--font-serif);font-size:clamp(1.2rem,2.8vw,1.8rem);color:var(--ink);line-height:1.55;font-style:italic;max-width:720px;padding-left:2rem;border-left:3px solid var(--accent);margin:3rem 0;}
-.closing-body{font-size:.92rem;color:#555;line-height:1.88;max-width:640px;}
-
-/* FOOTER */
-footer{border-top:2px solid var(--ink);padding:2rem 4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;background:var(--bg);}
-footer p{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;}
-.footer-links{display:flex;gap:1.5rem;}
-.footer-links a{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:color .2s;}
-.footer-links a:hover{color:var(--ink);}
-
-/* REVEAL */
-.reveal{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease;}
-.reveal.visible{opacity:1;transform:none;}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-  nav .nav-top{padding:.8rem 1.5rem;display:grid;grid-template-columns:1fr auto 1fr;}
-  nav .nav-top .nav-date:last-of-type{text-align:right;}
-  .nav-logo{text-align:center;}
-  .cs-hero{padding:7rem 1.5rem 5rem;}
-  .section-dark-inner,.section-light-inner{padding-left:1.5rem;padding-right:1.5rem;}
-  .photo-grid,.photo-grid-dark{grid-template-columns:1fr 1fr;grid-auto-rows:200px;}
-  footer{padding:2rem 1.5rem;}
-  h2{font-size:2rem;}
-}
-</style>
+<script>document.documentElement.classList.add('js');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
 </head>
 <body>
 
-<div class="orb orb1"></div>
-<div class="orb orb2"></div>
-<div class="orb orb3"></div>
+<a class="skip-link" href="#main-content">Skip to content</a>
 
-<!-- NAV -->
-<nav>
-  <div class="nav-top">
-    <span class="nav-date">Portfolio · 2026</span>
-    <a href="index.html" class="nav-logo">DAVID R. BAILEY</a>
-    <span class="nav-date">UX/UI Designer &amp; Technologist</span>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html" aria-label="The Drafting Table homepage">
+      <div class="brand-mark" aria-hidden="true">DB</div>
+      <div class="brand-text">
+        <p class="title">The Drafting Table</p>
+        <p class="subtitle">Designing Digital Experiences</p>
+      </div>
+    </a>
+
+    <nav class="links" aria-label="Primary">
+      <a href="index.html#work" aria-current="page">WORK</a>
+      <a href="index.html#about">ABOUT</a>
+      <a href="index.html#skills">SKILLS</a>
+      <a href="index.html#resume">RESUME</a>
+      <a href="index.html#contact">CONTACT</a>
+    </nav>
+
+    <div class="badge">GALLERY<br>SHEET 005</div>
+
+    <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+      <span class="hamburger" aria-hidden="true"></span>
+    </button>
   </div>
-  <ul class="nav-links">
-    <li><a href="index.html#work">Work</a></li>
-    <li><a href="index.html#about-strip">About</a></li>
-    <li><a href="index.html#skills">Skills</a></li>
-    <li><a href="index.html#resume">Resume</a></li>
-    <li><a href="index.html#contact">Contact</a></li>
-  </ul>
-</nav>
+
+  <nav id="mobileMenu" class="mobile-menu" aria-label="Mobile" hidden>
+    <a href="index.html#work">Work</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#skills">Skills</a>
+    <a href="index.html#resume">Resume</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="main-content">
 
 <!-- HERO -->
-<div class="cs-hero">
-  <div class="cs-hero-inner">
-    <a href="index.html#work" class="cs-back reveal">Back to Portfolio</a>
-    <span class="cs-eyebrow reveal">Creative Portfolio</span>
-    <h1 class="reveal">Creative <em>Work</em></h1>
-    <p class="cs-hero-sub reveal">The same eye for composition, proportion, and detail that drives the UX work — expressed in watercolor and sugar.</p>
+<section class="cs-hero" aria-labelledby="cs-title">
+  <div class="wrap">
+    <a class="cs-breadcrumb" href="index.html#work">⟵ All Projects</a>
+
+    <div class="cs-hero-top">
+      <div>
+        <p class="cs-eyebrow">Creative Portfolio · 05</p>
+        <p class="cs-kicker">Illustration &amp; Visual Design</p>
+        <h1 class="cs-title" id="cs-title">Creative <span class="accent">Work</span></h1>
+        <p class="cs-position">The same eye for composition, proportion, and detail that drives the UX work, expressed in watercolor and sugar.</p>
+      </div>
+      <div class="cs-hero-media">
+        <img src="images/Watercolor-6.jpg" alt="Watercolor of a golden autumn leaf covered in water droplets." width="1920" height="1355"/>
+      </div>
+    </div>
+
+    <dl class="cs-facts">
+      <div class="cs-fact"><dt>Mediums</dt><dd>Watercolor, cake and sugar art</dd></div>
+      <div class="cs-fact"><dt>Watercolor</dt><dd>7+ years</dd></div>
+      <div class="cs-fact"><dt>Cake Design</dt><dd>35+ years, weddings to competition</dd></div>
+      <div class="cs-fact"><dt>Recognition</dt><dd>Silver Medalist, Pastry Arts</dd></div>
+    </dl>
   </div>
+</section>
+
+<div class="cs-body">
+
+  <!-- 01 WATERCOLORS -->
+  <section class="cs-section" id="watercolors" aria-labelledby="h-01">
+    <div class="wrap">
+      <div class="cs-section-head"><span class="cs-num">01</span><h2 id="h-01">Watercolors</h2></div>
+      <p class="cs-copy">Watercolor rewards the same discipline that UX work requires: knowing when to stop. Every mark is committed. There are no undo steps. The medium demands decisions made with confidence and lived with completely, which turns out to be good practice for design.</p>
+
+      <div class="cs-gallery">
+        <figure><a class="zoom" href="images/Watercolor-1.jpg" data-caption="Original watercolor"><img src="images/Watercolor-1.jpg" alt="Watercolor of a white cottage with a brick chimney and dark roof on a green hillside." width="1286" height="1920" loading="lazy"/></a><figcaption>Original Watercolor</figcaption></figure>
+        <figure><a class="zoom" href="images/Watercolor-2.jpg" data-caption="Original watercolor"><img src="images/Watercolor-2.jpg" alt="Watercolor of purple lilacs in a turquoise pitcher resting on a stack of old books." width="1920" height="1526" loading="lazy"/></a><figcaption>Original Watercolor</figcaption></figure>
+        <figure><a class="zoom" href="images/Watercolor-3.jpg" data-caption="Original watercolor"><img src="images/Watercolor-3.jpg" alt="Framed watercolor of rolling green hills with a winding road, red poppies, and a distant farmhouse." width="1920" height="1631" loading="lazy"/></a><figcaption>Original Watercolor</figcaption></figure>
+        <figure><a class="zoom" href="images/Watercolor-4.jpg" data-caption="Original watercolor"><img src="images/Watercolor-4.jpg" alt="Framed watercolor of pale blue irises." width="1576" height="1920" loading="lazy"/></a><figcaption>Original Watercolor</figcaption></figure>
+        <figure><a class="zoom" href="images/Watercolor-5.jpg" data-caption="Original watercolor"><img src="images/Watercolor-5.jpg" alt="Framed watercolor of a Tuscan landscape with sunflower fields, a farmhouse, and cypress trees." width="1920" height="1561" loading="lazy"/></a><figcaption>Original Watercolor</figcaption></figure>
+        <figure><a class="zoom" href="images/Watercolor-6.jpg" data-caption="Original watercolor"><img src="images/Watercolor-6.jpg" alt="Watercolor of a golden autumn leaf covered in water droplets." width="1920" height="1355" loading="lazy"/></a><figcaption>Original Watercolor</figcaption></figure>
+        <figure><a class="zoom" href="images/Watercolor-7.jpg" data-caption="Original watercolor"><img src="images/Watercolor-7.jpg" alt="Watercolor of silhouetted trees reflected in still water under a pale yellow sky." width="1440" height="1920" loading="lazy"/></a><figcaption>Original Watercolor</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 CAKE & PASTRY -->
+  <section class="cs-section" id="cake-pastry" aria-labelledby="h-02">
+    <div class="wrap">
+      <div class="cs-section-head"><span class="cs-num">02</span><h2 id="h-02">Cake &amp; Pastry Design</h2></div>
+      <p class="cs-copy">35+ years of professional pastry work, from competitive showpieces to wedding cakes designed around a couple's story. Every piece began the way any design project does: a client conversation, a set of constraints, and a vision that had to be translated from concept into something real and beautiful, under pressure.</p>
+
+      <h3 class="cs-sub">From sketch to cake</h3>
+      <p class="cs-copy">Every cake started as a drawing. The sketch captured the client's vision and the structural decisions; the finished cake had to deliver on both.</p>
+      <div class="cs-pair">
+        <figure><a class="zoom" href="images/cake-sketch.jpg" data-caption="Design sketch"><img src="images/cake-sketch.jpg" alt="Pencil sketch of a three-tier wedding cake with sugar roses and a heart topper, annotated with design notes." width="1024" height="1536" loading="lazy"/></a></figure>
+        <span class="cs-pair-arrow" aria-hidden="true">⟶</span>
+        <figure><a class="zoom" href="images/sketch-final.jpg" data-caption="The finished cake"><img src="images/sketch-final.jpg" alt="The finished three-tier cake from the sketch, decorated with cascading yellow, pink, and peach sugar roses." width="1440" height="1920" loading="lazy"/></a></figure>
+      </div>
+
+      <h3 class="cs-sub">Selected cakes</h3>
+      <div class="cs-gallery">
+        <figure><a class="zoom" href="images/Wedding-1.jpg" data-caption="Wedding cake design"><img src="images/Wedding-1.jpg" alt="Four-tier white wedding cake with black damask patterns, black ribbon bands, and red flowers." width="1432" height="1920" loading="lazy"/></a><figcaption>Wedding Cake Design</figcaption></figure>
+        <figure><a class="zoom" href="images/Wedding-2.jpg" data-caption="Wedding cake design"><img src="images/Wedding-2.jpg" alt="Three-tier white wedding cake with textured piping and cascading burgundy lilies and greenery." width="1434" height="1920" loading="lazy"/></a><figcaption>Wedding Cake Design</figcaption></figure>
+        <figure><a class="zoom" href="images/Wedding-3.jpg" data-caption="Wedding cake design"><img src="images/Wedding-3.jpg" alt="Tiered buttercream cake with a bunting banner, topped with yellow lilies and white daisies." width="1440" height="1920" loading="lazy"/></a><figcaption>Wedding Cake Design</figcaption></figure>
+        <figure><a class="zoom" href="images/Wedding-4.jpg" data-caption="Wedding cake design"><img src="images/Wedding-4.jpg" alt="Three-tier lime green cake decorated with white daisies and black and white striped ribbon." width="1440" height="1920" loading="lazy"/></a><figcaption>Wedding Cake Design</figcaption></figure>
+        <figure><a class="zoom" href="images/Wedding-5.jpg" data-caption="Wedding cake design"><img src="images/Wedding-5.jpg" alt="Three-tier white cake with black scroll designs, a red ribbon band, and red gerbera daisies." width="1192" height="1920" loading="lazy"/></a><figcaption>Wedding Cake Design</figcaption></figure>
+        <figure><a class="zoom" href="images/Baby-1.jpg" data-caption="Baby shower design"><img src="images/Baby-1.jpg" alt="Two-tier baby shower cake with blue and green polka dots, rubber ducks, a ribbon bow, and a plaque reading Welcome Baby Boy." width="1432" height="1920" loading="lazy"/></a><figcaption>Baby Shower Design</figcaption></figure>
+        <figure><a class="zoom" href="images/Birthday-1.jpg" data-caption="Birthday cake design"><img src="images/Birthday-1.jpg" alt="Green birthday cake with pink bows, tropical sugar flowers, and a Happy Birthday plaque." width="1433" height="1920" loading="lazy"/></a><figcaption>Birthday Cake Design</figcaption></figure>
+        <figure><a class="zoom" href="images/Birthday-2.jpg" data-caption="Birthday cake design"><img src="images/Birthday-2.jpg" alt="Stacked white cake with purple, lime green, and pink ribbon bows and a glass topper." width="1080" height="1920" loading="lazy"/></a><figcaption>Birthday Cake Design</figcaption></figure>
+        <figure><a class="zoom" href="images/competition-1992.jpg" data-caption="Silhouette Competition, 1992"><img src="images/competition-1992.jpg" alt="Silhouette competition display from 1992: a centerpiece of domed towers on red draped fabric, surrounded by trays of pastries." width="1473" height="1068" loading="lazy"/></a><figcaption>Silhouette Competition · 1992</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 THROUGH LINE -->
+  <section class="cs-section" id="through-line" aria-labelledby="h-03">
+    <div class="wrap">
+      <div class="cs-section-head"><span class="cs-num">03</span><h2 id="h-03">Same Discipline. Different Medium.</h2></div>
+      <p class="cs-quote">The craft changes. The process doesn't. Understand what's being asked for. Translate it. Execute it without excuses.</p>
+      <p class="cs-copy">Whether the canvas is watercolor paper, a tiered cake, or a Figma file, the work starts the same way: a conversation, a set of constraints, and a vision that belongs to someone else and has to be made real with precision. What 35 years of creative practice taught me is that the discipline of craft doesn't transfer. It already is the discipline. UX design wasn't a career change. It was a vocabulary change.</p>
+    </div>
+  </section>
+
 </div>
 
-<!-- SECTION 1: WATERCOLORS (LIGHT) -->
-<div class="section-light">
-  <div class="section-light-inner">
-    <div class="reveal">
-      <p class="section-label">Section 01</p>
-      <h2>Watercolors</h2>
-      <hr class="rule"/>
-    </div>
-    <p class="gallery-intro reveal">Watercolor rewards the same discipline that UX work requires: knowing when to stop. Every mark is committed. There are no undo steps. The medium demands decisions made with confidence and lived with completely — which turns out to be good practice for design.</p>
-    <div class="photo-grid reveal">
-      <div class="photo-item" style="grid-row:span 2;">
-        <img src="images/Watercolor-1.jpg" alt="Watercolor 1"/>
-        <div class="photo-caption">Original Watercolor</div>
-      </div>
-      <div class="photo-item">
-        <img src="images/Watercolor-2.jpg" alt="Watercolor 2"/>
-        <div class="photo-caption">Original Watercolor</div>
-      </div>
-      <div class="photo-item">
-        <img src="images/Watercolor-3.jpg" alt="Watercolor 3"/>
-        <div class="photo-caption">Original Watercolor</div>
-      </div>
-      <div class="photo-item">
-        <img src="images/Watercolor-4.jpg" alt="Watercolor 4"/>
-        <div class="photo-caption">Original Watercolor</div>
-      </div>
-      <div class="photo-item">
-        <img src="images/Watercolor-5.jpg" alt="Watercolor 5"/>
-        <div class="photo-caption">Original Watercolor</div>
-      </div>
-      <div class="photo-item" style="grid-column:span 2;">
-        <img src="images/Watercolor-6.jpg" alt="Watercolor 6"/>
-        <div class="photo-caption">Original Watercolor</div>
-      </div>
-      <div class="photo-item">
-        <img src="images/Watercolor-7.jpg" alt="Watercolor 7"/>
-        <div class="photo-caption">Original Watercolor</div>
-      </div>
-    </div>
+<nav class="cs-nav" aria-label="Project navigation">
+  <div class="wrap cs-nav-row">
+    <a class="cs-nav-link" href="pastry-kitchen/">
+      <span class="cs-nav-eyebrow">⟵ Previous Project</span>
+      <span class="cs-nav-title">The Pastry Kitchen</span>
+    </a>
+    <a class="cs-nav-link next" href="index.html#work">
+      <span class="cs-nav-eyebrow">Back to ⟶</span>
+      <span class="cs-nav-title">All Projects</span>
+    </a>
   </div>
-</div>
+</nav>
 
-<!-- SECTION 2: CAKE & PASTRY (DARK) -->
-<div class="section-dark">
-  <div class="section-dark-inner">
-    <div class="reveal">
-      <p class="section-label">Section 02</p>
-      <h2>Cake &amp; Pastry Design</h2>
-      <hr class="rule"/>
-    </div>
-    <p class="gallery-intro reveal">35+ years of professional pastry work — from competitive showpieces to wedding cakes designed around a couple's story. Every piece began the same way any design project does: a client conversation, a set of constraints, and a vision that had to be translated from concept to something real and beautiful under pressure.</p>
-    <div class="photo-grid-dark reveal">
-      <div class="photo-item-dark" style="grid-row:span 2;">
-        <img src="images/Wedding-1.jpg" alt="Wedding cake design"/>
-        <div class="photo-caption">Wedding Cake Design</div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <p class="f-title">The Drafting Table</p>
+        <p class="f-tag">Designing digital experiences with the precision of architectural thinking.</p>
       </div>
-      <div class="photo-item-dark">
-        <img src="images/Wedding-2.jpg" alt="Wedding cake"/>
-        <div class="photo-caption">Wedding Cake Design</div>
+      <div class="footer-col">
+        <p class="footer-col-title">Work</p>
+        <a href="springfield-cofc/">Springfield CofC</a>
+        <a href="navease/">NavEase</a>
+        <a href="ai-workflows/">AI-Assisted Workflows</a>
+        <a href="pastry-kitchen/">The Pastry Kitchen</a>
+        <a href="creative-work.html" aria-current="page">Creative Work</a>
       </div>
-      <div class="photo-item-dark">
-        <img src="images/Wedding-3.jpg" alt="Wedding cake"/>
-        <div class="photo-caption">Wedding Cake Design</div>
+      <div class="footer-col">
+        <p class="footer-col-title">About</p>
+        <a href="index.html#about">About David</a>
+        <a href="index.html#skills">Capabilities</a>
+        <a href="David_R_Bailey_Resume.pdf" target="_blank" rel="noopener">Resume</a>
       </div>
-      <div class="photo-item-dark">
-        <img src="images/Wedding-4.jpg" alt="Wedding cake"/>
-        <div class="photo-caption">Wedding Cake Design</div>
-      </div>
-      <div class="photo-item-dark">
-        <img src="images/Wedding-5.jpg" alt="Wedding cake"/>
-        <div class="photo-caption">Wedding Cake Design</div>
-      </div>
-      <div class="photo-item-dark">
-        <img src="images/Baby-1.jpg" alt="Baby shower cake"/>
-        <div class="photo-caption">Baby Shower Design</div>
-      </div>
-      <div class="photo-item-dark">
-        <img src="images/Birthday-1.jpg" alt="Birthday cake"/>
-        <div class="photo-caption">Birthday Cake Design</div>
-      </div>
-      <div class="photo-item-dark">
-        <img src="images/Birthday-2.jpg" alt="Birthday cake"/>
-        <div class="photo-caption">Birthday Cake Design</div>
-      </div>
-      <div class="photo-item-dark">
-        <img src="images/cake-sketch.jpg" alt="Cake design sketch"/>
-        <div class="photo-caption">Design Sketch</div>
-      </div>
-      <div class="photo-item-dark">
-        <img src="images/sketch-final.jpg" alt="Final cake design rendering"/>
-        <div class="photo-caption">Final Design Rendering</div>
-      </div>
-      <div class="photo-item-dark" style="grid-column:span 2;">
-        <img src="images/competition-1992.jpg" alt="Silhouette Competition display, 1992" style="object-position:center 40%;"/>
-        <div class="photo-caption">Silhouette Competition · 1992</div>
+      <div class="footer-col">
+        <p class="footer-col-title">Connect</p>
+        <a href="https://www.linkedin.com/in/davidbaileyjr/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:contact@davidrbailey.com">Email</a>
       </div>
     </div>
-  </div>
-</div>
-
-<!-- CLOSING SECTION (LIGHT) -->
-<div class="section-light">
-  <div class="section-light-inner">
-    <div class="reveal">
-      <p class="section-label">The Through Line</p>
-      <h2>Same Discipline. Different Medium.</h2>
-      <hr class="rule"/>
+    <div class="footer-bottom">
+      <p>© 2026 David R. Bailey</p>
+      <p>Springfield, OH</p>
+      <p>Document Revision 2.0</p>
     </div>
-    <p class="closing-quote reveal">"The craft changes. The process doesn't. Understand what's being asked for. Translate it. Execute it without excuses."</p>
-    <p class="closing-body reveal">Whether the canvas is watercolor paper, a tiered cake, or a Figma file — the work starts the same way. A conversation. A set of constraints. A vision that belongs to someone else and has to be made real with precision. What 35 years of creative practice taught me is that the discipline of craft doesn't transfer — it already is the discipline. UX design wasn't a career change. It was a vocabulary change.</p>
-  </div>
-</div>
-
-<!-- FOOTER -->
-<footer>
-  <p>&copy; 2026 David R. Bailey</p>
-  <div class="footer-links">
-    <a href="index.html">Portfolio</a>
-    <a href="index.html#contact">Contact</a>
-    <a href="David_R_Bailey_Resume.pdf" target="_blank">Resume</a>
   </div>
 </footer>
 
-<script>
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
-},{threshold:.08});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-</script>
+<script src="js/site.js" defer></script>
 </body>
 </html>

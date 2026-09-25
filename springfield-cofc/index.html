@@ -3,608 +3,444 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Springfield Church of Christ · Case Study | David R. Bailey</title>
+<title>Springfield Church of Christ Case Study | The Drafting Table</title>
+<meta name="description" content="A 16-year technology partnership with Springfield Church of Christ, redesigning a digital front door that helps first-time visitors connect, attend, and engage."/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="Springfield Church of Christ Case Study | The Drafting Table"/>
+<meta property="og:description" content="Designing a digital front door that better reflected the church's mission while making it easier for visitors to connect, attend, and engage."/>
 <link rel="icon" type="image/png" href="../favicon-96x96.png" sizes="96x96" />
 <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
 <link rel="shortcut icon" href="../favicon.ico" />
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
 <link rel="manifest" href="../site.webmanifest" />
-<style>
-:root{
-  --bg:#ffffff;--bg2:#f5f5f5;--ink:#0d0d0d;--muted:#777;
-  --accent:#2dd4bf;--accent2:#1a9e8e;--border:#ccc7bc;
-  --glass:rgba(255,255,255,0.45);--glass-border:rgba(255,255,255,0.7);
-  --font-sans:'Inter',system-ui,sans-serif;--font-serif:'Georgia',serif;
-}
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{background:var(--bg);color:var(--ink);font-family:var(--font-sans);line-height:1.7;overflow-x:hidden;}
-
-.orb{position:fixed;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0;}
-.orb1{width:700px;height:700px;background:radial-gradient(circle,rgba(45,212,191,.13),transparent 70%);top:-200px;left:-200px;}
-.orb2{width:600px;height:600px;background:radial-gradient(circle,rgba(124,58,237,.09),transparent 70%);top:40%;right:-200px;}
-.orb3{width:500px;height:500px;background:radial-gradient(circle,rgba(29,78,216,.08),transparent 70%);bottom:10%;left:15%;}
-body>*{position:relative;z-index:1;}
-
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.97);backdrop-filter:blur(16px);border-bottom:2px solid var(--ink);}
-.nav-top{display:flex;align-items:center;justify-content:space-between;padding:.6rem 4rem;border-bottom:1px solid var(--border);}
-.nav-date{font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);}
-.nav-logo{font-family:var(--font-serif);font-size:1.55rem;font-weight:bold;letter-spacing:-.02em;color:var(--ink);text-decoration:none;}
-.nav-links{display:flex;list-style:none;}
-.nav-links li{flex:1;text-align:center;border-right:1px solid var(--border);}
-.nav-links li:last-child{border-right:none;}
-.nav-links a{display:block;padding:.55rem 1.4rem;color:var(--ink);text-decoration:none;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;transition:all .2s;}
-.nav-links a:hover{background:var(--ink);color:#fff;}
-
-/* HERO */
-.cs-hero{background:var(--ink);max-width:100%;padding:9rem 4rem 7rem;margin-top:95px;position:relative;overflow:hidden;border-bottom:1px solid #1e1e1c;}
-.cs-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 25% 60%,rgba(45,212,191,.14),transparent 58%);pointer-events:none;}
-.cs-hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(124,58,237,.08),transparent 55%);pointer-events:none;}
-.cs-hero-inner{max-width:1100px;margin:0 auto;position:relative;}
-.cs-back{display:inline-flex;align-items:center;gap:.5rem;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,.4);text-decoration:none;margin-bottom:2.8rem;transition:color .2s;}
-.cs-back::before{content:'←';font-size:.8rem;}
-.cs-back:hover{color:var(--accent);}
-.cs-eyebrow{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--accent);display:block;margin-bottom:1.2rem;}
-.cs-hero h1{font-family:var(--font-serif);font-size:clamp(3.5rem,6.5vw,6.2rem);line-height:.88;letter-spacing:-.03em;color:#fff;margin-bottom:1.8rem;font-weight:bold;}
-.cs-hero h1 em{font-style:italic;color:var(--accent);}
-.cs-hero-sub{font-size:1.05rem;color:rgba(255,255,255,.6);max-width:460px;line-height:1.8;border-left:3px solid var(--accent);padding-left:1.1rem;}
-
-/* SHARED LABELS / HEADINGS */
-.section-label{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem;}
-h2{font-family:var(--font-serif);font-size:clamp(1.9rem,3.5vw,2.8rem);color:var(--ink);margin-bottom:1.2rem;line-height:1.05;letter-spacing:-.02em;font-weight:bold;}
-.rule{border:none;border-top:2px solid var(--ink);margin-bottom:2.5rem;}
-
-/* CASE SECTION */
-.case-meta-row{display:flex;gap:2rem;flex-wrap:wrap;color:var(--muted);font-size:.8rem;margin-top:1rem;padding-top:1rem;}
-.case-meta-row span strong{color:var(--ink);}
-.case-section{margin-bottom:3rem;padding-bottom:3rem;}
-.case-section h3{font-family:var(--font-serif);font-size:clamp(1.35rem,2.5vw,1.65rem);color:var(--ink);font-weight:bold;letter-spacing:-.015em;line-height:1.15;margin-bottom:1rem;}
-.case-section p{color:#444;font-size:1rem;line-height:1.78;margin-bottom:1rem;}
-.case-section ul{color:#444;font-size:1rem;line-height:1.78;padding-left:1.2rem;}
-.case-section ul li{margin-bottom:.4rem;}
-.result-chips{display:flex;gap:0;margin-top:1rem;border:2px solid var(--ink);}
-.result-chip{flex:1;padding:1.5rem;text-align:center;border-right:1px solid var(--border);background:var(--glass);backdrop-filter:blur(10px);}
-.result-chip:last-child{border-right:none;}
-.result-chip .num{font-family:var(--font-serif);font-size:2rem;font-weight:bold;background:linear-gradient(135deg,var(--accent),#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;}
-.result-chip .lbl{font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;}
-
-/* BEFORE / AFTER */
-.scc-ba-wrap{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin:1.5rem 0 2rem;align-items:start;}
-.scc-ba-col{display:flex;flex-direction:column;}
-.scc-ba-state-lbl{font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding:.2rem .7rem;border:1px solid;display:inline-block;margin-bottom:.8rem;width:fit-content;}
-.scc-ba-state-lbl.scc-before{color:#aaa;border-color:#ddd;background:#fafafa;}
-.scc-ba-state-lbl.scc-after{color:var(--accent2);border-color:rgba(45,212,191,.35);background:rgba(45,212,191,.04);}
-.scc-browser{border:2px solid var(--ink);overflow:hidden;}
-.scc-screenshot{width:100%;display:block;object-fit:cover;object-position:center top;}
-.scc-chrome{height:26px;background:#e4e4e4;border-bottom:1px solid #ccc;display:flex;align-items:center;padding:0 8px;gap:5px;flex-shrink:0;}
-.scc-chrome-dot{width:7px;height:7px;border-radius:50%;background:#bbb;}
-.scc-chrome-bar{flex:1;height:13px;background:#fff;border:1px solid #ccc;border-radius:2px;margin:0 6px;}
-.scc-diff-list{list-style:none;margin-top:.9rem;}
-.scc-diff-item{display:flex;align-items:baseline;gap:.65rem;padding:.45rem 0;border-bottom:1px solid var(--border);font-size:.8rem;color:#555;line-height:1.55;}
-.scc-diff-item:last-child{border-bottom:none;}
-.scc-diff-num{font-family:var(--font-serif);font-size:1.05rem;font-weight:bold;color:#ddd;flex-shrink:0;line-height:1;width:1.2rem;text-align:right;}
-.scc-diff-num.improved{color:var(--accent);}
-.scc-diff-item strong{color:var(--ink);}
-
-/* ANNOUNCEMENT / TEXT HELPERS */
-.scc-announcement{background:#fff;border:1px solid #ccc;padding:3px 4px;margin-bottom:3px;}
-.scc-ann-head{font-size:.4rem;font-weight:700;color:#1b3d72;text-transform:uppercase;line-height:1.3;margin-bottom:2px;}
-.scc-txt{height:3px;background:#ccc;border-radius:1px;margin-bottom:2px;}
-.scc-txt.scc-b{background:#888;height:4px;}
-.scc-txt.scc-s{width:60%;}
-.scc-txt.scc-m{width:78%;}
-
-/* BUILDING IMAGE */
-.scc-building-img{border:2px solid var(--ink);overflow:hidden;margin-bottom:2.5rem;}
-.scc-building-img img{width:100%;height:auto;display:block;}
-
-/* PLATFORM TIMELINE */
-.scc-platform-timeline-wrap{position:relative;}
-.scc-platform-timeline{display:flex;align-items:center;gap:0;margin-top:1.5rem;border:1px solid var(--border);overflow-x:auto;-webkit-overflow-scrolling:touch;}
-.scc-scroll-hint{display:none;}
-.scc-platform-phase{flex:1;min-width:90px;padding:.7rem .6rem;background:var(--bg2);text-align:center;}
-.scc-platform-phase.scc-platform-current{background:rgba(45,212,191,.06);border-bottom:2px solid var(--accent);}
-.scc-platform-label{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--ink);margin-bottom:.2rem;}
-.scc-platform-current .scc-platform-label{color:var(--accent2);}
-.scc-platform-sub{font-size:.65rem;color:var(--muted);}
-.scc-platform-connector{font-size:.75rem;color:var(--border);flex-shrink:0;padding:0 .1rem;}
-
-/* PARTNERSHIP BAND */
-.scc-partner-band{display:flex;justify-content:center;border:1px solid var(--border);overflow:hidden;margin:1.5rem 0 2rem;}
-.scc-partner-stat{flex:1;padding:1.1rem .8rem;text-align:center;background:rgba(45,212,191,.04);border-right:1px solid var(--border);}
-.scc-partner-stat:last-child{border-right:none;}
-.scc-partner-num{font-family:var(--font-serif);font-size:1.9rem;font-weight:700;color:var(--accent);line-height:1;}
-.scc-partner-lbl{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:.35rem;}
-
-/* PROCESS TABLE */
-.scc-process-wrap{margin:1.5rem 0 2rem;overflow-x:auto;}
-.scc-process-table{width:100%;border-collapse:collapse;font-size:.82rem;}
-.scc-process-table th{background:rgba(45,212,191,.08);color:var(--accent2);font-family:var(--font-serif);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;padding:.65rem 1rem;text-align:left;border-bottom:2px solid var(--accent);}
-.scc-process-table td{padding:.7rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;color:#555;line-height:1.55;}
-.scc-process-table tr:last-child td{border-bottom:none;}
-.scc-process-table td:first-child{font-weight:700;color:var(--ink);white-space:nowrap;}
-.scc-process-table td strong{color:var(--accent2);}
-
-/* CS CONTENT WRAPPER */
-.cs-content{max-width:1100px;margin:0 auto;padding:4rem 4rem 7rem;}
-
-/* PROSE LAYOUT */
-.cs-content .case-section{margin-bottom:3rem;}
-.cs-content .case-section p{max-width:680px;margin-left:auto;margin-right:auto;margin-bottom:1.1rem;line-height:1.78;}
-.cs-content .case-section>ul{max-width:680px;margin-left:auto;margin-right:auto;}
-
-/* CHAPTER / PART HEADERS */
-.cs-part-header{margin:5rem 0 2.5rem;padding:2rem 0 1.8rem;}
-.cs-part-num{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--accent);display:block;margin-bottom:.6rem;font-family:var(--font-sans);}
-.cs-part-title{font-family:var(--font-serif);font-size:clamp(2.6rem,5vw,4rem);color:var(--ink);line-height:.95;letter-spacing:-.03em;font-weight:bold;}
-
-/* SECTION STEP LABELS — same treatment as part numbers, scaled to h3 */
-.cs-step-num{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--accent);display:block;margin-bottom:.4rem;font-family:var(--font-sans);}
-
-/* FOOTER */
-footer{border-top:2px solid var(--ink);padding:2rem 4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;background:var(--bg);}
-footer p{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;}
-.footer-links{display:flex;gap:1.5rem;}
-.footer-links a{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:color .2s;}
-.footer-links a:hover{color:var(--ink);}
-
-/* REVEAL */
-.reveal{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease;}
-.reveal.visible{opacity:1;transform:none;}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-  nav .nav-top{padding:.7rem 1.5rem;display:flex;flex-direction:column;align-items:center;gap:.2rem;}
-  .nav-logo{order:1;justify-content:center;}
-  nav .nav-top .nav-date:last-of-type{order:2;text-align:center;}
-  nav .nav-top .nav-date:first-of-type{order:3;font-size:.58rem;opacity:.6;text-align:center;}
-  .nav-links a{padding:.5rem .4rem;font-size:.62rem;letter-spacing:.07em;}
-  .cs-hero{padding:7rem 1.5rem 5rem;}
-  .cs-content{padding:2.5rem 1.5rem 5rem;}
-  footer{padding:2rem 1.5rem;}
-  h2{font-size:2rem;}
-  .scc-ba-wrap{grid-template-columns:1fr;}
-  .scc-partner-band{flex-direction:column;}
-  .scc-partner-stat{border-right:none;border-bottom:1px solid var(--border);}
-  .scc-partner-stat:last-child{border-bottom:none;}
-  .scc-process-table th,.scc-process-table td{padding:.55rem .6rem;}
-  .scc-platform-timeline-wrap::after{content:'';position:absolute;top:0;right:0;bottom:0;width:48px;background:linear-gradient(to right,transparent,rgba(255,255,255,.95));pointer-events:none;margin-top:1.5rem;}
-  .scc-scroll-hint{display:flex;align-items:center;justify-content:center;gap:.3rem;font-size:.58rem;letter-spacing:.06em;text-transform:uppercase;font-style:italic;opacity:.45;color:var(--muted);margin-top:.4rem;}
-  .scc-scroll-hint::after{content:'→';font-size:.58rem;font-style:normal;}
-  .wf-exploration-grid{grid-template-columns:1fr;}
-  .mob-wf-grid{grid-template-columns:1fr;}
-  .ia-decisions-grid{grid-template-columns:1fr;}
-  .cs-part-title{font-size:2.4rem;}
-  .case-section h3{font-size:1.35rem;}
-}
-
-@media(max-width:540px){
-  .mob-wf-states{grid-template-columns:1fr;}
-}
-
-/* IA / SITE MAP SECTION */
-.ia-section h3.wf-section-head{font-family:var(--font-serif);font-size:clamp(1.35rem,2.5vw,1.65rem);color:var(--ink);font-weight:bold;letter-spacing:-.015em;text-transform:none;margin-bottom:1.2rem;line-height:1.15;}
-.ia-diagram-block{margin:1.5rem 0;}
-.ia-diagram-label{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;margin-bottom:.6rem;display:block;}
-.ia-diagram-label.ia-before{color:var(--muted);}
-.ia-diagram-label.ia-after{color:var(--accent);}
-.ia-diagram-block img{width:100%;display:block;border:1px solid var(--border);border-radius:2px;}
-.ia-caption{font-size:.75rem;color:var(--muted);line-height:1.55;margin-top:.65rem;padding-left:.1rem;}
-.ia-decisions-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem 2.5rem;margin:1.5rem 0 1.2rem;}
-.ia-decision-item{}
-.ia-decision-label{font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:.2rem;}
-.ia-decision-body{font-size:.85rem;color:#555;line-height:1.65;}
-
-/* MOBILE WIREFRAME EXPLORATION */
-.mob-wf-section h3.wf-section-head{font-family:var(--font-serif);font-size:clamp(1.35rem,2.5vw,1.65rem);color:var(--ink);font-weight:bold;letter-spacing:-.015em;text-transform:none;margin-bottom:1.2rem;line-height:1.15;}
-.mob-wf-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin:1.5rem 0 2rem;}
-.mob-wf-block{border:1px solid var(--border);padding:1.5rem;display:flex;flex-direction:column;gap:.75rem;}
-.mob-wf-hyp{font-size:.82rem;color:var(--muted);line-height:1.6;font-style:italic;}
-.mob-wf-states{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:.25rem;}
-.mob-wf-state{display:flex;flex-direction:column;align-items:center;gap:.4rem;}
-.mob-wf-state img{width:100%;display:block;border:1px solid var(--border);border-radius:2px;}
-.mob-wf-caption{font-size:.72rem;color:var(--muted);text-align:center;line-height:1.4;}
-
-/* WIREFRAME EXPLORATION */
-.wf-exploration-section h3.wf-section-head{font-family:var(--font-serif);font-size:clamp(1.35rem,2.5vw,1.65rem);color:var(--ink);font-weight:bold;letter-spacing:-.015em;text-transform:none;margin-bottom:1.2rem;line-height:1.15;}
-.wf-exploration-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin:1.5rem 0 2rem;}
-.wf-card{display:flex;flex-direction:column;}
-.wf-card img{width:100%;display:block;border:1px solid var(--border);border-radius:2px;}
-.wf-var-label{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-top:.9rem;margin-bottom:.25rem;}
-.wf-var-title{font-family:var(--font-serif);font-size:1rem;color:var(--ink);font-weight:bold;margin-bottom:.35rem;line-height:1.2;}
-.wf-var-desc{font-size:.82rem;color:var(--muted);line-height:1.6;}
-</style>
+<script>document.documentElement.classList.add('js');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/site.css">
 </head>
 <body>
 
-<div class="orb orb1"></div>
-<div class="orb orb2"></div>
-<div class="orb orb3"></div>
+<a class="skip-link" href="#main-content">Skip to content</a>
 
-<!-- NAV -->
-<nav>
-  <div class="nav-top">
-    <span class="nav-date">Portfolio · 2026</span>
-    <a href="/" class="nav-logo">DAVID R. BAILEY</a>
-    <span class="nav-date">UX/UI Designer &amp; Technologist</span>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="../index.html" aria-label="The Drafting Table homepage">
+      <div class="brand-mark" aria-hidden="true">DB</div>
+      <div class="brand-text">
+        <p class="title">The Drafting Table</p>
+        <p class="subtitle">Designing Digital Experiences</p>
+      </div>
+    </a>
+
+    <nav class="links" aria-label="Primary">
+      <a href="../index.html#work" aria-current="page">WORK</a>
+      <a href="../index.html#about">ABOUT</a>
+      <a href="../index.html#skills">SKILLS</a>
+      <a href="../index.html#resume">RESUME</a>
+      <a href="../index.html#contact">CONTACT</a>
+    </nav>
+
+    <div class="badge">CASE STUDY<br>SHEET 001</div>
+
+    <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+      <span class="hamburger" aria-hidden="true"></span>
+    </button>
   </div>
-  <ul class="nav-links">
-    <li><a href="/#work">Work</a></li>
-    <li><a href="/#about-strip">About</a></li>
-    <li><a href="/#skills">Skills</a></li>
-    <li><a href="/#resume">Resume</a></li>
-    <li><a href="/#contact">Contact</a></li>
-  </ul>
-</nav>
+
+  <nav id="mobileMenu" class="mobile-menu" aria-label="Mobile" hidden>
+    <a href="../index.html#work">Work</a>
+    <a href="../index.html#about">About</a>
+    <a href="../index.html#skills">Skills</a>
+    <a href="../index.html#resume">Resume</a>
+    <a href="../index.html#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="main-content">
 
 <!-- HERO -->
-<div class="cs-hero">
-  <div class="cs-hero-inner">
-    <a href="/#work" class="cs-back reveal">Back to Portfolio</a>
-    <span class="cs-eyebrow reveal">Case Study &middot; 2010&ndash;Present</span>
-    <h1 class="reveal">Springfield Church<br>of <em>Christ</em></h1>
-    <p class="cs-hero-sub reveal">Website Redesign &amp; 16-Year Digital Partnership</p>
-  </div>
-</div>
+<section class="cs-hero cs-hero--paper" aria-labelledby="cs-title">
+  <img class="cs-hero-bg" src="../images/scc-hero-drawing.jpg" alt="" width="1672" height="941"/>
+  <div class="wrap">
+    <a class="cs-breadcrumb" href="../index.html#work">⟵ All Projects</a>
 
-<!-- CONTENT -->
-<div class="cs-content">
-
-  <div class="reveal">
-    <p class="section-label">Case Study</p>
-    <h2>Springfield Church of Christ</h2>
-    <div class="case-meta-row">
-      <span><strong>Role:</strong> UX/UI Designer &amp; Digital Strategy Lead</span>
-      <span><strong>Timeline:</strong> 2010 – Present</span>
-      <span><strong>Tools:</strong> Figma, VS Code, GitHub, Netlify, Google Analytics, Hotjar</span>
+    <div class="cs-hero-top">
+      <div>
+        <p class="cs-eyebrow">Case Study 001 · 2010–Present</p>
+        <p class="cs-kicker">Website Redesign &amp; 16-Year Digital Partnership</p>
+        <h1 class="cs-title" id="cs-title">Springfield Church of <span class="accent">Christ</span></h1>
+        <p class="cs-position">Designing a digital front door that better reflected the church's mission while making it easier for visitors to connect, attend, and engage.</p>
+      </div>
+      <div class="cs-hero-devices">
+        <img src="../images/scc-devices.png" alt="The redesigned Springfield Church of Christ website shown on a laptop and a phone." width="1500" height="993"/>
+      </div>
     </div>
-  </div>
 
-  <div class="cs-part-header reveal" style="margin-top:1.5rem;margin-bottom:.75rem;padding-top:0;padding-bottom:0;">
-    <span class="cs-part-num">Part 01</span>
-    <p class="cs-part-title">Overview</p>
+    <dl class="cs-facts">
+      <div class="cs-fact"><dt>Role</dt><dd>UX/UI Design, Research, Digital Strategy Lead, Development</dd></div>
+      <div class="cs-fact"><dt>Timeline</dt><dd>2010–Present · 16 Years</dd></div>
+      <div class="cs-fact"><dt>Tools</dt><dd>Figma, VS Code, Google Analytics, Hotjar</dd></div>
+      <div class="cs-fact"><dt>Platform</dt><dd>WordPress → Wix → hand-built on GitHub + Netlify</dd></div>
+    </dl>
   </div>
+</section>
 
-  <div class="scc-building-img reveal">
-    <img src="/images/church-building.jpg" alt="Springfield Church of Christ, 1620 Buck Creek Lane, Springfield, OH"/>
-  </div>
+<div class="cs-body">
 
-  <div class="case-section reveal">
-    <h3>Project Overview</h3>
-    <p>What began as a website redesign became a decade-long technology partnership. As SCC's de facto technology advisor, I led a full UX redesign and digital strategy, integrated a networked security camera system, managed and upgraded network infrastructure, advised on three computer replacements, and built a live streaming capability — alongside the church's AV team — that kept the congregation connected through illness, distance, and COVID-19.</p>
-    <p>The technical foundation evolved in step. I inherited the site on WordPress, moved it to Wix for design flexibility, then rebuilt it by hand in VS Code — version-controlled on GitHub and deployed on Netlify.</p>
-    <div class="scc-platform-timeline-wrap">
-      <div class="scc-platform-timeline">
-        <div class="scc-platform-phase">
-          <div class="scc-platform-label">WordPress</div>
-          <div class="scc-platform-sub">Inherited &amp; adapted</div>
+  <!-- 01 STARTING POINT -->
+  <section class="cs-section" id="starting-point" aria-labelledby="h-01">
+    <div class="wrap">
+      <div class="cs-section-head"><span class="cs-num">01</span><h2 id="h-01">The Starting Point</h2></div>
+      <p class="cs-copy">The church's website had become an information repository instead of an invitation. New visitors struggled to understand who the church was, what to expect, or how to take the next step. Service times, beliefs, and events all took multiple clicks, with no calls to action guiding anyone forward.</p>
+      <p class="cs-copy">The first step was rethinking the website from the perspective of a first-time visitor instead of someone who already knew the church. What started as a redesign grew into a long-term technology partnership. As SCC's de facto technology advisor, I led the UX redesign and digital strategy, integrated a networked security camera system, managed and upgraded the network, advised on three computer replacements, and worked alongside the church's AV team to build a live streaming capability that kept the congregation connected through illness, distance, and COVID-19.</p>
+
+      <h3 class="cs-sub">The challenge ran deeper than the website</h3>
+      <div class="cs-split">
+        <div>
+          <h3>Digital experience</h3>
+          <ul class="cs-list">
+            <li>Outdated design no longer reflected the church's mission</li>
+            <li>First-time visitors had no clear path to connect or plan a visit</li>
+            <li>Navigation made important information difficult to find</li>
+            <li>Low digital engagement limited outreach and community growth</li>
+            <li>Inconsistent event participation with no digital conversion path</li>
+            <li>Website and social media operated in silos</li>
+          </ul>
         </div>
-        <div class="scc-platform-connector">→</div>
-        <div class="scc-platform-phase">
-          <div class="scc-platform-label">Wix</div>
-          <div class="scc-platform-sub">Redesign &amp; flexibility</div>
-        </div>
-        <div class="scc-platform-connector">→</div>
-        <div class="scc-platform-phase scc-platform-current">
-          <div class="scc-platform-label">VS Code</div>
-          <div class="scc-platform-sub">Custom-built</div>
-        </div>
-        <div class="scc-platform-connector">→</div>
-        <div class="scc-platform-phase scc-platform-current">
-          <div class="scc-platform-label">GitHub</div>
-          <div class="scc-platform-sub">Version control</div>
-        </div>
-        <div class="scc-platform-connector">→</div>
-        <div class="scc-platform-phase scc-platform-current">
-          <div class="scc-platform-label">Netlify</div>
-          <div class="scc-platform-sub">Deployed &amp; live</div>
+        <div>
+          <h3>Operations &amp; infrastructure</h3>
+          <ul class="cs-list">
+            <li>Volunteers found the site difficult to update and maintain</li>
+            <li>No live streaming, leaving services inaccessible to remote or ill congregants</li>
+            <li>Aging, unmanaged network infrastructure</li>
+            <li>Outdated hardware with no replacement strategy</li>
+            <li>No security camera system for facility monitoring</li>
+            <li>Limited budget and volunteer support across every initiative</li>
+          </ul>
         </div>
       </div>
-      <p class="scc-scroll-hint">Swipe</p>
-    </div>
-  </div>
 
-  <div class="case-section reveal">
-    <h3>The Challenge</h3>
-    <p>First-time visitors couldn't find essential information. Service times, beliefs, and events required multiple clicks with no CTAs guiding next steps — and the digital challenges ran deeper than the website.</p>
-    <ul>
-      <li>Low digital engagement limited outreach and community growth</li>
-      <li>Inconsistent event participation with no digital conversion path</li>
-      <li>Website and social media operated in silos</li>
-      <li>No live streaming capability, leaving services inaccessible to remote or ill congregants</li>
-      <li>Aging, unmanaged network infrastructure inadequate for modern digital demands</li>
-      <li>Outdated hardware with no clear procurement or replacement strategy</li>
-      <li>No security camera system for facility monitoring</li>
-      <li>Limited budget and volunteer support across every initiative</li>
-    </ul>
-  </div>
-
-  <!-- ============================================================ -->
-  <!-- PART 2: THE PROCESS                                          -->
-  <!-- ============================================================ -->
-  <div class="cs-part-header reveal">
-    <span class="cs-part-num">Part 02</span>
-    <p class="cs-part-title">The Process</p>
-  </div>
-
-  <div class="case-section reveal">
-    <h3>Research &amp; Planning</h3>
-    <p>Analytics showed high drop-off on key pages. Heatmaps revealed hesitation in primary navigation. Task-based walkthroughs confirmed visitors could find information — but it took too many steps.</p>
-    <ul>
-      <li>Critical information buried beneath layered navigation</li>
-      <li>Dense text reduced readability and engagement</li>
-      <li>No consistent CTA hierarchy guided user journeys</li>
-      <li>Social traffic lacked a defined conversion path</li>
-    </ul>
-  </div>
-
-  <!-- IA / Site Map Section -->
-  <div class="case-section ia-section reveal">
-    <h3 class="wf-section-head">Site Map — Before &amp; After</h3>
-    <p>The existing site had evolved organically over years of incremental updates, resulting in redundant sermon and video paths, duplicate event listings, and inconsistent labeling. The redesign began by mapping the full existing structure, identifying the friction points, then proposing a simplified hierarchy built around two primary user goals.</p>
-    <div class="ia-diagram-block">
-      <span class="ia-diagram-label ia-before">Before — existing structure</span>
-      <img src="/images/ia-before.png" alt="Information architecture diagram of the existing Springfield Church of Christ site — 5 top-level nav items with inconsistent depth ranging from 2 to 4 levels, redundant sermon and video paths, and no dedicated entry point for first-time visitors" />
-      <p class="ia-caption">5 top-level nav items &middot; inconsistent depth (2–4 levels) &middot; redundant sermon and video paths &middot; no dedicated first-time visitor entry point</p>
-    </div>
-    <p>Three core problems drove the restructure: content was duplicated across multiple nav paths, first-time visitors had no clear entry point, and the 'Watch Online' journey required too many clicks to reach.</p>
-    <div class="ia-diagram-block">
-      <span class="ia-diagram-label ia-after">After — proposed structure</span>
-      <img src="/images/ia-after.png" alt="Information architecture diagram of the proposed Springfield Church of Christ site — 6 top-level nav items at maximum 2-click depth, a single path to each destination, and two distinct user journeys for first-time visitors and returning members" />
-      <p class="ia-caption">6 top-level nav items &middot; max 2-click depth &middot; single path to each destination &middot; two distinct user journeys supported</p>
-    </div>
-    <div class="ia-decisions-grid">
-      <div class="ia-decision-item">
-        <p class="ia-decision-label">Consolidated livestream access</p>
-        <p class="ia-decision-body">Watch Live appears once — not scattered across two separate nav branches.</p>
-      </div>
-      <div class="ia-decision-item">
-        <p class="ia-decision-label">New Here as a dedicated path</p>
-        <p class="ia-decision-body">First-time visitors get a direct route to service times, beliefs, and visit planning.</p>
-      </div>
-      <div class="ia-decision-item">
-        <p class="ia-decision-label">Sermons replaces Messages</p>
-        <p class="ia-decision-body">Consistent, expected labeling eliminates the ambiguity of the old "Messages" / "Past Messages" split.</p>
-      </div>
-      <div class="ia-decision-item">
-        <p class="ia-decision-label">Events centralized</p>
-        <p class="ia-decision-body">Calendar and Upcoming merged into a single Events destination.</p>
-      </div>
-      <div class="ia-decision-item">
-        <p class="ia-decision-label">Reduced navigation depth</p>
-        <p class="ia-decision-body">All key content reachable within 2 clicks of the homepage.</p>
-      </div>
-      <div class="ia-decision-item">
-        <p class="ia-decision-label">Two journeys, one structure</p>
-        <p class="ia-decision-body">First-time visitors and returning members both served without structural compromise.</p>
+      <h3 class="cs-sub">A platform that evolved with the partnership</h3>
+      <p class="cs-copy">I inherited the site on WordPress, moved it to Wix for design flexibility, then rebuilt it by hand in VS Code, with version control on GitHub and deployment on Netlify.</p>
+      <div class="cs-platform" role="list">
+        <div role="listitem"><b>WordPress</b><span>Inherited &amp; adapted</span></div>
+        <div role="listitem"><b>Wix</b><span>Redesign &amp; flexibility</span></div>
+        <div role="listitem" class="current"><b>VS Code</b><span>Custom-built</span></div>
+        <div role="listitem" class="current"><b>GitHub</b><span>Version control</span></div>
+        <div role="listitem" class="current"><b>Netlify</b><span>Deployed &amp; live</span></div>
       </div>
     </div>
-    <p>This structure became the foundation for both the wireframe exploration and the final design. Every layout decision in the wireframes maps back to this hierarchy.</p>
-  </div>
+  </section>
 
-  <div class="case-section reveal">
-    <h3>Process at a Glance</h3>
-    <div class="scc-process-wrap">
-      <table class="scc-process-table">
-        <thead>
-          <tr><th>Phase</th><th>Activities</th><th>Outcome</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Discovery</td>
-            <td>Analytics review, heatmap analysis, task-based walkthroughs</td>
-            <td>Identified visitor friction points</td>
-          </tr>
-          <tr>
-            <td>IA &amp; Navigation</td>
-            <td>Navigation restructure, CTA hierarchy, mobile-first layout</td>
-            <td>Reduced clicks to critical info</td>
-          </tr>
-          <tr>
-            <td>Accessibility</td>
-            <td>WCAG contrast, simplified nav, readable typography</td>
-            <td>Improved usability for older users</td>
-          </tr>
-          <tr>
-            <td>Iteration</td>
-            <td>Ongoing analytics review, content updates, streaming build</td>
-            <td><strong>78% traffic growth, 2&times; event attendance</strong></td>
-          </tr>
-        </tbody>
-      </table>
+  <!-- 02 RESEARCH -->
+  <section class="cs-section" id="research" aria-labelledby="h-02">
+    <div class="wrap">
+      <div class="cs-section-head"><span class="cs-num">02</span><h2 id="h-02">Research</h2></div>
+      <p class="cs-copy">Understanding the people behind the website came first. I met with church leadership, reviewed analytics, observed visitor behavior, and audited the existing content to understand where people were getting stuck.</p>
+
+      <div class="cs-cards">
+        <div class="cs-card"><span class="cs-card-tag">Method</span><p class="cs-card-title">Stakeholder interviews</p><p class="cs-card-desc">Leadership goals, audience priorities, and what "success" meant for the church.</p></div>
+        <div class="cs-card"><span class="cs-card-tag">Method</span><p class="cs-card-title">Google Analytics</p><p class="cs-card-desc">Traffic sources, entry pages, and high drop-off on key pages.</p></div>
+        <div class="cs-card"><span class="cs-card-tag">Method</span><p class="cs-card-title">Hotjar behavior analysis</p><p class="cs-card-desc">Heatmaps revealed hesitation in the primary navigation.</p></div>
+        <div class="cs-card"><span class="cs-card-tag">Method</span><p class="cs-card-title">Task-based walkthroughs</p><p class="cs-card-desc">Visitors could find information, but it took too many steps.</p></div>
+        <div class="cs-card"><span class="cs-card-tag">Method</span><p class="cs-card-title">Content audit &amp; competitive review</p><p class="cs-card-desc">Duplicated pages, digitized paper documents, and how peer churches greet newcomers.</p></div>
+        <div class="cs-card"><span class="cs-card-tag">Method</span><p class="cs-card-title">Card sorting</p><p class="cs-card-desc">Labels and groupings that matched how visitors think, not how the church is organized.</p></div>
+      </div>
+
+      <h3 class="cs-sub">What the research showed</h3>
+      <ul class="cs-list">
+        <li>Critical information buried beneath layered navigation</li>
+        <li>Dense text reduced readability and engagement</li>
+        <li>No consistent CTA hierarchy guided user journeys</li>
+        <li>Social traffic lacked a defined conversion path</li>
+        <li>Older users, the church's primary demographic, hesitated and dropped off in the navigation</li>
+      </ul>
     </div>
-  </div>
+  </section>
 
-  <!-- Wireframe Exploration Section -->
-  <div class="case-section wf-exploration-section reveal">
-    <h3 class="wf-section-head">Wireframe Exploration</h3>
-    <p>Before committing to any visual design, I explored three distinct layout structures — each built around a different hypothesis about the primary user goal. All three were built at 1440px desktop width using only rectangles, text labels, and spacing. No color, no imagery, no styling decisions.</p>
-    <div class="wf-exploration-grid">
-      <div class="wf-card">
-        <img src="/images/wireframe-a.png" alt="Wireframe Variation A — broadcast-first layout with centered hero and card grid at 1440px desktop width" />
-        <p class="wf-var-label">Variation A</p>
-        <p class="wf-var-title">Broadcast-first</p>
-        <p class="wf-var-desc">Tests whether a full-bleed hero with centered copy and dual CTAs is enough to orient a first-time visitor and drive action above the fold.</p>
+  <!-- 03 INFORMATION ARCHITECTURE -->
+  <section class="cs-section" id="architecture" aria-labelledby="h-03">
+    <div class="wrap">
+      <div class="cs-section-head"><span class="cs-num">03</span><h2 id="h-03">Site Map: Before &amp; After</h2></div>
+      <p class="cs-copy">The existing site had evolved organically over years of incremental updates, leaving redundant sermon and video paths, duplicate event listings, and inconsistent labeling. The redesign began by mapping the full structure, identifying the friction points, then proposing a simplified hierarchy built around two primary user goals.</p>
+
+      <figure class="cs-figure">
+        <span class="cs-label">Before: existing structure</span>
+        <a class="zoom" href="../images/ia-before.png" data-caption="Existing structure: 5 top-level items, inconsistent depth (2–4 levels), redundant sermon and video paths.">
+          <img class="cs-shot" src="../images/ia-before.png" alt="Information architecture diagram of the existing site: 5 top-level nav items with inconsistent depth ranging from 2 to 4 levels, redundant sermon and video paths, and no dedicated entry point for first-time visitors." loading="lazy"/>
+        </a>
+        <figcaption class="cs-caption">5 top-level nav items · inconsistent depth (2–4 levels) · redundant sermon and video paths · no dedicated first-time visitor entry point</figcaption>
+      </figure>
+
+      <p class="cs-copy" style="margin-top:44px;">Three core problems drove the restructure: content was duplicated across multiple nav paths, first-time visitors had no clear entry point, and the "Watch Online" journey took too many clicks.</p>
+
+      <figure class="cs-figure">
+        <span class="cs-label good">After: proposed structure</span>
+        <a class="zoom" href="../images/ia-after.png" data-caption="Proposed structure: 6 top-level items, max 2-click depth, two distinct user journeys.">
+          <img class="cs-shot" src="../images/ia-after.png" alt="Information architecture diagram of the proposed site: 6 top-level nav items at maximum 2-click depth, a single path to each destination, and two distinct journeys for first-time visitors and returning members." loading="lazy"/>
+        </a>
+        <figcaption class="cs-caption">6 top-level nav items · max 2-click depth · single path to each destination · two distinct user journeys supported</figcaption>
+      </figure>
+
+      <div class="cs-cards">
+        <div class="cs-card"><span class="cs-card-tag">Decision</span><p class="cs-card-title">Consolidated livestream access</p><p class="cs-card-desc">Watch Live appears once instead of being scattered across two separate nav branches.</p></div>
+        <div class="cs-card"><span class="cs-card-tag">Decision</span><p class="cs-card-title">"New Here" as a dedicated path</p><p class="cs-card-desc">First-time visitors get a direct route to service times, beliefs, and visit planning.</p></div>
+        <div class="cs-card"><span class="cs-card-tag">Decision</span><p class="cs-card-title">Sermons replaces Messages</p><p class="cs-card-desc">Expected labeling ends the ambiguity of the old "Messages" / "Past Messages" split.</p></div>
+        <div class="cs-card"><span class="cs-card-tag">Decision</span><p class="cs-card-title">Events centralized</p><p class="cs-card-desc">Calendar and Upcoming merged into a single Events destination.</p></div>
+        <div class="cs-card"><span class="cs-card-tag">Decision</span><p class="cs-card-title">Reduced navigation depth</p><p class="cs-card-desc">All key content reachable within 2 clicks of the homepage.</p></div>
+        <div class="cs-card"><span class="cs-card-tag">Decision</span><p class="cs-card-title">Two journeys, one structure</p><p class="cs-card-desc">First-time visitors and returning members both served without structural compromise.</p></div>
       </div>
-      <div class="wf-card">
-        <img src="/images/wireframe-b.png" alt="Wireframe Variation B — information-forward layout with split hero and persistent sidebar at 1440px desktop width" />
-        <p class="wf-var-label">Variation B</p>
-        <p class="wf-var-title">Information-forward</p>
-        <p class="wf-var-desc">Tests whether a split hero and persistent sidebar can serve both new and returning visitors simultaneously without sacrificing either experience.</p>
-      </div>
-      <div class="wf-card">
-        <img src="/images/wireframe-c.png" alt="Wireframe Variation C — story-driven layout with stacked narrative and alternating sections at 1440px desktop width" />
-        <p class="wf-var-label">Variation C</p>
-        <p class="wf-var-title">Story-driven</p>
-        <p class="wf-var-desc">Tests whether an editorial, narrative-first layout builds enough trust with a skeptical first-time visitor before asking them to commit to a visit.</p>
-      </div>
+      <p class="cs-copy" style="margin-top:32px;">This structure became the foundation for both the wireframe exploration and the final design. Every layout decision maps back to this hierarchy.</p>
     </div>
-    <p>Variation C was selected as the foundation for the final design. The alternating section rhythm, single-CTA hero, and narrative flow aligned most closely with what research revealed about the site's primary audience — first-time visitors who needed to understand who the church was before they would consider showing up.</p>
-  </div>
+  </section>
 
-  <!-- Mobile Wireframe Section -->
-  <div class="case-section mob-wf-section reveal">
-    <h3 class="wf-section-head">Mobile Navigation Exploration</h3>
-    <p>Mobile users were identified as the primary audience for first-time visitors — most people search for a church on their phone Sunday morning. Two distinct navigation patterns were explored at 390px, each with two states shown to demonstrate interaction behavior.</p>
-    <div class="mob-wf-grid">
-      <div class="mob-wf-block">
-        <p class="wf-var-label">Variation M1</p>
-        <p class="wf-var-title">Hamburger Nav</p>
-        <p class="mob-wf-hyp">Tests whether the familiar hamburger pattern gives first-time visitors enough confidence to find service times and plan a visit without friction.</p>
-        <div class="mob-wf-states">
-          <div class="mob-wf-state">
-            <img src="/images/mobile-m1-closed.png" alt="Mobile wireframe M1 default state — hamburger nav closed, full homepage visible at 390px" />
-            <p class="mob-wf-caption">Default state — hero + trust strip visible</p>
+  <!-- 04 EXPLORING SOLUTIONS -->
+  <section class="cs-section" id="exploring-solutions" aria-labelledby="h-04">
+    <div class="wrap">
+      <div class="cs-section-head"><span class="cs-num">04</span><h2 id="h-04">Exploring Solutions</h2></div>
+      <p class="cs-copy">With the information architecture established, I explored three homepage structures, each built around a different hypothesis about the primary user goal. All three were drawn at 1440px using only rectangles, labels, and spacing: no color, no imagery, no styling decisions.</p>
+
+      <div class="cs-variants">
+        <div class="cs-variant">
+          <a class="zoom" href="../images/wireframe-a.png" data-caption="Variation A: Broadcast-first">
+            <img src="../images/wireframe-a.png" alt="Wireframe Variation A: broadcast-first layout with a centered hero and card grid at 1440px." loading="lazy"/>
+          </a>
+          <span class="cs-variant-label">Variation A</span>
+          <p class="cs-variant-title">Broadcast-first</p>
+          <p class="cs-variant-desc"><strong>Hypothesis:</strong> could a full-bleed hero with centered copy and dual CTAs orient a first-time visitor and drive action above the fold?</p>
+        </div>
+        <div class="cs-variant chosen">
+          <a class="zoom" href="../images/wireframe-b.png" data-caption="Variation B: Information-forward">
+            <img src="../images/wireframe-b.png" alt="Wireframe Variation B: information-forward layout with a split hero, trust strip, events, latest sermon, and a persistent sidebar at 1440px." loading="lazy"/>
+          </a>
+          <span class="cs-variant-label">Variation B · Carried forward</span>
+          <p class="cs-variant-title">Information-forward</p>
+          <p class="cs-variant-desc"><strong>Hypothesis:</strong> could a split hero and persistent sidebar serve new and returning visitors at the same time without sacrificing either?</p>
+        </div>
+        <div class="cs-variant chosen">
+          <a class="zoom" href="../images/wireframe-c.png" data-caption="Variation C: Story-driven">
+            <img src="../images/wireframe-c.png" alt="Wireframe Variation C: story-driven layout with a cinematic hero and alternating narrative sections at 1440px." loading="lazy"/>
+          </a>
+          <span class="cs-variant-label">Variation C · Carried forward</span>
+          <p class="cs-variant-title">Story-driven</p>
+          <p class="cs-variant-desc"><strong>Hypothesis:</strong> could an editorial, narrative-first layout build enough trust with a skeptical first-time visitor before asking them to commit to a visit?</p>
+        </div>
+      </div>
+
+      <h3 class="cs-sub">The adopted direction: a blend of B and C</h3>
+      <p class="cs-copy">No single variation won outright. Variation A led with a media moment but gave visitors little immediate structure. Variation B's dual calls to action, quick-facts strip, and dedicated Upcoming Events and Latest Sermon modules gave both audiences a fast, direct path to what they needed most. Variation C's alternating narrative rhythm and "Who We Are" storytelling built the trust a first-time visitor needs before showing up.</p>
+      <p class="cs-copy">The final design took B's structure and C's voice, balancing navigation, storytelling, and trust in a single homepage.</p>
+
+      <h3 class="cs-sub">Mobile navigation</h3>
+      <p class="cs-copy">Mobile users were identified as the primary first-time audience, since most people look up a church on their phone on Sunday morning. Two navigation patterns were explored at 390px, each shown in two states.</p>
+
+      <div class="cs-mobile-grid">
+        <div class="cs-mobile-block chosen">
+          <span class="cs-variant-label" style="margin-top:0;">Variation M1 · Carried forward</span>
+          <p class="cs-variant-title">Hamburger nav</p>
+          <p class="cs-variant-desc">Tests whether the familiar hamburger pattern gives first-time visitors enough confidence to find service times and plan a visit without friction.</p>
+          <div class="cs-mobile-states">
+            <figure style="margin:0;">
+              <a class="zoom" href="../images/Mobile-m1-closed.png" data-caption="M1: default state"><img src="../images/Mobile-m1-closed.png" alt="Mobile wireframe M1, default state: hamburger nav closed, full homepage visible at 390px." loading="lazy"/></a>
+              <figcaption class="cs-caption">Default: hero and trust strip</figcaption>
+            </figure>
+            <figure style="margin:0;">
+              <a class="zoom" href="../images/mobile-m1-drawer.png" data-caption="M1: drawer open"><img src="../images/mobile-m1-drawer.png" alt="Mobile wireframe M1, drawer open: all 5 nav links and CTAs accessible at 390px." loading="lazy"/></a>
+              <figcaption class="cs-caption">Drawer open: 5 links and CTAs</figcaption>
+            </figure>
           </div>
-          <div class="mob-wf-state">
-            <img src="/images/mobile-m1-drawer.png" alt="Mobile wireframe M1 drawer open state — all 5 nav links and CTAs accessible at 390px" />
-            <p class="mob-wf-caption">Drawer open — all 5 links + CTAs accessible</p>
+        </div>
+        <div class="cs-mobile-block">
+          <span class="cs-variant-label" style="margin-top:0;color:var(--stone-ink);">Variation M2</span>
+          <p class="cs-variant-title">Bottom tab bar</p>
+          <p class="cs-variant-desc">Tests whether surfacing Sermons as a dedicated tab increases watch engagement and positions the church as media-forward.</p>
+          <div class="cs-mobile-states">
+            <figure style="margin:0;">
+              <a class="zoom" href="../images/mobile-m2-home.png" data-caption="M2: Home tab"><img src="../images/mobile-m2-home.png" alt="Mobile wireframe M2, home tab active: compact hero with sermon and event content at 390px." loading="lazy"/></a>
+              <figcaption class="cs-caption">Home tab: sermon and event</figcaption>
+            </figure>
+            <figure style="margin:0;">
+              <a class="zoom" href="../images/mobile-m2-sermons.png" data-caption="M2: Sermons tab"><img src="../images/mobile-m2-sermons.png" alt="Mobile wireframe M2, sermons tab active: dedicated sermon browsing at 390px." loading="lazy"/></a>
+              <figcaption class="cs-caption">Sermons tab: browse</figcaption>
+            </figure>
           </div>
         </div>
       </div>
-      <div class="mob-wf-block">
-        <p class="wf-var-label">Variation M2</p>
-        <p class="wf-var-title">Bottom Tab Bar</p>
-        <p class="mob-wf-hyp">Tests whether surfacing Sermons as a dedicated tab destination increases watch engagement and positions the church as a media-forward congregation.</p>
-        <div class="mob-wf-states">
-          <div class="mob-wf-state">
-            <img src="/images/mobile-m2-home.png" alt="Mobile wireframe M2 home tab active — compact hero, sermon and event content visible at 390px" />
-            <p class="mob-wf-caption">Home tab — compact hero, sermon + event visible</p>
-          </div>
-          <div class="mob-wf-state">
-            <img src="/images/mobile-m2-sermons.png" alt="Mobile wireframe M2 sermons tab active — dedicated sermon browse experience at 390px" />
-            <p class="mob-wf-caption">Sermons tab — dedicated browse experience</p>
-          </div>
+      <p class="cs-copy" style="margin-top:32px;">M1 was carried forward. First-time visitors weren't coming to browse sermons. They arrived with a specific question: <em>when do you meet, and where?</em> The hamburger keeps the homepage focused on that answer without the tab bar's commitment to four fixed destinations.</p>
+    </div>
+  </section>
+
+  <!-- 05 PROCESS -->
+  <section class="cs-section" id="process" aria-labelledby="h-05">
+    <div class="wrap">
+      <div class="cs-section-head"><span class="cs-num">05</span><h2 id="h-05">Process at a Glance</h2></div>
+      <div class="cs-table-wrap">
+        <table class="cs-table">
+          <thead><tr><th scope="col">Phase</th><th scope="col">Activities</th><th scope="col">Outcome</th></tr></thead>
+          <tbody>
+            <tr><td>Discovery</td><td>Stakeholder interviews, analytics review, heatmap analysis, task-based walkthroughs</td><td>Identified visitor friction points</td></tr>
+            <tr><td>IA &amp; Navigation</td><td>Navigation restructure, CTA hierarchy, mobile-first layout</td><td>Reduced clicks to critical info</td></tr>
+            <tr><td>Exploration</td><td>Three desktop wireframes, two mobile navigation patterns</td><td>Blended direction (B + C), M1 navigation</td></tr>
+            <tr><td>Accessibility</td><td>WCAG contrast, simplified nav, readable typography</td><td>Improved usability for older users</td></tr>
+            <tr><td>Iteration</td><td>Ongoing analytics review, content updates, streaming build</td><td>Continued improvement as the church's needs evolved</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="cs-sub">Design system</h3>
+      <p class="cs-copy">Formalized in 2026 to document the design decisions that emerged across 16 years of iteration. Brand colors, neutrals, and typography are defined for consistency across every page.</p>
+      <figure class="cs-figure">
+        <a class="zoom" href="../images/scc-styleguide.png" data-caption="Springfield Church of Christ style guide">
+          <img class="cs-shot" src="../images/scc-styleguide.png" alt="Springfield Church of Christ style guide: brand colors, neutrals, and typography." loading="lazy"/>
+        </a>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 06 FINAL DESIGN -->
+  <section class="cs-section" id="final-design" aria-labelledby="h-06">
+    <div class="wrap">
+      <div class="cs-section-head"><span class="cs-num">06</span><h2 id="h-06">The Final Design</h2></div>
+      <p class="cs-copy">The redesign wasn't driven by aesthetics. It was driven by clarity. Research shaped the structure, wireframes tested the ideas, and the final design brought those decisions together in a homepage that helps first-time visitors quickly understand who the church is, what to expect, and how to take the next step.</p>
+      <p class="cs-copy">Two calls to action sit side by side above the fold: <strong>"Join Us Live"</strong> for people ready to watch remotely and <strong>"Plan Your Visit"</strong> for people considering attending in person. The homepage serves both audiences without making either choose the other first. The tagline "Love God. Love People." and the dark, warm color treatment communicate identity and welcome before a visitor reads a single line of body copy.</p>
+
+      <div class="cs-ba">
+        <div>
+          <span class="cs-label">Before · c. 2010</span>
+          <a class="zoom" href="../images/scc-before-2010.jpg" data-caption="The original website, c. 2010">
+            <img class="cs-shot" src="../images/scc-before-2010.jpg" alt="The Springfield Church of Christ website circa 2010, with a text-heavy navigation bar and two dense columns." loading="lazy"/>
+          </a>
+          <ul class="cs-diff">
+            <li><span>1</span><div><strong>12-item navigation</strong> with no hierarchy; every item given equal weight regardless of visitor intent.</div></li>
+            <li><span>2</span><div><strong>No primary CTA</strong> anywhere on the page. A first-time visitor had no guided next step.</div></li>
+            <li><span>3</span><div><strong>Two competing columns</strong> of dense text with no visual anchor or reading order.</div></li>
+            <li><span>4</span><div><strong>Service times buried</strong> below the fold, so the most-sought information required scrolling.</div></li>
+          </ul>
+        </div>
+        <div>
+          <span class="cs-label good">After · Redesigned</span>
+          <a class="zoom" href="../images/church-website.jpg" data-caption="The redesigned homepage">
+            <img class="cs-shot" src="../images/church-website.jpg" alt="The redesigned homepage: the church building as the hero, the tagline 'Love God. Love People.', and Join Us Live and Plan Your Visit calls to action." loading="lazy"/>
+          </a>
+          <ul class="cs-diff good">
+            <li><span>1</span><div><strong>6-item navigation</strong> organized around visitor intent, not internal church structure.</div></li>
+            <li><span>2</span><div><strong>Persistent header CTAs</strong> (Give, Watch Live) plus dual hero CTAs (Join Us Live, Plan Your Visit) visible without scrolling.</div></li>
+            <li><span>3</span><div><strong>The building as the hero:</strong> the church itself is the first thing visitors see, with clear typographic hierarchy and the tagline.</div></li>
+            <li><span>4</span><div><strong>Prayer request surfaced</strong> as a dedicated banner, giving a pastoral touchpoint priority placement above the fold.</div></li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 class="cs-sub">The solution extended beyond the website</h3>
+      <div class="cs-split">
+        <div>
+          <h3>Website</h3>
+          <ul class="cs-list">
+            <li>Service times above the fold; "Plan Your Visit" as the primary CTA</li>
+            <li>Long-form content broken into scannable, human sections</li>
+            <li>Mobile-first layouts reflecting actual traffic patterns</li>
+            <li>Accessible color contrast and simplified navigation throughout</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Infrastructure</h3>
+          <ul class="cs-list">
+            <li>AV and streaming pipeline built with the church's Audio &amp; Video team</li>
+            <li>Networked security camera system installed and integrated</li>
+            <li>Network assessment and infrastructure upgrades</li>
+            <li>Hardware advisory for three computer replacements</li>
+          </ul>
         </div>
       </div>
     </div>
-    <p>Variation M1 was carried forward. Research showed that first-time visitors were coming to the site with a specific question — when do you meet, and where — not to browse sermons. The hamburger pattern keeps the homepage focused on that conversion without the tab bar's structural commitment to four fixed destinations.</p>
-  </div>
+  </section>
 
-  <div class="case-section reveal">
-    <h3>Design System</h3>
-    <p>Formalized in 2026 to document the design decisions that have emerged and evolved across 16 years of iteration. Brand colors, neutrals, and typography were defined to ensure visual consistency across all pages.</p>
-    <div class="scc-building-img" style="margin-bottom:0;">
-      <img src="/images/scc-styleguide.png" alt="Springfield Church of Christ style guide — brand colors, neutrals, and typography" style="height:auto;object-position:center top;"/>
-    </div>
-  </div>
-
-  <!-- ============================================================ -->
-  <!-- PART 3: THE SOLUTION                                         -->
-  <!-- ============================================================ -->
-  <div class="cs-part-header reveal">
-    <span class="cs-part-num">Part 03</span>
-    <p class="cs-part-title">The Solution</p>
-  </div>
-
-  <div class="case-section reveal">
-    <h3>Before &amp; After</h3>
-    <p style="margin-bottom:1.5rem;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.75;">The original site was an information repository, not a communication tool. Every page competed for equal attention, navigation assumed users already knew what they were looking for, and there was no hierarchy.</p>
-    <div class="scc-ba-wrap">
-      <!-- BEFORE -->
-      <div class="scc-ba-col">
-        <span class="scc-ba-state-lbl scc-before">Before &middot; c. 2010</span>
-        <div class="scc-browser">
-          <div class="scc-chrome">
-            <div class="scc-chrome-dot"></div><div class="scc-chrome-dot"></div><div class="scc-chrome-dot"></div>
-            <div class="scc-chrome-bar"></div>
-          </div>
-          <img src="/images/scc-before-2010.jpg" alt="Springfield Church of Christ website circa 2010" class="scc-screenshot" style="object-position:center top;"/>
-        </div>
-        <ul class="scc-diff-list">
-          <li class="scc-diff-item"><span class="scc-diff-num">1</span><span><strong>12-item navigation</strong> with no hierarchy; all items given equal weight regardless of visitor intent.</span></li>
-          <li class="scc-diff-item"><span class="scc-diff-num">2</span><span><strong>No primary CTA</strong> anywhere on the page. A first-time visitor had no guided next step.</span></li>
-          <li class="scc-diff-item"><span class="scc-diff-num">3</span><span><strong>Two competing columns</strong> of dense text gave the page no visual anchor or reading order.</span></li>
-          <li class="scc-diff-item"><span class="scc-diff-num">4</span><span><strong>Service times buried</strong> below the fold, requiring scrolling to find the most-sought information.</span></li>
-        </ul>
-      </div>
-      <!-- AFTER -->
-      <div class="scc-ba-col">
-        <span class="scc-ba-state-lbl scc-after">After &middot; Redesigned</span>
-        <div class="scc-browser">
-          <div class="scc-chrome">
-            <div class="scc-chrome-dot"></div><div class="scc-chrome-dot"></div><div class="scc-chrome-dot"></div>
-            <div class="scc-chrome-bar"></div>
-          </div>
-          <img src="/images/church-website.jpg" alt="Springfield Church of Christ, redesigned website" class="scc-screenshot"/>
-        </div>
-        <ul class="scc-diff-list">
-          <li class="scc-diff-item"><span class="scc-diff-num improved">1</span><span><strong>6-item navigation</strong> organized around visitor intent, not internal church structure.</span></li>
-          <li class="scc-diff-item"><span class="scc-diff-num improved">2</span><span><strong>Two persistent CTAs in the header</strong> (Give, Watch Live) plus dual hero CTAs (Join Us Live, Plan Your Visit) visible without scrolling.</span></li>
-          <li class="scc-diff-item"><span class="scc-diff-num improved">3</span><span><strong>Building as the hero</strong>: the church itself is the first thing visitors see, overlaid with clear typographic hierarchy and the tagline.</span></li>
-          <li class="scc-diff-item"><span class="scc-diff-num improved">4</span><span><strong>Prayer request surfaced prominently</strong> as a dedicated banner, giving a pastoral touchpoint priority placement above the fold.</span></li>
-        </ul>
+  <!-- 07 DECISIONS -->
+  <section class="cs-section" id="decisions" aria-labelledby="h-07">
+    <div class="wrap">
+      <div class="cs-section-head"><span class="cs-num">07</span><h2 id="h-07">Key Decisions &amp; Tradeoffs</h2></div>
+      <div class="cs-tradeoffs">
+        <div class="cs-tradeoff"><h3>Simplifying the navigation</h3><p>Analytics consistently showed older users, SCC's primary demographic, hesitating and dropping off. I reduced, clarified, and surfaced the most critical paths.</p></div>
+        <div class="cs-tradeoff"><h3>Reducing content density</h3><p>Several pages were digitized paper documents. Restructuring them into scannable sections meant prioritizing comprehension over completeness.</p></div>
+        <div class="cs-tradeoff"><h3>Prioritizing "Plan Your Visit"</h3><p>Multiple CTAs competed for prominence. Stakeholder input confirmed new-visitor attendance as the primary goal.</p></div>
+        <div class="cs-tradeoff"><h3>Streaming under pressure</h3><p>When COVID-19 suspended in-person services, the church had no digital capability. I helped design and implement a live streaming workflow that prioritized reliability over sophistication.</p></div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="case-section reveal">
-    <h3>Designing the Solution</h3>
-    <p>The redesign focused on three user journeys: planning a visit, understanding beliefs, and discovering events. Wireframes validated structure before implementation. The solution extended well beyond the website.</p>
-    <ul>
-      <li>Service times brought above the fold; "Plan Your Visit" as the primary CTA</li>
-      <li>Long-form content broken into scannable, human sections</li>
-      <li>Mobile-first layouts reflecting actual traffic patterns</li>
-      <li>Accessible color contrast and simplified navigation throughout</li>
-      <li>Networked camera security system installed and integrated</li>
-      <li>Hardware advisory for three computer replacements</li>
-      <li>Network assessment and infrastructure upgrades</li>
-      <li>AV/streaming pipeline built with the church's Audio and Video team</li>
-    </ul>
-  </div>
+  <!-- 08 OUTCOMES -->
+  <section class="cs-section" id="outcomes" aria-labelledby="h-08">
+    <div class="wrap">
+      <div class="cs-section-head"><span class="cs-num">08</span><h2 id="h-08">Outcomes &amp; Ongoing Partnership</h2></div>
+      <p class="cs-copy">The redesign established a clearer digital front door and a more sustainable foundation for the church's communication with its community. It also marked the start of a partnership that has continued for 16 years. I've stayed on as the church's design and development partner, maintaining the site, supporting digital media, and evolving it as the church's needs have changed.</p>
 
-  <div class="case-section reveal">
-    <h3>Key Decisions &amp; Tradeoffs</h3>
-    <p><strong>Simplifying the nav.</strong> Analytics consistently showed older users — SCC's primary demographic — hesitating and dropping off. I reduced, clarified, and surfaced the most critical paths.</p>
-    <p><strong>Reducing content density.</strong> Several pages were digitized paper documents. Restructuring into scannable sections meant prioritizing comprehension over completeness.</p>
-    <p><strong>Prioritizing "Plan Your Visit."</strong> Multiple CTAs competed for prominence. Stakeholder input confirmed new visitor attendance as the primary goal.</p>
-    <p><strong>Building streaming infrastructure under pressure.</strong> When COVID-19 suspended in-person services, the church had no digital capability. I helped design and implement a live streaming workflow that prioritized reliability over sophistication.</p>
-  </div>
+      <div class="cs-stats">
+        <div class="cs-stat"><p class="cs-stat-value">16</p><p class="cs-stat-label">Year partnership</p></div>
+        <div class="cs-stat"><p class="cs-stat-value">2010</p><p class="cs-stat-label">Active since</p></div>
+        <div class="cs-stat"><p class="cs-stat-value">∞</p><p class="cs-stat-label">Ongoing optimization</p></div>
+      </div>
+      <!-- CONTENT NEEDED: measured outcomes (traffic, attendance) removed until confirmed with a source and date range. -->
 
-  <div class="case-section reveal">
-    <h3>Results</h3>
-    <div class="result-chips">
-      <div class="result-chip"><span class="num">78%</span><span class="lbl">Web traffic increase</span></div>
-      <div class="result-chip"><span class="num">2&times;</span><span class="lbl">Event attendance</span></div>
-      <div class="result-chip"><span class="num">2010</span><span class="lbl">Partnership since</span></div>
+      <p class="cs-quote">The work that survived wasn't the most sophisticated. It was the most considered.</p>
+
+      <p class="cs-copy">This project reinforced that effective UX is about prioritization, not expansion. Aligning analytics, user behavior, and the church's goals evolved the website from an information hub into a structured engagement tool.</p>
+      <p class="cs-copy">Sixteen years is an unusually long time to work with any client, and longer still for a website. What this partnership demonstrated, more than any single launch, is that UX is a discipline of ongoing attention rather than a one-time intervention. Springfield Church of Christ had no dedicated tech staff, a modest budget, and a congregation with real needs. That combination forced a kind of clarity: every decision had to earn its place. If good design is the elimination of everything that doesn't need to be there, this project was sixteen years of that practice.</p>
     </div>
-    <div class="scc-partner-band reveal" style="margin-top:1rem;">
-      <div class="scc-partner-stat">
-        <div class="scc-partner-num">16</div>
-        <div class="scc-partner-lbl">Year Partnership</div>
-      </div>
-      <div class="scc-partner-stat">
-        <div class="scc-partner-num">2010</div>
-        <div class="scc-partner-lbl">Active Since</div>
-      </div>
-      <div class="scc-partner-stat">
-        <div class="scc-partner-num">&#x221e;</div>
-        <div class="scc-partner-lbl">Ongoing Optimization</div>
-      </div>
-    </div>
-    <p style="margin-top:1.5rem;max-width:680px;margin-left:auto;margin-right:auto;color:#444;font-size:.92rem;line-height:1.88;">This project reinforced that effective UX is about prioritization, not expansion. Aligning analytics, user behavior, and business goals evolved the website from an information hub into a structured engagement tool.</p>
-    <p style="margin-top:1.5rem;max-width:680px;margin-left:auto;margin-right:auto;color:#444;font-size:.92rem;line-height:1.88;">Sixteen years is an unusually long time to work with any client — longer still for a website. What this partnership demonstrated, more than any single launch or metric, is that UX is a discipline of ongoing attention rather than a one-time intervention. Springfield Church of Christ had no dedicated tech staff, a modest budget, and a congregation with real needs. That combination forced a kind of clarity: every decision had to earn its place, because there was no room for the gratuitous. The work that survived wasn't the most sophisticated — it was the most considered. If good design is the elimination of everything that doesn't need to be there, this project was sixteen years of that practice.</p>
-  </div>
+  </section>
 
 </div>
 
-<!-- FOOTER -->
-<footer>
-  <p>&copy; 2026 David R. Bailey &middot; UX/UI Designer &amp; Technologist</p>
-  <div class="footer-links">
-    <a href="/#work">Portfolio</a>
-    <a href="https://linkedin.com" target="_blank">LinkedIn</a>
-    <a href="mailto:contact@davidrbailey.com">Email</a>
-    <a href="/David_R_Bailey_Resume.pdf" target="_blank">Resume</a>
+<nav class="cs-nav" aria-label="Case study navigation">
+  <div class="wrap cs-nav-row">
+    <a class="cs-nav-link" href="../index.html#work">
+      <span class="cs-nav-eyebrow">⟵ Back to</span>
+      <span class="cs-nav-title">All Projects</span>
+    </a>
+    <a class="cs-nav-link next" href="../navease/">
+      <span class="cs-nav-eyebrow">Next Project ⟶</span>
+      <span class="cs-nav-title">NavEase: Adaptive UX Exploration</span>
+    </a>
+  </div>
+</nav>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <p class="f-title">The Drafting Table</p>
+        <p class="f-tag">Designing digital experiences with the precision of architectural thinking.</p>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">Work</p>
+        <a href="../springfield-cofc/" aria-current="page">Springfield CofC</a>
+        <a href="../navease/">NavEase</a>
+        <a href="../ai-workflows/">AI-Assisted Workflows</a>
+        <a href="../pastry-kitchen/">The Pastry Kitchen</a>
+        <a href="../creative-work.html">Creative Work</a>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">About</p>
+        <a href="../index.html#about">About David</a>
+        <a href="../index.html#skills">Capabilities</a>
+        <a href="../David_R_Bailey_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">Connect</p>
+        <a href="https://www.linkedin.com/in/davidbaileyjr/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:contact@davidrbailey.com">Email</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 David R. Bailey</p>
+      <p>Springfield, OH</p>
+      <p>Document Revision 2.0</p>
+    </div>
   </div>
 </footer>
 
-<script>
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
-},{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-</script>
+<script src="../js/site.js" defer></script>
 </body>
 </html>

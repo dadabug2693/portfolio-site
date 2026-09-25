@@ -3,486 +3,254 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>The Pastry Kitchen · Case Study | David R. Bailey</title>
+<title>The Pastry Kitchen Case Study | The Drafting Table</title>
+<meta name="description" content="Before UX had a name, the same principles applied: a 1992 Silver Medal in competitive pastry arts, a client process that mirrors UX research, and lessons from when things went wrong."/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="The Pastry Kitchen Case Study | The Drafting Table"/>
+<meta property="og:description" content="Where UX design began: in buttercream."/>
 <link rel="icon" type="image/png" href="../favicon-96x96.png" sizes="96x96" />
 <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
 <link rel="shortcut icon" href="../favicon.ico" />
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
 <link rel="manifest" href="../site.webmanifest" />
-<style>
-:root{
-  --bg:#ffffff;--bg2:#f5f5f5;--ink:#0d0d0d;--muted:#777;
-  --accent:#2dd4bf;--accent2:#1a9e8e;--border:#ccc7bc;
-  --glass:rgba(255,255,255,0.45);--glass-border:rgba(255,255,255,0.7);
-  --font-sans:'Inter',system-ui,sans-serif;--font-serif:'Georgia',serif;
-}
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{background:var(--bg);color:var(--ink);font-family:var(--font-sans);line-height:1.7;overflow-x:hidden;}
-
-.orb{position:fixed;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0;}
-.orb1{width:700px;height:700px;background:radial-gradient(circle,rgba(45,212,191,.13),transparent 70%);top:-200px;left:-200px;}
-.orb2{width:600px;height:600px;background:radial-gradient(circle,rgba(124,58,237,.09),transparent 70%);top:40%;right:-200px;}
-.orb3{width:500px;height:500px;background:radial-gradient(circle,rgba(29,78,216,.08),transparent 70%);bottom:10%;left:15%;}
-body>*{position:relative;z-index:1;}
-
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.97);backdrop-filter:blur(16px);border-bottom:2px solid var(--ink);}
-.nav-top{display:flex;align-items:center;justify-content:space-between;padding:.6rem 4rem;border-bottom:1px solid var(--border);}
-.nav-date{font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);}
-.nav-logo{font-family:var(--font-serif);font-size:1.55rem;font-weight:bold;letter-spacing:-.02em;color:var(--ink);text-decoration:none;}
-.nav-links{display:flex;list-style:none;}
-.nav-links li{flex:1;text-align:center;border-right:1px solid var(--border);}
-.nav-links li:last-child{border-right:none;}
-.nav-links a{display:block;padding:.55rem 1.4rem;color:var(--ink);text-decoration:none;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;transition:all .2s;}
-.nav-links a:hover{background:var(--ink);color:#fff;}
-
-/* HERO */
-.cs-hero{background:var(--ink);max-width:100%;padding:9rem 4rem 7rem;margin-top:95px;position:relative;overflow:hidden;border-bottom:1px solid #1e1e1c;}
-.cs-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 25% 60%,rgba(45,212,191,.14),transparent 58%);pointer-events:none;}
-.cs-hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(124,58,237,.08),transparent 55%);pointer-events:none;}
-.cs-hero-inner{max-width:1100px;margin:0 auto;position:relative;}
-.cs-back{display:inline-flex;align-items:center;gap:.5rem;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,.4);text-decoration:none;margin-bottom:2.8rem;transition:color .2s;}
-.cs-back::before{content:'←';font-size:.8rem;}
-.cs-back:hover{color:var(--accent);}
-.cs-eyebrow{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--accent);display:block;margin-bottom:1.2rem;}
-.cs-hero h1{font-family:var(--font-serif);font-size:clamp(3.5rem,6.5vw,6.2rem);line-height:.88;letter-spacing:-.03em;color:#fff;margin-bottom:1.8rem;font-weight:bold;}
-.cs-hero h1 em{font-style:italic;color:var(--accent);}
-.cs-hero-sub{font-size:1.05rem;color:rgba(255,255,255,.6);max-width:460px;line-height:1.8;border-left:3px solid var(--accent);padding-left:1.1rem;}
-
-/* SHARED LABELS / HEADINGS */
-.section-label{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:.5rem;}
-h2{font-family:var(--font-serif);font-size:clamp(1.9rem,3.5vw,2.8rem);margin-bottom:1.2rem;line-height:1.05;letter-spacing:-.02em;font-weight:bold;}
-
-/* DARK SECTIONS */
-.section-dark{background:var(--ink);max-width:100%;padding:7rem 0;border-top:1px solid #1e1e1c;}
-.section-dark-inner{max-width:1100px;margin:0 auto;padding:0 4rem;}
-.section-dark .section-label{color:#555;}
-.section-dark h2{color:#fff;}
-.section-dark .rule{border:none;border-top:2px solid #2a2a2a;margin-bottom:2.5rem;}
-
-/* LIGHT SECTIONS */
-.section-light{background:var(--bg);max-width:100%;padding:7rem 0;border-top:2px solid var(--ink);}
-.section-light-inner{max-width:1100px;margin:0 auto;padding:0 4rem;}
-.section-light .section-label{color:var(--muted);}
-.section-light h2{color:var(--ink);}
-.section-light .rule{border:none;border-top:2px solid var(--ink);margin-bottom:2.5rem;}
-
-/* SECTION 1: ORIGINS */
-.origins-grid{display:flex;flex-direction:column;gap:3rem;margin-top:3rem;}
-.origins-images{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:#1e1e1e;}
-.origins-images-2col{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:#1e1e1e;margin-bottom:2.5rem;}
-.origins-img{position:relative;overflow:hidden;background:#111;}
-.origins-img img{width:100%;height:340px;object-fit:cover;display:block;opacity:.82;transition:opacity .35s;}
-.origins-img:hover img{opacity:1;}
-.origins-img-caption{padding:.75rem .9rem;border-top:1px solid #2a2a2a;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:#555;line-height:1.5;}
-.origins-text p{font-size:.95rem;color:#aaa;line-height:1.88;margin-bottom:1.4rem;}
-.origins-pre-text{margin-bottom:2.5rem;}
-.origins-pre-text p{font-size:.95rem;color:#aaa;line-height:1.88;margin-bottom:1.4rem;}
-.origins-divider{border:none;border-top:1px solid #2a2a2a;margin:3rem 0;}
-.ux-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem;}
-.ux-tag{font-size:.65rem;background:rgba(45,212,191,.1);border:1px solid rgba(45,212,191,.25);color:var(--accent);padding:.3rem .8rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;}
-
-/* SECTION 2: CLIENT PROCESS */
-.process-intro{font-size:.95rem;color:#555;line-height:1.88;max-width:700px;margin-bottom:3rem;}
-.process-steps{border:2px solid var(--ink);}
-.process-step{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--border);}
-.process-step:last-child{border-bottom:none;}
-.step-what{padding:1.8rem 2rem;background:var(--bg);border-right:1px solid var(--border);}
-.step-ux{padding:1.8rem 2rem;background:rgba(45,212,191,.03);}
-.step-header{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;margin-bottom:.6rem;}
-.step-what .step-header{color:var(--muted);}
-.step-ux .step-header{color:var(--accent2);}
-.step-what p{font-size:.88rem;color:#555;line-height:1.72;}
-.step-ux-title{font-family:var(--font-serif);font-size:1.05rem;color:var(--ink);font-weight:bold;margin-bottom:.35rem;line-height:1.2;}
-.step-ux-desc{font-size:.82rem;color:var(--muted);line-height:1.65;}
-
-/* SECTION 3: HARD STORIES */
-.hard-intro{font-size:.95rem;color:#888;line-height:1.85;max-width:660px;margin-bottom:3rem;}
-.stories-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#1e1e1e;border:1px solid #1e1e1e;}
-.story-card{background:#0d0d0d;padding:2.5rem 2rem;}
-.story-num{font-family:var(--font-serif);font-size:3rem;font-weight:bold;background:linear-gradient(135deg,var(--accent),#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:1.2rem;}
-.story-card h3{font-family:var(--font-serif);font-size:1.2rem;color:#fff;font-weight:bold;margin-bottom:1.2rem;line-height:1.2;}
-.story-card p{font-size:.88rem;color:#888;line-height:1.88;margin-bottom:1rem;}
-.story-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.8rem;padding-top:1.5rem;border-top:1px solid #1e1e1e;}
-.story-tag{font-size:.62rem;letter-spacing:.11em;text-transform:uppercase;color:var(--accent);font-weight:700;background:rgba(45,212,191,.07);border:1px solid rgba(45,212,191,.2);padding:.28rem .65rem;}
-
-/* SECTION 4: PHOTO GRID */
-.photo-intro{font-size:.95rem;color:#555;line-height:1.88;max-width:580px;margin-bottom:3rem;}
-.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:280px;gap:2px;background:var(--ink);border:2px solid var(--ink);}
-.photo-item{overflow:hidden;position:relative;background:#f0ebe3;}
-.photo-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .38s ease,opacity .3s;}
-.photo-item:hover img{transform:scale(1.04);opacity:.88;}
-.photo-caption{position:absolute;bottom:0;left:0;right:0;padding:.65rem 1rem;background:linear-gradient(transparent,rgba(0,0,0,.78));font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.8);opacity:0;transition:opacity .25s;}
-.photo-item:hover .photo-caption{opacity:1;}
-
-/* SECTION 5: THROUGH LINE */
-.tl-quote{font-family:var(--font-serif);font-size:clamp(1.3rem,3vw,2rem);color:rgba(255,255,255,.88);line-height:1.5;font-style:italic;max-width:720px;margin:3rem 0;padding-left:2rem;border-left:3px solid var(--accent);}
-.tl-blocks{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#1e1e1e;margin-top:3rem;}
-.tl-block{background:#0d0d0d;padding:2.5rem 2rem;}
-.tl-block h4{font-family:var(--font-serif);font-size:1.1rem;color:#fff;font-weight:bold;margin-bottom:.85rem;line-height:1.2;}
-.tl-block p{font-size:.87rem;color:#888;line-height:1.82;}
-.tl-close{font-size:.92rem;color:#555;line-height:1.88;max-width:640px;margin-top:3rem;}
-
-/* DT STEP LABELS */
-.cs-step-num{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--accent);display:block;margin-bottom:.5rem;font-family:var(--font-sans);}
-
-/* FOOTER */
-footer{border-top:2px solid var(--ink);padding:2rem 4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;background:var(--bg);}
-footer p{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;}
-.footer-links{display:flex;gap:1.5rem;}
-.footer-links a{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:color .2s;}
-.footer-links a:hover{color:var(--ink);}
-
-/* REVEAL */
-.reveal{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease;}
-.reveal.visible{opacity:1;transform:none;}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-  nav .nav-top{padding:.7rem 1.5rem;display:flex;flex-direction:column;align-items:center;gap:.2rem;}
-  .nav-logo{order:1;justify-content:center;}
-  nav .nav-top .nav-date:last-of-type{order:2;text-align:center;}
-  nav .nav-top .nav-date:first-of-type{order:3;font-size:.58rem;opacity:.6;text-align:center;}
-  .nav-links a{padding:.5rem .4rem;font-size:.62rem;letter-spacing:.07em;}
-  .cs-hero{padding:7rem 1.5rem 5rem;}
-  .section-dark-inner,.section-light-inner{padding-left:1.5rem;padding-right:1.5rem;}
-  .origins-images{grid-template-columns:1fr 1fr;}
-  .origins-img img{height:220px;}
-  .process-step{grid-template-columns:1fr;}
-  .step-what{border-right:none;border-bottom:1px solid var(--border);}
-  .stories-grid{grid-template-columns:1fr;}
-  .photo-grid{grid-template-columns:1fr 1fr;grid-auto-rows:200px;}
-  .tl-blocks{grid-template-columns:1fr;}
-  footer{padding:2rem 1.5rem;}
-  h2{font-size:2rem;}
-}
-</style>
+<script>document.documentElement.classList.add('js');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/site.css">
 </head>
 <body>
 
-<div class="orb orb1"></div>
-<div class="orb orb2"></div>
-<div class="orb orb3"></div>
+<a class="skip-link" href="#main-content">Skip to content</a>
 
-<!-- NAV -->
-<nav>
-  <div class="nav-top">
-    <span class="nav-date">Portfolio · 2026</span>
-    <a href="/" class="nav-logo">DAVID R. BAILEY</a>
-    <span class="nav-date">UX/UI Designer &amp; Technologist</span>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="../index.html" aria-label="The Drafting Table homepage">
+      <div class="brand-mark" aria-hidden="true">DB</div>
+      <div class="brand-text">
+        <p class="title">The Drafting Table</p>
+        <p class="subtitle">Designing Digital Experiences</p>
+      </div>
+    </a>
+
+    <nav class="links" aria-label="Primary">
+      <a href="../index.html#work" aria-current="page">WORK</a>
+      <a href="../index.html#about">ABOUT</a>
+      <a href="../index.html#skills">SKILLS</a>
+      <a href="../index.html#resume">RESUME</a>
+      <a href="../index.html#contact">CONTACT</a>
+    </nav>
+
+    <div class="badge">CASE STUDY<br>SHEET 004</div>
+
+    <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+      <span class="hamburger" aria-hidden="true"></span>
+    </button>
   </div>
-  <ul class="nav-links">
-    <li><a href="/#work">Work</a></li>
-    <li><a href="/#about-strip">About</a></li>
-    <li><a href="/#skills">Skills</a></li>
-    <li><a href="/#resume">Resume</a></li>
-    <li><a href="/#contact">Contact</a></li>
-  </ul>
-</nav>
+
+  <nav id="mobileMenu" class="mobile-menu" aria-label="Mobile" hidden>
+    <a href="../index.html#work">Work</a>
+    <a href="../index.html#about">About</a>
+    <a href="../index.html#skills">Skills</a>
+    <a href="../index.html#resume">Resume</a>
+    <a href="../index.html#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="main-content">
 
 <!-- HERO -->
-<div class="cs-hero">
-  <div class="cs-hero-inner">
-    <a href="/#work" class="cs-back reveal">Back to Portfolio</a>
-    <span class="cs-eyebrow reveal">Case Study · 2002&ndash;Present</span>
-    <h1 class="reveal">The Pastry <em>Kitchen</em></h1>
-    <p class="cs-hero-sub reveal">Where UX Design Began &mdash; In Buttercream.</p>
+<section class="cs-hero" aria-labelledby="cs-title">
+  <div class="wrap">
+    <a class="cs-breadcrumb" href="../index.html#work">⟵ All Projects</a>
+
+    <div class="cs-hero-top">
+      <div>
+        <p class="cs-eyebrow">Case Study 004 · Retrospective</p>
+        <p class="cs-kicker">Craftsmanship · Process Design</p>
+        <h1 class="cs-title" id="cs-title">The Pastry <span class="accent">Kitchen</span></h1>
+        <p class="cs-position">Where UX design began: in buttercream.</p>
+      </div>
+      <div class="cs-hero-media">
+        <img src="../images/competition-1992.jpg" alt="The Silhouette display from the 1992 Chicago salon: a pastillage centerpiece modeled after Saint Basil's Cathedral on red draped fabric, surrounded by plated pastries." width="1473" height="1068" style="object-position:center 40%;"/>
+      </div>
+    </div>
+
+    <dl class="cs-facts">
+      <div class="cs-fact"><dt>Discipline</dt><dd>Pastry arts &amp; wedding cake design</dd></div>
+      <div class="cs-fact"><dt>Training</dt><dd>Sullivan College, Baking &amp; Pastry Arts (Wilton Method)</dd></div>
+      <div class="cs-fact"><dt>Recognition</dt><dd>Silver Medal, NRA/ACF Culinary Salon, Chicago 1992</dd></div>
+      <div class="cs-fact"><dt>Experience</dt><dd>35+ years</dd></div>
+    </dl>
   </div>
+</section>
+
+<div class="cs-body">
+
+  <!-- 01 ORIGINS -->
+  <section class="cs-section" id="origins" aria-labelledby="h-01">
+    <div class="wrap">
+      <div class="cs-section-head"><span class="cs-num">01</span><h2 id="h-01">Origins in Competitive Pastry Arts</h2></div>
+      <p class="cs-copy">In the beginning, there was the training. Sullivan College's Baking &amp; Pastry Arts program incorporated Wilton Method instruction, and pastillage was the proving ground.</p>
+      <p class="cs-copy">Pastillage is a sugar paste that dries completely rigid. It can be rolled, cut, and shaped into architectural forms: columns, panels, lattice, draped fabric. But once it sets, it cannot be corrected. A crack is a crack. A lean is a lean. The material enforces precision in a way no instructor can. You either planned carefully enough, or you started over.</p>
+      <p class="cs-copy">Planning carefully enough meant cardboard first. Every component was designed on paper, cut from cardboard, and test-fitted before a single piece of pastillage was rolled out. Piping templates were drawn, refined, and practiced until the muscle memory was there. The sugar was the final draft, not the first one.</p>
+
+      <div class="cs-gallery two">
+        <figure><a class="zoom" href="../images/wilton-centerpiece.jpeg" data-caption="Pastillage, 90-minute timed test. Wilton Method training, Sullivan College."><img src="../images/wilton-centerpiece.jpeg" alt="A pale green pastillage centerpiece: a tiered structure with curved supports and delicate piped lattice, built during a 90-minute timed test." width="609" height="1290" loading="lazy"/></a><figcaption>90-minute timed test · Wilton Method</figcaption></figure>
+        <figure><a class="zoom" href="../images/sullivan-centerpiece.jpeg" data-caption="Pastillage centerpiece, additional practice. Sullivan College, National Center for Hospitality Studies."><img src="../images/sullivan-centerpiece.jpeg" alt="A pink pastillage centerpiece with flame-shaped supports, piped borders, and a clear plaque reading This exhibit was created by David Bailey." width="1060" height="1484" loading="lazy"/></a><figcaption>Additional practice · Sullivan College</figcaption></figure>
+      </div>
+      <p class="cs-copy" style="margin-top:12px;">The green centerpiece was the timed test: ninety minutes to produce a finished structural showpiece from scratch. Every decision had to be made before the clock started. The pink centerpiece was built as additional practice under the same Wilton guidelines, with the same technical demands and more room to explore.</p>
+      <p class="cs-copy"><strong>Both pieces predate the 1992 competition. They are the reason it was possible.</strong></p>
+
+      <h3 class="cs-sub">“Silhouette” · Chicago, 1992</h3>
+      <p class="cs-copy">In 1992, I competed as a solo apprentice-class competitor at the ACF-sanctioned National Restaurant Association Salon at McCormick Place in Chicago, representing Sullivan College in Louisville, Kentucky.</p>
+      <p class="cs-copy">My entry was titled <strong>“Silhouette”</strong>: a Russian-themed pastry arts display featuring a pastillage centerpiece modeled after Saint Basil's Cathedral, accompanied by Charlotte Russe, plated petit desserts, and handcrafted decorative elements on an oval mirror presentation. I earned a Silver Medal.</p>
+      <p class="cs-copy">What I didn't know at the time was that everything required to conceive, build, and present that entry was indistinguishable from what would later be called design thinking.</p>
+      <p class="cs-copy">The competition imposed strict technical constraints and a published judging rubric. Every element had to work together, not just individually. Thematic cohesion wasn't a principle I'd read about; it was the difference between silver and bronze. Every decorative element had to belong to the same visual world. Nothing arbitrary. Nothing extraneous. That constraint taught me compositional balance before I had a word for it.</p>
+      <p class="cs-copy">A lack of precision meant structural failure. A centerpiece that leaned or a glaze that cracked wasn't recoverable at presentation. You iterated before the deadline, not during it.</p>
+      <p class="cs-quote">Designing under strict constraints for a panel of expert judges who assess your work against a rubric? That's every UX deliverable I've produced since.</p>
+
+      <div class="cs-row3">
+        <figure><a class="zoom" href="../images/competition-1992.jpg" data-caption="“Silhouette” display, NRA/ACF Salon, Chicago, 1992"><img src="../images/competition-1992.jpg" alt="The Silhouette display: a pastillage cathedral centerpiece on red draped fabric, surrounded by plated pastries." width="1473" height="1068" loading="lazy"/></a><figcaption>“Silhouette” · Chicago · 1992</figcaption></figure>
+        <figure><a class="zoom" href="../images/competition-board.jpg" data-caption="Janette finding the listing. Sullivan University, College of Hospitality Studies."><img src="../images/competition-board.jpg" alt="Janette photographing the Sullivan University College of Hospitality Studies competition awards wall." width="1800" height="1350" loading="lazy"/></a><figcaption>Janette finding the listing · Sullivan University</figcaption></figure>
+        <figure><a class="zoom" href="../images/competition-board-detail.jpg" data-caption="Chicago NRA/ACF Culinary Salon, May 1992. David Bailey, Silver Medal."><img src="../images/competition-board-detail.jpg" alt="Close-up of the Sullivan University honor board listing the Chicago NRA/ACF Culinary Salon, May 1992: David Bailey, Silver Medal." width="1024" height="1536" loading="lazy" style="object-position:center 22%;"/></a><figcaption>May 1992 · David Bailey · Silver Medal</figcaption></figure>
+      </div>
+
+      <p class="cs-copy">I didn't know the board existed until recently. We were at Sullivan University for my daughter Georgia's college visit when we found the Competition Awards wall. My name was there: 1992, Silver Medal, exactly where it had always been. Janette photographed it. There's something fitting about that. The work was real enough to be permanently recorded without me ever needing to keep track of it.</p>
+      <div class="cs-pills"><span>Thematic Cohesion</span><span>Precision Craftsmanship</span><span>Compositional Balance</span><span>Iterative Execution</span><span>Constrained Design</span></div>
+    </div>
+  </section>
+
+  <!-- 02 CLIENT PROCESS -->
+  <section class="cs-section" id="client-process" aria-labelledby="h-02">
+    <div class="wrap">
+      <div class="cs-section-head"><span class="cs-num">02</span><h2 id="h-02">The Client Process</h2></div>
+      <p class="cs-copy">Every new wedding cake client began with a face-to-face meeting. I asked them to bring magazine clippings, fabric swatches, anything that captured their vision. Most clients had never done this before. I had done it hundreds of times, so I guided them through decisions they didn't know they needed to make. Here's what that process looked like, and what it maps to.</p>
+      <div class="cs-table-wrap">
+        <table class="cs-table">
+          <thead><tr><th scope="col">Step</th><th scope="col">What I Did</th><th scope="col">UX Equivalent</th></tr></thead>
+          <tbody>
+            <tr><td>01</td><td>Scheduled a face-to-face meeting before any design decisions were made. No sketches. No assumptions. Just a conversation.</td><td><strong>Stakeholder interview.</strong> Establishing shared context before committing to a direction. Understanding the human behind the project, not just the ask.</td></tr>
+            <tr><td>02</td><td>Asked clients to bring magazine clippings and fabric swatches: physical artifacts that represented their vision before they could find words for it.</td><td><strong>Contextual inquiry &amp; artifact elicitation.</strong> A swatch communicates color, texture, and emotional tone at once, and often reveals what the client values but can't yet articulate.</td></tr>
+            <tr><td>03</td><td>Asked about guest count, date, time of day, food service style, cake and icing flavors, the exact shade of the dress, and whether to save the topper or make a fresh replica for their first anniversary.</td><td><strong>Requirements gathering.</strong> Exploring constraints, dependencies, and success criteria, including details the client didn't know would matter. The anniversary topper question changed the structural design.</td></tr>
+            <tr><td>04</td><td>Guided them through decisions they didn't know they needed to make, blending their inspirations with my expertise until we created something unique to them.</td><td><strong>Co-design &amp; facilitated ideation.</strong> The designer's job isn't to have all the ideas. It's to create the conditions where the right ones emerge. My expertise structured the process; their vision defined the outcome.</td></tr>
+            <tr><td>05</td><td>Took a couple of days after the meeting to process everything before producing any output. The meeting was data collection. What came next was different work.</td><td><strong>Synthesis.</strong> The clippings, swatches, and answers were fragments on their own. Synthesis turned them into a design brief I could build from.</td></tr>
+            <tr><td>06</td><td>Produced a detailed sketch of layout, tier proportions, florals, decorative elements, and color relationships. Specific enough to communicate intent, open enough to invite final approval.</td><td><strong>Wireframe &amp; design specification.</strong> The sketch was a deliverable, not a draft. It gave the client something concrete to respond to and gave me a documented plan to build from.</td></tr>
+            <tr><td>07</td><td>Delivered a signed invoice that itemized every element before a single cake was baked. Both parties signed. Both knew exactly what was being built.</td><td><strong>Design contract &amp; scope management.</strong> A signed invoice is a scope document. It protects both parties and prevents creep. I learned this in buttercream before I had a name for it in Figma.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 WHEN IT GOT HARD -->
+  <section class="cs-section" id="when-it-got-hard" aria-labelledby="h-03">
+    <div class="wrap">
+      <div class="cs-section-head"><span class="cs-num">03</span><h2 id="h-03">When It Got Hard</h2></div>
+      <p class="cs-copy">Design is tested when things go wrong. One of these moments was planned for. One wasn't. Both taught me more about process than any smooth delivery ever did.</p>
+
+      <h3 class="cs-sub">The three-cake delivery day</h3>
+      <p class="cs-copy">I had three wedding cakes scheduled for delivery on the same day. Different venues. Different timelines. One team. The logistics alone were a design problem.</p>
+      <p class="cs-copy">Before the day started, I created a detailed delivery checklist covering venue contacts, routes, setup sequences, and handling instructions for each cake. Then I trained my team explicitly, walking through every step so there were no assumptions and no gaps.</p>
+      <p class="cs-copy">We ran a mock delivery. Not a briefing: an actual walkthrough that surfaced the questions nobody had thought to ask. What happens at the freight elevator? Who stabilizes the base while the tiers are assembled? Where do the florals go last, and who places them?</p>
+      <p class="cs-copy">On the day itself, I dispatched two deliveries with my team while I stayed back, finished the last and largest cake, and delivered it myself. Every cake, every venue, on time.</p>
+      <p class="cs-quote">The mock delivery is what made it work. We found the failure points before they were failures.</p>
+      <div class="cs-pills"><span>Systems Design</span><span>Documentation</span><span>Delegation</span><span>Usability Testing</span></div>
+
+      <h3 class="cs-sub">The client pickup recovery</h3>
+      <p class="cs-copy">A client insisted on transporting the cake themselves. I advised against it. A tiered wedding cake is a precision-stacked structural system, not a passenger. But the decision was theirs. I documented the handling instructions and sent them off.</p>
+      <p class="cs-copy"><strong>The cake didn't survive the journey.</strong></p>
+      <p class="cs-copy">They called me from the event space. I loaded my tools, drove to the venue, and performed an on-site repair that saved the event: structural rebuilding, fresh piping, presentation restored. Done before the guests arrived.</p>
+      <p class="cs-copy">That cake ended up being one of my favorites. Not because it went perfectly, but because the final result was better than I'd expected under those conditions. Constraints have a way of making you work differently.</p>
+      <p class="cs-quote">The lesson was about being the kind of designer who shows up when the product breaks in the field, with tools, composure, and no interest in placing blame.</p>
+      <div class="cs-pills"><span>Edge Case Handling</span><span>Graceful Degradation</span><span>On-Site Remediation</span></div>
+    </div>
+  </section>
+
+  <!-- 04 THE WORK -->
+  <section class="cs-section" id="the-work" aria-labelledby="h-04">
+    <div class="wrap">
+      <div class="cs-section-head"><span class="cs-num">04</span><h2 id="h-04">The Work</h2></div>
+      <p class="cs-copy">Each cake began with a conversation. This is what became of them. More pieces, including watercolors, are in <a href="../creative-work.html" style="color:var(--green);border-bottom:1px solid currentColor;">Creative Work</a>.</p>
+      <div class="cs-gallery">
+        <figure><a class="zoom" href="../images/Wedding-1.jpg" data-caption="Wedding cake"><img src="../images/Wedding-1.jpg" alt="Four-tier white wedding cake with black damask patterns, black ribbon bands, and red flowers." width="1432" height="1920" loading="lazy"/></a><figcaption>Wedding</figcaption></figure>
+        <figure><a class="zoom" href="../images/Wedding-2.jpg" data-caption="Wedding cake"><img src="../images/Wedding-2.jpg" alt="Three-tier white wedding cake with textured piping and cascading burgundy lilies and greenery." width="1434" height="1920" loading="lazy"/></a><figcaption>Wedding</figcaption></figure>
+        <figure><a class="zoom" href="../images/Wedding-3.jpg" data-caption="Wedding cake"><img src="../images/Wedding-3.jpg" alt="Tiered buttercream cake with a bunting banner, topped with yellow lilies and white daisies." width="1440" height="1920" loading="lazy"/></a><figcaption>Wedding</figcaption></figure>
+        <figure><a class="zoom" href="../images/Wedding-4.jpg" data-caption="Wedding cake"><img src="../images/Wedding-4.jpg" alt="Three-tier lime green cake decorated with white daisies and black and white striped ribbon." width="1440" height="1920" loading="lazy"/></a><figcaption>Wedding</figcaption></figure>
+        <figure><a class="zoom" href="../images/Wedding-5.jpg" data-caption="Wedding cake"><img src="../images/Wedding-5.jpg" alt="Three-tier white cake with black scroll designs, a red ribbon band, and red gerbera daisies." width="1192" height="1920" loading="lazy"/></a><figcaption>Wedding</figcaption></figure>
+        <figure><a class="zoom" href="../images/Baby-1.jpg" data-caption="Baby shower cake"><img src="../images/Baby-1.jpg" alt="Two-tier baby shower cake with blue and green polka dots, rubber ducks, a ribbon bow, and a plaque reading Welcome Baby Boy." width="1432" height="1920" loading="lazy"/></a><figcaption>Baby Shower</figcaption></figure>
+        <figure><a class="zoom" href="../images/Birthday-1.jpg" data-caption="Birthday cake"><img src="../images/Birthday-1.jpg" alt="Green birthday cake with pink bows, tropical sugar flowers, and a Happy Birthday plaque." width="1433" height="1920" loading="lazy"/></a><figcaption>Birthday</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 THROUGH LINE -->
+  <section class="cs-section" id="through-line" aria-labelledby="h-05">
+    <div class="wrap">
+      <div class="cs-section-head"><span class="cs-num">05</span><h2 id="h-05">The Through Line</h2></div>
+      <p class="cs-copy">The tools changed. The process never did.</p>
+      <ol class="cs-steps three">
+        <li><b>Understand what someone needs.</b><span>Every client meeting. Every clipping and swatch. Every question about the dress shade and the anniversary topper. That wasn't customer service. It was research: structured, intentional, and done before a single decision was made.</span></li>
+        <li><b>Design something that serves that need.</b><span>The sketch wasn't decoration. It was a specification. It earned a signature because both parties needed to know exactly what was being built before anyone picked up a pastry bag. Or opened Figma.</span></li>
+        <li><b>Deliver it with care.</b><span>Whether the medium is buttercream or a design file, delivery is part of the work. The mock run. The checklist. Showing up at the venue with tools when something breaks. That discipline doesn't change with the platform.</span></li>
+      </ol>
+      <p class="cs-quote">The Pastry Kitchen wasn't a detour from UX design. It was the beginning of it.</p>
+      <p class="cs-copy">The vocabulary came later. The practice was already there.</p>
+    </div>
+  </section>
+
 </div>
 
-<!-- SECTION 1: ORIGINS -->
-<div class="section-dark">
-  <div class="section-dark-inner">
-    <div class="reveal">
-      <p class="section-label">Section 01</p>
-      <span class="cs-step-num">Step 01 &middot; Empathize</span>
-      <h2>Origins in Competitive Pastry Arts</h2>
-      <hr class="rule"/>
-    </div>
-
-    <!-- Training pieces -->
-    <div class="origins-pre-text reveal">
-      <p>In the beginning, there was the training. Sullivan College&rsquo;s Baking &amp; Pastry Arts program incorporated Wilton Method instruction, and pastillage was the proving ground.</p>
-      <p>Pastillage is a sugar paste that dries completely rigid. It can be rolled, cut, and shaped into architectural forms: columns, panels, lattice, draped fabric. But once it sets, it cannot be corrected. A crack is a crack. A lean is a lean. The material enforces precision in a way that no instructor can. You either planned carefully enough, or you started over.</p>
-      <p>Planning carefully enough meant cardboard first. Every component was designed on paper, cut from cardboard, and test-fitted before a single piece of pastillage was rolled out. Piping templates were drawn, refined, and practiced repeatedly until the muscle memory was there. The sugar was the final draft, not the first one.</p>
-    </div>
-    <div class="origins-images-2col reveal">
-      <div class="origins-img">
-        <img src="/images/wilton-centerpiece.jpeg" alt="Pastillage centerpiece — Wilton Method training, Sullivan College" style="height:480px;object-fit:contain;background:#111;"/>
-        <div class="origins-img-caption">Pastillage · 90-Minute Timed Test &middot; Wilton Method Training &middot; Sullivan College</div>
-      </div>
-      <div class="origins-img">
-        <img src="/images/sullivan-centerpiece.jpeg" alt="Pastillage centerpiece — additional practice, Sullivan College" style="height:480px;object-fit:contain;background:#111;"/>
-        <div class="origins-img-caption">Pastillage Centerpiece &middot; Additional Practice &middot; Sullivan College &middot; National Center for Hospitality Studies</div>
-      </div>
-    </div>
-    <div class="origins-pre-text reveal">
-      <p>The green centerpiece was the timed test: ninety minutes to produce a finished structural showpiece from scratch. Every decision had to be made before the clock started. The pink centerpiece was built as additional practice under the same Wilton guidelines, pushing the same technical demands with more room to explore.</p>
-      <p>Both pieces predate the 1992 competition. They are the reason it was possible.</p>
-    </div>
-
-    <hr class="origins-divider"/>
-
-    <!-- Competition -->
-    <div class="origins-grid">
-      <div class="origins-images reveal">
-        <div class="origins-img">
-          <img src="/images/competition-1992.jpg" alt="Silhouette — ACF National Pastry Competition Entry, Chicago 1992"/>
-          <div class="origins-img-caption">&ldquo;Silhouette&rdquo; Display &middot; NRA/ACF Salon &middot; Chicago &middot; 1992</div>
-        </div>
-        <div class="origins-img">
-          <img src="/images/competition-board.jpg" alt="Sullivan University College of Hospitality Studies competition awards wall — David Bailey's name listed under Chicago NRA/ACF Culinary Salon, May 1992"/>
-          <div class="origins-img-caption">My wife, Janette, finding the listing &middot; Sullivan University &middot; College of Hospitality Studies</div>
-        </div>
-        <div class="origins-img">
-          <img src="/images/competition-board-detail.jpg" alt="Close-up of Sullivan University honor board — Chicago NRA/ACF Culinary Salon / May 1992 — David Bailey, Silver Medal" style="object-position:center 40%;"/>
-          <div class="origins-img-caption">Chicago NRA/ACF Culinary Salon &middot; May 1992 &middot; David Bailey &middot; Silver Medal</div>
-        </div>
-      </div>
-      <div class="origins-text reveal">
-        <p>In 1992, I competed as a solo apprentice-class competitor at the ACF-sanctioned National Restaurant Association Salon at McCormick Place in Chicago, representing Sullivan College in Louisville, Kentucky.</p>
-        <p>My entry was titled <em style="color:var(--accent);">&ldquo;Silhouette&rdquo;</em>: a Russian-themed pastry arts display featuring a pastillage centerpiece modeled after Saint Basil&rsquo;s Cathedral, accompanied by Charlotte Russe, plated petit desserts, and handcrafted decorative elements arranged on an oval mirror presentation. I earned a Silver Medal.</p>
-        <p>What I didn&rsquo;t know at the time was that everything required to conceive, build, and present that entry was indistinguishable from what would later be called design thinking.</p>
-        <p>The competition imposed strict technical constraints and a published judging rubric. Success demanded that every element work together, not just individually. Thematic cohesion wasn&rsquo;t a principle I&rsquo;d read about. It was the difference between silver and bronze. Every decorative element had to belong to the same visual world. Nothing arbitrary. Nothing extraneous. That constraint taught me compositional balance before I had a word for it.</p>
-        <p>A lack of precision craftsmanship meant structural failure. A centerpiece that leaned, a glaze that cracked, wasn&rsquo;t recoverable at presentation. You iterated before the deadline, not during it. The competition was an exercise in iterative execution evaluated on criteria that rewarded precision, coherence, and originality in equal measure.</p>
-        <p>Designing under strict constraints for a panel of expert judges who would assess your work against a rubric? That&rsquo;s every UX deliverable I&rsquo;ve produced since.</p>
-        <p>I didn&rsquo;t know the board existed until recently. We were at Sullivan University for my daughter Georgia&rsquo;s college visit when we found the Competition Awards wall. My name was there, 1992, Silver Medal, exactly where it had always been. I hadn&rsquo;t known. Janette photographed it. There&rsquo;s something fitting about that. The work was real enough to be permanently recorded without me ever needing to keep track of it.</p>
-        <div class="ux-tags">
-          <span class="ux-tag">Thematic Cohesion</span>
-          <span class="ux-tag">Precision Craftsmanship</span>
-          <span class="ux-tag">Compositional Balance</span>
-          <span class="ux-tag">Iterative Execution</span>
-          <span class="ux-tag">Constrained Design</span>
-        </div>
-      </div>
-    </div>
+<nav class="cs-nav" aria-label="Case study navigation">
+  <div class="wrap cs-nav-row">
+    <a class="cs-nav-link" href="../ai-workflows/">
+      <span class="cs-nav-eyebrow">⟵ Previous Project</span>
+      <span class="cs-nav-title">AI-Assisted UX Workflows</span>
+    </a>
+    <a class="cs-nav-link next" href="../creative-work.html">
+      <span class="cs-nav-eyebrow">Next Project ⟶</span>
+      <span class="cs-nav-title">Creative Work</span>
+    </a>
   </div>
-</div>
+</nav>
 
-<!-- SECTION 2: THE CLIENT PROCESS -->
-<div class="section-light">
-  <div class="section-light-inner">
-    <div class="reveal">
-      <p class="section-label">Section 02</p>
-      <span class="cs-step-num">Step 02 &middot; Define</span>
-      <h2>The Client Process</h2>
-      <hr class="rule"/>
-    </div>
-    <p class="process-intro reveal">Every new wedding cake client began with a face-to-face meeting. I asked them to bring magazine clippings, fabric swatches, anything that captured their vision. Most clients had never done this before. I had done it hundreds of times. So I guided them through decisions they didn&rsquo;t know they needed to make. What follows is what that process looked like, and what it maps to.</p>
-    <div class="process-steps reveal">
-      <div class="process-step">
-        <div class="step-what">
-          <div class="step-header">What I Did</div>
-          <p>Scheduled a face-to-face meeting before any design decisions were made. No sketches. No assumptions. Just a conversation.</p>
-        </div>
-        <div class="step-ux">
-          <div class="step-header">UX Equivalent</div>
-          <div class="step-ux-title">Stakeholder Interview</div>
-          <div class="step-ux-desc">Establishing shared context before committing to a direction. Understanding the human behind the project, not just the ask.</div>
-        </div>
-      </div>
-      <div class="process-step">
-        <div class="step-what">
-          <div class="step-header">What I Did</div>
-          <p>Asked clients to bring magazine clippings and fabric swatches: physical artifacts that represented their vision before they could find words for it.</p>
-        </div>
-        <div class="step-ux">
-          <div class="step-header">UX Equivalent</div>
-          <div class="step-ux-title">Contextual Inquiry &amp; Artifact Elicitation</div>
-          <div class="step-ux-desc">Real artifacts carry meaning that words alone don&rsquo;t. A swatch communicates color, texture, and emotional tone simultaneously, and often reveals what the client values but can&rsquo;t yet articulate.</div>
-        </div>
-      </div>
-      <div class="process-step">
-        <div class="step-what">
-          <div class="step-header">What I Did</div>
-          <p>Asked about guest count, date, time of day, food service style, cake and icing flavors, the exact shade of the dress so the cake could complement it, and whether they wanted to save the topper or have a fresh replica made for their first anniversary.</p>
-        </div>
-        <div class="step-ux">
-          <div class="step-header">UX Equivalent</div>
-          <div class="step-ux-title">Requirements Gathering</div>
-          <div class="step-ux-desc">Systematic exploration of constraints, dependencies, and success criteria, including details the client didn&rsquo;t know would matter. The anniversary topper question wasn&rsquo;t optional. It changed the structural design of the final product.</div>
-        </div>
-      </div>
-      <div class="process-step">
-        <div class="step-what">
-          <div class="step-header">What I Did</div>
-          <p>Guided them through decisions they didn&rsquo;t know they needed to make. Together we mixed and matched ideas, blending their inspirations with my expertise, until we created something unique to their journey.</p>
-        </div>
-        <div class="step-ux">
-          <div class="step-header">UX Equivalent</div>
-          <div class="step-ux-title">Co-Design &amp; Facilitated Ideation</div>
-          <div class="step-ux-desc">The designer&rsquo;s job isn&rsquo;t to have all the ideas. It&rsquo;s to create the conditions where the right ones emerge from the collaboration. My expertise structured the process. Their vision defined the outcome.</div>
-        </div>
-      </div>
-      <div class="process-step">
-        <div class="step-what">
-          <div class="step-header">What I Did</div>
-          <p>Took a couple of days after the meeting to process everything before producing any output. The meeting was data collection. What came next was different work.</p>
-        </div>
-        <div class="step-ux">
-          <div class="step-header">UX Equivalent</div>
-          <div class="step-ux-title">Synthesis</div>
-          <div class="step-ux-desc">Turning raw input into coherent insight. The clippings, swatches, and answers were fragments on their own. Synthesis turned them into a design brief I could build from.</div>
-        </div>
-      </div>
-      <div class="process-step">
-        <div class="step-what">
-          <div class="step-header">What I Did</div>
-          <p>Produced a detailed sketch showing layout, tier proportions, florals, decorative elements, and color relationships. Specific enough to communicate intent, open enough to invite final approval.</p>
-        </div>
-        <div class="step-ux">
-          <div class="step-header">UX Equivalent</div>
-          <div class="step-ux-title">Wireframe &amp; Design Specification</div>
-          <div class="step-ux-desc">The sketch was a deliverable, not a draft. It gave the client something concrete to respond to and gave me a documented plan to build from. That distinction matters.</div>
-        </div>
-      </div>
-      <div class="process-step">
-        <div class="step-what">
-          <div class="step-header">What I Did</div>
-          <p>Delivered a signed invoice that itemized every element and formalized the agreement before a single cake was baked. Both parties signed. Both parties knew exactly what was being built.</p>
-        </div>
-        <div class="step-ux">
-          <div class="step-header">UX Equivalent</div>
-          <div class="step-ux-title">Design Contract &amp; Scope Management</div>
-          <div class="step-ux-desc">A signed invoice is a scope document. It protects both parties and prevents the creep that derails projects long after the handshake. I learned this in buttercream before I had a name for it in Figma.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+</main>
 
-<!-- SECTION 3: WHEN IT GOT HARD -->
-<div class="section-dark">
-  <div class="section-dark-inner">
-    <div class="reveal">
-      <p class="section-label">Section 03</p>
-      <span class="cs-step-num">Step 03 &middot; Ideate</span>
-      <h2>When It Got Hard</h2>
-      <hr class="rule"/>
-    </div>
-    <p class="hard-intro reveal">Design is tested when things go wrong. One of these moments was planned for. One wasn&rsquo;t. Both taught me more about process than any smooth delivery ever did.</p>
-    <div class="stories-grid">
-      <div class="story-card reveal">
-        <div class="story-num">01</div>
-        <h3>The Three-Cake Delivery Day</h3>
-        <p>I had three wedding cakes scheduled for delivery on the same day. Different venues. Different timelines. One team. The logistics alone were a design problem.</p>
-        <p>Before the day started, I created a detailed delivery checklist covering venue contacts, routes, setup sequences, and handling instructions specific to each cake. Then I trained my team explicitly, walking through every step so there were no assumptions and no gaps.</p>
-        <p>We ran a mock delivery. Not a briefing. An actual walkthrough that surfaced the questions nobody had thought to ask. What happens at the freight elevator? Who stabilizes the base while the tiers are assembled? Where does the floristry get placed last, and by whom?</p>
-        <p>On the day itself, I dispatched two deliveries with my team while I stayed back, completed the final and largest cake, and delivered it myself. Everything landed. Every cake, every venue, on time.</p>
-        <p>The mock delivery is what made it work. We found the failure points before they were failures.</p>
-        <div class="story-tags">
-          <span class="story-tag">Systems Design</span>
-          <span class="story-tag">Documentation</span>
-          <span class="story-tag">Delegation</span>
-          <span class="story-tag">Usability Testing</span>
-        </div>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <p class="f-title">The Drafting Table</p>
+        <p class="f-tag">Designing digital experiences with the precision of architectural thinking.</p>
       </div>
-      <div class="story-card reveal">
-        <div class="story-num">02</div>
-        <h3>The Client Pickup Recovery</h3>
-        <p>A client insisted on transporting the cake themselves. I advised against it. A tiered wedding cake is a precision-stacked structural system, not a passenger. But the decision was theirs to make. I documented the handling instructions and sent them off.</p>
-        <p>The cake didn&rsquo;t survive the journey.</p>
-        <p>They called me from the event space. I loaded my tools, drove to the venue, and performed an on-site repair that saved the event. Structural rebuilding. Fresh piping. Presentation restored. Done before the guests arrived.</p>
-        <p>That cake ended up being one of my favorites. Not because it went perfectly, but because the final result was better than I&rsquo;d expected under those conditions. Constraints have a way of making you work differently.</p>
-        <p>The lesson wasn&rsquo;t about the client&rsquo;s decision. It was about being the kind of designer who shows up when the product breaks in the field, with tools, composure, and no interest in placing blame.</p>
-        <div class="story-tags">
-          <span class="story-tag">Edge Case Handling</span>
-          <span class="story-tag">Graceful Degradation</span>
-          <span class="story-tag">On-Site Remediation</span>
-        </div>
+      <div class="footer-col">
+        <p class="footer-col-title">Work</p>
+        <a href="../springfield-cofc/">Springfield CofC</a>
+        <a href="../navease/">NavEase</a>
+        <a href="../ai-workflows/">AI-Assisted Workflows</a>
+        <a href="../pastry-kitchen/" aria-current="page">The Pastry Kitchen</a>
+        <a href="../creative-work.html">Creative Work</a>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">About</p>
+        <a href="../index.html#about">About David</a>
+        <a href="../index.html#skills">Capabilities</a>
+        <a href="../David_R_Bailey_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">Connect</p>
+        <a href="https://www.linkedin.com/in/davidbaileyjr/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:contact@davidrbailey.com">Email</a>
       </div>
     </div>
-  </div>
-</div>
-
-<!-- SECTION 4: THE WORK -->
-<div class="section-light">
-  <div class="section-light-inner">
-    <div class="reveal">
-      <p class="section-label">Section 04</p>
-      <span class="cs-step-num">Step 04 &middot; Prototype</span>
-      <h2>The Work</h2>
-      <hr class="rule"/>
+    <div class="footer-bottom">
+      <p>© 2026 David R. Bailey</p>
+      <p>Springfield, OH</p>
+      <p>Document Revision 2.0</p>
     </div>
-    <p class="photo-intro reveal">Each cake began with a conversation. This is what became of them.</p>
-    <div class="photo-grid reveal">
-      <div class="photo-item" style="grid-column:1;grid-row:1/3;">
-        <img src="/images/Wedding-1.jpg" alt="Wedding Cake"/>
-        <div class="photo-caption">Wedding</div>
-      </div>
-      <div class="photo-item" style="grid-column:2;grid-row:1;">
-        <img src="/images/Wedding-2.jpg" alt="Wedding Cake"/>
-        <div class="photo-caption">Wedding</div>
-      </div>
-      <div class="photo-item" style="grid-column:3;grid-row:1;">
-        <img src="/images/Wedding-3.jpg" alt="Wedding Cake"/>
-        <div class="photo-caption">Wedding</div>
-      </div>
-      <div class="photo-item" style="grid-column:2;grid-row:2;">
-        <img src="/images/Wedding-4.jpg" alt="Wedding Cake"/>
-        <div class="photo-caption">Wedding</div>
-      </div>
-      <div class="photo-item" style="grid-column:3;grid-row:2;">
-        <img src="/images/Wedding-5.jpg" alt="Wedding Cake"/>
-        <div class="photo-caption">Wedding</div>
-      </div>
-      <div class="photo-item" style="grid-column:1/3;grid-row:3;">
-        <img src="/images/Baby-1.jpg" alt="Baby Shower Cake"/>
-        <div class="photo-caption">Baby Shower</div>
-      </div>
-      <div class="photo-item" style="grid-column:3;grid-row:3;">
-        <img src="/images/Birthday-1.jpg" alt="Birthday Cake"/>
-        <div class="photo-caption">Birthday</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- SECTION 5: THE THROUGH LINE -->
-<div class="section-dark">
-  <div class="section-dark-inner">
-    <div class="reveal">
-      <p class="section-label">Section 05</p>
-      <span class="cs-step-num">Step 05 &middot; Test</span>
-      <h2>The Through Line</h2>
-      <hr class="rule"/>
-    </div>
-    <blockquote class="tl-quote reveal">The tools changed. The process never did.</blockquote>
-    <div class="tl-blocks">
-      <div class="tl-block reveal">
-        <h4>Understand what someone needs.</h4>
-        <p>Every client meeting. Every clipping and swatch brought in. Every question about the dress shade and the anniversary topper. That wasn&rsquo;t customer service. That was research. Structured, intentional, and conducted before a single decision was made.</p>
-      </div>
-      <div class="tl-block reveal">
-        <h4>Design something that serves that need.</h4>
-        <p>The sketch wasn&rsquo;t decoration. It was a specification. It earned a signature because both parties needed to know exactly what was being built before anyone picked up a pastry bag. Or opened Figma.</p>
-      </div>
-      <div class="tl-block reveal">
-        <h4>Deliver it with care.</h4>
-        <p>Whether the medium is buttercream or a design file, the delivery is part of the work. The mock run. The checklist. The willingness to show up at the venue with tools when something breaks. That discipline doesn&rsquo;t change with the platform.</p>
-      </div>
-    </div>
-    <p class="tl-close reveal">The Pastry Kitchen wasn&rsquo;t a detour from UX design. It was the beginning of it. The vocabulary came later. The practice was already there.</p>
-  </div>
-</div>
-
-<!-- FOOTER -->
-<footer>
-  <p>&copy; 2026 David R. Bailey &middot; UX/UI Designer &amp; Technologist</p>
-  <div class="footer-links">
-    <a href="/#work">Portfolio</a>
-    <a href="https://linkedin.com" target="_blank">LinkedIn</a>
-    <a href="mailto:contact@davidrbailey.com">Email</a>
-    <a href="/David_R_Bailey_Resume.pdf" target="_blank">Resume</a>
   </div>
 </footer>
 
-<script>
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
-},{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-</script>
+<script src="../js/site.js" defer></script>
 </body>
 </html>
