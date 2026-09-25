@@ -93,15 +93,15 @@
 @media (prefers-reduced-motion: reduce){ .ticker-wrap{display:none;} }
 
 /* ===== CASE STUDIES ===== */
-.case-studies .section-heading{margin-bottom:70px;}
-.project{
-  display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;
-  margin-bottom:64px;scroll-margin-top:100px;
-}
-.project:last-child{margin-bottom:0;}
+.case-studies .section-heading{margin-bottom:60px;}
+/* two-column card grid; one column on phones. Cards in a row share a height. */
+.case-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px 40px;}
+.project{display:flex;flex-direction:column;gap:16px;scroll-margin-top:100px;}
+/* odd card out (Creative Work) centers on its own row */
+.case-grid > .project:last-child:nth-child(odd){grid-column:1 / -1;justify-self:center;width:calc((100% - 40px) / 2);}
 .project-image{
   position:relative;display:block;overflow:hidden;
-  aspect-ratio:4/3.15;border-radius:12px;background:var(--ink);
+  aspect-ratio:16/10;border-radius:12px;background:var(--ink);
   box-shadow:0 30px 60px -20px rgba(13,13,11,0.35);
 }
 .project-image img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
@@ -112,43 +112,38 @@
   color:var(--cream);background:rgba(13,13,11,0.7);padding:6px 10px;border-radius:4px;
 }
 .project-text{
-  margin-top:clamp(30px,6vw,96px);
-  background:var(--cream);border-radius:12px;padding:44px 44px 48px;
+  flex:1;display:flex;flex-direction:column;align-items:flex-start;
+  background:var(--cream);border-radius:12px;padding:36px 38px 38px;
 }
-.project.reverse .project-image{order:2;}
-.project.reverse .project-text{order:1;}
 
 .proj-number{
-  font-family:var(--font-display);font-weight:800;font-size:clamp(32px,3.6vw,48px);
+  font-family:var(--font-display);font-weight:800;font-size:clamp(30px,2.6vw,40px);
   color:var(--green);letter-spacing:-0.02em;margin:0 0 8px;
 }
-.proj-kicker{font-weight:700;font-size:clamp(18px,2vw,26px);color:var(--stone-ink);margin:0 0 6px;}
+.proj-kicker{font-weight:700;font-size:clamp(16px,1.3vw,19px);color:var(--stone-ink);margin:0 0 6px;}
 .proj-title{
-  font-family:var(--font-display);font-weight:700;font-size:clamp(28px,3.4vw,44px);
-  color:var(--ink);margin:0 0 16px;line-height:1.12;letter-spacing:-0.01em;
+  font-family:var(--font-display);font-weight:700;font-size:clamp(26px,2.4vw,36px);
+  color:var(--ink);margin:0 0 14px;line-height:1.12;letter-spacing:-0.01em;
 }
 .proj-tags{
-  font-weight:500;font-size:clamp(12px,1.2vw,15px);letter-spacing:2.2px;text-transform:uppercase;
-  color:var(--stone-ink);margin:0 0 22px;
+  font-weight:500;font-size:clamp(12px,0.95vw,14px);letter-spacing:2px;text-transform:uppercase;
+  color:var(--stone-ink);margin:0 0 18px;
 }
 .proj-tags .dot{color:var(--green);}
-.proj-desc{font-size:clamp(18px,1.9vw,26px);line-height:1.45;color:#000;letter-spacing:-0.01em;margin:0 0 30px;}
+.proj-desc{font-size:clamp(17px,1.35vw,20px);line-height:1.55;color:#000;margin:0 0 26px;}
 .proj-link{
-  display:inline-block;color:var(--green);font-weight:500;
-  font-size:clamp(20px,2.4vw,30px);letter-spacing:-0.01em;
-  border-bottom:1px solid var(--green);padding-bottom:6px;
+  margin-top:auto;display:inline-block;color:var(--green);font-weight:500;
+  font-size:clamp(19px,1.5vw,22px);border-bottom:1px solid var(--green);padding-bottom:5px;
 }
 .proj-link:hover{color:var(--ink);border-color:var(--ink);}
 
 #creative-rotator{transition:opacity 1.2s ease, transform .5s ease;}
 
 @media (max-width:900px){
-  .project,.project.reverse{grid-template-columns:1fr;gap:24px;}
-  .project .project-image,.project.reverse .project-image{order:1;}
-  .project .project-text,.project.reverse .project-text{order:2;margin-top:0;}
+  .case-grid{grid-template-columns:minmax(0,1fr);gap:44px;}
+  .case-grid > .project:last-child:nth-child(odd){width:auto;justify-self:stretch;}
 }
 @media (max-width:480px){
-  .project{margin-bottom:44px;}
   .project-text{padding:30px 24px 34px;}
 }
 
@@ -412,7 +407,8 @@
     <p class="section-kicker">A0.01–A0.05 / Selected Work</p>
     <h2 class="section-heading" id="work-heading">Case <span class="accent">Studies</span></h2>
 
-    <article class="project reverse reveal" id="case-springfield">
+    <div class="case-grid">
+    <article class="project reveal" id="case-springfield">
       <a class="project-image" href="/springfield-cofc/" tabindex="-1" aria-hidden="true">
         <span class="sheet-label">UX/UI · Digital Strategy</span>
         <img src="images/church-building.jpg" alt="" loading="lazy"/>
@@ -430,7 +426,7 @@
     <article class="project reveal" id="case-navease">
       <a class="project-image" href="/navease/" tabindex="-1" aria-hidden="true">
         <span class="sheet-label">Product Design · AI · Mobile UX</span>
-        <img src="images/ne-phone-wrap.png" alt="" loading="lazy"/>
+        <img src="images/ne-phone.jpg" alt="" loading="lazy"/>
       </a>
       <div class="project-text">
         <p class="proj-number">02</p>
@@ -442,7 +438,7 @@
       </div>
     </article>
 
-    <article class="project reverse reveal" id="case-ai-workflows">
+    <article class="project reveal" id="case-ai-workflows">
       <a class="project-image" href="/ai-workflows/" tabindex="-1" aria-hidden="true">
         <span class="sheet-label">Independent Research · AI Tools</span>
         <img src="images/ai-card.jpg" alt="" loading="lazy"/>
@@ -472,7 +468,7 @@
       </div>
     </article>
 
-    <article class="project reverse reveal" id="case-creative-work">
+    <article class="project reveal" id="case-creative-work">
       <a class="project-image" href="creative-work.html" tabindex="-1" aria-hidden="true">
         <span class="sheet-label">Watercolors · Cake Design</span>
         <img id="creative-rotator" src="images/Watercolor-1.jpg" alt="" loading="lazy"/>
@@ -486,6 +482,7 @@
         <a class="proj-link" href="creative-work.html">View the Gallery ⟶</a>
       </div>
     </article>
+    </div>
   </div>
 </section>
 
