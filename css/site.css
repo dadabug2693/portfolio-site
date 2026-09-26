@@ -139,6 +139,33 @@ nav.links a:hover,nav.links a[aria-current="page"]{opacity:1;color:var(--green);
 }
 .btn-primary:hover{transform:translateY(-2px);}
 .btn-primary.on-paper{background:var(--ink);color:var(--cream);border-color:var(--ink);}
+/* Drafted CTA: green crop marks close in on the corners on hover/focus,
+   the arrow nudges toward where the link goes, and the button presses in. */
+.btn-drafted{position:relative;}
+.btn-drafted::before{
+  --c:var(--green);--l:12px;--w:2px;
+  content:"";position:absolute;inset:-18px;pointer-events:none;opacity:0;
+  background:
+    linear-gradient(var(--c),var(--c)) left top / var(--l) var(--w),
+    linear-gradient(var(--c),var(--c)) left top / var(--w) var(--l),
+    linear-gradient(var(--c),var(--c)) right top / var(--l) var(--w),
+    linear-gradient(var(--c),var(--c)) right top / var(--w) var(--l),
+    linear-gradient(var(--c),var(--c)) left bottom / var(--l) var(--w),
+    linear-gradient(var(--c),var(--c)) left bottom / var(--w) var(--l),
+    linear-gradient(var(--c),var(--c)) right bottom / var(--l) var(--w),
+    linear-gradient(var(--c),var(--c)) right bottom / var(--w) var(--l);
+  background-repeat:no-repeat;
+  transition:inset .3s cubic-bezier(.2,.8,.2,1),opacity .2s ease;
+}
+.btn-drafted:hover::before,.btn-drafted:focus-visible::before{inset:-9px;opacity:1;}
+.btn-drafted:active{transform:translateY(0) scale(.97);transition-duration:.08s;}
+/* Link arrows (<span class="arrow">) slide the way the link goes on hover/focus;
+   .back arrows slide left, .down arrows bob toward an on-page anchor. */
+.arrow{display:inline-block;transition:transform .25s cubic-bezier(.2,.8,.2,1);}
+a:hover .arrow:not(.down),a:focus-visible .arrow:not(.down){transform:translateX(5px);}
+a:hover .arrow.back,a:focus-visible .arrow.back{transform:translateX(-5px);}
+@keyframes arrow-nudge{0%,100%{transform:translateY(0);}50%{transform:translateY(4px);}}
+a:hover .arrow.down,a:focus-visible .arrow.down{animation:arrow-nudge .9s ease-in-out infinite;}
 .text-link{
   display:inline-block;white-space:nowrap;padding:4px 2px;
   font-size:20px;letter-spacing:1.5px;font-weight:500;
@@ -160,6 +187,12 @@ nav.links a:hover,nav.links a[aria-current="page"]{opacity:1;color:var(--green);
   font-weight:500;font-size:14px;letter-spacing:2.5px;text-transform:uppercase;
   margin:0 0 14px;
 }
+/* a short green rule is drawn under each kicker as it scrolls into view */
+.section-kicker::after{
+  content:"";display:block;width:48px;height:2px;margin-top:10px;background:var(--green);
+  transform-origin:left;transition:transform .7s .15s cubic-bezier(.2,.8,.2,1);
+}
+.js .section-kicker:not(.drawn)::after{transform:scaleX(0);}
 .dark .section-kicker{color:var(--stone);}
 .paper .section-kicker{color:var(--stone-ink);}
 .section-heading{

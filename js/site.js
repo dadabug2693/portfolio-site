@@ -36,14 +36,16 @@ document.documentElement.classList.add('js');
 
 (function(){
   "use strict";
-  var els = document.querySelectorAll('.reveal');
+  /* .reveal fades in; .section-kicker draws its rule. Each gets its class once. */
+  var els = document.querySelectorAll('.reveal, .section-kicker');
+  function show(el){ el.classList.add(el.classList.contains('reveal') ? 'visible' : 'drawn'); }
   if(!('IntersectionObserver' in window)){
-    els.forEach(function(el){ el.classList.add('visible'); });
+    els.forEach(show);
     return;
   }
   var observer = new IntersectionObserver(function(entries){
     entries.forEach(function(e){
-      if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); }
+      if(e.isIntersecting){ show(e.target); observer.unobserve(e.target); }
     });
   }, {threshold:.12});
   els.forEach(function(el){ observer.observe(el); });
