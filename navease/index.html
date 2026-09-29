@@ -96,8 +96,9 @@
 
       <div class="cs-section-head"><span class="cs-num">01</span><h2 id="h-01">The Observation</h2></div>
       <p class="cs-copy">Every interface contains friction. Most product teams underestimate how it accumulates: every redundant tap, every wrong branch, every moment a user pauses to look for something they've looked for before. These are small costs, but they compound into abandonment.</p>
-      <p class="cs-copy">NavEase began as an exploration into whether software could adapt to people instead of expecting people to adapt to software. It proposes a framework for making friction visible, measurable, and systematically reducible, with an adaptive navigation layer as the way the system acts on what it learns.</p>
-      <p class="cs-quote">Most software assumes every user follows the same path. Reality rarely works that way.</p>
+      <p class="cs-copy">For most of computing history, software has worked one way: one interface, and everyone uses it the same way. If it doesn't fit you, you learn it. I've watched this play out across my career, in stores, in IT support, and in the tech side of church life. A new system shows up. People get trained on it. The ones who struggle get called "not tech-savvy." And the system never changes.</p>
+      <p class="cs-quote">Why is the person always the one doing the adapting?</p>
+      <p class="cs-copy">NavEase began as an exploration of the opposite approach. AI makes it possible, for the first time, for software to pay attention to how a specific person actually uses it: where they hesitate, back up, or give up. And it can respond. NavEase proposes a framework for making that friction visible, measurable, and systematically reducible, with an adaptive navigation layer as the way the system acts on what it learns.</p>
       <p class="cs-copy"><strong>The working hypothesis:</strong> users rarely abandon apps because a product lacks value. They abandon because the path to value is obstructed by menus that don't match their mental models, features buried too deep, and onboarding that teaches nothing useful at the moment it's needed.</p>
     </div>
   </section>
@@ -127,6 +128,8 @@
       <div class="cs-section-head"><span class="cs-num">03</span><h2 id="h-03">The Concept</h2></div>
       <p class="cs-copy">What if the interface adapted to the user instead of the other way around?</p>
       <p class="cs-quote" style="margin-top:24px;">Adaptation shouldn't be an accessibility feature. It should be the interface.</p>
+
+      <p class="cs-copy"><strong>A layer, not a redesign.</strong> One of the first decisions was that NavEase would run alongside an existing application instead of replacing it. Businesses have already invested in the systems they run, and asking them to start over is a hard sell. A redesign also only fixes the problems you can see on the day it ships. A layer keeps learning. It can meet the next person where they are, even if that person looks nothing like the last one.</p>
 
       <h3 class="cs-sub">Proposed capabilities</h3>
       <div class="cs-cards">
@@ -221,10 +224,10 @@
         <div class="cs-tradeoff"><h3>05 · Transparent and opt-out</h3><p>A persistent indicator shows when AI is active, and personalization can be turned off at any time in Settings.</p></div>
       </div>
 
-      <p class="cs-copy" style="margin-top:40px;">This is the core tension in adaptive design: personalization versus predictability. NavEase resolves it by treating personalization as a suggestion layer on top of a stable, predictable foundation, not as a replacement for it.</p>
+      <p class="cs-copy" style="margin-top:40px;">This is the core tension in adaptive design: personalization versus predictability. NavEase resolves it by treating personalization as a suggestion layer on top of a stable, predictable foundation, not as a replacement for it. Adapting to someone also means listening when they tell you directly. A pin or an opt-out is the user's own instruction, and it outranks anything the model infers.</p>
 
       <h3 class="cs-sub">Responsible AI</h3>
-      <p class="cs-copy">Transparency is treated as a non-negotiable requirement, not a feature added at the end.</p>
+      <p class="cs-copy">This is where responsible AI gets practical. When a system bends to fit people, it respects them. When it forces people to bend, it filters out the ones who can't. Nobody writes that into the requirements. It happens anyway. Transparency is treated as a non-negotiable requirement, not a feature added at the end.</p>
       <div class="cs-cards">
         <div class="cs-card"><span class="cs-card-tag">Pillar</span><p class="cs-card-title">Bias prevention</p><p class="cs-card-desc">Diverse training data, regular audits, and human review checkpoints so the system never learns patterns that disadvantage any group.</p></div>
         <div class="cs-card"><span class="cs-card-tag">Pillar</span><p class="cs-card-title">Compliance &amp; security</p><p class="cs-card-desc">Designed for GDPR and HIPAA from the start, with data anonymized at collection and no third-party sharing.</p></div>
@@ -253,7 +256,7 @@
         <div class="cs-card"><span class="cs-card-tag">Flow 01</span><p class="cs-card-title">First-time onboarding</p><p class="cs-card-desc">The highest abandonment risk. A long setup wizard is where new users quit, so the concept uses three steps, defers remaining preferences until they're relevant, and starts personalization at step one.</p></div>
         <div class="cs-card"><span class="cs-card-tag">Flow 02</span><p class="cs-card-title">Feature discovery</p><p class="cs-card-desc">Items lower in a menu tend to go unseen. Instead of relying on menu position, the adaptive layer surfaces what's relevant to each person.</p></div>
         <div class="cs-card"><span class="cs-card-tag">Flow 03</span><p class="cs-card-title">Returning user</p><p class="cs-card-desc">The feedback loop improves navigation each session. Personalization stabilizes by session five and keeps refining from there.</p></div>
-        <div class="cs-card"><span class="cs-card-tag">Flow 04</span><p class="cs-card-title">Help-seeking</p><p class="cs-card-desc">People who open help are often lost in the navigation rather than looking for information, so contextual tooltips replace static tutorials.</p></div>
+        <div class="cs-card"><span class="cs-card-tag">Flow 04</span><p class="cs-card-title">Help-seeking</p><p class="cs-card-desc">People who open help are often lost in the navigation rather than looking for information, so contextual tooltips replace static tutorials. Where a person is available to help, such as a support agent or staff member, repeated back-outs from the same screen can signal them to step in. The system spots the pattern; the person does the helping.</p></div>
       </div>
     </div>
   </section>
@@ -331,6 +334,8 @@
         <div class="cs-card"><span class="cs-card-tag">Engage</span><p class="cs-card-title">Long-term engagement</p><p class="cs-card-desc">Design for 30, 60, and 90-day retention, not just the first session.</p></div>
         <div class="cs-card"><span class="cs-card-tag">Measure</span><p class="cs-card-title">Continuous measurement</p><p class="cs-card-desc">An analytics review cadence that surfaces new friction before it compounds into churn.</p></div>
       </div>
+
+      <p class="cs-copy">The larger idea behind NavEase isn't really about navigation. It's about who carries the burden of adapting. For most of computing history, that has been the person. AI makes it possible to hand that job to the system instead, and NavEase is one worked example of what that could look like. AI shouldn't replace the people-first moment. It should make it better: the machine does what it's good at, and the person does what only a person can do.</p>
 
       <p class="cs-quote">Friction is a system problem. NavEase treats it like one.</p>
       <p class="cs-copy">By making behavioral patterns visible, quantifiable, and actionable, the concept aims for a navigation experience that improves over time. Not because it's clever, but because it's paying attention.</p>
