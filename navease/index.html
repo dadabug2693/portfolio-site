@@ -18,6 +18,29 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/site.css">
+<style>
+/* 04: mini navigation lists showing how each user state reorders the menu */
+.ne-navs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin:32px 0 0;}
+@media (max-width:1100px){ .ne-navs{grid-template-columns:repeat(2,minmax(0,1fr));} }
+@media (max-width:480px){ .ne-navs{grid-template-columns:1fr;} }
+.ne-nav{background:rgba(255,255,255,0.35);border:1px solid rgba(13,13,11,0.12);border-radius:10px;padding:20px 18px;}
+.ne-nav-head{margin:0 0 14px;}
+.ne-nav-head b{display:block;font-size:18px;color:var(--ink);}
+.ne-nav-head span{font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--green);}
+.ne-nav ol{list-style:none;margin:0;padding:0;}
+.ne-nav li{
+  display:flex;align-items:center;gap:12px;min-height:38px;padding:0 10px;margin-bottom:4px;
+  border-radius:6px;font-size:15px;color:#141310;
+}
+.ne-nav .pos{width:14px;font-size:12px;color:var(--stone-ink);}
+.ne-nav .flag{margin-left:auto;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--stone-ink);}
+.ne-nav li.pin{color:var(--stone-ink);}
+.ne-nav li.up{background:rgba(5,150,105,0.14);font-weight:700;}
+.ne-nav li.up .flag{font-size:16px;color:var(--green);}
+.ne-nav-note{margin:14px 0 0;font-size:14px;line-height:1.55;color:var(--stone-ink);}
+/* the full diagram is reference material now: a small, enlargeable thumbnail */
+.ne-diagram{max-width:520px;margin-top:56px;}
+</style>
 </head>
 <body>
 
@@ -171,43 +194,88 @@
   <section class="cs-section" id="system" aria-labelledby="h-04">
     <div class="wrap">
       <div class="cs-section-head"><span class="cs-num">04</span><h2 id="h-04">How the System Thinks</h2></div>
-      <p class="cs-copy">The adaptive layer doesn't randomly reorder navigation. It reads behavioral signals, identifies recurring friction, and gradually adjusts interface priorities to match how each person actually works. The goal isn't to impress users with personalization. It's to make friction invisible by removing it before anyone notices.</p>
 
-      <figure class="cs-figure">
+      <p class="cs-copy">Sarah opens the app around 7:30 every weekday. She checks Maps, then Transit for her bus, then queues a podcast. After four days of that, NavEase moves Maps and Transit up the navigation during her 7–9 AM window. She never configured anything. At 10 AM, navigation returns to her usual pattern.</p>
+      <span class="cs-flag">Illustrative scenario</span>
+
+      <p class="cs-copy" style="margin-top:40px;">Getting there takes three moves, always in the same order, and always slowly.</p>
+      <ol class="cs-steps three">
+        <li><b>Watch</b><span>Read four behavior signals: what someone uses, when, where, and what they used last.</span></li>
+        <li><b>Weigh</b><span>Score every feature and rank them.</span></li>
+        <li><b>Adjust</b><span>Move the top features up, at most one position per session.</span></li>
+      </ol>
+
+      <h3 class="cs-sub">1 · Watch: four signals</h3>
+      <div class="cs-cards four">
+        <div class="cs-card"><p class="cs-card-title">Frequency</p><p class="cs-card-desc">How often a feature gets used over the last 14 days. The strongest signal.</p></div>
+        <div class="cs-card"><p class="cs-card-title">Time of day</p><p class="cs-card-desc">When it gets used. A pattern counts after 3 or more consistent days.</p></div>
+        <div class="cs-card"><p class="cs-card-title">Location &amp; motion</p><p class="cs-card-desc">Moving suggests a commute; still suggests home or work. Only with permission.</p></div>
+        <div class="cs-card"><p class="cs-card-title">Recent sessions</p><p class="cs-card-desc">The last 1 to 3 sessions count extra, so a change in habits shows up quickly.</p></div>
+      </div>
+
+      <h3 class="cs-sub">2 · Weigh: from signals to a ranking</h3>
+      <p class="cs-copy">Each feature gets a score from 0 to 100, based on how often and how recently it's used. Time of day and location then act as multipliers, so Transit scores higher at 8 AM on a moving phone than at 8 PM on the couch. The four highest-scoring features fill the adaptive slots.</p>
+
+      <h3 class="cs-sub">3 · Adjust: one engine, four people</h3>
+      <p class="cs-copy">The same logic produces different navigation for different people. Each menu shows where navigation settles after several sessions, reached one shift at a time. Home and Settings stay pinned; highlighted items have moved up.</p>
+      <div class="ne-navs">
+        <div class="ne-nav">
+          <p class="ne-nav-head"><b>New user</b><span>Session 1</span></p>
+          <ol>
+            <li class="pin"><span class="pos">1</span>Home<span class="flag">Pinned</span></li>
+            <li><span class="pos">2</span>Discover</li>
+            <li><span class="pos">3</span>Search</li>
+            <li><span class="pos">4</span>Messages</li>
+            <li><span class="pos">5</span>Library</li>
+            <li class="pin"><span class="pos">6</span>Settings<span class="flag">Pinned</span></li>
+          </ol>
+          <p class="ne-nav-note">Default order. Personalization starts in session 2.</p>
+        </div>
+        <div class="ne-nav">
+          <p class="ne-nav-head"><b>Morning commuter</b><span>Sessions 2–5</span></p>
+          <ol>
+            <li class="pin"><span class="pos">1</span>Home<span class="flag">Pinned</span></li>
+            <li class="up"><span class="pos">2</span>Maps<span class="flag" aria-hidden="true">↑</span><span class="visually-hidden"> (moved up)</span></li>
+            <li class="up"><span class="pos">3</span>Transit<span class="flag" aria-hidden="true">↑</span><span class="visually-hidden"> (moved up)</span></li>
+            <li><span class="pos">4</span>Podcasts</li>
+            <li><span class="pos">5</span>Messages</li>
+            <li class="pin"><span class="pos">6</span>Settings<span class="flag">Pinned</span></li>
+          </ol>
+          <p class="ne-nav-note">Sarah's pattern. Maps and Transit rise from 7 to 9 AM, then reset at 10.</p>
+        </div>
+        <div class="ne-nav">
+          <p class="ne-nav-head"><b>Power user</b><span>Sessions 5+</span></p>
+          <ol>
+            <li class="pin"><span class="pos">1</span>Home<span class="flag">Pinned</span></li>
+            <li class="up"><span class="pos">2</span>Music<span class="flag" aria-hidden="true">↑</span><span class="visually-hidden"> (moved up)</span></li>
+            <li class="up"><span class="pos">3</span>Playlists<span class="flag" aria-hidden="true">↑</span><span class="visually-hidden"> (moved up)</span></li>
+            <li><span class="pos">4</span>Search</li>
+            <li><span class="pos">5</span>Podcasts</li>
+            <li class="pin"><span class="pos">6</span>Settings<span class="flag">Pinned</span></li>
+          </ol>
+          <p class="ne-nav-note">Settles around a core cluster. Changes slow down as the pattern holds.</p>
+        </div>
+        <div class="ne-nav">
+          <p class="ne-nav-head"><b>Shifted behavior</b><span>Transition</span></p>
+          <ol>
+            <li class="pin"><span class="pos">1</span>Home<span class="flag">Pinned</span></li>
+            <li class="up"><span class="pos">2</span>Calendar<span class="flag" aria-hidden="true">↑</span><span class="visually-hidden"> (moved up)</span></li>
+            <li class="up"><span class="pos">3</span>Tasks<span class="flag" aria-hidden="true">↑</span><span class="visually-hidden"> (moved up)</span></li>
+            <li><span class="pos">4</span>Messages</li>
+            <li><span class="pos">5</span>Music</li>
+            <li class="pin"><span class="pos">6</span>Settings<span class="flag">Pinned</span></li>
+          </ol>
+          <p class="ne-nav-note">A new pattern shows up across 3 sessions. The switch happens gradually.</p>
+        </div>
+      </div>
+
+      <figure class="cs-figure ne-diagram">
         <a class="zoom" href="../images/navease-adaptive-logic.png" data-caption="Adaptive navigation logic: signal inputs, decision engine, output by user state, and trust safeguards.">
           <img class="cs-shot" src="../images/navease-adaptive-logic.png" alt="NavEase adaptive navigation logic diagram: four weighted signal inputs feed a five-step decision engine, which produces different navigation orders for four user states, bounded by five trust safeguards." loading="lazy"/>
         </a>
-        <figcaption class="cs-caption">Adaptive navigation logic, from signal inputs to navigation output. A proposed model, not a built system.</figcaption>
+        <figcaption class="cs-caption">The whole system on one sheet: signals, engine, outputs, and safeguards. Select to enlarge. A proposed model, not a built system.</figcaption>
       </figure>
 
-      <h3 class="cs-sub">Signal inputs</h3>
-      <div class="cs-cards four">
-        <div class="cs-card"><span class="cs-card-tag">14-day rolling window</span><p class="cs-card-title">Behavioral frequency</p><p class="cs-card-desc">How often a feature is accessed. The strongest single signal.</p></div>
-        <div class="cs-card"><span class="cs-card-tag">Hourly clustering</span><p class="cs-card-title">Time-of-day pattern</p><p class="cs-card-desc">Whether usage clusters around specific hours. Detected after 3+ consistent days.</p></div>
-        <div class="cs-card"><span class="cs-card-tag">Device context</span><p class="cs-card-title">Location &amp; motion</p><p class="cs-card-desc">Stationary suggests work or home; transit elevates commute features. Requires permission.</p></div>
-        <div class="cs-card"><span class="cs-card-tag">Last 1–3 sessions</span><p class="cs-card-title">Recent behavior</p><p class="cs-card-desc">Weighted above the historical average to catch shifting patterns quickly.</p></div>
-      </div>
-
-      <h3 class="cs-sub">Decision engine</h3>
-      <ol class="cs-steps">
-        <li><b>Behavior log</b><span>14-day rolling window analyzed across all signals.</span></li>
-        <li><b>Frequency scoring</b><span>Each feature scored 0–100 by frequency and recency.</span></li>
-        <li><b>Context weighting</b><span>Time and location applied as score multipliers.</span></li>
-        <li><b>Priority ranking</b><span>Features ranked; the top 4 fill the adaptive slots.</span></li>
-        <li><b>Navigation output</b><span>Applied gradually, at most one position shift per session.</span></li>
-      </ol>
-
-      <h3 class="cs-sub">Four user states</h3>
-      <div class="cs-cards four">
-        <div class="cs-card"><span class="cs-card-tag">Session 1</span><p class="cs-card-title">New user</p><p class="cs-card-desc">Default order. The model initializes from onboarding signals; personalization begins in session 2.</p></div>
-        <div class="cs-card"><span class="cs-card-tag">Sessions 2–5</span><p class="cs-card-title">Commuter</p><p class="cs-card-desc">Maps and Transit rise during the 7–9 AM window, then reset at 10 AM. Time and motion signals dominate.</p></div>
-        <div class="cs-card"><span class="cs-card-tag">Sessions 5+</span><p class="cs-card-title">Power user</p><p class="cs-card-desc">Stabilizes around a dominant feature cluster. Changes slow as the pattern solidifies.</p></div>
-        <div class="cs-card"><span class="cs-card-tag">Transition</span><p class="cs-card-title">Shifted behavior</p><p class="cs-card-desc">A new pattern is detected after 3 consecutive sessions, and navigation transitions gradually. Never abruptly.</p></div>
-      </div>
-
-      <h3 class="cs-sub">Scenario: Sarah's morning commute</h3>
-      <p class="cs-copy">Sarah commutes every weekday, usually opening the app around 7:30 AM. She checks Maps, switches to Transit for her bus status, then queues a podcast. After four consistent days, NavEase elevates Maps and Transit to navigation positions 2 and 3 during the 7–9 AM window, without Sarah configuring anything. At 10 AM, navigation returns to her general pattern. Her commute features are always ready when she needs them, and she never notices the system changing.</p>
-      <span class="cs-flag">Illustrative scenario</span>
       <p class="cs-quote">The goal isn't to impress the user with AI. It's to make the AI invisible by being consistently useful.</p>
     </div>
   </section>
@@ -220,9 +288,9 @@
 
       <div class="cs-tradeoffs">
         <div class="cs-tradeoff"><h3>01 · Core actions are fixed</h3><p>Home, Settings, Help, and Account never move, so users always know where to find them regardless of AI state.</p></div>
-        <div class="cs-tradeoff"><h3>02 · The adaptive zone is bounded</h3><p>Only positions 3–6 adapt. The top two and bottom slots stay stable, giving users a reliable anchor.</p></div>
+        <div class="cs-tradeoff"><h3>02 · The adaptive zone is bounded</h3><p>Only positions 2–5 adapt. Home stays at the top and Settings at the bottom, giving users a reliable anchor.</p></div>
         <div class="cs-tradeoff"><h3>03 · Users can pin features</h3><p>Any item can be pinned to a fixed position. Pinned items permanently override AI suggestions.</p></div>
-        <div class="cs-tradeoff"><h3>04 · Changes are gradual</h3><p>At most one position shift per session. Users experience drift, not disruption.</p></div>
+        <div class="cs-tradeoff"><h3>04 · Changes are gradual</h3><p>At most one position shift per session. Users experience drift, not disruption. The one exception is an established time-of-day pattern: once learned, that layout switches in and out as a whole at the edges of its window, like Sarah's commute.</p></div>
         <div class="cs-tradeoff"><h3>05 · Transparent and opt-out</h3><p>A persistent indicator shows when AI is active, and personalization can be turned off at any time in Settings.</p></div>
       </div>
 
