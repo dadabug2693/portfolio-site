@@ -79,7 +79,7 @@ header.nav{
   font-family:var(--font-display);font-weight:800;font-size:18px;letter-spacing:1px;
 }
 .brand-text p{margin:0;}
-.brand-text .title{font-weight:800;font-size:20px;color:#fff;letter-spacing:0.5px;}
+.brand-text .title{white-space:nowrap;font-weight:800;font-size:20px;color:#fff;letter-spacing:0.5px;}
 .brand-text .subtitle{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;opacity:0.8;}
 nav.links{display:flex;gap:44px;font-size:14px;letter-spacing:1.2px;font-weight:500;}
 nav.links a{opacity:0.9;padding:4px 2px;transition:color .2s,opacity .2s;}
@@ -117,7 +117,12 @@ nav.links a:hover,nav.links a[aria-current="page"]{opacity:1;color:var(--green);
 }
 .mobile-menu a:hover,.mobile-menu a:focus-visible{color:var(--green);}
 
-@media (max-width:900px){
+/* six links + brand need ~1200px; tighten first, then switch to the menu button */
+@media (max-width:1200px){
+  nav.links{gap:28px;}
+  .badge{display:none;}
+}
+@media (max-width:1024px){
   nav.links{display:none;}
   .nav-toggle{display:flex;}
 }

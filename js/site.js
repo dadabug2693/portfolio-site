@@ -29,7 +29,7 @@ document.documentElement.classList.add('js');
     var header = document.querySelector('header.nav');
     if(!menu.hidden && header && !header.contains(e.target)) setOpen(false);
   });
-  window.matchMedia('(min-width: 901px)').addEventListener('change', function(e){
+  window.matchMedia('(min-width: 1025px)').addEventListener('change', function(e){
     if(e.matches) setOpen(false);
   });
 })();
