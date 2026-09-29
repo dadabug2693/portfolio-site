@@ -250,6 +250,36 @@
   .tl-body{padding-bottom:70px;}
 }
 
+/* ===== WRITING ===== */
+.writing-intro{max-width:640px;margin:0 0 50px;font-size:clamp(17px,1.5vw,20px);line-height:1.6;color:var(--stone);}
+.writing-list{list-style:none;margin:0;padding:0;border-bottom:1px solid var(--rule-dark);}
+.writing-row{
+  display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:40px;align-items:center;
+  padding:32px 0;border-top:1px solid var(--rule-dark);
+}
+.writing-thumb{display:block;overflow:hidden;aspect-ratio:16/9;border-radius:8px;background:var(--panel);}
+.writing-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+.writing-meta{
+  margin:0 0 10px;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--stone);
+}
+.writing-meta .no{color:var(--green);}
+.writing-meta .soon{color:var(--cream);border:1px solid var(--rule-dark);border-radius:4px;padding:3px 8px;margin-left:6px;}
+.writing-title{
+  font-family:var(--font-display);font-weight:700;font-size:clamp(21px,1.9vw,28px);line-height:1.2;
+  margin:0 0 12px;transition:color .2s;
+}
+.writing-summary{margin:0 0 16px;max-width:760px;font-size:17px;line-height:1.6;color:var(--cream-70);}
+.writing-cta{display:inline-block;font-size:15px;font-weight:600;letter-spacing:1.5px;color:var(--green);}
+/* the title is the link; its ::after stretches over the row so the whole row is clickable */
+.writing-row{position:relative;}
+.writing-link::after{content:"";position:absolute;inset:0;}
+.writing-row:hover .writing-link{color:var(--green);}
+.writing-row:has(.writing-link):hover .writing-thumb img{transform:scale(1.03);}
+.writing-row:has(.writing-link):hover .arrow,.writing-row:has(.writing-link:focus-visible) .arrow{transform:translateX(5px);}
+@media (max-width:760px){
+  .writing-row{grid-template-columns:1fr;gap:20px;}
+}
+
 /* ===== CAPABILITIES ===== */
 .skills-grid{
   display:grid;grid-template-columns:repeat(5,1fr);gap:1px;margin-top:60px;
@@ -621,10 +651,68 @@
   </div>
 </section>
 
+<!-- WRITING -->
+<section class="section dark" id="writing" aria-labelledby="writing-heading">
+  <div class="wrap">
+    <p class="section-kicker">A0.09 / Published Notes</p>
+    <h2 class="section-heading" id="writing-heading">People-first <span class="accent">AI</span></h2>
+    <p class="writing-intro">Essays on LinkedIn about technology, design, and what both look like from outside the tech bubble.</p>
+
+    <ol class="writing-list reveal">
+      <!-- No. 05 goes live Oct 1, 2026: swap the "soon" tag and NavEase link for the article link, matching the rows below -->
+      <li class="writing-row">
+        <div class="writing-thumb"><img src="images/writing-05.jpg" alt="" width="1400" height="788" loading="lazy"/></div>
+        <div>
+          <p class="writing-meta"><span class="no">No. 05</span> · <time datetime="2026-10-01">Oct 1, 2026</time> <span class="soon">Publishing soon</span></p>
+          <h3 class="writing-title">We Keep Asking People to Adapt to AI. It Should Be the Other Way Around.</h3>
+          <p class="writing-summary">A self-order kiosk, a cashier standing right beside it, and the question behind NavEase: why is the person always the one doing the adapting?</p>
+          <a class="writing-cta" href="/navease/">See the idea in practice: NavEase <span class="arrow" aria-hidden="true">⟶</span></a>
+        </div>
+      </li>
+      <li class="writing-row">
+        <div class="writing-thumb"><img src="images/writing-04.jpg" alt="" width="1279" height="720" loading="lazy"/></div>
+        <div>
+          <p class="writing-meta"><span class="no">No. 04</span> · <time datetime="2026-07-27">Jul 27, 2026</time></p>
+          <h3 class="writing-title"><a class="writing-link" href="https://www.linkedin.com/pulse/ai-take-your-job-refusal-engage-own-terms-might-david-bailey-yxanc/" target="_blank" rel="noopener">AI Will Not Take Your Job. But Your Refusal to Engage With It on Your Own Terms Might.<span class="visually-hidden"> (on LinkedIn, opens in a new tab)</span></a></h3>
+          <p class="writing-summary">From the Jetsons to the Enterprise bridge to a 1990s home-automation assignment. Why curiosity beats fear, and why our ability to rewire how we think is the one advantage AI doesn't have.</p>
+          <span class="writing-cta" aria-hidden="true">Read on LinkedIn <span class="arrow">⟶</span></span>
+        </div>
+      </li>
+      <li class="writing-row">
+        <div class="writing-thumb"><img src="images/writing-03.jpg" alt="" width="1279" height="720" loading="lazy"/></div>
+        <div>
+          <p class="writing-meta"><span class="no">No. 03</span> · <time datetime="2026-06-18">Jun 18, 2026</time></p>
+          <h3 class="writing-title"><a class="writing-link" href="https://www.linkedin.com/pulse/does-ai-industry-actually-want-perspectives-says-needs-david-bailey-tiz3c/" target="_blank" rel="noopener">Does the AI Industry Actually Want the Perspectives It Says It Needs?<span class="visually-hidden"> (on LinkedIn, opens in a new tab)</span></a></h3>
+          <p class="writing-summary">AI is past the infrastructure phase and into the consequences phase. That phase needs people who have watched technology land on real communities, and hiring practices that stop filtering them out.</p>
+          <span class="writing-cta" aria-hidden="true">Read on LinkedIn <span class="arrow">⟶</span></span>
+        </div>
+      </li>
+      <li class="writing-row">
+        <div class="writing-thumb"><img src="images/writing-02.jpg" alt="" width="1279" height="720" loading="lazy"/></div>
+        <div>
+          <p class="writing-meta"><span class="no">No. 02</span> · <time datetime="2026-06-16">Jun 16, 2026</time></p>
+          <h3 class="writing-title"><a class="writing-link" href="https://www.linkedin.com/pulse/listen-first-why-ai-industry-needs-more-than-youth-get-david-bailey-fckmc/" target="_blank" rel="noopener">Listen First. Why the AI Industry Needs More Than Youth and Brilliance to Get This Right.<span class="visually-hidden"> (on LinkedIn, opens in a new tab)</span></a></h3>
+          <p class="writing-summary">Listening is the one skill no certificate confirms. What a community fracture taught me about the warning signs the AI industry is showing now.</p>
+          <span class="writing-cta" aria-hidden="true">Read on LinkedIn <span class="arrow">⟶</span></span>
+        </div>
+      </li>
+      <li class="writing-row">
+        <div class="writing-thumb"><img src="images/writing-01.jpg" alt="" width="1279" height="720" loading="lazy"/></div>
+        <div>
+          <p class="writing-meta"><span class="no">No. 01</span> · <time datetime="2026-06-04">Jun 4, 2026</time></p>
+          <h3 class="writing-title"><a class="writing-link" href="https://www.linkedin.com/pulse/im-55-pivoting-ai-one-who-should-scared-david-bailey-nlzjc/" target="_blank" rel="noopener">I'm 55, I'm Pivoting Into AI, and I'm Not the One Who Should Be Scared.<span class="visually-hidden"> (on LinkedIn, opens in a new tab)</span></a></h3>
+          <p class="writing-summary">Gutenberg, the automobile, the microchip, and now AI. Why three decades of watching technology land on people is the perspective the AI conversation is missing.</p>
+          <span class="writing-cta" aria-hidden="true">Read on LinkedIn <span class="arrow">⟶</span></span>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
 <!-- CAPABILITIES -->
 <section class="section dark" id="skills" aria-labelledby="skills-heading">
   <div class="wrap">
-    <p class="section-kicker">A0.09 / Specification Schedule</p>
+    <p class="section-kicker">A0.10 / Specification Schedule</p>
     <h2 class="section-heading" id="skills-heading">What I bring to <span class="accent">the table</span></h2>
 
     <div class="skills-grid reveal">
@@ -640,7 +728,7 @@
 <!-- RESUME + CONTACT -->
 <section class="section paper" id="resume" aria-labelledby="resume-heading">
   <div class="wrap">
-    <p class="section-kicker">A0.10 / Issued for Review</p>
+    <p class="section-kicker">A0.11 / Issued for Review</p>
     <h2 class="section-heading" id="resume-heading">Ready to <span class="accent">contribute</span></h2>
 
     <div class="resume-box reveal">
@@ -652,7 +740,7 @@
     </div>
 
     <div id="contact" style="scroll-margin-top:100px;">
-      <p class="section-kicker">A0.11 / Contact</p>
+      <p class="section-kicker">A0.12 / Contact</p>
       <h2 class="section-heading">Let's work <span class="accent">together</span></h2>
 
       <div class="contact-grid">
