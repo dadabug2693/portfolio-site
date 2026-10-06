@@ -137,6 +137,10 @@
 }
 .proj-link:hover{color:var(--ink);border-color:var(--ink);}
 
+/* transparent artwork (no photo): show it whole on a cream sheet */
+.project-image.art{background:var(--cream);}
+.project-image.art img{object-fit:contain;padding:5% 9%;}
+
 #creative-rotator{transition:opacity 1.2s ease, transform .5s ease;}
 
 @media (max-width:900px){
@@ -446,11 +450,18 @@
 <!-- WORK -->
 <section class="section paper case-studies" id="work" aria-labelledby="work-heading">
   <div class="wrap">
-    <p class="section-kicker">A0.01–A0.05 / Selected Work</p>
+    <p class="section-kicker">A0.01–A0.06 / Selected Work</p>
     <h2 class="section-heading" id="work-heading">Case <span class="accent">Studies</span></h2>
 
+    <!-- Each card carries data-category (one primary discipline) and data-tags (space-separated),
+         ready for a future filter. Categories in use:
+           ux-product        UX / Product Design
+           web-design        Web Design
+           graphic-visual    Graphic / Visual Design
+           research-process  Research &amp; Process
+           craft             Craft &amp; Fine Art -->
     <div class="case-grid">
-    <article class="project reveal" id="case-springfield">
+    <article class="project reveal" id="case-springfield" data-category="web-design" data-tags="ux-ui-design digital-strategy">
       <a class="project-image" href="/springfield-cofc/" tabindex="-1" aria-hidden="true">
         <span class="sheet-label">UX/UI · Digital Strategy</span>
         <img src="images/church-building.jpg" alt="" loading="lazy"/>
@@ -465,7 +476,7 @@
       </div>
     </article>
 
-    <article class="project reveal" id="case-navease">
+    <article class="project reveal" id="case-navease" data-category="ux-product" data-tags="adaptive-ux responsible-ai mobile-navigation">
       <a class="project-image" href="/navease/" tabindex="-1" aria-hidden="true">
         <span class="sheet-label">Product Design · AI · Mobile UX</span>
         <img src="images/ne-phone.jpg" alt="" loading="lazy"/>
@@ -480,7 +491,7 @@
       </div>
     </article>
 
-    <article class="project reveal" id="case-ai-workflows">
+    <article class="project reveal" id="case-ai-workflows" data-category="research-process" data-tags="research methodology ai-tools">
       <a class="project-image" href="/ai-workflows/" tabindex="-1" aria-hidden="true">
         <span class="sheet-label">Independent Research · AI Tools</span>
         <img src="images/ai-card.jpg" alt="" loading="lazy"/>
@@ -495,7 +506,7 @@
       </div>
     </article>
 
-    <article class="project reveal" id="case-pastry-kitchen">
+    <article class="project reveal" id="case-pastry-kitchen" data-category="craft" data-tags="craftsmanship process-design retrospective">
       <a class="project-image" href="/pastry-kitchen/" tabindex="-1" aria-hidden="true">
         <span class="sheet-label">Craftsmanship · Process · Retrospective</span>
         <img src="images/competition-1992.jpg" alt="" loading="lazy" style="object-position:center 40%;"/>
@@ -510,13 +521,29 @@
       </div>
     </article>
 
-    <article class="project reveal" id="case-creative-work">
+    <article class="project reveal" id="case-keepers-kingdom" data-category="graphic-visual" data-tags="graphic-design apparel-design visual-identity production">
+      <!-- swap for a modeled volunteer photo once the 2026 photography arrives (and drop the art class) -->
+      <a class="project-image art" href="/keepers-of-the-kingdom/" tabindex="-1" aria-hidden="true">
+        <span class="sheet-label">Graphic / Visual Design</span>
+        <img src="images/kok-front.png" alt="" loading="lazy"/>
+      </a>
+      <div class="project-text">
+        <p class="proj-number">05</p>
+        <p class="proj-kicker">Graphic / Visual Design</p>
+        <h3 class="proj-title">Keepers of the Kingdom</h3>
+        <p class="proj-tags">Graphic Design <span class="dot">•</span> Apparel Design <span class="dot">•</span> Visual Identity <span class="dot">•</span> Production</p>
+        <p class="proj-desc">Designing a visual identity and custom apparel system that made a 28-person VBS volunteer team immediately recognizable.</p>
+        <a class="proj-link" href="/keepers-of-the-kingdom/">View Case Study <span class="arrow" aria-hidden="true">⟶</span></a>
+      </div>
+    </article>
+
+    <article class="project reveal" id="case-creative-work" data-category="craft" data-tags="illustration watercolor cake-design">
       <a class="project-image" href="creative-work.html" tabindex="-1" aria-hidden="true">
         <span class="sheet-label">Watercolors · Cake Design</span>
         <img id="creative-rotator" src="images/Watercolor-1.jpg" alt="" loading="lazy"/>
       </a>
       <div class="project-text">
-        <p class="proj-number">05</p>
+        <p class="proj-number">06</p>
         <p class="proj-kicker">Illustration &amp; Visual Design</p>
         <h3 class="proj-title">Creative Work</h3>
         <p class="proj-tags">Watercolors <span class="dot">•</span> Wedding Cake Design <span class="dot">•</span> Pastry Arts</p>
@@ -531,7 +558,7 @@
 <!-- FIELD RESULTS -->
 <section class="section dark" aria-labelledby="results-heading">
   <div class="wrap">
-    <p class="section-kicker">A0.06 / Field Results</p>
+    <p class="section-kicker">A0.07 / Field Results</p>
     <h2 class="section-heading" id="results-heading">The <span class="accent">Record</span></h2>
     <div class="results-grid reveal">
       <div class="result"><p class="result-value">16</p><p class="result-label">Year client partnership</p></div>
@@ -546,7 +573,7 @@
 <!-- ABOUT -->
 <section class="section paper" id="about" aria-labelledby="about-heading">
   <div class="wrap">
-    <p class="section-kicker">A0.07 / Title Block</p>
+    <p class="section-kicker">A0.08 / Title Block</p>
     <h2 class="section-heading" id="about-heading">About <span class="accent">David</span></h2>
 
     <div class="about-grid">
@@ -567,7 +594,7 @@
             <text x="37" y="-5" font-size="10" text-anchor="middle" fill="currentColor" stroke="none" font-family="Inter, sans-serif" font-weight="600">N</text>
           </svg>
           <div class="stamp-text">
-            Sheet A0.07 · Scale 1:1<br>Drawn by D. R. Bailey
+            Sheet A0.08 · Scale 1:1<br>Drawn by D. R. Bailey
             <span class="rule"></span>
             <!-- architect's scale bar -->
             <svg width="290" height="36" viewBox="0 0 230 30" fill="none" stroke="currentColor" stroke-width="1">
@@ -602,7 +629,7 @@
   <div class="tl-head">
     <div class="wrap">
       <div>
-        <p class="section-kicker">A0.08 / The Story</p>
+        <p class="section-kicker">A0.09 / The Story</p>
         <h2 class="tl-title" id="tl-heading">Three careers.<br>One through line.</h2>
         <div class="tl-rule" aria-hidden="true"></div>
         <p class="tl-lede">Different industries. Same discipline.<br>Understand people. Remove friction.<br>Design better experiences.</p>
@@ -656,7 +683,7 @@
 <!-- WRITING -->
 <section class="section dark" id="writing" aria-labelledby="writing-heading">
   <div class="wrap">
-    <p class="section-kicker">A0.09 / Published Notes</p>
+    <p class="section-kicker">A0.10 / Published Notes</p>
     <h2 class="section-heading" id="writing-heading">People-first <span class="accent">AI</span></h2>
     <p class="writing-intro">Essays on LinkedIn about technology, design, and what both look like from outside the tech bubble.</p>
 
@@ -714,7 +741,7 @@
 <!-- CAPABILITIES -->
 <section class="section dark" id="skills" aria-labelledby="skills-heading">
   <div class="wrap">
-    <p class="section-kicker">A0.10 / Specification Schedule</p>
+    <p class="section-kicker">A0.11 / Specification Schedule</p>
     <h2 class="section-heading" id="skills-heading">What I bring to <span class="accent">the table</span></h2>
 
     <div class="skills-grid reveal">
@@ -730,7 +757,7 @@
 <!-- RESUME + CONTACT -->
 <section class="section paper" id="resume" aria-labelledby="resume-heading">
   <div class="wrap">
-    <p class="section-kicker">A0.11 / Issued for Review</p>
+    <p class="section-kicker">A0.12 / Issued for Review</p>
     <h2 class="section-heading" id="resume-heading">Ready to <span class="accent">contribute</span></h2>
 
     <div class="resume-box reveal">
@@ -742,7 +769,7 @@
     </div>
 
     <div id="contact" style="scroll-margin-top:100px;">
-      <p class="section-kicker">A0.12 / Contact</p>
+      <p class="section-kicker">A0.13 / Contact</p>
       <h2 class="section-heading">Let's work <span class="accent">together</span></h2>
 
       <div class="contact-grid">
@@ -779,6 +806,7 @@
         <a href="/navease/">NavEase</a>
         <a href="/ai-workflows/">AI-Assisted Workflows</a>
         <a href="/pastry-kitchen/">The Pastry Kitchen</a>
+        <a href="/keepers-of-the-kingdom/">Keepers of the Kingdom</a>
         <a href="creative-work.html">Creative Work</a>
       </div>
       <div class="footer-col">
