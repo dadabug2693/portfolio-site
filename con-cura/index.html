@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NBTVHXGGJH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NBTVHXGGJH');
+</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Con Cura Case Study | The Drafting Table</title>
+<meta name="description" content="Con Cura is a care companion app concept for orchid growers, designed so the app makes you feel like a good plant parent, not a good app user."/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="Con Cura Case Study | The Drafting Table"/>
+<meta property="og:description" content="Designing a care app, and an AI health check, with care."/>
+<link rel="icon" type="image/png" href="../favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+<link rel="shortcut icon" href="../favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
+<link rel="manifest" href="../site.webmanifest" />
+<script>document.documentElement.classList.add('js');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/site.css">
+<style>
+/* Con Cura: phone screen rows and the kept / left-out comparison */
+.cc-screens{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin:36px 0 0;}
+.cc-screens.four{grid-template-columns:repeat(4,minmax(0,1fr));}
+@media (max-width:1000px){ .cc-screens,.cc-screens.four{grid-template-columns:repeat(2,minmax(0,1fr));} }
+@media (max-width:480px){ .cc-screens,.cc-screens.four{grid-template-columns:1fr;max-width:320px;} }
+.cc-screens figure{margin:0;}
+.cc-screens img{width:100%;border-radius:18px;border:1px solid rgba(13,13,11,0.14);background:#FAF6F0;box-shadow:0 24px 50px -28px rgba(13,13,11,0.45);}
+.cc-screens .cs-caption{text-align:center;font-size:13px;margin-top:10px;}
+.cc-compare{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:32px 0 0;}
+@media (max-width:760px){ .cc-compare{grid-template-columns:1fr;} }
+.cc-col{background:rgba(255,255,255,0.35);border:1px solid rgba(13,13,11,0.12);border-radius:10px;padding:22px 24px;}
+.cc-col.kept{border:2px solid var(--green);}
+.cc-col h3{margin:0 0 12px;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--stone-ink);}
+.cc-col ul{margin:0;padding-left:18px;}
+.cc-col li{font-size:16px;line-height:1.55;margin:0 0 8px;color:#141310;}
+.cc-swatches{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;margin:28px 0 0;}
+@media (max-width:760px){ .cc-swatches{grid-template-columns:repeat(2,minmax(0,1fr));} }
+.cc-swatch{border:1px solid rgba(13,13,11,0.12);border-radius:10px;overflow:hidden;background:rgba(255,255,255,0.35);}
+.cc-swatch span{display:block;height:64px;}
+.cc-swatch p{margin:0;padding:10px 12px 12px;font-size:14px;line-height:1.4;color:#141310;}
+.cc-swatch b{display:block;font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--stone-ink);font-weight:600;}
+.cc-path{list-style:none;margin:28px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px;align-items:center;}
+.cc-path li{font-size:15px;padding:8px 14px;border:1px solid rgba(13,13,11,0.18);border-radius:20px;color:#141310;}
+.cc-path li.out{text-decoration:line-through;color:var(--stone-ink);}
+.cc-path li.win{border:2px solid var(--green);font-weight:700;}
+.cc-path .sep{border:none;padding:0;color:var(--stone-ink);}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="../index.html" aria-label="The Drafting Table homepage">
+      <div class="brand-mark" aria-hidden="true">DB</div>
+      <div class="brand-text">
+        <p class="title">The Drafting Table</p>
+        <p class="subtitle">Designing Digital Experiences</p>
+      </div>
+    </a>
+
+    <nav class="links" aria-label="Primary">
+      <a href="../index.html#work" aria-current="page">WORK</a>
+      <a href="../index.html#about">ABOUT</a>
+      <a href="../index.html#writing">WRITING</a>
+      <a href="../index.html#skills">SKILLS</a>
+      <a href="../index.html#resume">RESUME</a>
+      <a href="../index.html#contact">CONTACT</a>
+    </nav>
+
+    <div class="badge">CASE STUDY<br>SHEET 006</div>
+
+    <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+      <span class="hamburger" aria-hidden="true"></span>
+    </button>
+  </div>
+
+  <nav id="mobileMenu" class="mobile-menu" aria-label="Mobile" hidden>
+    <a href="../index.html#work">Work</a>
+    <a href="../index.html#about">About</a>
+    <a href="../index.html#writing">Writing</a>
+    <a href="../index.html#skills">Skills</a>
+    <a href="../index.html#resume">Resume</a>
+    <a href="../index.html#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="main-content">
+
+<!-- HERO -->
+<section class="cs-hero" aria-labelledby="cs-title">
+  <div class="wrap">
+    <a class="cs-breadcrumb" href="../index.html#work"><span class="arrow back" aria-hidden="true">⟵</span> All Projects</a>
+
+    <div class="cs-hero-top">
+      <div>
+        <p class="cs-eyebrow">Case Study 006 · Concept Prototype</p>
+        <p class="cs-kicker">Product Design · Brand Identity · Responsible AI</p>
+        <h1 class="cs-title" id="cs-title">Con <span class="accent">Cura</span></h1>
+        <p class="cs-position">A care companion for orchid growers. The app should make you feel like a good plant parent, not a good app user.</p>
+      </div>
+      <div class="cs-hero-media" style="aspect-ratio:4/3;">
+        <img src="../images/concura-hero.jpg" alt="Con Cura app screens showing an orchid collection and a plant profile." width="1800" height="1350" style="width:100%;height:100%;object-fit:cover;"/>
+      </div>
+    </div>
+
+    <dl class="cs-facts">
+      <div class="cs-fact"><dt>Role</dt><dd>Solo designer: research, concept, brand, UX and UI</dd></div>
+      <div class="cs-fact"><dt>Project Type</dt><dd>Self-directed concept prototype</dd></div>
+      <div class="cs-fact"><dt>Focus</dt><dd>Care UX, Brand Identity, AI Health Check, Responsible AI</dd></div>
+      <div class="cs-fact"><dt>Tools</dt><dd>Figma, Claude</dd></div>
+    </dl>
+  </div>
+</section>
+
+<div class="cs-body">
+
+  <!-- 01 PROBLEM -->
+  <section class="cs-section" id="problem" aria-labelledby="h-01">
+    <div class="wrap">
+      <div class="cs-note">
+        <strong>About this project:</strong> Con Cura is a concept prototype, not a shipped product. It covers the platform idea, brand identity, a ten-screen clickable prototype, and early usability testing with members of a local orchid society. The AI health check results in the prototype are scripted.
+      </div>
+
+      <div class="cs-section-head"><span class="cs-num">01</span><h2 id="h-01">The Problem</h2></div>
+      <p class="cs-copy">I grow orchids. For a while I tracked them in a popular orchid care app. It stored the data well. But it was clunky and hard to use, and opening it never felt like a pleasure. So I stopped opening it, and my orchids suffered.</p>
+      <p class="cs-copy">Nothing was broken. The app simply gave me no reason to come back. For a product built around consistent care, that is the failure that matters most.</p>
+      <p class="cs-quote">The app worked. My orchids still suffered.</p>
+      <p class="cs-copy">That made me the user this project is for. I had lived the problem, and I could reach other growers through my local orchid society chapter.</p>
+    </div>
+  </section>
+
+  <!-- 02 PLATFORM -->
+  <section class="cs-section" id="platform" aria-labelledby="h-02">
+    <div class="wrap">
+      <div class="cs-section-head"><span class="cs-num">02</span><h2 id="h-02">From App to Platform</h2></div>
+      <p class="cs-copy">The turning point came when I realized a pet care app would have almost the same structure. Tracking medications, vet visits, and allergies is the same job as tracking water and fertilizer. It is about caring for something you love and wanting to do your best for it.</p>
+      <p class="cs-quote" style="margin-top:24px;">Steady daily care beats big bursts of attention followed by long gaps.</p>
+      <p class="cs-copy">That is true for orchids, pets, houseplants, and our own health. So Con Cura became one underlying system that changes its subject and accent color depending on what you care for.</p>
+
+      <div class="cs-cards four">
+        <div class="cs-card"><span class="cs-card-tag">App 01</span><p class="cs-card-title">For Orchids</p><p class="cs-card-desc">Portfolio, passion, and community access. Where the system is proven.</p></div>
+        <div class="cs-card"><span class="cs-card-tag">App 02</span><p class="cs-card-title">For Plants</p><p class="cs-card-desc">A broader houseplant audience and the first real revenue.</p></div>
+        <div class="cs-card"><span class="cs-card-tag">App 03</span><p class="cs-card-title">For Pets</p><p class="cs-card-desc">Mass market and strong word of mouth.</p></div>
+        <div class="cs-card"><span class="cs-card-tag">App 04</span><p class="cs-card-title">For You</p><p class="cs-card-desc">Personal wellness. The full platform realized.</p></div>
+      </div>
+      <p class="cs-copy" style="margin-top:32px;">Starting with orchids is deliberate. I understand the user, the stakes are low enough to do it right, and each app can fund and validate the next.</p>
+    </div>
+  </section>
+
+  <!-- 03 PRINCIPLE -->
+  <section class="cs-section" id="principle" aria-labelledby="h-03">
+    <div class="wrap">
+      <div class="cs-section-head"><span class="cs-num">03</span><h2 id="h-03">The Guiding Principle</h2></div>
+      <p class="cs-copy">My first instinct was "Duolingo, but for orchids." Not the owl or the streaks. The feeling: you want to come back, progress is visible, and it feels like a relationship instead of data entry.</p>
+      <p class="cs-copy">But gamification tips over fast. I wanted mostly a beautiful companion app with just a little of that pull. The test for every feature: does it serve the plant, or does it only serve the app?</p>
+
+      <div class="cc-compare">
+        <div class="cc-col kept">
+          <h3>Kept</h3>
+          <ul>
+            <li>Gentle care streaks framed around the plant</li>
+            <li>Bloom logging as a full-screen memory</li>
+            <li>A quiet health status for each plant</li>
+            <li>A visual care timeline that doubles as a record</li>
+            <li>Warm reminders: "Rosie is probably thirsty"</li>
+          </ul>
+        </div>
+        <div class="cc-col">
+          <h3>Left out</h3>
+          <ul>
+            <li>Points, coins, or any currency</li>
+            <li>Leaderboards or comparing growers</li>
+            <li>Penalties for missed care</li>
+            <li>Mascots or animated characters</li>
+            <li>Level-ups, or "game over" for a lost plant</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="cs-quote">The app should make you feel like a good plant parent, not a good app user.</p>
+    </div>
+  </section>
+
+  <!-- 04 NAMING -->
+  <section class="cs-section" id="identity" aria-labelledby="h-04">
+    <div class="wrap">
+      <div class="cs-section-head"><span class="cs-num">04</span><h2 id="h-04">Naming and Identity</h2></div>
+      <p class="cs-copy">The name had to work for plants, pets, and people. It had to carry warmth without feeling childish. It took the long way.</p>
+
+      <ul class="cc-path" aria-label="Names explored, in order">
+        <li class="out">Petal</li><li class="sep" aria-hidden="true">⟶</li>
+        <li class="out">Tend</li><li class="sep" aria-hidden="true">⟶</li>
+        <li class="out">Rootly</li><li class="sep" aria-hidden="true">⟶</li>
+        <li class="out">Fondly</li><li class="sep" aria-hidden="true">⟶</li>
+        <li class="out">Cura</li><li class="sep" aria-hidden="true">⟶</li>
+        <li class="win">Con Cura</li>
+      </ul>
+
+      <p class="cs-copy" style="margin-top:32px;">Petal showed the structure I wanted: one word that travels across subjects. Rootly sparked right away but still read plant-first. Fondly was a real word with real feeling, and I landed on it before the suggestion was finished. A trademark search ruled it out. So I looked at other languages. Cura is Latin for care. I love Italian, and the phrase <em>con cura</em> moved me.</p>
+      <p class="cs-copy">In Italian, <em>con cura</em> is how an artisan signs their work. A letter written with care. A meal prepared with care. I spent years in pastry kitchens, and I know what that kind of attention looks like.</p>
+      <p class="cs-quote" style="margin-top:24px;">Not care as a concept. Care as a practice.</p>
+
+      <h3 class="cs-sub">Type and color</h3>
+      <p class="cs-copy">Of three brand directions, the warm editorial one felt finished the moment I saw it. "Cura" is set in Playfair Display Bold, with "CON" as a small Lato eyebrow above it. It reads like a botanical journal, not an app logo.</p>
+      <p class="cs-copy">I narrowed six colors to five and assigned each to an app in a single message, without being prompted. One change came in the prototype: the brief called the orchid color mauve, but on screen it looked washed out. I deepened it to a violet Vanda purple, which reads richer and gives better contrast for text.</p>
+
+      <div class="cc-swatches">
+        <div class="cc-swatch"><span style="background:#2F6F6A;"></span><p><b>Platform</b>Botanical teal</p></div>
+        <div class="cc-swatch"><span style="background:#5B3A9A;"></span><p><b>Orchids</b>Vanda purple</p></div>
+        <div class="cc-swatch"><span style="background:#7F9A7D;"></span><p><b>Plants</b>Sage green</p></div>
+        <div class="cc-swatch"><span style="background:#B97E32;"></span><p><b>Pets</b>Warm amber</p></div>
+        <div class="cc-swatch"><span style="background:#2C4A6B;"></span><p><b>You</b>Deep ocean blue</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 PROTOTYPE -->
+  <section class="cs-section" id="prototype" aria-labelledby="h-05">
+    <div class="wrap">
+      <div class="cs-section-head"><span class="cs-num">05</span><h2 id="h-05">The Prototype</h2></div>
+      <p class="cs-copy">Ten screens cover one complete care loop: adding a plant, noticing what it needs, logging care, celebrating a bloom, checking its health, and getting a second opinion from a person. Every path returns to the plant's profile, so each one adds to the same story.</p>
+
+      <div class="cc-screens">
+        <figure>
+          <a class="zoom" href="../images/concura-add.png" data-caption="Add your first orchid"><img src="../images/concura-add.png" alt="Add your first orchid screen with a photo area, name field, pronoun choice, and type field." loading="lazy"/></a>
+          <figcaption class="cs-caption">Add your first orchid</figcaption>
+        </figure>
+        <figure>
+          <a class="zoom" href="../images/concura-collection.png" data-caption="Collection home"><img src="../images/concura-collection.png" alt="Collection screen with a note about which orchids need water today and four plant cards." loading="lazy"/></a>
+          <figcaption class="cs-caption">Collection: who needs care today</figcaption>
+        </figure>
+        <figure>
+          <a class="zoom" href="../images/concura-profile.png" data-caption="Plant profile"><img src="../images/concura-profile.png" alt="Plant profile for Rosie with care stats, a care timeline, and buttons to log care or check on her." loading="lazy"/></a>
+          <figcaption class="cs-caption">Her profile and story</figcaption>
+        </figure>
+        <figure>
+          <a class="zoom" href="../images/concura-log.png" data-caption="Log care"><img src="../images/concura-log.png" alt="Log care screen with four large tiles for water, fertilize, repot, and note." loading="lazy"/></a>
+          <figcaption class="cs-caption">One tap to log care</figcaption>
+        </figure>
+        <figure>
+          <a class="zoom" href="../images/concura-reminder.png" data-caption="Gentle reminder"><img src="../images/concura-reminder.png" alt="Lock screen notification reading Rosie is probably thirsty." loading="lazy"/></a>
+          <figcaption class="cs-caption">A reminder that sounds like a friend</figcaption>
+        </figure>
+        <figure>
+          <a class="zoom" href="../images/concura-bloom.png" data-caption="Bloom moment"><img src="../images/concura-bloom.png" alt="Full-screen purple bloom moment reading Rosie is blooming again." loading="lazy"/></a>
+          <figcaption class="cs-caption">A bloom is a memory, not a badge</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 AI -->
+  <section class="cs-section" id="ai-health-check" aria-labelledby="h-06">
+    <div class="wrap">
+      <div class="cs-section-head"><span class="cs-num">06</span><h2 id="h-06">Designing AI That Knows Its Limits</h2></div>
+      <p class="cs-copy">The health check lets a grower take a photo and get a gentle read on how the plant is doing. Plant identification and diagnosis already exist. What I cared about was how the app delivers the news.</p>
+
+      <div class="cs-tradeoffs">
+        <div class="cs-tradeoff"><h3>01 · The grower starts it</h3><p>"Check on her" is a choice, never an automatic scan.</p></div>
+        <div class="cs-tradeoff"><h3>02 · Honest about confidence</h3><p>A simple meter shows how sure it is, and the language matches: "looks like," not "is."</p></div>
+        <div class="cs-tradeoff"><h3>03 · One thing to do today</h3><p>What it sees, what that usually means, and a single next step. No wall of possibilities.</p></div>
+        <div class="cs-tradeoff"><h3>04 · No alarm tone</h3><p>Bad news sounds like a knowledgeable friend, and the screen says plainly: a gentle read, not a diagnosis.</p></div>
+        <div class="cs-tradeoff"><h3>05 · It can say "I can't tell"</h3><p>When the photo is too dark or the roots are out of frame, it asks for another look instead of guessing, and points to an experienced grower for anything serious.</p></div>
+      </div>
+
+      <div class="cc-screens four">
+        <figure>
+          <a class="zoom" href="../images/concura-camera.png" data-caption="Camera with guidance"><img src="../images/concura-camera.png" alt="Camera screen with framing guides and the prompt get the leaves and roots in frame." loading="lazy"/></a>
+          <figcaption class="cs-caption">Guidance before the photo</figcaption>
+        </figure>
+        <figure>
+          <a class="zoom" href="../images/concura-result.png" data-caption="Health check result"><img src="../images/concura-result.png" alt="Result screen showing what the app sees, a confidence meter, and one thing to do today." loading="lazy"/></a>
+          <figcaption class="cs-caption">What it sees, then one step</figcaption>
+        </figure>
+        <figure>
+          <a class="zoom" href="../images/concura-unsure.png" data-caption="Unsure result"><img src="../images/concura-unsure.png" alt="Screen reading I can't tell from this photo, with tips for a clearer photo." loading="lazy"/></a>
+          <figcaption class="cs-caption">"I can't tell from this photo"</figcaption>
+        </figure>
+        <figure>
+          <a class="zoom" href="../images/concura-grower.png" data-caption="Second opinion"><img src="../images/concura-grower.png" alt="Second opinion screen with options to send to a grower, find a local orchid society, or save for a meeting." loading="lazy"/></a>
+          <figcaption class="cs-caption">A person, not just a model</figcaption>
+        </figure>
+      </div>
+
+      <p class="cs-quote">An AI that admits it doesn't know is one people can learn to trust.</p>
+    </div>
+  </section>
+
+  <!-- 07 USER CHOICE -->
+  <section class="cs-section" id="choice" aria-labelledby="h-07">
+    <div class="wrap">
+      <div class="cs-section-head"><span class="cs-num">07</span><h2 id="h-07">Letting the User Decide</h2></div>
+      <p class="cs-copy">Partway through, something felt off. The app was calling a plant "her." Some growers talk about their orchids that way. Others would find it too much.</p>
+      <p class="cs-copy">So I made it the user's choice. When you add an orchid, you pick how the app refers to it: she, he, they, or just its name. The copy adapts everywhere after that. "Check on her" becomes "Check on them" or "Check on Rosie."</p>
+      <p class="cs-copy">It's a small detail, but it reflects the larger idea behind my work: the system should adapt to the person, not the other way around.</p>
+    </div>
+  </section>
+
+  <!-- 08 TESTING -->
+  <section class="cs-section" id="testing" aria-labelledby="h-08">
+    <div class="wrap">
+      <div class="cs-section-head"><span class="cs-num">08</span><h2 id="h-08">Testing</h2></div>
+      <!-- REPLACE THIS SECTION with findings after the sessions. Keep the table shape. -->
+      <p class="cs-copy">I tested the prototype with [number] members of my local orchid society chapter: [number] newer growers and [number] experienced collectors. Each session included a short interview and six tasks on a phone.</p>
+      <div class="cs-table-wrap">
+        <table class="cs-table">
+          <thead><tr><th scope="col">Finding</th><th scope="col">How many people</th><th scope="col">What I changed</th></tr></thead>
+          <tbody>
+            <tr><td style="white-space:normal;">[Finding 1]</td><td>[x of y]</td><td>[Change]</td></tr>
+            <tr><td style="white-space:normal;">[Finding 2]</td><td>[x of y]</td><td>[Change]</td></tr>
+            <tr><td style="white-space:normal;">[Finding 3]</td><td>[x of y]</td><td>[Change]</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="cs-quote">"[Short quote from a participant, used with permission]"</p>
+    </div>
+  </section>
+
+  <!-- 09 AI PROCESS -->
+  <section class="cs-section" id="process" aria-labelledby="h-09">
+    <div class="wrap">
+      <div class="cs-section-head"><span class="cs-num">09</span><h2 id="h-09">How AI Was Used</h2></div>
+      <p class="cs-copy">This project was developed with Claude as a working partner, and I want to be clear about the roles. Claude was the research tool, the naming sounding board, and a fast way to see options. I was the designer.</p>
+      <div class="cs-cards two">
+        <div class="cs-card"><span class="cs-card-tag">Naming</span><p class="cs-card-title">Suggestions, then my call</p><p class="cs-card-desc">Claude suggested Rootly; I said it wasn't quite there. Claude offered related names; I landed on Fondly before it finished the list.</p></div>
+        <div class="cs-card"><span class="cs-card-tag">Brand</span><p class="cs-card-title">Options, then my eye</p><p class="cs-card-desc">Claude showed three brand directions and six colors. I chose the editorial direction immediately, kept five colors, and knew which app each belonged to.</p></div>
+        <div class="cs-card"><span class="cs-card-tag">Screens</span><p class="cs-card-title">A first pass, then my changes</p><p class="cs-card-desc">Claude built a first pass of the screens in Figma from my brand brief. I made the calls: a deeper orchid purple, the she, he, they choice, and the second opinion path.</p></div>
+        <div class="cs-card"><span class="cs-card-tag">Judgment</span><p class="cs-card-title">The skill underneath</p><p class="cs-card-desc">Knowing when to take a suggestion, when to push back, and when the answer is already in your head is what separates designing with AI from letting it design for you.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 NEXT -->
+  <section class="cs-section" id="next" aria-labelledby="h-10">
+    <div class="wrap">
+      <div class="cs-section-head"><span class="cs-num">10</span><h2 id="h-10">What's Next</h2></div>
+      <div class="cs-cards two">
+        <div class="cs-card"><span class="cs-card-tag">Iterate</span><p class="cs-card-title">Fix and retest</p><p class="cs-card-desc">Address the top issues from testing and run a second round with the same chapter.</p></div>
+        <div class="cs-card"><span class="cs-card-tag">Design</span><p class="cs-card-title">Settings and photo timeline</p><p class="cs-card-desc">A way to change the she, he, they choice later, and a weekly photo timeline so growth becomes part of each plant's story.</p></div>
+        <div class="cs-card"><span class="cs-card-tag">Build</span><p class="cs-card-title">A working version</p><p class="cs-card-desc">Real photo analysis, starting with a small beta through the orchid society chapter.</p></div>
+        <div class="cs-card"><span class="cs-card-tag">Expand</span><p class="cs-card-title">Con Cura for Plants</p><p class="cs-card-desc">Extend the same system to houseplants, the next app in the family.</p></div>
+      </div>
+      <p class="cs-quote">If a product exists to help people care, it has to be built with care too.</p>
+      <!-- Swap [link] for the Article 6 URL once it posts. -->
+      <p class="cs-copy">Read the story behind this project: <a class="text-link" href="[link]" style="white-space:normal;display:inline;">My Orchids Suffered Because an App Was Hard to Love <span class="arrow" aria-hidden="true">⟶</span></a></p>
+    </div>
+  </section>
+
+</div>
+
+<nav class="cs-nav" aria-label="Case study navigation">
+  <div class="wrap cs-nav-row">
+    <a class="cs-nav-link" href="../keepers-of-the-kingdom/">
+      <span class="cs-nav-eyebrow"><span class="arrow back" aria-hidden="true">⟵</span> Previous Project</span>
+      <span class="cs-nav-title">Keepers of the Kingdom</span>
+    </a>
+    <a class="cs-nav-link next" href="../creative-work.html">
+      <span class="cs-nav-eyebrow">Next Project <span class="arrow" aria-hidden="true">⟶</span></span>
+      <span class="cs-nav-title">Creative Work</span>
+    </a>
+  </div>
+</nav>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <p class="f-title">The Drafting Table</p>
+        <p class="f-tag">Designing digital experiences with the precision of architectural thinking.</p>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">Work</p>
+        <a href="../springfield-cofc/">Springfield CofC</a>
+        <a href="../navease/">NavEase</a>
+        <a href="../ai-workflows/">AI-Assisted Workflows</a>
+        <a href="../pastry-kitchen/">The Pastry Kitchen</a>
+        <a href="../keepers-of-the-kingdom/">Keepers of the Kingdom</a>
+        <a href="../con-cura/" aria-current="page">Con Cura</a>
+        <a href="../creative-work.html">Creative Work</a>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">About</p>
+        <a href="../index.html#about">About David</a>
+        <a href="../index.html#writing">Writing</a>
+        <a href="../index.html#skills">Capabilities</a>
+        <a href="../David_R_Bailey_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">Connect</p>
+        <a href="https://www.linkedin.com/in/davidbaileyjr/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:contact@davidrbailey.com">Email</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 David R. Bailey</p>
+      <p>Springfield, OH</p>
+      <p>Document Revision 2.0</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/site.js" defer></script>
+</body>
+</html>
