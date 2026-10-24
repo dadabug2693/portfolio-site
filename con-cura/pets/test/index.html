@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NBTVHXGGJH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NBTVHXGGJH');
+</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Try the Pet Care App | The Drafting Table</title>
+<meta name="description" content="Try an early version of a pet care app at your own pace and tell me what worked. About 10 minutes."/>
+<meta name="robots" content="noindex"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Try a pet care app in 10 minutes"/>
+<meta property="og:description" content="Three short tasks and a few questions, at your own pace. Any kind of pet, from dogs to snakes."/>
+<link rel="icon" type="image/png" href="../../../favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="../../../favicon.svg" />
+<link rel="shortcut icon" href="../../../favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png" />
+<link rel="manifest" href="../../../site.webmanifest" />
+<script>document.documentElement.classList.add('js');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../css/site.css">
+<style>
+.st-form{display:flex;flex-direction:column;gap:26px;background:rgba(255,255,255,0.35);border:1px solid rgba(13,13,11,0.12);border-radius:10px;padding:32px;}
+@media (max-width:480px){ .st-form{padding:22px;} }
+.st-form label,.st-form legend{display:block;margin:0 0 8px;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--stone-ink);}
+.st-form .opt{font-weight:400;letter-spacing:0.5px;text-transform:none;}
+.st-form input[type=text],.st-form input[type=email],.st-form textarea{
+  width:100%;padding:12px 0;background:transparent;border:none;border-bottom:1.5px solid var(--ink);border-radius:0;
+  font-family:var(--font-body);font-size:18px;color:var(--ink);
+}
+.st-form textarea{resize:vertical;min-height:90px;}
+.st-form input:focus,.st-form textarea:focus{outline:none;border-color:var(--green);}
+.st-form fieldset{border:none;margin:0;padding:0;min-width:0;}
+.st-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;}
+.st-choices.five{grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;}
+@media (max-width:560px){ .st-choices{grid-template-columns:1fr;} .st-choices.five{grid-template-columns:repeat(5,minmax(0,1fr));} }
+.st-form label.st-choice,.st-form label.st-consent{text-transform:none;letter-spacing:0;font-weight:400;margin:0;}
+.st-choice{display:flex;align-items:center;gap:10px;min-height:44px;padding:8px 12px;border:1px solid rgba(13,13,11,0.18);border-radius:8px;font-size:16px;color:#141310;cursor:pointer;background:rgba(255,255,255,0.4);}
+.st-choices.five .st-choice{justify-content:center;flex-direction:column;gap:4px;padding:8px 4px;font-size:15px;}
+.st-choice input{width:18px;height:18px;accent-color:#047857;flex:none;}
+.st-choice:has(input:checked){border:2px solid var(--green);padding:7px 11px;}
+.st-choices.five .st-choice:has(input:checked){padding:7px 3px;}
+.st-scale-ends{display:flex;justify-content:space-between;margin:6px 2px 0;font-size:13px;color:var(--stone-ink);}
+.st-consent{display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.5;color:#141310;}
+.st-consent input{width:20px;height:20px;margin-top:2px;accent-color:#047857;flex:none;}
+.st-hp{position:absolute;left:-9999px;}
+.st-privacy{font-size:14px;line-height:1.55;color:var(--stone-ink);margin:0;}
+.st-error{display:none;margin:0;font-size:15px;color:#9b1c1c;}
+.st-error.show{display:block;}
+
+.tt-step{display:none;}
+.tt-step.active{display:block;}
+.no-js .tt-step{display:block;}
+.tt-progress{display:flex;gap:6px;margin:0 0 28px;}
+.tt-progress span{flex:1;height:4px;border-radius:2px;background:rgba(13,13,11,0.12);}
+.tt-progress span.on{background:var(--green);}
+.tt-steplabel{font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#047857;margin:0 0 10px;}
+.tt-grid{display:grid;grid-template-columns:420px minmax(0,1fr);gap:48px;align-items:start;}
+@media (max-width:980px){ .tt-grid{grid-template-columns:1fr;gap:28px;} }
+.tt-phone{position:sticky;top:24px;}
+.tt-phone iframe{display:block;width:100%;height:760px;border:1px solid rgba(13,13,11,0.12);border-radius:16px;background:#f3f0ea;}
+@media (max-width:980px){ .tt-phone{position:static;} .tt-phone iframe{display:none;} }
+.tt-task{background:#fff;border:2px solid var(--green);border-radius:10px;padding:22px 24px;margin:0 0 22px;}
+.tt-task p{margin:0;font-size:19px;line-height:1.5;color:#141310;}
+.tt-task .tt-hint{margin-top:10px;font-size:15px;color:var(--stone-ink);}
+.tt-open{display:inline-flex;margin:0 0 6px;}
+.tt-open-note{font-size:14px;color:var(--stone-ink);margin:0 0 22px;}
+.tt-nav{display:flex;gap:14px;align-items:center;flex-wrap:wrap;}
+.tt-back{background:none;border:none;padding:8px 0;font:inherit;font-size:16px;color:var(--stone-ink);text-decoration:underline;cursor:pointer;}
+.st-expect{list-style:none;margin:20px 0 0;padding:0;}
+.st-expect li{display:flex;gap:14px;margin:0 0 14px;font-size:17px;line-height:1.55;color:#141310;}
+.st-expect b{flex:none;width:28px;color:#047857;font-weight:700;}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="../../../index.html" aria-label="The Drafting Table homepage">
+      <div class="brand-mark" aria-hidden="true">DB</div>
+      <div class="brand-text">
+        <p class="title">The Drafting Table</p>
+        <p class="subtitle">Designing Digital Experiences</p>
+      </div>
+    </a>
+    <nav class="links" aria-label="Primary">
+      <a href="../../../index.html#work">WORK</a>
+      <a href="../../../index.html#about">ABOUT</a>
+      <a href="../../../index.html#writing">WRITING</a>
+      <a href="../../../index.html#skills">SKILLS</a>
+      <a href="../../../index.html#resume">RESUME</a>
+      <a href="../../../index.html#contact">CONTACT</a>
+    </nav>
+    <div class="badge">RESEARCH<br>STUDY 2026</div>
+    <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+      <span class="hamburger" aria-hidden="true"></span>
+    </button>
+  </div>
+  <nav id="mobileMenu" class="mobile-menu" aria-label="Mobile" hidden>
+    <a href="../../../index.html#work">Work</a>
+    <a href="../../../index.html#about">About</a>
+    <a href="../../../index.html#writing">Writing</a>
+    <a href="../../../index.html#skills">Skills</a>
+    <a href="../../../index.html#resume">Resume</a>
+    <a href="../../../index.html#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="main-content">
+
+<section class="cs-hero" aria-labelledby="tt-title">
+  <div class="wrap">
+    <a class="cs-breadcrumb" href="../../../research/"><span class="arrow back" aria-hidden="true">⟵</span> Design Research</a>
+    <p class="cs-eyebrow">Design Research · Con Cura</p>
+    <p class="cs-kicker">About 10 minutes · At your own pace · Phone or computer</p>
+    <h1 class="cs-title" id="tt-title">Try the <span class="accent">pet app</span></h1>
+    <p class="cs-position">Three short tasks in an early version of the app, then a few questions. There are no wrong answers. I'm testing the design, not you.</p>
+  </div>
+</section>
+
+<div class="cs-body">
+  <section class="cs-section" aria-label="Test">
+    <div class="wrap">
+
+      <div class="tt-progress" id="ttProgress" aria-hidden="true"><span class="on"></span><span></span><span></span><span></span><span></span></div>
+
+      <form class="st-form" id="ttForm" name="con-cura-pets-test" method="POST" action="/con-cura/pets/test/thanks/" data-netlify="true" netlify-honeypot="company" novalidate>
+        <input type="hidden" name="form-name" value="con-cura-pets-test"/>
+        <input type="hidden" name="device" id="ttDevice" value=""/>
+        <p class="st-hp"><label>Leave this empty <input name="company"/></label></p>
+
+        <!-- STEP 1: ABOUT YOU -->
+        <div class="tt-step active" data-step="1">
+          <p class="tt-steplabel">Step 1 of 5 · About you</p>
+          <ul class="st-expect">
+            <li><b>01</b><span>A few quick questions about you and your pets.</span></li>
+            <li><b>02</b><span>Three short tasks in the app. Each opens on your screen, and you tap through it like a real app.</span></li>
+            <li><b>03</b><span>A few final questions. Your name is optional.</span></li>
+          </ul>
+
+          <fieldset>
+            <legend>What kind of pets do you have? <span class="opt">(check all)</span></legend>
+            <div class="st-choices">
+              <label class="st-choice"><input type="checkbox" name="pets" value="Dog"/> Dog</label>
+              <label class="st-choice"><input type="checkbox" name="pets" value="Cat"/> Cat</label>
+              <label class="st-choice"><input type="checkbox" name="pets" value="Reptile"/> Snake, lizard or turtle</label>
+              <label class="st-choice"><input type="checkbox" name="pets" value="Fish"/> Fish</label>
+              <label class="st-choice"><input type="checkbox" name="pets" value="Bird"/> Bird</label>
+              <label class="st-choice"><input type="checkbox" name="pets" value="Small animal"/> Rabbit, hamster or other</label>
+              <label class="st-choice"><input type="checkbox" name="pets" value="None right now"/> None right now</label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>How do you keep track of their care now? (feeding, meds, vet visits)</legend>
+            <div class="st-choices">
+              <label class="st-choice"><input type="radio" name="tracking" value="Memory" required/> I just remember</label>
+              <label class="st-choice"><input type="radio" name="tracking" value="Calendar or notes"/> A calendar or notes</label>
+              <label class="st-choice"><input type="radio" name="tracking" value="An app"/> An app</label>
+              <label class="st-choice"><input type="radio" name="tracking" value="Nothing"/> I don't track it</label>
+            </div>
+          </fieldset>
+
+          <p class="st-error" data-error="1">Please answer the second question to continue.</p>
+          <div class="tt-nav"><button type="button" class="btn-primary btn-drafted on-paper" data-next>Start the first task <span class="arrow" aria-hidden="true">⟶</span></button></div>
+        </div>
+
+        <!-- STEP 2: TASK 1 -->
+        <div class="tt-step" data-step="2">
+          <div class="tt-grid">
+            <div class="tt-phone"><iframe title="Con Cura prototype, task 1" data-src="welcome" loading="lazy" allowfullscreen></iframe></div>
+            <div>
+              <p class="tt-steplabel">Step 2 of 5 · Task 1</p>
+              <div class="tt-task">
+                <p>You just brought home a ball python named Noodle. Add him to the app.</p>
+                <p class="tt-hint">Start on the welcome screen. Tap through until he's with your pets. Photos are placeholders for now.</p>
+              </div>
+              <a class="btn-primary btn-drafted on-paper tt-open" data-open="welcome" href="#" target="_blank" rel="noopener">Open the app <span class="arrow" aria-hidden="true">⟶</span></a>
+              <p class="tt-open-note">It opens in a new tab. Come back here when you're done.</p>
+              <fieldset>
+                <legend>Were you able to do it?</legend>
+                <div class="st-choices">
+                  <label class="st-choice"><input type="radio" name="t1-done" value="Yes, easily" required/> Yes, easily</label>
+                  <label class="st-choice"><input type="radio" name="t1-done" value="Yes, with some effort"/> Yes, with some effort</label>
+                  <label class="st-choice"><input type="radio" name="t1-done" value="Not quite"/> Not quite</label>
+                  <label class="st-choice"><input type="radio" name="t1-done" value="I got stuck"/> I got stuck</label>
+                </div>
+              </fieldset>
+              <fieldset style="margin-top:24px;">
+                <legend>The app guessed what kind of animal he was. How did that feel?</legend>
+                <div class="st-choices">
+                  <label class="st-choice"><input type="radio" name="t1-ai" value="Helpful, and I stayed in control" required/> Helpful, I stayed in control</label>
+                  <label class="st-choice"><input type="radio" name="t1-ai" value="Helpful, but pushy"/> Helpful, but a little pushy</label>
+                  <label class="st-choice"><input type="radio" name="t1-ai" value="Not helpful"/> Not helpful</label>
+                  <label class="st-choice"><input type="radio" name="t1-ai" value="Didn't notice"/> I didn't notice it</label>
+                </div>
+              </fieldset>
+              <div style="margin-top:24px;">
+                <label for="t1-notes">Anything confusing or nice? <span class="opt">(optional)</span></label>
+                <textarea id="t1-notes" name="t1-notes"></textarea>
+              </div>
+              <p class="st-error" data-error="2">Please answer both questions to continue.</p>
+              <div class="tt-nav" style="margin-top:24px;"><button type="button" class="btn-primary btn-drafted on-paper" data-next>Next task <span class="arrow" aria-hidden="true">⟶</span></button><button type="button" class="tt-back" data-back>Back</button></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 3: TASK 2 -->
+        <div class="tt-step" data-step="3">
+          <div class="tt-grid">
+            <div class="tt-phone"><iframe title="Con Cura prototype, task 2" data-src="collection" loading="lazy" allowfullscreen></iframe></div>
+            <div>
+              <p class="tt-steplabel">Step 3 of 5 · Task 2</p>
+              <div class="tt-task">
+                <p>You fed Noodle this morning and noticed his eyes look cloudy. Record both in the app.</p>
+                <p class="tt-hint">Start on your list of pets.</p>
+              </div>
+              <a class="btn-primary btn-drafted on-paper tt-open" data-open="collection" href="#" target="_blank" rel="noopener">Open the app <span class="arrow" aria-hidden="true">⟶</span></a>
+              <p class="tt-open-note">It opens in a new tab. Come back here when you're done.</p>
+              <fieldset>
+                <legend>Were you able to do it?</legend>
+                <div class="st-choices">
+                  <label class="st-choice"><input type="radio" name="t2-done" value="Yes, easily" required/> Yes, easily</label>
+                  <label class="st-choice"><input type="radio" name="t2-done" value="Yes, with some effort"/> Yes, with some effort</label>
+                  <label class="st-choice"><input type="radio" name="t2-done" value="Not quite"/> Not quite</label>
+                  <label class="st-choice"><input type="radio" name="t2-done" value="I got stuck"/> I got stuck</label>
+                </div>
+              </fieldset>
+              <fieldset style="margin-top:24px;">
+                <legend>Do the care options match what you actually do?</legend>
+                <div class="st-choices">
+                  <label class="st-choice"><input type="radio" name="t2-fit" value="Yes" required/> Yes</label>
+                  <label class="st-choice"><input type="radio" name="t2-fit" value="Mostly"/> Mostly</label>
+                  <label class="st-choice"><input type="radio" name="t2-fit" value="Something's missing"/> Something's missing</label>
+                  <label class="st-choice"><input type="radio" name="t2-fit" value="Not really"/> Not really</label>
+                </div>
+              </fieldset>
+              <div style="margin-top:24px;">
+                <label for="t2-notes">What would you add or change? <span class="opt">(optional)</span></label>
+                <textarea id="t2-notes" name="t2-notes" placeholder="A care step, a quick note you'd use, or what a dog or cat would need"></textarea>
+              </div>
+              <p class="st-error" data-error="3">Please answer both questions to continue.</p>
+              <div class="tt-nav" style="margin-top:24px;"><button type="button" class="btn-primary btn-drafted on-paper" data-next>Last task <span class="arrow" aria-hidden="true">⟶</span></button><button type="button" class="tt-back" data-back>Back</button></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 4: TASK 3 -->
+        <div class="tt-step" data-step="4">
+          <div class="tt-grid">
+            <div class="tt-phone"><iframe title="Con Cura prototype, task 3" data-src="profile" loading="lazy" allowfullscreen></iframe></div>
+            <div>
+              <p class="tt-steplabel">Step 4 of 5 · Task 3</p>
+              <div class="tt-task">
+                <p>Noodle looks dull and his eyes are cloudy. Use the app to check on him, and read what it tells you.</p>
+                <p class="tt-hint">Start on Noodle's page. The camera is pretend, so just tap through.</p>
+              </div>
+              <a class="btn-primary btn-drafted on-paper tt-open" data-open="profile" href="#" target="_blank" rel="noopener">Open the app <span class="arrow" aria-hidden="true">⟶</span></a>
+              <p class="tt-open-note">It opens in a new tab. Come back here when you're done.</p>
+              <fieldset>
+                <legend>Were you able to do it?</legend>
+                <div class="st-choices">
+                  <label class="st-choice"><input type="radio" name="t3-done" value="Yes, easily" required/> Yes, easily</label>
+                  <label class="st-choice"><input type="radio" name="t3-done" value="Yes, with some effort"/> Yes, with some effort</label>
+                  <label class="st-choice"><input type="radio" name="t3-done" value="Not quite"/> Not quite</label>
+                  <label class="st-choice"><input type="radio" name="t3-done" value="I got stuck"/> I got stuck</label>
+                </div>
+              </fieldset>
+              <fieldset style="margin-top:24px;">
+                <legend>How much would you trust what the check told you?</legend>
+                <div class="st-choices five">
+                  <label class="st-choice"><input type="radio" name="t3-trust" value="1" required/>1</label>
+                  <label class="st-choice"><input type="radio" name="t3-trust" value="2"/>2</label>
+                  <label class="st-choice"><input type="radio" name="t3-trust" value="3"/>3</label>
+                  <label class="st-choice"><input type="radio" name="t3-trust" value="4"/>4</label>
+                  <label class="st-choice"><input type="radio" name="t3-trust" value="5"/>5</label>
+                </div>
+                <div class="st-scale-ends"><span>Not at all</span><span>Completely</span></div>
+              </fieldset>
+              <div style="margin-top:24px;">
+                <label for="t3-notes">What made you trust it, or not? <span class="opt">(optional)</span></label>
+                <textarea id="t3-notes" name="t3-notes"></textarea>
+              </div>
+              <p class="st-error" data-error="4">Please answer both questions to continue.</p>
+              <div class="tt-nav" style="margin-top:24px;"><button type="button" class="btn-primary btn-drafted on-paper" data-next>Final questions <span class="arrow" aria-hidden="true">⟶</span></button><button type="button" class="tt-back" data-back>Back</button></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 5: WRAP UP -->
+        <div class="tt-step" data-step="5">
+          <p class="tt-steplabel">Step 5 of 5 · Wrapping up</p>
+          <fieldset>
+            <legend>How likely are you to use an app like this?</legend>
+            <div class="st-choices five">
+              <label class="st-choice"><input type="radio" name="likely" value="1" required/>1</label>
+              <label class="st-choice"><input type="radio" name="likely" value="2"/>2</label>
+              <label class="st-choice"><input type="radio" name="likely" value="3"/>3</label>
+              <label class="st-choice"><input type="radio" name="likely" value="4"/>4</label>
+              <label class="st-choice"><input type="radio" name="likely" value="5"/>5</label>
+            </div>
+            <div class="st-scale-ends"><span>Not likely</span><span>Very likely</span></div>
+          </fieldset>
+          <div>
+            <label for="change">If you could change one thing, what would it be? <span class="opt">(optional)</span></label>
+            <textarea id="change" name="change"></textarea>
+          </div>
+          <div>
+            <label for="tt-name">Name <span class="opt">(optional)</span></label>
+            <input id="tt-name" name="name" type="text" autocomplete="name"/>
+          </div>
+          <div>
+            <label for="tt-email">Email <span class="opt">(optional, only if I may follow up)</span></label>
+            <input id="tt-email" name="email" type="email" autocomplete="email"/>
+          </div>
+          <p class="st-privacy">Your answers are only used to improve this design. Nothing you write is quoted, even without your name, unless you say it's okay below.</p>
+          <label class="st-consent"><input type="checkbox" name="quote-ok" value="Yes"/> <span>It's okay to quote my comments in a case study, without my name.</span></label>
+          <p class="st-error" data-error="5">Please choose a number to finish.</p>
+          <p class="st-error" id="ttSendError">That didn't go through. Please check your connection and try again.</p>
+          <div class="tt-nav"><button type="submit" class="btn-primary btn-drafted on-paper" id="ttSubmit">Send my answers <span class="arrow" aria-hidden="true">⟶</span></button><button type="button" class="tt-back" data-back>Back</button></div>
+        </div>
+      </form>
+
+      <p class="cs-copy" style="margin-top:28px;">Questions? Email <span style="user-select:all;">contact@davidrbailey.com</span>. Grow orchids too? <a class="text-link" href="/con-cura/test/" style="white-space:normal;display:inline;">Try the orchid app</a> as well.</p>
+    </div>
+  </section>
+</div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-bottom">
+      <p>© 2026 David R. Bailey</p>
+      <p>Springfield, OH</p>
+      <p>UX Research Study 2026</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../../../js/site.js" defer></script>
+<script>
+(function(){
+  var FILE = 'Aml4X8ulrTsRAGmM8ln3JL';
+  var START = { welcome: '95-564', collection: '88-178', profile: '88-200' };
+  var FLOW = '95-564';
+  function protoUrl(key, embed){
+    var node = START[key];
+    var base = embed ? 'https://embed.figma.com/proto/' : 'https://www.figma.com/proto/';
+    var q = 'node-id=' + node + '&starting-point-node-id=' + FLOW + '&scaling=scale-down&content-scaling=fixed&hide-ui=1&hotspot-hints=0';
+    if (embed) q += '&embed-host=davidrbailey';
+    return base + FILE + '/Con-Cura?' + q;
+  }
+  document.querySelectorAll('[data-open]').forEach(function(a){ a.href = protoUrl(a.getAttribute('data-open'), false); });
+
+  var form = document.getElementById('ttForm');
+  var steps = Array.prototype.slice.call(form.querySelectorAll('.tt-step'));
+  var bars = document.querySelectorAll('#ttProgress span');
+  var current = 0;
+  document.getElementById('ttDevice').value = window.matchMedia('(max-width: 980px)').matches ? 'Phone or tablet' : 'Computer';
+
+  function loadFrame(step){
+    var f = step.querySelector('iframe[data-src]');
+    if (f && !f.src && window.matchMedia('(min-width: 981px)').matches) f.src = protoUrl(f.getAttribute('data-src'), true);
+  }
+  function show(i){
+    steps[current].classList.remove('active');
+    current = i;
+    steps[current].classList.add('active');
+    bars.forEach(function(b, n){ b.classList.toggle('on', n <= current); });
+    loadFrame(steps[current]);
+    var top = document.getElementById('ttProgress').getBoundingClientRect().top + window.pageYOffset - 110;
+    window.scrollTo({top: top, behavior: 'smooth'});
+  }
+  function valid(step){
+    var names = {};
+    step.querySelectorAll('input[required]').forEach(function(r){ names[r.name] = true; });
+    return Object.keys(names).every(function(n){ return form.querySelector('input[name="' + n + '"]:checked'); });
+  }
+  function check(step){
+    var ok = valid(step);
+    var err = step.querySelector('[data-error]');
+    if (err) err.classList.toggle('show', !ok);
+    return ok;
+  }
+  form.querySelectorAll('[data-next]').forEach(function(btn){
+    btn.addEventListener('click', function(){ if (check(steps[current])) show(current + 1); });
+  });
+  form.querySelectorAll('[data-back]').forEach(function(btn){
+    btn.addEventListener('click', function(){ show(current - 1); });
+  });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if (!check(steps[current])) return;
+    var btn = document.getElementById('ttSubmit');
+    var sendErr = document.getElementById('ttSendError');
+    sendErr.classList.remove('show');
+    btn.disabled = true;
+    var data = new URLSearchParams(new FormData(form)).toString();
+    fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: data })
+      .then(function(r){ if (!r.ok) throw new Error(r.status); window.location.href = '/con-cura/pets/test/thanks/'; })
+      .catch(function(){ sendErr.classList.add('show'); btn.disabled = false; });
+  });
+})();
+</script>
+</body>
+</html>
