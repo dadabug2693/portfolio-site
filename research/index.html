@@ -28,7 +28,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/site.css">
 <style>
-.rs-studies{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin:36px 0 0;}
+.rs-studies{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin:36px 0 0;}
+@media (max-width:1100px){ .rs-studies{grid-template-columns:repeat(2,minmax(0,1fr));} }
 @media (max-width:820px){ .rs-studies{grid-template-columns:1fr;} }
 .rs-study{display:flex;flex-direction:column;gap:14px;background:rgba(255,255,255,0.35);border:1px solid rgba(13,13,11,0.12);border-radius:10px;padding:28px 26px;}
 .rs-study.open{border:2px solid var(--green);padding:27px 25px;}
@@ -101,7 +102,7 @@
       <div class="rs-studies">
         <article class="rs-study open" id="study-orchids" aria-labelledby="h-orchids">
           <span class="rs-status"><i aria-hidden="true"></i> Open now</span>
-          <h2 id="h-orchids">An orchid care app</h2>
+          <h2 id="h-orchids">Talk through the orchid app</h2>
           <p>I'm designing an app to help people keep up with orchid care. Tell me how you care for your orchids now, then try an early version on your phone.</p>
           <dl class="rs-meta">
             <dt>Time</dt><dd>About 30 minutes</dd>
@@ -109,6 +110,18 @@
             <dt>Who</dt><dd>Anyone who grows orchids, or has tried. Beginners welcome.</dd>
           </dl>
           <a class="btn-primary btn-drafted on-paper" href="/con-cura/study/">Sign up for a session <span class="arrow" aria-hidden="true">⟶</span></a>
+        </article>
+
+        <article class="rs-study open" id="study-orchids-online" aria-labelledby="h-orchids-online">
+          <span class="rs-status"><i aria-hidden="true"></i> Open now</span>
+          <h2 id="h-orchids-online">Try the orchid app online</h2>
+          <p>No call needed. Try three short tasks in an early version of the orchid care app, then answer a few questions.</p>
+          <dl class="rs-meta">
+            <dt>Time</dt><dd>About 10 minutes</dd>
+            <dt>How</dt><dd>Online, at your own pace, on a phone or computer</dd>
+            <dt>Who</dt><dd>Anyone who grows orchids, or has tried. Beginners welcome.</dd>
+          </dl>
+          <a class="btn-primary btn-drafted on-paper" href="/con-cura/test/">Start the test <span class="arrow" aria-hidden="true">⟶</span></a>
         </article>
 
         <article class="rs-study open" id="study-websites" aria-labelledby="h-websites">
