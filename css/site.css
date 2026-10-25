@@ -239,6 +239,9 @@ footer.site-footer{
 .footer-bottom p{margin:0;}
 .footer-bottom a{color:inherit;text-decoration:none;}
 .footer-bottom a:hover,.footer-bottom a:focus-visible{color:var(--cream);text-decoration:underline;}
+/* registration mark: reads as a print mark, not a link */
+.footer-bottom .footer-reg,.footer-bottom .footer-reg:hover{display:inline-flex;color:inherit;text-decoration:none;cursor:default;opacity:.7;}
+.footer-reg svg{display:block;}
 @media (max-width:900px){ .footer-top{grid-template-columns:1fr 1fr;} }
 @media (max-width:480px){
   footer.site-footer{padding:56px 0 40px;}
