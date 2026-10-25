@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NBTVHXGGJH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NBTVHXGGJH');
+</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>The Drafting Table Design System Case Study | The Drafting Table</title>
+<meta name="description" content="Auditing my own design system: comparing the typography standard against the live site, fixing a contrast failure in my signature green, and adopting Rev 1.2."/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="The Drafting Table Design System Case Study | The Drafting Table"/>
+<meta property="og:description" content="I designed a system, built my portfolio from it, then checked whether the two still matched."/>
+<link rel="icon" type="image/png" href="../favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+<link rel="shortcut icon" href="../favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
+<link rel="manifest" href="../site.webmanifest" />
+<script>document.documentElement.classList.add('js');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/site.css">
+<style>
+.ds-sheets{max-width:900px;}
+.ds-green{max-width:900px;}
+.ds-green .cs-shot{background:var(--paper);}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="../index.html" aria-label="The Drafting Table homepage">
+      <div class="brand-mark" aria-hidden="true">DB</div>
+      <div class="brand-text">
+        <p class="title">The Drafting Table</p>
+        <p class="subtitle">Designing Digital Experiences</p>
+      </div>
+    </a>
+
+    <nav class="links" aria-label="Primary">
+      <a href="../index.html#work" aria-current="page">WORK</a>
+      <a href="/research/">RESEARCH</a>
+      <a href="../index.html#about">ABOUT</a>
+      <a href="../index.html#writing">WRITING</a>
+      <a href="../index.html#skills">SKILLS</a>
+      <a href="../index.html#resume">RESUME</a>
+      <a href="../index.html#contact">CONTACT</a>
+    </nav>
+
+    <div class="badge">CASE STUDY<br>SHEET 006</div>
+
+    <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+      <span class="hamburger" aria-hidden="true"></span>
+    </button>
+  </div>
+
+  <nav id="mobileMenu" class="mobile-menu" aria-label="Mobile" hidden>
+    <a href="../index.html#work">Work</a>
+    <a href="/research/">Research</a>
+    <a href="../index.html#about">About</a>
+    <a href="../index.html#writing">Writing</a>
+    <a href="../index.html#skills">Skills</a>
+    <a href="../index.html#resume">Resume</a>
+    <a href="../index.html#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="main-content">
+
+<!-- HERO -->
+<section class="cs-hero" aria-labelledby="cs-title">
+  <div class="wrap">
+    <a class="cs-breadcrumb" href="../index.html#work"><span class="arrow back" aria-hidden="true">⟵</span> All Projects</a>
+
+    <div class="cs-hero-top">
+      <div>
+        <p class="cs-eyebrow">Case Study 006 · Design Systems</p>
+        <p class="cs-kicker">Auditing my own design system</p>
+        <h1 class="cs-title" id="cs-title" style="font-size:clamp(30px,4.8vw,76px);">The Drafting Table <span class="accent">Design System</span></h1>
+        <p class="cs-position">I designed a system, built my portfolio from it, then checked whether the two still matched. They didn't. This is what I found and what I fixed.</p>
+      </div>
+      <div class="cs-hero-media">
+        <img src="../images/dd004-hero.jpg" alt="The top of Typography Standards record DD-004, Rev 1.2: The Drafting Table wordmark, an Adopted stamp dated October 25, 2026, the revision history, and the three typeface cards for Syne, Inter, and Source Serif 4." width="1180" height="737"/>
+      </div>
+    </div>
+
+    <dl class="cs-facts">
+      <div class="cs-fact"><dt>Role</dt><dd>Designer, developer, and system owner</dd></div>
+      <div class="cs-fact"><dt>Timeline</dt><dd>July to October 2026</dd></div>
+      <div class="cs-fact"><dt>Tools</dt><dd>Figma, VS Code, GitHub, Netlify, Claude</dd></div>
+      <div class="cs-fact"><dt>Outcome</dt><dd>Rev 1.2 adopted. 190 failing green text elements brought to WCAG AA.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<div class="cs-body">
+
+  <!-- 01 STARTING POINT -->
+  <section class="cs-section" id="starting-point" aria-labelledby="h-01">
+    <div class="wrap">
+      <div class="cs-section-head"><span class="cs-num">01</span><h2 id="h-01">Starting Point</h2></div>
+      <p class="cs-copy">In July 2026 I documented the typography for my portfolio brand, The Drafting Table, as record DD-004. I styled it like an architectural drawing sheet, with a title block, a revision history, and an adoption stamp. Rev 1.0 and Rev 1.1 went out the same day.</p>
+      <p class="cs-copy">I chose the drafting sheet because it shows how I work. Titles, revisions, annotations, and status stamps carry real information, the way they do on a construction set. I wasn't sold on the blueprint idea at first, but presenting the system as a coordinated drawing set won me over. I kept the palette tight, with no reds or blues, so status and hierarchy come from stamps, type, line weights, and spacing. For display type I picked Syne because it felt architectural.</p>
+      <p class="cs-copy">Then I built the site by hand in VS Code and deployed it through GitHub and Netlify. Over the next three months it kept growing: new case studies, a research section, participant study pages. The sheet stayed at Rev 1.1.</p>
+
+      <div class="cs-cards two">
+        <div class="cs-card"><span class="cs-card-tag">The problem</span><p class="cs-card-title">The sheet stopped describing the site</p><p class="cs-card-desc">A design system only helps if it describes what is actually built. If a hiring manager opens my typography sheet, then opens my site and sees different fonts, the sheet works against me.</p></div>
+        <div class="cs-card"><span class="cs-card-tag">The goal</span><p class="cs-card-title">Make the sheet tell the truth</p><p class="cs-card-desc">Bring the sheet in line with the site, and fix the site anywhere the sheet was right.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 RESEARCH -->
+  <section class="cs-section" id="research" aria-labelledby="h-02">
+    <div class="wrap">
+      <div class="cs-section-head"><span class="cs-num">02</span><h2 id="h-02">Research</h2></div>
+      <p class="cs-copy">The site and the sheet disagreed in seven areas, and my signature green failed accessibility on every paper section.</p>
+      <p class="cs-copy">I compared every typography rule in the production stylesheet against Rev 1.1, role by role. Then I measured the contrast of every text and background pairing the site uses.</p>
+
+      <div class="cs-table-wrap">
+        <table class="cs-table">
+          <thead><tr><th scope="col">Area</th><th scope="col">Rev 1.1 said</th><th scope="col">The site does</th></tr></thead>
+          <tbody>
+            <tr><td>Body text</td><td>Syne</td><td>Inter</td></tr>
+            <tr><td>Syne weights</td><td>400 to 800</td><td>Only 700 and 800 are loaded</td></tr>
+            <tr><td>Section titles</td><td>Bold 700, 56px, uppercase</td><td>ExtraBold 800, 32 to 64px, title case with a green accent word</td></tr>
+            <tr><td>Sizing</td><td>Fixed sizes on a 4px baseline grid</td><td>Fluid min-to-max sizes, line heights as ratios</td></tr>
+            <tr><td>Typefaces</td><td>Syne and Syne Mono</td><td>Syne, Inter, and Source Serif 4</td></tr>
+            <tr><td>Smallest text</td><td>9px</td><td>11px, almost all 12px or larger</td></tr>
+            <tr><td>Color</td><td>Ink on cream only</td><td>Cream on dark, ink on paper, three greens</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="cs-copy" style="margin-top:36px;">The sheet also disagreed with itself. Its type scale listed different sizes than its own hierarchy table, and it called the scale modular when the steps were uneven.</p>
+
+      <p class="cs-quote">My own brand green measured 2.4:1 on the paper background. AA asks for 4.5:1.</p>
+      <p class="cs-copy">WCAG AA asks for 4.5:1 for normal text and 3:1 for large text, so Green Primary (#059669) on paper failed both. An automated check of every green text element across 11 pages found 190 of 301 failing, including the "Studies" in "Case Studies" on my homepage.</p>
+
+      <figure class="cs-figure">
+        <a class="zoom" href="../images/dd004-contrast.jpg" data-caption="Type color and contrast, from DD-004 Rev 1.2. Every text and background pairing the site uses, with measured ratios.">
+          <img class="cs-shot" src="../images/dd004-contrast.jpg" alt="Contrast table from DD-004 Rev 1.2 listing twelve color pairings. Most pass. Green Primary on paper measures 2.4 to 1 and fails both normal and large text. Green Dark on paper measures 3.4 to 1 and passes large text only. Green Deep on paper measures 4.8 to 1 and passes both." width="1065" height="430" loading="lazy"/>
+        </a>
+        <figcaption class="cs-caption">Every pairing the site uses, measured. The three rows at the bottom are the green on paper.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 03 EXPLORING SOLUTIONS -->
+  <section class="cs-section" id="exploring" aria-labelledby="h-03">
+    <div class="wrap">
+      <div class="cs-section-head"><span class="cs-num">03</span><h2 id="h-03">Exploring Solutions</h2></div>
+      <p class="cs-copy">I set one rule before changing anything:</p>
+      <p class="cs-quote">The site wins, unless it fails accessibility.</p>
+      <p class="cs-copy">I could change the site to match the sheet, or change the sheet to match the site. The site had been used across real screens for three months, and switching body text back to Syne would have made it harder to read. So the sheet changed, except where the site was the thing that failed.</p>
+
+      <h3 class="cs-sub">Fixing the green</h3>
+      <p class="cs-copy">I looked at four options for green text on paper.</p>
+      <div class="cs-table-wrap">
+        <table class="cs-table">
+          <thead><tr><th scope="col">Option</th><th scope="col">Contrast on paper</th><th scope="col">Result</th></tr></thead>
+          <tbody>
+            <tr><td>Keep Green Primary #059669</td><td>2.4:1</td><td>Fails all text</td></tr>
+            <tr><td>Use Green Dark #047857, already on some pages</td><td>3.4:1</td><td>Passes large text only</td></tr>
+            <tr><td>Use a new Green Deep #065F46</td><td>4.8:1</td><td>Passes all text</td></tr>
+            <tr><td>Drop green on paper sections</td><td>Not applicable</td><td>Passes, but loses the accent</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="cs-copy" style="margin-top:28px;">I chose Green Deep, on paper only. On dark sections, Green Primary measures 5.2:1 and stays as it is, so the brand still reads as the same green.</p>
+
+      <div class="ds-green">
+        <figure class="cs-figure">
+          <span class="cs-label">Before: Green Primary on paper, 2.4:1</span>
+          <img class="cs-shot" src="../images/dd004-green-before.jpg" alt="The homepage heading Case Studies, with the word Studies in bright green on the tan paper background." width="1380" height="180" loading="lazy"/>
+        </figure>
+        <figure class="cs-figure" style="margin-top:28px;">
+          <span class="cs-label good">After: Green Deep on paper, 4.8:1</span>
+          <img class="cs-shot" src="../images/dd004-green-after.jpg" alt="The same Case Studies heading, with Studies in a deeper forest green on the tan paper background." width="1380" height="180" loading="lazy"/>
+        </figure>
+      </div>
+
+      <div class="cs-cards two">
+        <div class="cs-card"><span class="cs-card-tag">Decision</span><p class="cs-card-title">Change the token, not the rules</p><p class="cs-card-desc">The green was set in dozens of separate rules. Instead of editing each one, I changed what the color token means inside paper sections. Any new paper section picks up the right green without anyone remembering to.</p></div>
+        <div class="cs-card"><span class="cs-card-tag">Decision</span><p class="cs-card-title">Rebuild the sheet as live text</p><p class="cs-card-desc">Rev 1.0 and 1.1 were flat images. I rebuilt Rev 1.2 as editable text in Figma, using the file's existing color variables, so the next revision is an edit instead of a redraw.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 FINAL DESIGN -->
+  <section class="cs-section" id="final" aria-labelledby="h-04">
+    <div class="wrap">
+      <div class="cs-section-head"><span class="cs-num">04</span><h2 id="h-04">Final Design</h2></div>
+      <p class="cs-copy">Rev 1.2 was adopted on October 25, 2026, the same day the green fix shipped to the site.</p>
+
+      <div class="cs-equal ds-sheets">
+        <figure style="flex-grow:0.667;"><a class="zoom" href="../images/dd004-rev-1-1.jpg" data-caption="DD-004 Rev 1.1, July 10, 2026: the system as designed."><img src="../images/dd004-rev-1-1.jpg" alt="Typography Standards record DD-004 Rev 1.1, a drafting-sheet layout with a hero display specification, type hierarchy, type scale, and accessibility notes, all set in Syne." width="1600" height="2400" loading="lazy"/></a><figcaption>Rev 1.1 · As designed</figcaption></figure>
+        <figure style="flex-grow:0.393;"><a class="zoom" href="../images/dd004-rev-1-2.jpg" data-caption="DD-004 Rev 1.2, October 25, 2026: the system as built."><img src="../images/dd004-rev-1-2.jpg" alt="Typography Standards record DD-004 Rev 1.2, the same drafting-sheet format with three typefaces, a 20-role hierarchy mapped to CSS classes, sizing and accessibility rules, a contrast table, and a change log." width="1180" height="3000" loading="lazy"/></a><figcaption>Rev 1.2 · As built</figcaption></figure>
+      </div>
+
+      <h3 class="cs-sub">What Rev 1.2 documents</h3>
+      <ul class="cs-list">
+        <li>Three typefaces, each with one job: Syne for display, Inter for body and interface, Source Serif 4 for the Through Line story section.</li>
+        <li>20 type roles as built, each mapped to the CSS class that uses it.</li>
+        <li>Sizing rules for fluid type, with the 4px grid and modular-scale claims removed.</li>
+        <li>A contrast table for every text and background pairing, with measured ratios.</li>
+        <li>A 12px minimum for any text people need to read.</li>
+        <li>An 11-item log of what changed from Rev 1.1, and why.</li>
+      </ul>
+
+      <h3 class="cs-sub">Results</h3>
+      <div class="cs-stats">
+        <div class="cs-stat"><p class="cs-stat-value">0</p><p class="cs-stat-label">Green text elements failing WCAG AA, down from 190 across 11 pages</p></div>
+        <div class="cs-stat"><p class="cs-stat-value">20</p><p class="cs-stat-label">Type roles documented, up from 9</p></div>
+        <div class="cs-stat"><p class="cs-stat-value">3</p><p class="cs-stat-label">Typefaces documented, all in use (was 2, one unused)</p></div>
+      </div>
+
+      <h3 class="cs-sub">What I learned</h3>
+      <ul class="cs-list">
+        <li>A system records decisions, but the code is where they actually land. The two drifted apart quietly, one reasonable change at a time.</li>
+        <li>I had treated my own brand color as settled. Measuring it showed it failed on every paper section.</li>
+        <li>Writing the rule first, "the site wins unless it fails accessibility," made dozens of small decisions fast.</li>
+      </ul>
+
+      <h3 class="cs-sub">What's next</h3>
+      <ul class="cs-list">
+        <li>Turn the Rev 1.2 roles into Figma text styles, so designs in the file use the same values the site does.</li>
+        <li>Audit the other DD records in the system the same way.</li>
+        <li>Re-run the contrast check whenever a new section or page type ships.</li>
+      </ul>
+    </div>
+  </section>
+
+</div>
+
+<nav class="cs-nav" aria-label="Case study navigation">
+  <div class="wrap cs-nav-row">
+    <a class="cs-nav-link" href="../keepers-of-the-kingdom/">
+      <span class="cs-nav-eyebrow"><span class="arrow back" aria-hidden="true">⟵</span> Previous Project</span>
+      <span class="cs-nav-title">Keepers of the Kingdom</span>
+    </a>
+    <a class="cs-nav-link next" href="../creative-work.html">
+      <span class="cs-nav-eyebrow">Next Project <span class="arrow" aria-hidden="true">⟶</span></span>
+      <span class="cs-nav-title">Creative Work</span>
+    </a>
+  </div>
+</nav>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <p class="f-title">The Drafting Table</p>
+        <p class="f-tag">Designing digital experiences with the precision of architectural thinking.</p>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">Work</p>
+        <a href="../springfield-cofc/">Springfield CofC</a>
+        <a href="../navease/">NavEase</a>
+        <a href="../ai-workflows/">AI-Assisted Workflows</a>
+        <a href="../pastry-kitchen/">The Pastry Kitchen</a>
+        <a href="../keepers-of-the-kingdom/">Keepers of the Kingdom</a>
+        <a href="../design-system/" aria-current="page">Design System</a>
+        <a href="../creative-work.html">Creative Work</a>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">About</p>
+        <a href="../index.html#about">About David</a>
+        <a href="../index.html#writing">Writing</a>
+        <a href="../index.html#skills">Capabilities</a>
+        <a href="../David_R_Bailey_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+        <a href="../research/">Research</a>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">Connect</p>
+        <a href="https://www.linkedin.com/in/davidbaileyjr/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:contact@davidrbailey.com">Email</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 David R. Bailey</p>
+      <p>Springfield, OH</p>
+      <p>Document Revision 2.0</p>
+      <p><a class="footer-reg" href="https://claude.ai/artifact/GDuZA2NWsDWtiHGnqAM5NN" target="_blank" rel="noopener noreferrer nofollow" tabindex="-1" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1"><circle cx="7" cy="7" r="4"/><path d="M7 0v14M0 7h14"/></svg></a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/site.js" defer></script>
+</body>
+</html>
