@@ -16,7 +16,9 @@
   --ink:#0d0d0b;
   --ink-88:rgba(13,13,11,0.88);
   --paper:#d8cbb8;          /* warm "trace paper" sections */
-  --green:#059669;
+  --green:#059669;          /* Green Primary: text on dark, any decorative use */
+  --green-primary:#059669;
+  --green-deep:#065F46;     /* Green Deep: green text on paper (4.8:1 on --paper; Green Primary is 2.4:1) */
 
   --font-display:'Syne',sans-serif;
   --font-body:'Inter',system-ui,sans-serif;
@@ -188,6 +190,10 @@ a:hover .arrow.down,a:focus-visible .arrow.down{animation:arrow-nudge .9s ease-i
 .section{padding:110px 0 130px;scroll-margin-top:90px;}
 .section.dark{background:var(--ink);color:var(--cream);border-bottom:1px solid var(--rule-dark);}
 .section.paper{background:var(--paper);color:var(--ink);}
+/* Typography Standards DD-004 Rev 1.2: green text on paper uses Green Deep.
+   Paper scopes remap --green; dark blocks nested inside them switch back. */
+.section.paper,.cs-body,.cs-hero--paper{--green:var(--green-deep);}
+.section.paper .dark,.section.paper .section.dark,.cs-body .dark,.cs-body .section.dark{--green:var(--green-primary);}
 @media (max-width:600px){ .section{padding:70px 0 80px;} }
 
 .section-kicker{
@@ -288,8 +294,8 @@ footer.site-footer{
 }
 .cs-hero--paper .cs-hero-top{grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);min-height:520px;}
 .cs-hero--paper .cs-breadcrumb,.cs-hero--paper .cs-kicker{color:var(--stone-ink);}
-.cs-hero--paper .cs-breadcrumb:hover{color:#047857;}
-.cs-hero--paper .cs-eyebrow,.cs-hero--paper .cs-fact dt{color:#047857;} /* darker green: AA on paper */
+.cs-hero--paper .cs-breadcrumb:hover{color:var(--green-deep);}
+.cs-hero--paper .cs-eyebrow,.cs-hero--paper .cs-fact dt{color:var(--green-deep);} /* darker green: AA on paper */
 .cs-hero--paper .cs-position{color:#141310;font-weight:400;}
 .cs-hero--paper .cs-facts{background:rgba(13,13,11,0.2);border-color:rgba(13,13,11,0.2);}
 .cs-hero--paper .cs-fact{background:rgba(244,236,223,0.88);}
