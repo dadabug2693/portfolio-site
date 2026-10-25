@@ -117,9 +117,11 @@ nav.links a:hover,nav.links a[aria-current="page"]{opacity:1;color:var(--green);
 }
 .mobile-menu a:hover,.mobile-menu a:focus-visible{color:var(--green);}
 
-/* six links + brand need ~1200px; tighten first, then switch to the menu button */
+/* seven links + brand need ~1300px; tighten first, then switch to the menu button */
+@media (max-width:1300px){ nav.links{gap:32px;} }
 @media (max-width:1200px){
-  nav.links{gap:28px;}
+  nav.links{gap:22px;}
+  .brand-text .subtitle{white-space:nowrap;}
   .badge{display:none;}
 }
 @media (max-width:1024px){
