@@ -160,6 +160,45 @@
   .project-text{padding:30px 24px 34px;}
 }
 
+/* ===== LIVE SITES ===== */
+.sites-intro{max-width:640px;margin:0 0 50px;font-size:clamp(17px,1.5vw,20px);line-height:1.6;color:var(--stone);}
+.sites-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;}
+.site-card{position:relative;display:flex;flex-direction:column;}
+/* screenshot framed as a browser window, address bar showing the domain */
+.site-frame{
+  overflow:hidden;border-radius:10px;border:1px solid var(--rule-dark);background:var(--panel);
+  box-shadow:0 30px 60px -20px rgba(0,0,0,0.6);margin-bottom:26px;
+}
+.site-bar{
+  display:flex;align-items:center;gap:6px;padding:10px 14px;border-bottom:1px solid var(--rule-dark);
+}
+.site-bar .dot{width:8px;height:8px;border-radius:50%;background:var(--rule-dark);}
+.site-bar .url{
+  margin-left:10px;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  font-size:12px;font-weight:500;letter-spacing:1px;color:var(--stone);
+}
+.site-shot{aspect-ratio:16/10;overflow:hidden;}
+.site-shot img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .5s ease;}
+.site-meta{margin:0 0 10px;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--stone);}
+.site-meta .no{color:var(--green);}
+.site-title{
+  font-family:var(--font-display);font-weight:700;font-size:clamp(22px,1.9vw,28px);line-height:1.2;
+  margin:0 0 12px;transition:color .2s;
+}
+.site-desc{margin:0 0 20px;font-size:17px;line-height:1.6;color:var(--cream-70);}
+.site-actions{margin-top:auto;display:flex;flex-wrap:wrap;gap:8px 24px;align-items:center;}
+.site-cta{font-size:15px;font-weight:600;letter-spacing:1.5px;color:var(--green);}
+/* the title is the link; its ::after stretches over the card so the whole card is clickable.
+   The case-study link sits above that overlay so it stays reachable. */
+.site-link::after{content:"";position:absolute;inset:0;}
+.site-card:hover .site-link{color:var(--green);}
+.site-card:hover .site-shot img{transform:scale(1.03);}
+.site-card:hover .site-cta .arrow,.site-card:has(.site-link:focus-visible) .site-cta .arrow{transform:translateX(5px);}
+.site-case{position:relative;z-index:1;font-size:15px;font-weight:500;letter-spacing:1px;color:var(--cream);border-bottom:1px solid var(--rule-dark);padding-bottom:2px;}
+.site-case:hover{border-color:currentColor;}
+@media (max-width:1100px){ .sites-grid{grid-template-columns:repeat(2,minmax(0,1fr));} }
+@media (max-width:700px){ .sites-grid{grid-template-columns:minmax(0,1fr);gap:56px;} }
+
 /* ===== FIELD RESULTS ===== */
 .results-grid{
   display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
@@ -601,10 +640,60 @@
   </div>
 </section>
 
+<!-- LIVE SITES -->
+<section class="section dark" id="sites" aria-labelledby="sites-heading">
+  <div class="wrap">
+    <p class="section-kicker">A0.08 / In Service</p>
+    <h2 class="section-heading" id="sites-heading">Live <span class="accent">Sites</span></h2>
+    <p class="sites-intro">Websites I designed, built, and still maintain. Not mockups: sites that are live, in use, and kept up to date.</p>
+
+    <ul class="sites-grid reveal">
+      <li class="site-card">
+        <div class="site-frame" aria-hidden="true">
+          <div class="site-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">springfieldcofc.com</span></div>
+          <div class="site-shot"><img src="images/church-website.jpg" alt="" width="2842" height="1372" loading="lazy" style="object-position:left top;"/></div>
+        </div>
+        <p class="site-meta"><span class="no">01</span> · Maintained since 2010</p>
+        <h3 class="site-title"><a class="site-link" href="https://www.springfieldcofc.com" target="_blank" rel="noopener">Springfield Church of Christ<span class="visually-hidden"> (opens in a new tab)</span></a></h3>
+        <p class="site-desc">The church's front door for first-time visitors and members alike: service times, live streams, sermons, and events, kept current week to week.</p>
+        <div class="site-actions">
+          <span class="site-cta" aria-hidden="true">Visit Site <span class="arrow">⟶</span></span>
+          <a class="site-case" href="/springfield-cofc/">Read the case study</a>
+        </div>
+      </li>
+      <li class="site-card">
+        <div class="site-frame" aria-hidden="true">
+          <div class="site-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">thepastrykitchen.net</span></div>
+          <div class="site-shot"><img src="images/site-pastry-kitchen.jpg" alt="" width="1440" height="900" loading="lazy"/></div>
+        </div>
+        <p class="site-meta"><span class="no">02</span> · Creative Studio</p>
+        <h3 class="site-title"><a class="site-link" href="https://thepastrykitchen.net" target="_blank" rel="noopener">Pastry Kitchen Designs<span class="visually-hidden"> (opens in a new tab)</span></a></h3>
+        <p class="site-desc">The creative home for 25+ years of custom wedding and celebration cakes, watercolor work, and 3D-printed and digital builds. From kitchen to canvas to code.</p>
+        <div class="site-actions">
+          <span class="site-cta" aria-hidden="true">Visit Site <span class="arrow">⟶</span></span>
+          <a class="site-case" href="/pastry-kitchen/">Read the case study</a>
+        </div>
+      </li>
+      <li class="site-card">
+        <div class="site-frame" aria-hidden="true">
+          <div class="site-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">boomertechhelps.com</span></div>
+          <div class="site-shot"><img src="images/site-boomer-tech-help.jpg" alt="" width="1440" height="900" loading="lazy"/></div>
+        </div>
+        <p class="site-meta"><span class="no">03</span> · Tech Education</p>
+        <h3 class="site-title"><a class="site-link" href="https://boomertechhelps.com" target="_blank" rel="noopener">Boomer Tech Help<span class="visually-hidden"> (opens in a new tab)</span></a></h3>
+        <p class="site-desc">Simple, patient technology guidance for older adults and anyone who feels left behind by today's devices, apps, and online services. Companion site to the YouTube channel.</p>
+        <div class="site-actions">
+          <span class="site-cta" aria-hidden="true">Visit Site <span class="arrow">⟶</span></span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
 <!-- RESEARCH IN PROGRESS -->
 <section class="section dark" id="research" aria-labelledby="research-heading">
   <div class="wrap">
-    <p class="section-kicker">A0.07 / Field Research</p>
+    <p class="section-kicker">A0.09 / Field Research</p>
     <h2 class="section-heading" id="research-heading">I test with real people <span class="accent">before I build</span></h2>
     <p class="rb-intro reveal">Right now I'm running four studies across two projects: interviews and app tests with orchid growers and pet owners for Con Cura, a care companion app, and a layout study with small business owners for my web design studio. When a study wraps up, its findings go into a case study here.</p>
     <div class="rb-stats reveal">
@@ -650,7 +739,7 @@
 <!-- FIELD RESULTS -->
 <section class="section dark" aria-labelledby="results-heading">
   <div class="wrap">
-    <p class="section-kicker">A0.08 / Field Results</p>
+    <p class="section-kicker">A0.10 / Field Results</p>
     <h2 class="section-heading" id="results-heading">The <span class="accent">Record</span></h2>
     <div class="results-grid reveal">
       <div class="result"><p class="result-value">16</p><p class="result-label">Year client partnership</p></div>
@@ -665,7 +754,7 @@
 <!-- ABOUT -->
 <section class="section paper" id="about" aria-labelledby="about-heading">
   <div class="wrap">
-    <p class="section-kicker">A0.09 / Title Block</p>
+    <p class="section-kicker">A0.11 / Title Block</p>
     <h2 class="section-heading" id="about-heading">About <span class="accent">David</span></h2>
 
     <div class="about-grid">
@@ -687,7 +776,7 @@
             <text x="37" y="-5" font-size="10" text-anchor="middle" fill="currentColor" stroke="none" font-family="Inter, sans-serif" font-weight="600">N</text>
           </svg>
           <div class="stamp-text">
-            Sheet A0.09 · Scale 1:1<br>Drawn by D. R. Bailey
+            Sheet A0.11 · Scale 1:1<br>Drawn by D. R. Bailey
             <span class="rule"></span>
             <!-- architect's scale bar -->
             <svg width="290" height="36" viewBox="0 0 230 30" fill="none" stroke="currentColor" stroke-width="1">
@@ -722,7 +811,7 @@
   <div class="tl-head">
     <div class="wrap">
       <div>
-        <p class="section-kicker">A0.10 / The Story</p>
+        <p class="section-kicker">A0.12 / The Story</p>
         <h2 class="tl-title" id="tl-heading">Three careers.<br>One through line.</h2>
         <div class="tl-rule" aria-hidden="true"></div>
         <p class="tl-lede">Different industries. Same discipline.<br>Understand people. Remove friction.<br>Design better experiences.</p>
@@ -776,7 +865,7 @@
 <!-- WRITING -->
 <section class="section dark" id="writing" aria-labelledby="writing-heading">
   <div class="wrap">
-    <p class="section-kicker">A0.11 / Published Notes</p>
+    <p class="section-kicker">A0.13 / Published Notes</p>
     <h2 class="section-heading" id="writing-heading">People-first <span class="accent">AI</span></h2>
     <p class="writing-intro">Essays on LinkedIn about technology, design, and what both look like from outside the tech bubble.</p>
 
@@ -833,7 +922,7 @@
 <!-- CAPABILITIES -->
 <section class="section dark" id="skills" aria-labelledby="skills-heading">
   <div class="wrap">
-    <p class="section-kicker">A0.12 / Specification Schedule</p>
+    <p class="section-kicker">A0.14 / Specification Schedule</p>
     <h2 class="section-heading" id="skills-heading">What I bring to <span class="accent">the table</span></h2>
 
     <div class="skills-grid reveal">
@@ -849,7 +938,7 @@
 <!-- RESUME + CONTACT -->
 <section class="section paper" id="resume" aria-labelledby="resume-heading">
   <div class="wrap">
-    <p class="section-kicker">A0.13 / Issued for Review</p>
+    <p class="section-kicker">A0.15 / Issued for Review</p>
     <h2 class="section-heading" id="resume-heading">Ready to <span class="accent">contribute</span></h2>
 
     <div class="resume-box reveal">
@@ -861,7 +950,7 @@
     </div>
 
     <div id="contact" style="scroll-margin-top:100px;">
-      <p class="section-kicker">A0.14 / Contact</p>
+      <p class="section-kicker">A0.16 / Contact</p>
       <h2 class="section-heading">Let's work <span class="accent">together</span></h2>
 
       <div class="contact-grid">
@@ -901,6 +990,7 @@
         <a href="/keepers-of-the-kingdom/">Keepers of the Kingdom</a>
         <a href="/design-system/">Design System</a>
         <a href="creative-work.html">Creative Work</a>
+        <a href="#sites">Live Sites</a>
       </div>
       <div class="footer-col">
         <p class="footer-col-title">About</p>
